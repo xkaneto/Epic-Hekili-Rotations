@@ -3189,6 +3189,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Out of Combat Spells
+            //Auto Mark of the Wild
             if (SpellID1 == 1126 && Aimsharp.CanCast(MarkOfTheWild_SpellName(Language), "player", false, true) && MOTWOOC)
             {
                 if (Debug)

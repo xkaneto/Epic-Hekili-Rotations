@@ -1,36 +1,76 @@
-﻿using System.Linq;
-using System.Diagnostics;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using AimsharpWow.API;
 
 namespace AimsharpWow.Modules
 {
-    public class SnoogensPVEDruidFeral : Rotation
+    public class KanetoDruidFeralHekili : Rotation
     {
+        private static string Language = "English";
+
+        #region SpellFunctions
+        #endregion
+
         string FiveLetters;
 
         #region Lists
         //Lists
         private List<string> m_IngameCommandsList = new List<string> { "MightyBash", "MassEntanglement", "NoDecurse", "Maim", "NoInterrupts", "NoCycle", "Rebirth", };
         private List<string> m_DebuffsList = new List<string> { "Rake", };
-        private List<string> m_BuffsList = new List<string> { "Predatory Swiftness", "Prowl", };
+        private List<string> m_BuffsList = new List<string> { "Predatory Swiftness", "Prowl", "Mark of the Wild", };
         private List<string> m_BloodlustBuffsList = new List<string> { "Bloodlust", "Heroism", "Time Warp", "Primal Rage", "Drums of Rage" };
-        private List<string> m_ItemsList = new List<string> { "Phial of Serenity", "Healthstone" };
+        private List<string> m_ItemsList = new List<string> { "Healthstone" };
 
         private List<string> m_SpellBook = new List<string> {
             //Covenants
-            "Convoke the Spirits", "Adaptive Swarm", "Empower Bond", "Ravenous Frenzy",
+            "Convoke the Spirits",
+            "Adaptive Swarm",
+            "Empower Bond",
+            "Ravenous Frenzy",
 
             //Interrupt
-            "Skull Bash",
+            "Skull Bash", //106839
 
             //General
-            "Rake", "Shred", "Savage Roar", "Ferocious Bite", "Rip", "Tiger's Fury", "Berserk", "Rebirth",
-            "Survival Instincts", "Maim", "Renewal", "Mass Entanglement", "Swipe", "Thrash", "Incarnation: King of the Jungle", "Brutal Slash",
-            "Feral Frenzy", "Heart of the Wild", "Remove Corruption", "Summon Steward", "Mighty Bash", "Wild Charge", "Tiger Dash", "Prowl",
-            "Cat Form", "Primal Wrath", "Moonkin Form", "Sunfire", "Barkskin", "Regrowth", "Starsurge", "Moonfire", "Fleshcraft", "Soothe",
+            "Barkskin",
+            "Berserk", //106951
+            "Brutal Slash", //202028
+            "Cat Form",
+            "Feral Frenzy", //274837
+            "Ferocious Bite", //22658
+            "Fleshcraft",
+            "Heart of the Wild",
+            "Incarnation: Avatar of Ashamane", //102543
+            "Maim", //22570
+            "Mark of the Wild",
+            "Mass Entanglement",
+            "Mighty Bash", //5211
+            "Moonfire",
+            "Moonkin Form",
+            "Nature's Vigil",
+            "Primal Wrath", //285381
+            "Prowl", //5215
+            "Rake", //1822
+            "Rebirth",
+            "Regrowth",
+            "Remove Corruption",
+            "Renewal",
+            "Rip", //1079
+            "Savage Roar",
+            "Shred", //5221
+            "Soothe",
+            "Starsurge",
+            "Summon Steward",
+            "Sunfire",
+            "Survival Instincts", //61336
+            "Swipe", //106785
+            "Thrash", //106830
+            "Tiger Dash", //252216
+            "Tiger's Fury", //5217
+            "Wild Charge", //102401
 
         };
 
@@ -148,10 +188,6 @@ namespace AimsharpWow.Modules
         #endregion
 
         #region Initializations
-        private void InitializeSettings()
-        {
-            FiveLetters = GetString("First 5 Letters of the Addon:");
-        }
 
         private void InitializeMacros()
         {
@@ -165,9 +201,6 @@ namespace AimsharpWow.Modules
 
             //Healthstone
             Macros.Add("Healthstone", "/use Healthstone");
-
-            //Phial
-            Macros.Add("PhialofSerenity", "/use Phial of Serenity");
 
             Macros.Add("FOC_party1", "/focus party1");
             Macros.Add("FOC_party2", "/focus party2");
@@ -241,7 +274,7 @@ namespace AimsharpWow.Modules
             CustomFunctions.Add("EnrageBuffCheckTarget", "local markcheck = 0; if UnitExists('target') and UnitIsDead('target') ~= true and UnitAffectingCombat('target') and IsSpellInRange('Soothe','target') == 1 then markcheck = markcheck +1  for y = 1, 40 do local name,_,_,debuffType  = UnitBuff('target', y) if debuffType == '' then markcheck = markcheck + 2 end end return markcheck end return 0");
 
             CustomFunctions.Add("CooldownsToggleCheck", "local loading, finished = IsAddOnLoaded(\"Hekili\") if loading == true and finished == true then local cooldowns = Hekili:GetToggleState(\"cooldowns\") if cooldowns == true then return 1 else if cooldowns == false then return 2 end end end return 0");
-            
+
             CustomFunctions.Add("UnitIsDead", "if UnitIsDead(\"target\") ~= nil and UnitIsDead(\"target\") == true then return 1 end; if UnitIsDead(\"target\") ~= nil and UnitIsDead(\"target\") == false then return 2 end; return 0");
 
             CustomFunctions.Add("UnitIsFocus", "local foc=0; " +
@@ -267,19 +300,33 @@ namespace AimsharpWow.Modules
 
         public override void LoadSettings()
         {
-            Settings.Add(new Setting("First 5 Letters of the Addon:", "xxxxx"));
+            Settings.Add(new Setting("Misc"));
+            Settings.Add(new Setting("Debug:", false));
+            Settings.Add(new Setting("Game Client Language", new List<string>()
+            {
+                "English",
+                "Deutsch",
+                "Español",
+                "Français",
+                "Italiano",
+                "Português Brasileiro",
+                "Русский",
+                "한국어",
+                "简体中文"
+            }, "English"));
+            Settings.Add(new Setting(""));
             Settings.Add(new Setting("Race:", m_RaceList, "nightelf"));
             Settings.Add(new Setting("Ingame World Latency:", 1, 200, 50));
             Settings.Add(new Setting(" "));
             Settings.Add(new Setting("Use Trinkets on CD, dont wait for Hekili:", false));
             Settings.Add(new Setting("Auto Healthstone @ HP%", 0, 100, 25));
-            Settings.Add(new Setting("Auto Phial of Serenity @ HP%", 0, 100, 35));
             Settings.Add(new Setting("Kicks/Interrupts"));
             Settings.Add(new Setting("Kick at milliseconds remaining", 50, 1500, 500));
             Settings.Add(new Setting("Kick channels after milliseconds", 50, 1500, 500));
             Settings.Add(new Setting("General"));
             Settings.Add(new Setting("Auto Start Combat:", true));
             Settings.Add(new Setting("Prowl Out of Combat:", true));
+            Settings.Add(new Setting("Mark of the Wild Out of Combat:", true));
             Settings.Add(new Setting("Spread Rake with Mouseover:", false));
             Settings.Add(new Setting("Soothe Mouseover:", true));
             Settings.Add(new Setting("Soothe Target:", true));
@@ -288,13 +335,18 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Auto Barkskin @ HP%", 0, 100, 40));
             Settings.Add(new Setting("Auto Survival Instincts @ HP%", 0, 100, 35));
             Settings.Add(new Setting("Auto Regrowth @ HP%", 0, 100, 50));
-            Settings.Add(new Setting("Misc"));
-            Settings.Add(new Setting("Debug:", false));
+            Settings.Add(new Setting("    "));
 
         }
 
         public override void Initialize()
         {
+            #region Get Addon Name
+            if (Aimsharp.GetAddonName().Length >= 5)
+            {
+                FiveLetters = Aimsharp.GetAddonName().Substring(0, 5);
+            }
+            #endregion
 
             if (GetCheckBox("Debug:") == true)
             {
@@ -305,19 +357,23 @@ namespace AimsharpWow.Modules
             Aimsharp.QuickDelay = 150;
             Aimsharp.SlowDelay = 350;
 
-            Aimsharp.PrintMessage("Snoogens PVE - Druid Feral", Color.Yellow);
-            Aimsharp.PrintMessage("This rotation requires the Hekili Addon", Color.Red);
-            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything", Color.Brown);
-            Aimsharp.PrintMessage("Hekili > Toggles > Bind \"Cooldowns\" & \"Display Mode\"", Color.Brown);
+            Aimsharp.PrintMessage("Kaneto PVE - Druid Feral", Color.Yellow);
+            Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
+            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Brown);
+            Aimsharp.PrintMessage("-----", Color.Black);
+            Aimsharp.PrintMessage("- Talents -", Color.White);
+            Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/guide/classes/druid/feral/overview-pve-dps", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- General -", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoInterrupts - Disables Interrupts", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoDecurse - Disables Decurse", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoCycle - Disables Target Cycle", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx MightyBash - Casts Mighty Bash @ Target on the next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx MassEntanglement - Casts Mass Entanglement @ Target on the next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Maim - Casts Maim @ Target on the next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoDecurse - Disables Decurse", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoCycle - Disables Target Cycle", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " MightyBash - Casts Mighty Bash @ Target on the next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " MassEntanglement - Casts Mass Entanglement @ Target on the next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Maim - Casts Maim @ Target on the next GCD", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
+
+            Language = GetDropDown("Game Client Language");
 
             #region Racial Spells
             if (GetDropDown("Race:") == "draenei")
@@ -405,8 +461,6 @@ namespace AimsharpWow.Modules
                 Spellbook.Add("Shadowmeld"); //58984
             }
             #endregion
-
-            InitializeSettings();
 
             InitializeMacros();
 
@@ -523,19 +577,6 @@ namespace AimsharpWow.Modules
                 }
             }
 
-            //Phial of Serenity
-            if (Aimsharp.CanUseItem("Phial of Serenity", false) && Aimsharp.ItemCooldown("Phial of Serenity") == 0)
-            {
-                if (Aimsharp.Health("player") <= GetSlider("Auto Phial of Serenity @ HP%"))
-                {
-                    if (Debug)
-                    {
-                        Aimsharp.PrintMessage("Using Phial of Serenity - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Phial of Serenity @ HP%"), Color.Purple);
-                    }
-                    Aimsharp.Cast("PhialofSerenity");
-                    return true;
-                }
-            }
 
             //Auto Regrowth
             if (Aimsharp.CanCast("Regrowth", "player", false, true) && Aimsharp.HasBuff("Predatory Swiftness", "player", true))
@@ -1086,6 +1127,15 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast("Berserk", true);
                         return true;
                     }
+                    if (SpellID1 == 124974 && Aimsharp.CanCast("Nature's Vigil", "player", false, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Nature's Vigil - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast("Nature's Vigil", true);
+                        return true;
+                    }
                     #endregion
 
                     #region General Spells - Target GCD
@@ -1099,7 +1149,7 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast("Rake");
                         return true;
                     }
-                  
+
                     if ((SpellID1 == 5521 || SpellID1 == 5221 || SpellID1 == 343232) && Aimsharp.CanCast("Shred", "target", true, true))
                     {
                         if (Debug)
@@ -1203,6 +1253,16 @@ namespace AimsharpWow.Modules
 
                     #region General Spells - Player GCD
                     //Player - GCD
+                    if (SpellID1 == 1126 && Aimsharp.CanCast("Mark of the Wild", "player", false, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Mark of the Wild - " + SpellID1, Color.Black);
+                        }
+                        Aimsharp.Cast("Mark of the Wild");
+                        return true;
+                    }
+
                     if (SpellID1 == 52610 && Aimsharp.CanCast("Savage Roar", "player", false, true))
                     {
                         if (Debug)
@@ -1263,13 +1323,13 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 102543 && Aimsharp.CanCast("Incarnation: King of the Jungle", "player", false, true))
+                    if (SpellID1 == 102543 && Aimsharp.CanCast("Incarnation: Avatar of Ashamane", "player", false, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Incarnation: King of the Jungle - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Incarnation: King of the Jungle");
+                        Aimsharp.Cast("Incarnation: Avatar of Ashamane");
                         return true;
                     }
 
@@ -1360,6 +1420,7 @@ namespace AimsharpWow.Modules
             bool MassEntanglement = Aimsharp.IsCustomCodeOn("MassEntanglement");
 
             bool ProwlOOC = GetCheckBox("Prowl Out of Combat:");
+            bool MOTWOOC = GetCheckBox("Mark of the Wild Out of Combat:");
             bool Debug = GetCheckBox("Debug:") == true;
             #endregion
 
@@ -1453,6 +1514,26 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Out of Combat Spells
+            //Auto Mark of the Wild
+            if (SpellID1 == 1126 && Aimsharp.CanCast("Mark of the Wild", "player", false, true) && MOTWOOC)
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Casting Mark of the Wild (Out of Combat) - " + SpellID1, Color.Black);
+                }
+                Aimsharp.Cast("Mark of the Wild");
+                return true;
+            }
+
+            if (Aimsharp.CanCast("Mark of the Wild", "player", false, true) && !Aimsharp.HasBuff("Mark of the Wild", "player", true) && MOTWOOC)
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Casting Mark of the Wild (Out of Combat) - " + SpellID1, Color.Black);
+                }
+                Aimsharp.Cast("Mark of the Wild");
+                return true;
+            }
             //Auto Fleshcraft
             if (SpellID1 == 324631 && Aimsharp.CanCast("Fleshcraft", "player", false, true) && !Moving && !Aimsharp.HasBuff("Prowl", "player", true))
             {
