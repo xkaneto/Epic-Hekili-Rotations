@@ -1455,10 +1455,6 @@ namespace AimsharpWow.Modules
         #endregion
 
         #region Initializations
-        private void InitializeSettings()
-        {
-            FiveLetters = GetString("First 5 Letters of the Addon:");
-        }
 
         private void InitializeMacros()
         {
@@ -1769,8 +1765,6 @@ namespace AimsharpWow.Modules
                 Spellbook.Add(Shadowmeld_SpellName(Language)); //58984
             }
             #endregion
-
-            InitializeSettings();
 
             InitializeMacros();
 
