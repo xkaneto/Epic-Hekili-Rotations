@@ -1630,6 +1630,7 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Auto Barkskin @ HP%", 0, 100, 40));
             Settings.Add(new Setting("Ursol's Vortex Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Force of Nature Cast:", m_CastingList, "Manual"));
+            Settings.Add(new Setting("    "));
 
         }
 

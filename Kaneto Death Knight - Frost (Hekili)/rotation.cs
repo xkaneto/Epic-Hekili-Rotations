@@ -1485,6 +1485,7 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Death and Decay Cast:", m_CastingList, "Player"));
             Settings.Add(new Setting("Anti-Magic Zone Cast:", m_CastingList, "Player"));
             Settings.Add(new Setting("Death's Due Cast:", m_CastingList, "Player"));
+            Settings.Add(new Setting("    "));
 
         }
 

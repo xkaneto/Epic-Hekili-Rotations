@@ -1299,6 +1299,7 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Auto Blur @ HP%", 0, 100, 15));
             Settings.Add(new Setting("Auto Netherwalk @ HP%", 0, 100, 5));
             Settings.Add(new Setting("Sigils Cast:", m_CastingList, "Player"));
+            Settings.Add(new Setting("    "));
         }
 
         public override void Initialize()

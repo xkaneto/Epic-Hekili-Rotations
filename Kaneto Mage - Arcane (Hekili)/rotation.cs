@@ -1663,6 +1663,7 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Auto Alter Time @ HP%", 0, 100, 15));
             Settings.Add(new Setting("Auto Greater Invisibility @ HP%", 0, 100, 35));
             Settings.Add(new Setting("Ring of Frost Cast:", m_CastingList, "Manual"));
+            Settings.Add(new Setting("    "));
 
         }
 
