@@ -1,0 +1,64 @@
+{
+	"files.associations": {
+		"*.cs.code": "csharp"
+	},
+	"files.trimTrailingWhitespace": true,
+
+	"[csharp]": {
+		"editor.defaultFormatter": "ms-dotnettools.csharp"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+
+	// --- prettier ---
+	"prettier.printWidth": 200,
+
+	// --- git ---
+	"git.autofetch": "all",
+	"git.autofetchPeriod": 60,
+
+	// --- editor ---
+	"editor.renderWhitespace": "selection",
+	"editor.formatOnSave": true,
+	"editor.detectIndentation": false,
+	"editor.tabSize": 4,
+	"editor.insertSpaces": true,
+	"editor.bracketPairColorization.enabled": true,
+
+	// --- omnisharp ---
+	"omnisharp.organizeImportsOnFormat": true,
+	"csharp.format.enable": true,
+
+	// --- python ---
+	"python.pythonPath": ".venv\\Scripts\\python.exe",
+	"python.linting.pylintEnabled": false,
+	"python.linting.mypyEnabled": true,
+	"python.linting.enabled": true,
+
+	// --- cspell ---
+	"cSpell.enabled": false,
+
+	// --- todo+ ---
+	"todo.embedded.provider": "javascript",
+	"todo.embedded.regex": "(?:<!-- *)?(?:#|// @|//|/\\*+|<!--|%|\\* @|\\{!|\\{\\{!--|\\{\\{!) *(TODO|FIXME|FIX|BUG|UGLY|HACK|NOTE|IDEA|REVIEW|DEBUG|OPTIMIZE|CHECK)(?:\\s*\\([^)]+\\))?:?(?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|\\{!|\\{\\{!--|\\{\\{!))|((?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|\\{!|\\{\\{!--|\\{\\{!))|(?: +[^@\\n]+)?))", // Regex used for finding embedded todos, requires double escaping
+	"todo.formatting.enabled": true,
+	"todo.colors.types": {
+		"TODO": "#ffcc00",
+		"FIXME": "#cc0000",
+		"FIX": "#cc0000",
+		"BUG": "#cc0000",
+		"UGLY": "#cc0000",
+		"DEBUG": "#cc0000",
+		"HACK": "#cc0000",
+		"REVIEW": "#00ccff",
+		"OPTIMIZE": "#00ccff",
+		"TSC": "#00ccff",
+		"NOTE": "#cc00cc",
+		"IDEA": "#cc00cc",
+		"CHECK": "#cc00cc"
+	},
+	"todo.statistics.project.enabled": "global.projects < 100 && project.all > 0",
+	"todo.statistics.statusbar.tooltip": "[pending] Pending - [done] Done - [cancelled] Cancelled",
+	"python.formatting.provider": "black"
+}
