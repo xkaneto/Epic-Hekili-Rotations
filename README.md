@@ -13,17 +13,17 @@ Updated:
 - Death Knight - Unholy
 - Demon Hunter - Havoc
 - Druid - Balance
+- Druid - Feral
 - Mage - Arcane
+- Monk - Windwalker
 
 To-Do:
 
-- Druid - Feral
 - Hunter - Beast Mastery
 - Hunter - Marksmanship
 - Hunter - Survival
 - Mage - Fire
 - Mage - Frost
-- Monk - Windwalker
 - Paladin - Retribution
 - Priest - Shadow
 - Rogue - Assassination
