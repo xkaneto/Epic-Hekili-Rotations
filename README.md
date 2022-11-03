@@ -16,6 +16,7 @@ Updated:
 - Druid - Feral
 - Mage - Arcane
 - Monk - Windwalker
+- Priest - Shadow
 
 To-Do:
 
@@ -25,7 +26,6 @@ To-Do:
 - Mage - Fire
 - Mage - Frost
 - Paladin - Retribution
-- Priest - Shadow
 - Rogue - Assassination
 - Rogue - Outlaw
 - Rogue - Subtlety
