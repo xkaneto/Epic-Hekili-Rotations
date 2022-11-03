@@ -1322,7 +1322,7 @@ namespace AimsharpWow.Modules
 
             Aimsharp.PrintMessage("Kanetos PVE - Demon Hunter Havoc", Color.Yellow);
             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
-            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Brown);
+            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Red);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- Talents -", Color.White);
             Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/guide/classes/demon-hunter/havoc/overview-pve-dps", Color.Yellow);

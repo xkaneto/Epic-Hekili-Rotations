@@ -7,8 +7,13 @@ using AimsharpWow.API;
 
 namespace AimsharpWow.Modules
 {
-    public class SnoogensPVEMonkWindwalker : Rotation
+    public class KanetoMonkWindwalkerHekili : Rotation
     {
+        private static string Language = "English";
+
+        #region SpellFunctions
+        #endregion
+
         #region Variables
         string FiveLetters;
         #endregion
@@ -19,22 +24,55 @@ namespace AimsharpWow.Modules
         private List<string> m_DebuffsList = new List<string> { "Paralysis", "Phantasmal Parasite", "Dark Lance", "Lost Confidence", "Mark of the Crane", "Blackout Kick!", };
         private List<string> m_BuffsList = new List<string> { "Weapons of Order", "Storm, Earth, and Fire", "Whirling Dragon Punch", "Serenity", "Dance of Chi-Ji", };
         private List<string> m_BloodlustBuffsList = new List<string> { "Bloodlust", "Heroism", "Time Warp", "Primal Rage", "Drums of Rage" };
-        private List<string> m_ItemsList = new List<string> { "Phial of Serenity", "Healthstone" };
+        private List<string> m_ItemsList = new List<string> { "Healthstone" };
 
         private List<string> m_SpellBook_General = new List<string> {
             //Covenants
-            "Weapons of Order", "Fallen Order", "Faeline Stomp", "Bonedust Brew",
-            "Summon Steward", "Fleshcraft",
+            "Weapons of Order",
+            "Fallen Order",
+            "Faeline Stomp",
+            "Bonedust Brew",
+            "Summon Steward",
+            "Fleshcraft",
             //Interrupt
             "Spear Hand Strike",
 
             //General Monk
-            "Paralysis", "Spinning Crane Kick", "Vivify", "Fortifying Brew", "Tiger Palm", "Chi Torpedo", "Dampen Harm",
-            "Roll", "Leg Sweep", "Blackout Kick", "Touch of Death", "Transcendence", "Transcendence: Transfer", "Rushing Jade Wind", "Ring of Peace",
-            "Expel Harm", "Crackling Jade Lightning", "Detox", "Provoke", "Chi Wave", "Chi Burst", "Tiger's Lust",
-            "Fist of the White Tiger", "Rising Sun Kick", "Touch of Karma", "Invoke Xuen, the White Tiger", "Storm, Earth, and Fire",
-            "Storm, Earth, and Fire: Fixate", "Fists of Fury", "Flying Serpent Kick", "Fist of the White Tiger", "Energizing Elixir",
-            "Diffuse Magic", "Whirling Dragon Punch", "Serenity",
+            "Paralysis",
+            "Spinning Crane Kick",
+            "Vivify",
+            "Fortifying Brew",
+            "Tiger Palm",
+            "Chi Torpedo",
+            "Dampen Harm",
+            "Roll",
+            "Leg Sweep",
+            "Blackout Kick",
+            "Touch of Death",
+            "Transcendence",
+            "Transcendence: Transfer",
+            "Rushing Jade Wind",
+            "Ring of Peace",
+            "Expel Harm",
+            "Crackling Jade Lightning",
+            "Detox",
+            "Provoke",
+            "Chi Wave",
+            "Chi Burst",
+            "Tiger's Lust",
+            "Fist of the White Tiger",
+            "Rising Sun Kick",
+            "Touch of Karma",
+            "Invoke Xuen, the White Tiger",
+            "Storm, Earth, and Fire",
+            "Storm, Earth, and Fire: Fixate",
+            "Fists of Fury",
+            "Flying Serpent Kick",
+            "Fist of the White Tiger",
+            "Energizing Elixir",
+            "Diffuse Magic",
+            "Whirling Dragon Punch",
+            "Serenity",
 
         };
 
@@ -435,8 +473,6 @@ namespace AimsharpWow.Modules
             //Healthstone
             Macros.Add("Healthstone", "/use Healthstone");
 
-            //Phial
-            Macros.Add("PhialofSerenity", "/use Phial of Serenity");
 
             //SpellQueueWindow
             Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + (Aimsharp.Latency + 100));
@@ -549,13 +585,26 @@ namespace AimsharpWow.Modules
 
         public override void LoadSettings()
         {
-            Settings.Add(new Setting("First 5 Letters of the Addon:", "xxxxx"));
+            Settings.Add(new Setting("Misc"));
+            Settings.Add(new Setting("Debug:", false));
+            Settings.Add(new Setting("Game Client Language", new List<string>()
+            {
+                "English",
+                "Deutsch",
+                "Español",
+                "Français",
+                "Italiano",
+                "Português Brasileiro",
+                "Русский",
+                "한국어",
+                "简体中文"
+            }, "English"));
+            Settings.Add(new Setting(""));
             Settings.Add(new Setting("Race:", m_RaceList, "orc"));
             Settings.Add(new Setting("Ingame World Latency:", 1, 200, 50));
             Settings.Add(new Setting(" "));
             Settings.Add(new Setting("Use Trinkets on CD, dont wait for Hekili:", false));
             Settings.Add(new Setting("Auto Healthstone @ HP%", 0, 100, 25));
-            Settings.Add(new Setting("Auto Phial of Serenity @ HP%", 0, 100, 35));
             Settings.Add(new Setting("Kicks/Interrupts"));
             Settings.Add(new Setting("Kick at milliseconds remaining", 50, 1500, 500));
             Settings.Add(new Setting("Kick channels after milliseconds", 50, 1500, 500));
@@ -564,18 +613,24 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Auto Slow/Cancel Flying Serpent Kick:", true));
             Settings.Add(new Setting("Reflect Boss Debuff using Diffuse Magic:", true));
             //Settings.Add(new Setting("Spread Mark of the Crane with Mouseover:", false));
+            Settings.Add(new Setting("Auto Dampen Harm @ HP%", 0, 100, 15));
+            Settings.Add(new Setting("Auto Diffuse Magic @ HP%", 0, 100, 15));
+            Settings.Add(new Setting("Auto Fortifying Brew @ HP%", 0, 100, 30));
             Settings.Add(new Setting("Ring of Peace Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Bonedust Brew Cast:", m_CastingList, "Manual"));
-            Settings.Add(new Setting("Auto Fortifying Brew @ HP%", 0, 100, 30));
-            Settings.Add(new Setting("Auto Diffuse Magic @ HP%", 0, 100, 15));
-            Settings.Add(new Setting("Auto Dampen Harm @ HP%", 0, 100, 15));
-            Settings.Add(new Setting("Misc"));
-            Settings.Add(new Setting("Debug:", false));
+            Settings.Add(new Setting("    "));
 
         }
 
         public override void Initialize()
         {
+
+            #region Get Addon Name
+            if (Aimsharp.GetAddonName().Length >= 5)
+            {
+                FiveLetters = Aimsharp.GetAddonName().Substring(0, 5);
+            }
+            #endregion
 
             if (GetCheckBox("Debug:") == true)
             {
@@ -583,26 +638,30 @@ namespace AimsharpWow.Modules
             }
 
             Aimsharp.Latency = GetSlider("Ingame World Latency:");
-            Aimsharp.QuickDelay = 150;
-            Aimsharp.SlowDelay = 350;
+            Aimsharp.QuickDelay = 50;
+            Aimsharp.SlowDelay = 75;
 
-            Aimsharp.PrintMessage("Snoogens PVE - Monk Windwalker", Color.Yellow);
-            Aimsharp.PrintMessage("This rotation requires the Hekili Addon", Color.Red);
-            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything", Color.Brown);
-            Aimsharp.PrintMessage("Hekili > Toggles > Bind \"Cooldowns\" & \"Display Mode\"", Color.Brown);
+            Aimsharp.PrintMessage("Kaneto PVE - Monk Windwalker", Color.Yellow);
+            Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
+            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Red);
+            Aimsharp.PrintMessage("-----", Color.Black);
+            Aimsharp.PrintMessage("- Talents -", Color.White);
+            Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/guide/classes/monk/windwalker/overview-pve-dps", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- General -", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoInterrupts - Disables Interrupts", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoCycle - Disables Target Cycle", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoDetox - Disables Detox", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Paralysis - Casts Paralysis @ Target on the next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx BonedustBrew - Casts Bonedust Brew @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx LegSweep - Casts Leg Sweep @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx FlyingSerpentKick - Casts Flying Serpent Kick @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Transcendence - Casts Transcendence @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Transfer - Casts Transfer @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Vivify - Casts Vivify until turned Off", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoCycle - Disables Target Cycle", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoDetox - Disables Detox", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Paralysis - Casts Paralysis @ Target on the next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " BonedustBrew - Casts Bonedust Brew @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " LegSweep - Casts Leg Sweep @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " FlyingSerpentKick - Casts Flying Serpent Kick @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Transcendence - Casts Transcendence @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Transfer - Casts Transfer @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Vivify - Casts Vivify until turned Off", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
+
+            Language = GetDropDown("Game Client Language");
 
             #region Racial Spells
             if (GetDropDown("Race:") == "draenei")
@@ -899,20 +958,6 @@ namespace AimsharpWow.Modules
                 }
             }
 
-            //Auto Phial of Serenity
-            if (Aimsharp.CanUseItem("Phial of Serenity", false) && Aimsharp.ItemCooldown("Phial of Serenity") == 0)
-            {
-                if (Aimsharp.Health("player") <= GetSlider("Auto Phial of Serenity @ HP%"))
-                {
-                    if (Debug)
-                    {
-                        Aimsharp.PrintMessage("Using Phial of Serenity - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Phial of Serenity @ HP%"), Color.Purple);
-                    }
-                    Aimsharp.Cast("PhialofSerenity");
-                    return true;
-                }
-            }
-
             //Auto Fortifying Brew
             if (CanCastFortifyingBrew("player") == true)
             {
@@ -1147,7 +1192,7 @@ namespace AimsharpWow.Modules
                 Aimsharp.Cast("Leg Sweep");
                 return true;
             }
- 
+
             bool Vivify = Aimsharp.IsCustomCodeOn("Vivify");
             //Queue Vivify Spam
             if (Vivify && (Aimsharp.CanCast("Vivify", "player", false, true) || Aimsharp.CanCast("Vivify", "target", true, true)) && !Aimsharp.PlayerIsMoving())
@@ -1761,7 +1806,7 @@ namespace AimsharpWow.Modules
                         {
                             Aimsharp.PrintMessage("Casting Rising Sun Kick (Target) - " + SpellID1, Color.Purple);
                         }
-                        return true;                       
+                        return true;
                     }
 
                     if (SpellID1 == 261947 && CanCastFistoftheWhiteTiger("target"))

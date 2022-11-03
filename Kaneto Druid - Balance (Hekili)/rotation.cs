@@ -1655,7 +1655,7 @@ namespace AimsharpWow.Modules
 
             Aimsharp.PrintMessage("Kaneto PVE - Druid Balance", Color.Yellow);
             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
-            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Brown);
+            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Red);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- Talents -", Color.White);
             Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/beta/guide/classes/druid/balance/overview-pve-dps", Color.Yellow);
