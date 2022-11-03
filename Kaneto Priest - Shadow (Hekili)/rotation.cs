@@ -7,8 +7,13 @@ using AimsharpWow.API;
 
 namespace AimsharpWow.Modules
 {
-    public class SnoogensPVEPriestShadow : Rotation
+    public class KanetoPriestShadowHekili : Rotation
     {
+        private static string Language = "English";
+
+        #region SpellFunctions
+        #endregion
+
         #region Variables
         string FiveLetters;
         #endregion
@@ -19,7 +24,7 @@ namespace AimsharpWow.Modules
         private List<string> m_DebuffsList = new List<string> { "Weakened Soul", };
         private List<string> m_BuffsList = new List<string> { "Dark Thought", };
         private List<string> m_BloodlustBuffsList = new List<string> { "Bloodlust", "Heroism", "Time Warp", "Primal Rage", "Drums of Rage" };
-        private List<string> m_ItemsList = new List<string> { "Phial of Serenity", "Healthstone" };
+        private List<string> m_ItemsList = new List<string> { "Healthstone" };
 
         private List<string> m_SpellBook_General = new List<string> {
             //Covenants
@@ -36,8 +41,8 @@ namespace AimsharpWow.Modules
             //General
             "Desperate Prayer", //19236
             "Mind Control", //605 - queue MO
-            "Dispel Magic", //528 
-            "Mind Soothe", //453 
+            "Dispel Magic", //528
+            "Mind Soothe", //453
             "Leap of Faith", //73325 - queue MO
             "Power Word: Fortitude", //21562
             "Mass Dispel", //32375 - queue Cast
@@ -62,7 +67,7 @@ namespace AimsharpWow.Modules
             "Vampiric Touch", //34914
             "Void Eruption", //228260
             "Void Bolt", //205448
-            
+
             "Searing Nightmare", //341385
             "Mind Bomb", //205369 - queue mo
             "Psychic Horror", //64044 - queue mo
@@ -192,10 +197,6 @@ namespace AimsharpWow.Modules
         #endregion
 
         #region Initializations
-        private void InitializeSettings()
-        {
-            FiveLetters = GetString("First 5 Letters of the Addon:");
-        }
 
         private void InitializeMacros()
         {
@@ -356,7 +357,21 @@ namespace AimsharpWow.Modules
 
         public override void LoadSettings()
         {
-            Settings.Add(new Setting("First 5 Letters of the Addon:", "xxxxx"));
+            Settings.Add(new Setting("Misc"));
+            Settings.Add(new Setting("Debug:", false));
+            Settings.Add(new Setting("Game Client Language", new List<string>()
+            {
+                "English",
+                "Deutsch",
+                "Español",
+                "Français",
+                "Italiano",
+                "Português Brasileiro",
+                "Русский",
+                "한국어",
+                "简体中文"
+            }, "English"));
+            Settings.Add(new Setting(""));
             Settings.Add(new Setting("Race:", m_RaceList, "gnome"));
             Settings.Add(new Setting("Ingame World Latency:", 1, 200, 50));
             Settings.Add(new Setting(" "));
@@ -375,9 +390,7 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Auto Dispersion @ HP%", 0, 100, 10));
             Settings.Add(new Setting("Shadow Crash Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Mass Dispel Cast:", m_CastingList, "Manual"));
-            Settings.Add(new Setting("Misc"));
-            Settings.Add(new Setting("Debug:", false));
-
+            Settings.Add(new Setting("    "));
         }
 
         public override void Initialize()
@@ -389,8 +402,8 @@ namespace AimsharpWow.Modules
             }
 
             Aimsharp.Latency = GetSlider("Ingame World Latency:");
-            Aimsharp.QuickDelay = 150;
-            Aimsharp.SlowDelay = 350;
+            Aimsharp.QuickDelay = 50;
+            Aimsharp.SlowDelay = 75;
 
             Aimsharp.PrintMessage("Snoogens PVE - Priest Shadow", Color.Yellow);
             Aimsharp.PrintMessage("This rotation requires the Hekili Addon", Color.Red);
@@ -502,8 +515,6 @@ namespace AimsharpWow.Modules
                 Spellbook.Add("Shadowmeld"); //58984
             }
             #endregion
-
-            InitializeSettings();
 
             InitializeMacros();
 
@@ -672,19 +683,6 @@ namespace AimsharpWow.Modules
                 }
             }
 
-            //Auto Phial of Serenity
-            if (Aimsharp.CanUseItem("Phial of Serenity", false) && Aimsharp.ItemCooldown("Phial of Serenity") == 0)
-            {
-                if (Aimsharp.Health("player") <= GetSlider("Auto Phial of Serenity @ HP%"))
-                {
-                    if (Debug)
-                    {
-                        Aimsharp.PrintMessage("Using Phial of Serenity - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Phial of Serenity @ HP%"), Color.Purple);
-                    }
-                    Aimsharp.Cast("PhialofSerenity");
-                    return true;
-                }
-            }
 
             //Auto Desperate Prayer
             if (PlayerHP <= DesperatePrayerHP && Aimsharp.CanCast("Desperate Prayer", "player", false, true))

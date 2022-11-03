@@ -1657,11 +1657,6 @@ namespace AimsharpWow.Modules
         #endregion
 
         #region Initializations
-        private void InitializeSettings()
-        {
-            FiveLetters = GetString("First 5 Letters of the Addon:");
-        }
-
         private void InitializeMacros()
         {
             //Auto Target
@@ -1958,7 +1953,6 @@ namespace AimsharpWow.Modules
             }
             #endregion
 
-            InitializeSettings();
 
             InitializeMacros();
 
