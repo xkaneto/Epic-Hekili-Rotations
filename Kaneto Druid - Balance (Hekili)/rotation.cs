@@ -1279,7 +1279,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoDecurse", "NoCycle", "DoorofShadows", "SolarBeam", "MightyBash", "MassEntanglement", "ForceofNature", "UrsolsVortex", Typhoon_SpellName(Language), Rebirth_SpellName(Language), Innervate_SpellName(Language), Hibernate_SpellName(Language), Cyclone_SpellName(Language), "EntanglingRoots", Regrowth_SpellName(Language), };
+        private List<string> m_IngameCommandsList = new List<string> { "NoDecurse", "NoCycle", "DoorofShadows", "SolarBeam", "MightyBash", "MassEntanglement", "ForceofNature", "UrsolsVortex", "Typhoon", "Rebirth", "Innervate", "Hibernate", "Cyclone", "EntanglingRoots", "Regrowth", };
         private List<string> m_DebuffsList = new List<string> { };
         private List<string> m_BuffsList = new List<string> { BearForm_SpellName(Language), CatForm_SpellName(Language), MarkOfTheWild_SpellName(Language), MountForm_SpellName(Language), TravelForm_SpellName(Language), TreantForm_SpellName(Language), };
         private List<string> m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
@@ -1816,7 +1816,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Logic
-            if (Aimsharp.CastingID("player") == 2637 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Hibernate_SpellName(Language)))
+            if (Aimsharp.CastingID("player") == 2637 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Hibernate"))
             {
                 if (Debug)
                 {
@@ -1826,7 +1826,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 33786 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Cyclone_SpellName(Language)))
+            if (Aimsharp.CastingID("player") == 33786 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Cyclone"))
             {
                 if (Debug)
                 {
@@ -1950,7 +1950,7 @@ namespace AimsharpWow.Modules
 
             #region Queues
             //Queue Rebirth
-            bool Rebirth = Aimsharp.IsCustomCodeOn(Rebirth_SpellName(Language));
+            bool Rebirth = Aimsharp.IsCustomCodeOn("Rebirth");
             if (Aimsharp.SpellCooldown(Rebirth_SpellName(Language)) - Aimsharp.GCD() > 2000 && Rebirth)
             {
                 Aimsharp.Cast("RebirthOff");
@@ -1964,7 +1964,7 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Hibernate
-            bool Hibernate = Aimsharp.IsCustomCodeOn(Hibernate_SpellName(Language));
+            bool Hibernate = Aimsharp.IsCustomCodeOn("Hibernate");
             if (Aimsharp.SpellCooldown(Hibernate_SpellName(Language)) - Aimsharp.GCD() > 2000 && Hibernate)
             {
                 Aimsharp.Cast("HibernateOff");
@@ -1978,7 +1978,7 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Cyclone
-            bool Cyclone = Aimsharp.IsCustomCodeOn(Cyclone_SpellName(Language));
+            bool Cyclone = Aimsharp.IsCustomCodeOn("Cyclone");
             if (Aimsharp.SpellCooldown(Cyclone_SpellName(Language)) - Aimsharp.GCD() > 2000 && Cyclone)
             {
                 Aimsharp.Cast("CycloneOff");
@@ -2006,7 +2006,7 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Innervate
-            bool Innervate = Aimsharp.IsCustomCodeOn(Innervate_SpellName(Language));
+            bool Innervate = Aimsharp.IsCustomCodeOn("Innervate");
             if (Aimsharp.SpellCooldown(Innervate_SpellName(Language)) - Aimsharp.GCD() > 2000 && Innervate)
             {
                 Aimsharp.Cast("InnervateOff");
@@ -2019,7 +2019,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Typhoon = Aimsharp.IsCustomCodeOn(Typhoon_SpellName(Language));
+            bool Typhoon = Aimsharp.IsCustomCodeOn("Typhoon");
             //Queue Typhoon
             if (Typhoon && Aimsharp.SpellCooldown(Typhoon_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
@@ -2188,7 +2188,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Regrowth = Aimsharp.IsCustomCodeOn(Regrowth_SpellName(Language));
+            bool Regrowth = Aimsharp.IsCustomCodeOn("Regrowth");
             if (Regrowth && Aimsharp.CanCast(Regrowth_SpellName(Language), "player", false, true))
             {
                 if (Debug)
@@ -2878,7 +2878,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Logic
-            if (Aimsharp.CastingID("player") == 2637 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Hibernate_SpellName(Language)))
+            if (Aimsharp.CastingID("player") == 2637 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Hibernate"))
             {
                 if (Debug)
                 {
@@ -2888,7 +2888,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 33786 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Cyclone_SpellName(Language)))
+            if (Aimsharp.CastingID("player") == 33786 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Cyclone"))
             {
                 if (Debug)
                 {
@@ -2938,7 +2938,7 @@ namespace AimsharpWow.Modules
 
             #region Queues
             //Queue Rebirth
-            bool Rebirth = Aimsharp.IsCustomCodeOn(Rebirth_SpellName(Language));
+            bool Rebirth = Aimsharp.IsCustomCodeOn("Rebirth");
             if (Aimsharp.SpellCooldown(Rebirth_SpellName(Language)) - Aimsharp.GCD() > 2000 && Rebirth)
             {
                 Aimsharp.Cast("RebirthOff");
@@ -2952,7 +2952,7 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Hibernate
-            bool Hibernate = Aimsharp.IsCustomCodeOn(Hibernate_SpellName(Language));
+            bool Hibernate = Aimsharp.IsCustomCodeOn("Hibernate");
             if (Aimsharp.SpellCooldown(Hibernate_SpellName(Language)) - Aimsharp.GCD() > 2000 && Hibernate)
             {
                 Aimsharp.Cast("HibernateOff");
@@ -2966,7 +2966,7 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Cyclone
-            bool Cyclone = Aimsharp.IsCustomCodeOn(Cyclone_SpellName(Language));
+            bool Cyclone = Aimsharp.IsCustomCodeOn("Cyclone");
             if (Aimsharp.SpellCooldown(Cyclone_SpellName(Language)) - Aimsharp.GCD() > 2000 && Cyclone)
             {
                 Aimsharp.Cast("CycloneOff");
@@ -2994,7 +2994,7 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Innervate
-            bool Innervate = Aimsharp.IsCustomCodeOn(Innervate_SpellName(Language));
+            bool Innervate = Aimsharp.IsCustomCodeOn("Innervate");
             if (Aimsharp.SpellCooldown(Innervate_SpellName(Language)) - Aimsharp.GCD() > 2000 && Innervate)
             {
                 Aimsharp.Cast("InnervateOff");
@@ -3007,7 +3007,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Typhoon = Aimsharp.IsCustomCodeOn(Typhoon_SpellName(Language));
+            bool Typhoon = Aimsharp.IsCustomCodeOn("Typhoon");
             //Queue Typhoon
             if (Typhoon && Aimsharp.SpellCooldown(Typhoon_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
@@ -3176,7 +3176,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Regrowth = Aimsharp.IsCustomCodeOn(Regrowth_SpellName(Language));
+            bool Regrowth = Aimsharp.IsCustomCodeOn("Regrowth");
             if (Regrowth && Aimsharp.CanCast(Regrowth_SpellName(Language), "player", false, true))
             {
                 if (Debug)

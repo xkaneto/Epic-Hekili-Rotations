@@ -1987,7 +1987,7 @@ namespace AimsharpWow.Modules
                     return true;
                 }
 
-                bool Maim = Aimsharp.IsCustomCodeOn(Maim_SpellName(Language));
+                bool Maim = Aimsharp.IsCustomCodeOn("Maim");
                 //Queue Maim
                 if (Maim && Aimsharp.SpellCooldown(Maim_SpellName(Language)) - Aimsharp.GCD() > 2000)
                 {
@@ -2009,7 +2009,7 @@ namespace AimsharpWow.Modules
                     return true;
                 }
                 //Queue Rebirth
-                bool Rebirth = Aimsharp.IsCustomCodeOn(Rebirth_SpellName(Language));
+                bool Rebirth = Aimsharp.IsCustomCodeOn("Rebirth");
                 if (Aimsharp.SpellCooldown(Rebirth_SpellName(Language)) - Aimsharp.GCD() > 2000 && Rebirth)
                 {
                     Aimsharp.Cast("RebirthOff");
@@ -2733,7 +2733,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Maim = Aimsharp.IsCustomCodeOn(Maim_SpellName(Language));
+            bool Maim = Aimsharp.IsCustomCodeOn("Maim");
             //Queue Mighty Bash
             if (Maim && Aimsharp.SpellCooldown(Maim_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
@@ -2755,7 +2755,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
             //Queue Rebirth
-            bool Rebirth = Aimsharp.IsCustomCodeOn(Rebirth_SpellName(Language));
+            bool Rebirth = Aimsharp.IsCustomCodeOn("Rebirth");
             if (Aimsharp.SpellCooldown(Rebirth_SpellName(Language)) - Aimsharp.GCD() > 2000 && Rebirth)
             {
                 Aimsharp.Cast("RebirthOff");

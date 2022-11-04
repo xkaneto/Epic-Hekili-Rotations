@@ -2342,7 +2342,7 @@ namespace AimsharpWow.Modules
                 }
             }
 
-            bool Transcendence = Aimsharp.IsCustomCodeOn(Transcendence_SpellName(Language));
+            bool Transcendence = Aimsharp.IsCustomCodeOn("Transcendence");
             //Queue Transcendence
             if (Aimsharp.SpellCooldown(Transcendence_SpellName(Language)) - Aimsharp.GCD() > 2000 && Transcendence)
             {
@@ -2386,7 +2386,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Paralysis = Aimsharp.IsCustomCodeOn(Paralysis_SpellName(Language));
+            bool Paralysis = Aimsharp.IsCustomCodeOn("Paralysis");
             //Queue Paralysis
             if (Paralysis && Aimsharp.SpellCooldown(Paralysis_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
@@ -2430,7 +2430,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Vivify = Aimsharp.IsCustomCodeOn(Vivify_SpellName(Language));
+            bool Vivify = Aimsharp.IsCustomCodeOn("Vivify");
             //Queue Vivify Spam
             if (Vivify && (Aimsharp.CanCast(Vivify_SpellName(Language), "player", false, true) || Aimsharp.CanCast(Vivify_SpellName(Language), "target", true, true)) && !Aimsharp.PlayerIsMoving())
             {
@@ -3278,7 +3278,7 @@ namespace AimsharpWow.Modules
                 }
             }
 
-            bool Transcendence = Aimsharp.IsCustomCodeOn(Transcendence_SpellName(Language));
+            bool Transcendence = Aimsharp.IsCustomCodeOn("Transcendence");
             //Queue Transcendence
             if (Aimsharp.SpellCooldown(Transcendence_SpellName(Language)) - Aimsharp.GCD() > 2000 && Transcendence)
             {
@@ -3322,7 +3322,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Paralysis = Aimsharp.IsCustomCodeOn(Paralysis_SpellName(Language));
+            bool Paralysis = Aimsharp.IsCustomCodeOn("Paralysis");
             //Queue Paralysis
             if (Paralysis && Aimsharp.SpellCooldown(Paralysis_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
@@ -3366,7 +3366,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Vivify = Aimsharp.IsCustomCodeOn(Vivify_SpellName(Language));
+            bool Vivify = Aimsharp.IsCustomCodeOn("Vivify");
             //Queue Vivify Spam
             if (Vivify && (Aimsharp.CanCast(Vivify_SpellName(Language), "player", false, true) || Aimsharp.CanCast(Vivify_SpellName(Language), "target", true, true)) && !Aimsharp.PlayerIsMoving())
             {

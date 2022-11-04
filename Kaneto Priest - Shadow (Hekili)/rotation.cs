@@ -786,24 +786,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>item=177278</summary>
-        private static string PhialOfSerenity_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Phial of Serenity";
-                case "Deutsch": return "Phiole des Gleichmuts";
-                case "Español": return "Ampolla de serenidad";
-                case "Français": return "Flasque de sérénité";
-                case "Italiano": return "Fiala della Serenità";
-                case "Português Brasileiro": return "Frasco de Serenidade";
-                case "Русский": return "Флакон безмятежности";
-                case "한국어": return "평온의 약병";
-                case "简体中文": return "静谧之瓶";
-                default: return "Phial of Serenity";
-            }
-        }
-
         ///<summary>spell=10060</summary>
         private static string PowerInfusion_SpellName(string Language = "English")
         {
@@ -1598,8 +1580,6 @@ namespace AimsharpWow.Modules
             //Healthstone
             Macros.Add("UseHealthstone", "/use " + Healthstone_SpellName(Language));
 
-            //Phial
-            Macros.Add("PhialofSerenity", "/use " + PhialOfSerenity_SpellName(Language));
 
             //SpellQueueWindow
             Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + (Aimsharp.Latency + 100));

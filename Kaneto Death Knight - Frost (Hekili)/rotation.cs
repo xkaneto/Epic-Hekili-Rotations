@@ -1778,7 +1778,7 @@ namespace AimsharpWow.Modules
             #region Queues
             //Queues
             //Queue Asphyxiate
-            bool Asphyxiate = Aimsharp.IsCustomCodeOn(Asphyxiate_SpellName(Language));
+            bool Asphyxiate = Aimsharp.IsCustomCodeOn("Asphyxiate");
             if (Aimsharp.SpellCooldown(Asphyxiate_SpellName(Language)) - Aimsharp.GCD() > 2000 && Asphyxiate && Aimsharp.TargetIsEnemy() && TargetAlive() && TargetInCombat)
             {
                 Aimsharp.Cast("AsphyxiateOff");
@@ -2549,7 +2549,7 @@ namespace AimsharpWow.Modules
             #region Queues
             //Queues
             //Queue Asphyxiate
-            bool Asphyxiate = Aimsharp.IsCustomCodeOn(Asphyxiate_SpellName(Language));
+            bool Asphyxiate = Aimsharp.IsCustomCodeOn("Asphyxiate");
             if (Aimsharp.SpellCooldown(Asphyxiate_SpellName(Language)) - Aimsharp.GCD() > 2000 && Asphyxiate && Aimsharp.TargetIsEnemy() && TargetAlive() && TargetInCombat)
             {
                 Aimsharp.Cast("AsphyxiateOff");

@@ -876,21 +876,21 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=393480</summary>
-        private static string Sentinel_SpellName(string Language = "English")
+        ///<summary>spell=388045</summary>
+        private static string SentinelOwl_SpellName(string Language = "English")
         {
             switch (Language)
             {
-                case "English": return "Sentinel";
-                case "Deutsch": return "Wächter";
-                case "Español": return "Centinela";
-                case "Français": return "Sentinelle";
-                case "Italiano": return "Sentinella";
-                case "Português Brasileiro": return "Sentinela";
-                case "Русский": return "Часовой";
-                case "한국어": return "파수꾼";
-                case "简体中文": return "警戒";
-                default: return "Sentinel";
+                case "English": return "Sentinel Owl";
+                case "Deutsch": return "Wächtereule";
+                case "Español": return "Búho centinela";
+                case "Français": return "Hibou sentinelle";
+                case "Italiano": return "Gufo Sentinella";
+                case "Português Brasileiro": return "Coruja Sentinela";
+                case "Русский": return "Сова-часовой";
+                case "한국어": return "파수꾼 올빼미";
+                case "简体中文": return "警戒猫头鹰";
+                default: return "Sentinel Owl";
             }
         }
 
@@ -1250,7 +1250,7 @@ namespace AimsharpWow.Modules
             KillShot_SpellName(Language), //320976
             MendPet_SpellName(Language), //136
             Multishot_SpellName(Language), //2643
-            Sentinel_SpellName(Language), //393480
+            SentinelOwl_SpellName(Language), //388045
             SerpentSting_SpellName(Language), //271788
             Stampede_SpellName(Language), //201430
             SteelTrap_SpellName(Language), //162488
@@ -1506,7 +1506,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastSentinel(string unit)
         {
-            if (Aimsharp.CanCast(Sentinel_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(Sentinel_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(SentinelOwl_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(SentinelOwl_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1669,7 +1669,7 @@ namespace AimsharpWow.Modules
             Macros.Add("BarbedShotSQW", "/cqs\\n/cast Barbed Shot");
             Macros.Add("TranqMO", "/cast [@mouseover] " + TranquilizingShot_SpellName(Language));
             Macros.Add("FlareC", "/cast [@cursor] " + Flare_SpellName(Language));
-            Macros.Add("SentinelC", "/cast [@cursor] " + Sentinel_SpellName(Language));
+            Macros.Add("SentinelC", "/cast [@cursor] " + SentinelOwl_SpellName(Language));
             Macros.Add("TarTrapC", "/cast [@cursor] " + TarTrap_SpellName(Language));
             Macros.Add("TarTrapP", "/cast [@player] " + TarTrap_SpellName(Language));
             Macros.Add("FreezingTrapC", "/cast [@cursor] " + FreezingTrap_SpellName(Language));
@@ -2034,7 +2034,7 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn(Sentinel_SpellName(Language)) && Aimsharp.SpellCooldown(Sentinel_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("Sentinel") && Aimsharp.SpellCooldown(SentinelOwl_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -2397,7 +2397,7 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Flare
-            if (Aimsharp.IsCustomCodeOn(Flare_SpellName(Language)) && Aimsharp.SpellCooldown(Flare_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            if (Aimsharp.IsCustomCodeOn("Flare") && Aimsharp.SpellCooldown(Flare_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
                 if (Debug)
                 {
@@ -2407,7 +2407,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.IsCustomCodeOn(Flare_SpellName(Language)) && CanCastFlare("player"))
+            if (Aimsharp.IsCustomCodeOn("Flare") && CanCastFlare("player"))
             {
                 if (Debug)
                 {
@@ -2438,8 +2438,8 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            //Queue Binding Shot
-            if (Aimsharp.IsCustomCodeOn(Sentinel_SpellName(Language)) && Aimsharp.SpellCooldown(Sentinel_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            //Queue Sentinel
+            if (Aimsharp.IsCustomCodeOn("Sentinel") && Aimsharp.SpellCooldown(SentinelOwl_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
                 if (Debug)
                 {
@@ -2449,7 +2449,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.IsCustomCodeOn(Sentinel_SpellName(Language)) && CanCastSentinel("player"))
+            if (Aimsharp.IsCustomCodeOn("Sentinel") && CanCastSentinel("player"))
             {
                 if (Debug)
                 {
@@ -2460,7 +2460,7 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Intimidation
-            if (Aimsharp.IsCustomCodeOn(Intimidation_SpellName(Language)) && Aimsharp.SpellCooldown(Intimidation_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            if (Aimsharp.IsCustomCodeOn("Intimidation") && Aimsharp.SpellCooldown(Intimidation_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
                 if (Debug)
                 {
@@ -2470,7 +2470,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.IsCustomCodeOn(Intimidation_SpellName(Language)) && CanCastIntimidation("target") && Aimsharp.TargetIsEnemy() && TargetAlive() && TargetInCombat)
+            if (Aimsharp.IsCustomCodeOn("Intimidation") && CanCastIntimidation("target") && Aimsharp.TargetIsEnemy() && TargetAlive() && TargetInCombat)
             {
                 if (Debug)
                 {
@@ -2899,7 +2899,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 2643 && CanCastMultiShot("target"))
+                    if ((SpellID1 == 2643 || SpellID1 == 257620) && CanCastMultiShot("target"))
                     {
                         if (Debug)
                         {
@@ -3147,7 +3147,7 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn(Sentinel_SpellName(Language)) && Aimsharp.SpellCooldown(Sentinel_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("Sentinel") && Aimsharp.SpellCooldown(SentinelOwl_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -3400,7 +3400,7 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Flare
-            if (Aimsharp.IsCustomCodeOn(Flare_SpellName(Language)) && Aimsharp.SpellCooldown(Flare_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            if (Aimsharp.IsCustomCodeOn("Flare") && Aimsharp.SpellCooldown(Flare_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
                 if (Debug)
                 {
@@ -3410,7 +3410,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.IsCustomCodeOn(Flare_SpellName(Language)) && CanCastFlare("player"))
+            if (Aimsharp.IsCustomCodeOn("Flare") && CanCastFlare("player"))
             {
                 if (Debug)
                 {
@@ -3442,7 +3442,7 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Binding Shot
-            if (Aimsharp.IsCustomCodeOn(Sentinel_SpellName(Language)) && Aimsharp.SpellCooldown(Sentinel_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            if (Aimsharp.IsCustomCodeOn("Sentinel") && Aimsharp.SpellCooldown(SentinelOwl_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
                 if (Debug)
                 {
@@ -3452,7 +3452,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.IsCustomCodeOn(Sentinel_SpellName(Language)) && CanCastSentinel("player"))
+            if (Aimsharp.IsCustomCodeOn("Sentinel") && CanCastSentinel("player"))
             {
                 if (Debug)
                 {
@@ -3463,7 +3463,7 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Intimidation
-            if (Aimsharp.IsCustomCodeOn(Intimidation_SpellName(Language)) && Aimsharp.SpellCooldown(Intimidation_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            if (Aimsharp.IsCustomCodeOn("Intimidation") && Aimsharp.SpellCooldown(Intimidation_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
                 if (Debug)
                 {
@@ -3473,7 +3473,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.IsCustomCodeOn(Intimidation_SpellName(Language)) && CanCastIntimidation("target") && Aimsharp.TargetIsEnemy() && TargetAlive() && TargetInCombat)
+            if (Aimsharp.IsCustomCodeOn("Intimidation") && CanCastIntimidation("target") && Aimsharp.TargetIsEnemy() && TargetAlive() && TargetInCombat)
             {
                 if (Debug)
                 {

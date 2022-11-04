@@ -1600,7 +1600,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Felblade = Aimsharp.IsCustomCodeOn(Felblade_SpellName(Language));
+            bool Felblade = Aimsharp.IsCustomCodeOn("Felblade");
             //Queue Felblade
             if (Felblade && Aimsharp.SpellCooldown(Felblade_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
@@ -1666,7 +1666,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Darkness = Aimsharp.IsCustomCodeOn(Darkness_SpellName(Language));
+            bool Darkness = Aimsharp.IsCustomCodeOn("Darkness");
             //Queue Darkness
             if (Darkness && Aimsharp.SpellCooldown(Darkness_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
@@ -1688,7 +1688,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Imprison = Aimsharp.IsCustomCodeOn(Imprison_SpellName(Language));
+            bool Imprison = Aimsharp.IsCustomCodeOn("Imprison");
             //Queue Imprison
             if (Imprison && Aimsharp.SpellCooldown(Imprison_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
@@ -2392,7 +2392,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Felblade = Aimsharp.IsCustomCodeOn(Felblade_SpellName(Language));
+            bool Felblade = Aimsharp.IsCustomCodeOn("Felblade");
             //Queue Felblade
             if (Felblade && Aimsharp.SpellCooldown(Felblade_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
@@ -2458,7 +2458,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Darkness = Aimsharp.IsCustomCodeOn(Darkness_SpellName(Language));
+            bool Darkness = Aimsharp.IsCustomCodeOn("Darkness");
             //Queue Darkness
             if (Darkness && Aimsharp.SpellCooldown(Darkness_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
@@ -2480,7 +2480,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Imprison = Aimsharp.IsCustomCodeOn(Imprison_SpellName(Language));
+            bool Imprison = Aimsharp.IsCustomCodeOn("Imprison");
             //Queue Imprison
             if (Imprison && Aimsharp.SpellCooldown(Imprison_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
@@ -2546,7 +2546,7 @@ namespace AimsharpWow.Modules
             {
                 if (Debug)
                 {
-                    Aimsharp.PrintMessage("Turning Off Death and Decay Queue", Color.Purple);
+                    Aimsharp.PrintMessage("Turning Off Sigil of Misery Queue", Color.Purple);
                 }
                 Aimsharp.Cast("SigilofMiseryOff");
                 return true;
