@@ -1301,7 +1301,7 @@ namespace AimsharpWow.Modules
         #region CanCasts
         private bool CanCastKillShot(string unit)
         {
-            if (Aimsharp.CanCast(KillShot_SpellName(Language), "target", true, true) || (Aimsharp.SpellCooldown(KillShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && (Aimsharp.Health(unit) < 20 || Aimsharp.HasBuff(FlayersMark_SpellName(Language), "player", true)) && (Aimsharp.Power("player") >= 10 || Aimsharp.HasBuff(FlayersMark_SpellName(Language), "player", true)) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(KillShot_SpellName(Language), "target", true, true) || (Aimsharp.SpellCooldown(KillShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && (Aimsharp.Health(unit) < 20 || Aimsharp.HasBuff(FlayersMark_SpellName(Language), "player", true)) && (Aimsharp.Power("player") >= 10 || Aimsharp.HasBuff(FlayersMark_SpellName(Language), "player", true)) && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1309,7 +1309,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastFlayedShot(string unit)
         {
-            if (Aimsharp.CanCast(FlayedShot_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(FlayedShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && Aimsharp.CovenantID() == 2 && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(FlayedShot_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(FlayedShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && Aimsharp.CovenantID() == 2 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1317,7 +1317,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastDeathChakram(string unit)
         {
-            if (Aimsharp.CanCast(DeathChakram_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(DeathChakram_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && Aimsharp.CovenantID() == 4 && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(DeathChakram_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(DeathChakram_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && Aimsharp.CovenantID() == 4 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1325,7 +1325,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastWildSpirits(string unit)
         {
-            if (Aimsharp.CanCast(WildSpirits_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(WildSpirits_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.CovenantID() == 3 && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(WildSpirits_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(WildSpirits_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.CovenantID() == 3 && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1333,7 +1333,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastResonatingArrow(string unit)
         {
-            if (Aimsharp.CanCast(ResonatingArrow_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(ResonatingArrow_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.CovenantID() == 1 && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(ResonatingArrow_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(ResonatingArrow_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.CovenantID() == 1 && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1341,7 +1341,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastMultiShot(string unit)
         {
-            if (Aimsharp.CanCast(Multishot_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(Multishot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 40 && Aimsharp.Power("player") >= 40 && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(Multishot_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(Multishot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 40 && Aimsharp.Power("player") >= 40 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1349,7 +1349,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastFreezingTrap(string unit)
         {
-            if (Aimsharp.CanCast(FreezingTrap_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(FreezingTrap_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(FreezingTrap_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(FreezingTrap_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1357,7 +1357,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastTarTrap(string unit)
         {
-            if (Aimsharp.CanCast(TarTrap_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(TarTrap_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(TarTrap_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(TarTrap_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1365,7 +1365,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastMendPet(string unit)
         {
-            if (Aimsharp.CanCast(MendPet_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(MendPet_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Health("pet") > 1 && Aimsharp.Range("pet") <= 45 && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(MendPet_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(MendPet_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Health("pet") > 1 && Aimsharp.Range("pet") <= 45 && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1373,7 +1373,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastAspectoftheTurtle(string unit)
         {
-            if (Aimsharp.CanCast(AspectOfTheTurtle_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(AspectOfTheTurtle_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(AspectOfTheTurtle_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(AspectOfTheTurtle_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1381,7 +1381,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastBindingShot(string unit)
         {
-            if (Aimsharp.CanCast(BindingShot_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(BindingShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Talent(5, 3) && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(BindingShot_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(BindingShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1397,7 +1397,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastExhilaration(string unit)
         {
-            if (Aimsharp.CanCast(Exhilaration_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(Exhilaration_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(Exhilaration_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(Exhilaration_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1405,14 +1405,14 @@ namespace AimsharpWow.Modules
 
         private bool CanCastTranquilizingShot(string unit)
         {
-            if (Aimsharp.CanCast(TranquilizingShot_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(TranquilizingShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(TranquilizingShot_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(TranquilizingShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
         }
         private bool CanCastFleshcraft(string unit)
         {
-            if (Aimsharp.CanCast(Fleshcraft_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(Fleshcraft_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.CovenantID() == 4 && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(Fleshcraft_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(Fleshcraft_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.CovenantID() == 4 && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1420,7 +1420,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastTrueshot(string unit)
         {
-            if (Aimsharp.CanCast(Trueshot_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(Trueshot_SpellName(Language)) <= 0 && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(Trueshot_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(Trueshot_SpellName(Language)) <= 0 && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1428,7 +1428,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastExplosiveShot(string unit)
         {
-            if (Aimsharp.CanCast(ExplosiveShot_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(ExplosiveShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && Aimsharp.Power("player") >= 20 && Aimsharp.Talent(2, 3) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(ExplosiveShot_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(ExplosiveShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && Aimsharp.Power("player") >= 20 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1436,7 +1436,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastSerpentSting(string unit)
         {
-            if (Aimsharp.CanCast(SerpentSting_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(SerpentSting_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && Aimsharp.Power("player") >= 10 && Aimsharp.Talent(1, 2) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(SerpentSting_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(SerpentSting_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && Aimsharp.Power("player") >= 10 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1444,7 +1444,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastAMurderofCrows(string unit)
         {
-            if (Aimsharp.CanCast(AMurderOfCrows_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(AMurderOfCrows_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && Aimsharp.Power("player") >= 20 && Aimsharp.Talent(1, 3) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(AMurderOfCrows_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(AMurderOfCrows_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && Aimsharp.Power("player") >= 20 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1452,7 +1452,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastChimaeraShot(string unit)
         {
-            if (Aimsharp.CanCast(ChimaeraShot_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(ChimaeraShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && Aimsharp.Power("player") >= 20 && Aimsharp.Talent(4, 3) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(ChimaeraShot_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(ChimaeraShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && Aimsharp.Power("player") >= 20 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1460,7 +1460,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastAimedShot(string unit)
         {
-            if (Aimsharp.CanCast(AimedShot_SpellName(Language), unit, true, true) || ((Aimsharp.SpellCooldown(AimedShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) || Aimsharp.SpellCharges(AimedShot_SpellName(Language)) >= 1 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0)) && Aimsharp.Range(unit) <= 43 && (Aimsharp.Power("player") >= 35 || Aimsharp.HasBuff("Lock and Load", "player", true)) && (!Aimsharp.PlayerIsMoving() || Aimsharp.HasBuff("Lock and Load", "player", true)) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(AimedShot_SpellName(Language), unit, true, true) || ((Aimsharp.SpellCooldown(AimedShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) || Aimsharp.SpellCharges(AimedShot_SpellName(Language)) >= 1 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0)) && Aimsharp.Range(unit) <= 43 && (Aimsharp.Power("player") >= 35 || Aimsharp.HasBuff("Lock and Load", "player", true)) && (!Aimsharp.PlayerIsMoving() || Aimsharp.HasBuff("Lock and Load", "player", true)) && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1468,7 +1468,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastRapidFire(string unit)
         {
-            if (Aimsharp.CanCast(RapidFire_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(RapidFire_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(RapidFire_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(RapidFire_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1476,7 +1476,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastSteadyShot(string unit)
         {
-            if (Aimsharp.CanCast(SteadyShot_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(SteadyShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(SteadyShot_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(SteadyShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1484,7 +1484,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastArcaneShot(string unit)
         {
-            if (Aimsharp.CanCast(ArcaneShot_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(ArcaneShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && Aimsharp.Power("player") >= 20 && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(ArcaneShot_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(ArcaneShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && Aimsharp.Power("player") >= 20 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1492,7 +1492,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastDoubleTap(string unit)
         {
-            if (Aimsharp.CanCast(DoubleTap_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(DoubleTap_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Talent(6, 3) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(DoubleTap_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(DoubleTap_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1500,7 +1500,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastVolley(string unit)
         {
-            if (Aimsharp.CanCast(Volley_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(Volley_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && (Aimsharp.Range(unit) <= 43 || unit == "player") && Aimsharp.Talent(7, 3) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(Volley_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(Volley_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && (Aimsharp.Range(unit) <= 43 || unit == "player") && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1508,7 +1508,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastBarrage(string unit)
         {
-            if (Aimsharp.CanCast(Barrage_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(Barrage_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range("target") <= 43 && Aimsharp.Power("player") >= 30 && Aimsharp.Talent(2, 2) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(Barrage_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(Barrage_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range("target") <= 43 && Aimsharp.Power("player") >= 30 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1524,7 +1524,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastBurstingShot(string unit)
         {
-            if (Aimsharp.CanCast(BurstingShot_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(BurstingShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(BurstingShot_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(BurstingShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1532,7 +1532,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastFlare(string unit)
         {
-            if (Aimsharp.CanCast(Flare_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(Flare_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(Flare_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(Flare_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1751,7 +1751,9 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Auto Survival of the Fittest @ HP%", 0, 100, 40));
             Settings.Add(new Setting("Covenant Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Tar Trap Cast:", m_CastingList, "Manual"));
+            Settings.Add(new Setting("Steel Trap Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Freezing Trap Cast:", m_CastingList, "Manual"));
+            Settings.Add(new Setting("High Explosive Trap Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Always Cast Volley @ Cursor during Rotation", false));
             Settings.Add(new Setting("Always Cast Flare @ Cursor during Rotation", false));
             Settings.Add(new Setting("Always Cast Tar Trap @ Cursor during Rotation", false));
@@ -3409,6 +3411,26 @@ namespace AimsharpWow.Modules
                     Aimsharp.PrintMessage("Casting Intimidation through queue toggle", Color.Purple);
                 }
                 Aimsharp.Cast(Intimidation_SpellName(Language));
+                return true;
+            }
+             //Queue Sentinel
+            if (Aimsharp.IsCustomCodeOn(SentinelOwl_SpellName(Language)) && Aimsharp.SpellCooldown(SentinelOwl_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Turning Off Sentinel Queue", Color.Purple);
+                }
+                Aimsharp.Cast("SentinelOff");
+                return true;
+            }
+
+            if (Aimsharp.IsCustomCodeOn(SentinelOwl_SpellName(Language)) && CanCastSentinel("player"))
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Casting Sentinel through queue toggle", Color.Purple);
+                }
+                Aimsharp.Cast("SentinelC");
                 return true;
             }
             #endregion

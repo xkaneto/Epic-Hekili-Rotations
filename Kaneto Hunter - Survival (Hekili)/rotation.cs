@@ -7,8 +7,13 @@ using AimsharpWow.API;
 
 namespace AimsharpWow.Modules
 {
-    public class SnoogensPVEHunterSurvival : Rotation
+    public class KanetoHunterSurvivalHekili : Rotation
     {
+        private static string Language = "English";
+
+        #region SpellFunctions
+        #endregion
+
         #region Variables
         string FiveLetters;
         #endregion
@@ -19,29 +24,60 @@ namespace AimsharpWow.Modules
         private List<string> m_DebuffsList = new List<string> {  };
         private List<string> m_BuffsList = new List<string> { "Mend Pet", "Flayer's Mark", "Aspect of the Eagle", "Viper's Venom", };
         private List<string> m_BloodlustBuffsList = new List<string> { "Bloodlust", "Heroism", "Time Warp", "Primal Rage", "Drums of Rage" };
-        private List<string> m_ItemsList = new List<string> { "Phial of Serenity", "Healthstone" };
+        private List<string> m_ItemsList = new List<string> {"Healthstone" };
 
         private List<string> m_SpellBook = new List<string> {
             //Covenants
-            "Flayed Shot", "Death Chakram", "Wild Spirits", "Resonating Arrow",
-
-            //Interrupt
-            "Counter Shot",
-
-            //General
-            "A Murder of Crows", "Multi-Shot", "Harpoon", "Aspect of the Eagle",
-            "Kill Shot", "Bite", "Arcane Shot", "Serpent Sting", "Kill Command",
-            "Hunter's Mark", "Tranquilizing Shot", "Exhilaration", "Mend Pet",
-            "Wailing Arrow", "Carve", "Muzzle", "Chakrams", "Raptor Strike",
-            "Coordinated Assault", "Wildfire Bomb", "Butchery", "Steel Trap",
-            "Mongoose Bite", "Flanking Strike", "Flare",
-            "Shrapnel Bomb", "Volatile Bomb", "Pheromone Bomb",
-
-            "Freezing Trap", "Tar Trap", "Aspect of the Turtle", "Intimidation", "Binding Shot",
-
+            "Flayed Shot",
+            "Death Chakram",
+            "Wild Spirits",
+            "Resonating Arrow",
 
             "Summon Steward", "Fleshcraft",
 
+            //Interrupt
+            "Muzzle", //187707
+
+            //General
+            "A Murder of Crows",
+            "Arcane Shot",
+            "Aspect of the Eagle", //186289
+            "Aspect of the Turtle",
+            "Barrage",
+            "Binding Shot",
+            "Butchery", //212436
+            "Carve", //187708
+            "Chakrams",
+            "Concussive Shot", // New
+            "Coordinated Assault", //360952
+            "Exhilaration",
+            "Flanking Strike", //269751
+            "Flare",
+            "Fortitude of the Bear",
+            "Freezing Trap",
+            "Fury of the Eagle", //203415 -- New
+            "Harpoon", //190925
+            "High Explosive Trap", //New
+            "Hunter's Mark",
+            "Intimidation",
+            "Kill Command", //259489
+            "Kill Shot", //320976
+            "Mend Pet",
+            "Mongoose Bite", //259387
+            "Multi-Shot",
+            "Pheromone Bomb", //270323
+            "Raptor Strike", //186270
+            "Sentinel Owl",
+            "Serpent Sting",
+            "Shrapnel Bomb", //270335
+            "Spearhead", //360966
+            "Steel Trap",
+            "Survival of the Fittest",
+            "Tar Trap",
+            "Tranquilizing Shot",
+            "Volatile Bomb", //271045
+            "Wailing Arrow",
+            "Wildfire Bomb", //259495
         };
 
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
@@ -122,7 +158,7 @@ namespace AimsharpWow.Modules
         #region CanCasts
         private bool CanCastKillShot(string unit)
         {
-            if (Aimsharp.CanCast("Kill Shot", "target", true, true) || (Aimsharp.SpellCooldown("Kill Shot") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 40 && (Aimsharp.Health(unit) < 20 || Aimsharp.HasBuff("Flayer's Mark", "player", true)) && (Aimsharp.Power("player") >= 10 || Aimsharp.HasBuff("Flayer's Mark", "player", true)) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Kill Shot", "target", true, true) || (Aimsharp.SpellCooldown("Kill Shot") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 40 && (Aimsharp.Health(unit) < 20 || Aimsharp.HasBuff("Flayer's Mark", "player", true)) && (Aimsharp.Power("player") >= 10 || Aimsharp.HasBuff("Flayer's Mark", "player", true)) && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -130,7 +166,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastFlayedShot(string unit)
         {
-            if (Aimsharp.CanCast("Flayed Shot", unit, true, true) || (Aimsharp.SpellCooldown("Flayed Shot") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 40 && Aimsharp.CovenantID() == 2 && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Flayed Shot", unit, true, true) || (Aimsharp.SpellCooldown("Flayed Shot") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 40 && Aimsharp.CovenantID() == 2 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -138,7 +174,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastDeathChakram(string unit)
         {
-            if (Aimsharp.CanCast("Death Chakram", unit, true, true) || (Aimsharp.SpellCooldown("Death Chakram") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 40 && Aimsharp.CovenantID() == 4 && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Death Chakram", unit, true, true) || (Aimsharp.SpellCooldown("Death Chakram") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 40 && Aimsharp.CovenantID() == 4 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -146,7 +182,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastWildSpirits(string unit)
         {
-            if (Aimsharp.CanCast("Wild Spirits", unit, false, true) || (Aimsharp.SpellCooldown("Wild Spirits") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.CovenantID() == 3 && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Wild Spirits", unit, false, true) || (Aimsharp.SpellCooldown("Wild Spirits") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.CovenantID() == 3 && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -154,7 +190,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastResonatingArrow(string unit)
         {
-            if (Aimsharp.CanCast("Resonating Arrow", unit, false, true) || (Aimsharp.SpellCooldown("Resonating Arrow") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.CovenantID() == 1 && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Resonating Arrow", unit, false, true) || (Aimsharp.SpellCooldown("Resonating Arrow") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.CovenantID() == 1 && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -162,7 +198,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastFreezingTrap(string unit)
         {
-            if (Aimsharp.CanCast("Freezing Trap", unit, false, true) || (Aimsharp.SpellCooldown("Freezing Trap") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Freezing Trap", unit, false, true) || (Aimsharp.SpellCooldown("Freezing Trap") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -170,7 +206,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastTarTrap(string unit)
         {
-            if (Aimsharp.CanCast("Tar Trap", unit, false, true) || (Aimsharp.SpellCooldown("Tar Trap") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Tar Trap", unit, false, true) || (Aimsharp.SpellCooldown("Tar Trap") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -178,7 +214,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastSteelTrap(string unit)
         {
-            if (Aimsharp.CanCast("Steel Trap", unit, false, true) || (Aimsharp.SpellCooldown("Steel Trap") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Talent(4,2) && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Steel Trap", unit, false, true) || (Aimsharp.SpellCooldown("Steel Trap") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -186,7 +222,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastMendPet(string unit)
         {
-            if (Aimsharp.CanCast("Mend Pet", unit, true, true) || (Aimsharp.SpellCooldown("Mend Pet") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Health("pet") > 1 && Aimsharp.Range("pet") <= 45 && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Mend Pet", unit, true, true) || (Aimsharp.SpellCooldown("Mend Pet") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Health("pet") > 1 && Aimsharp.Range("pet") <= 45 && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -194,7 +230,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastAspectoftheTurtle(string unit)
         {
-            if (Aimsharp.CanCast("Aspect of the Turtle", unit, false, true) || (Aimsharp.SpellCooldown("Aspect of the Turtle") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Aspect of the Turtle", unit, false, true) || (Aimsharp.SpellCooldown("Aspect of the Turtle") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -202,7 +238,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastBindingShot(string unit)
         {
-            if (Aimsharp.CanCast("Binding Shot", unit, false, true) || (Aimsharp.SpellCooldown("Binding Shot") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Talent(5, 3) && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Binding Shot", unit, false, true) || (Aimsharp.SpellCooldown("Binding Shot") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0)  && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -210,14 +246,14 @@ namespace AimsharpWow.Modules
 
         private bool CanCastTranquilizingShot(string unit)
         {
-            if (Aimsharp.CanCast("Tranquilizing Shot", unit, true, true) || (Aimsharp.SpellCooldown("Tranquilizing Shot") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 40 && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Tranquilizing Shot", unit, true, true) || (Aimsharp.SpellCooldown("Tranquilizing Shot") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 40 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
         }
         private bool CanCastFleshcraft(string unit)
         {
-            if (Aimsharp.CanCast("Fleshcraft", unit, false, true) || (Aimsharp.SpellCooldown("Fleshcraft") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.CovenantID() == 4 && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Fleshcraft", unit, false, true) || (Aimsharp.SpellCooldown("Fleshcraft") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.CovenantID() == 4 && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -225,7 +261,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastSerpentSting(string unit)
         {
-            if (Aimsharp.CanCast("Serpent Sting", unit, true, true) || (Aimsharp.SpellCooldown("Serpent Sting") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 40 && (Aimsharp.Power("player") >= 20 || Aimsharp.HasBuff("Viper's Venom", "player", true)) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Serpent Sting", unit, true, true) || (Aimsharp.SpellCooldown("Serpent Sting") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 40 && (Aimsharp.Power("player") >= 20 || Aimsharp.HasBuff("Viper's Venom", "player", true)) && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -233,7 +269,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastAMurderofCrows(string unit)
         {
-            if (Aimsharp.CanCast("A Murder of Crows", unit, true, true) || (Aimsharp.SpellCooldown("A Murder of Crows") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 40 && Aimsharp.Power("player") >= 30 && Aimsharp.Talent(4, 3) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("A Murder of Crows", unit, true, true) || (Aimsharp.SpellCooldown("A Murder of Crows") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 40 && Aimsharp.Power("player") >= 30 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -241,7 +277,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastIntimidation(string unit)
         {
-            if (Aimsharp.CanCast("Intimidation", unit, true, true) || (Aimsharp.SpellCooldown("Intimidation") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Health("pet") > 1 && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Intimidation", unit, true, true) || (Aimsharp.SpellCooldown("Intimidation") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Health("pet") > 1 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -249,7 +285,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastKillCommand(string unit)
         {
-            if (Aimsharp.CanCast("Kill Command", unit, true, true) || ((Aimsharp.SpellCooldown("Kill Command") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) || Aimsharp.Talent(1,3) && Aimsharp.SpellCharges("Kill Command") >= 1 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0)) && Aimsharp.Range(unit) <= 50 && Aimsharp.Health("pet") > 1 && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Kill Command", unit, true, true) || ((Aimsharp.SpellCooldown("Kill Command") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0)  && Aimsharp.SpellCharges("Kill Command") >= 1 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0)) && Aimsharp.Range(unit) <= 50 && Aimsharp.Health("pet") > 1 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -257,7 +293,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastAspectoftheEagle(string unit)
         {
-            if (Aimsharp.CanCast("Aspect of the Eagle", unit, false, true) || (Aimsharp.SpellCooldown("Aspect of the Eagle") <= 0 && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Aspect of the Eagle", unit, false, true) || (Aimsharp.SpellCooldown("Aspect of the Eagle") <= 0 && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -265,7 +301,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastRaptorStrike(string unit)
         {
-            if (Aimsharp.CanCast("Raptor Strike", unit, true, true) && !Aimsharp.Talent(6,2) || (Aimsharp.SpellCooldown("Raptor Strike") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && (Aimsharp.Range(unit) <= 5 || Aimsharp.HasBuff("Aspect of the Eagle", "player", true) && Aimsharp.Range(unit) <= 40) && Aimsharp.Power("player") >= 30 && !Aimsharp.Talent(6, 2) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Raptor Strike", unit, true, true)  || (Aimsharp.SpellCooldown("Raptor Strike") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && (Aimsharp.Range(unit) <= 5 || Aimsharp.HasBuff("Aspect of the Eagle", "player", true) && Aimsharp.Range(unit) <= 40) && Aimsharp.Power("player") >= 30 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -273,7 +309,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastExhilaration(string unit)
         {
-            if (Aimsharp.CanCast("Exhilaration", unit, false, true) || (Aimsharp.SpellCooldown("Exhilaration") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Exhilaration", unit, false, true) || (Aimsharp.SpellCooldown("Exhilaration") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -289,7 +325,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastCarve(string unit)
         {
-            if (Aimsharp.CanCast("Carve", unit, false, true) && Aimsharp.Range("target") <= 5 && !Aimsharp.Talent(2,3) || (Aimsharp.SpellCooldown("Carve") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range("target") <= 5 && Aimsharp.Power("player") >= 35 && !Aimsharp.Talent(2, 3) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Carve", unit, false, true) && Aimsharp.Range("target") <= 5 || (Aimsharp.SpellCooldown("Carve") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range("target") <= 5 && Aimsharp.Power("player") >= 35  && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -297,7 +333,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastCoordinatedAssault(string unit)
         {
-            if (Aimsharp.CanCast("Coordinated Assault", unit, false, true) || (Aimsharp.SpellCooldown("Coordinated Assault") <= 0 && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Coordinated Assault", unit, false, true) || (Aimsharp.SpellCooldown("Coordinated Assault") <= 0 && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -305,7 +341,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastHarpoon(string unit)
         {
-            if (Aimsharp.CanCast("Harpoon", unit, true, true) || (Aimsharp.SpellCooldown("Harpoon") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) >= 8 && Aimsharp.Range(unit) <= 30 && Aimsharp.Power("player") >= 30 && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Harpoon", unit, true, true) || (Aimsharp.SpellCooldown("Harpoon") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) >= 8 && Aimsharp.Range(unit) <= 30 && Aimsharp.Power("player") >= 30 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -313,7 +349,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastWildfireBomb(string unit)
         {
-            if (Aimsharp.CanCast("Wildfire Bomb", unit, true, true) || ((Aimsharp.SpellCooldown("Wildfire Bomb") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) || Aimsharp.Talent(2, 1) && Aimsharp.SpellCharges("Wildfire Bomb") >= 1 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0)) && Aimsharp.Range(unit) <= 40 && !Aimsharp.Talent(7,2) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Wildfire Bomb", unit, true, true) || ((Aimsharp.SpellCooldown("Wildfire Bomb") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.SpellCharges("Wildfire Bomb") >= 1 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0)) && Aimsharp.Range(unit) <= 40 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -321,7 +357,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastShrapnelBomb(string unit)
         {
-            if (Aimsharp.CanCast("Shrapnel Bomb", unit, true, true) || ((Aimsharp.SpellCooldown("Shrapnel Bomb") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) || Aimsharp.Talent(2, 1) && Aimsharp.SpellCharges("Shrapnel Bomb") >= 1 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0)) && Aimsharp.Range(unit) <= 40 && Aimsharp.Talent(7, 2) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Shrapnel Bomb", unit, true, true) || ((Aimsharp.SpellCooldown("Shrapnel Bomb") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.SpellCharges("Shrapnel Bomb") >= 1 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0)) && Aimsharp.Range(unit) <= 40 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -329,7 +365,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastVolatileBomb(string unit)
         {
-            if (Aimsharp.CanCast("Volatile Bomb", unit, true, true) || ((Aimsharp.SpellCooldown("Volatile Bomb") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) || Aimsharp.Talent(2, 1) && Aimsharp.SpellCharges("Volatile Bomb") >= 1 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0)) && Aimsharp.Range(unit) <= 40 && Aimsharp.Talent(7, 2) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Volatile Bomb", unit, true, true) || ((Aimsharp.SpellCooldown("Volatile Bomb") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.SpellCharges("Volatile Bomb") >= 1 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0)) && Aimsharp.Range(unit) <= 40 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -337,7 +373,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastPheromoneBomb(string unit)
         {
-            if (Aimsharp.CanCast("Pheromone Bomb", unit, true, true) || ((Aimsharp.SpellCooldown("Pheromone Bomb") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) || Aimsharp.Talent(2,1) && Aimsharp.SpellCharges("Pheromone Bomb") >= 1 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0)) && Aimsharp.Range(unit) <= 40 && Aimsharp.Talent(7, 2) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Pheromone Bomb", unit, true, true) || ((Aimsharp.SpellCooldown("Pheromone Bomb") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.SpellCharges("Pheromone Bomb") >= 1 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0)) && Aimsharp.Range(unit) <= 40 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -345,7 +381,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastButchery(string unit)
         {
-            if (Aimsharp.CanCast("Butchery", unit, false, true) && Aimsharp.Range("target") <= 5 && Aimsharp.Talent(2, 3) || ((Aimsharp.SpellCooldown("Butchery") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) || Aimsharp.SpellCharges("Butchery") >= 1 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0)) && Aimsharp.Range("target") <= 5 && Aimsharp.Power("player") >= 30 && Aimsharp.Talent(2, 3) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Butchery", unit, false, true) && Aimsharp.Range("target") <= 5 || ((Aimsharp.SpellCooldown("Butchery") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) || Aimsharp.SpellCharges("Butchery") >= 1 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0)) && Aimsharp.Range("target") <= 5 && Aimsharp.Power("player") >= 30  && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -353,7 +389,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastMongooseBite(string unit)
         {
-            if (Aimsharp.CanCast("Mongoose Bite", unit, true, true) && Aimsharp.Talent(6, 2) || (Aimsharp.SpellCooldown("Mongoose Bite") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && (Aimsharp.Range(unit) <= 5 || Aimsharp.HasBuff("Aspect of the Eagle", "player", true) && Aimsharp.Range(unit) <= 40) && Aimsharp.Power("player") >= 30 && !Aimsharp.Talent(6, 2) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Mongoose Bite", unit, true, true) || (Aimsharp.SpellCooldown("Mongoose Bite") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && (Aimsharp.Range(unit) <= 5 || Aimsharp.HasBuff("Aspect of the Eagle", "player", true) && Aimsharp.Range(unit) <= 40) && Aimsharp.Power("player") >= 30 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -361,7 +397,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastFlankingStrike(string unit)
         {
-            if (Aimsharp.CanCast("Flanking Strike", unit, true, true) || (Aimsharp.SpellCooldown("Flanking Strike") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 15 && Aimsharp.Talent(6, 3) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Flanking Strike", unit, true, true) || (Aimsharp.SpellCooldown("Flanking Strike") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 15 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -369,7 +405,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastChakrams(string unit)
         {
-            if (Aimsharp.CanCast("Chakrams", unit, true, true) || (Aimsharp.SpellCooldown("Chakrams") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 40 && Aimsharp.Power("player") >= 15 && Aimsharp.Talent(7, 3) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Chakrams", unit, true, true) || (Aimsharp.SpellCooldown("Chakrams") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 40 && Aimsharp.Power("player") >= 15 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -377,7 +413,46 @@ namespace AimsharpWow.Modules
 
         private bool CanCastFlare(string unit)
         {
-            if (Aimsharp.CanCast("Flare", unit, false, true) || (Aimsharp.SpellCooldown("Flare") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Flare", unit, false, true) || (Aimsharp.SpellCooldown("Flare") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && !TorghastList.Contains(Aimsharp.GetMapID())))
+                return true;
+
+            return false;
+        }
+
+        private bool CanCastFortitudeOfTheBear(string unit)
+        {
+            if (Aimsharp.CanCast(FortitudeOfTheBear_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(FortitudeOfTheBear_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && !TorghastList.Contains(Aimsharp.GetMapID())))
+                return true;
+
+            return false;
+        }
+
+        private bool CanCastSurvivaloftheFittest(string unit)
+        {
+            if (Aimsharp.CanCast(SurvivalOfTheFittest_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(SurvivalOfTheFittest_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && !TorghastList.Contains(Aimsharp.GetMapID())))
+                return true;
+
+            return false;
+        }
+        private bool CanCastSentinel(string unit)
+        {
+            if (Aimsharp.CanCast(SentinelOwl_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(SentinelOwl_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && !TorghastList.Contains(Aimsharp.GetMapID())))
+                return true;
+
+            return false;
+        }
+
+        private bool CanCastSteelTrap(string unit)
+        {
+            if (Aimsharp.CanCast(SteelTrap_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(SteelTrap_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && !TorghastList.Contains(Aimsharp.GetMapID())))
+                return true;
+
+            return false;
+        }
+
+        private bool CanCastHighExplosiveTrap(string unit)
+        {
+            if (Aimsharp.CanCast(HighExplosiveTrap_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(HighExplosiveTrap_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -393,10 +468,6 @@ namespace AimsharpWow.Modules
         #endregion
 
         #region Initializations
-        private void InitializeSettings()
-        {
-            FiveLetters = GetString("First 5 Letters of the Addon:");
-        }
 
         private void InitializeMacros()
         {
@@ -409,10 +480,8 @@ namespace AimsharpWow.Modules
             Macros.Add("Weapon", "/use 16");
 
             //Healthstone
-            Macros.Add("Healthstone", "/use Healthstone");
+            Macros.Add("UseHealthstone", "/use Healthstone");
 
-            //Phial
-            Macros.Add("PhialofSerenity", "/use Phial of Serenity");
 
             //SpellQueueWindow
             Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + (Aimsharp.Latency + 100));
@@ -424,15 +493,22 @@ namespace AimsharpWow.Modules
             Macros.Add("ResonatingArrowOff", "/" + FiveLetters + " ResonatingArrow");
             Macros.Add("BindingShotOff", "/" + FiveLetters + " BindingShot");
             Macros.Add("FlareOff", "/" + FiveLetters + " Flare");
+            Macros.Add("SentinelOff", "/" + FiveLetters + " Sentinel");
+            Macros.Add("HighExplosiveTrapOff", "/" + FiveLetters + " HighExplosiveTrap");
+            Macros.Add("SteelTrapOff", "/" + FiveLetters + " SteelTrap");
 
             Macros.Add("KillShotSQW", "/cqs\\n/cast Kill Shot");
             Macros.Add("TranqMO", "/cast [@mouseover] Tranquilizing Shot");
-            Macros.Add("SteelTrapC", "/cast [@cursor] Steel Trap");
             Macros.Add("FlareC", "/cast [@cursor] Flare");
-            Macros.Add("TarTrapC", "/cast [@cursor] Tar Trap");
+            Macros.Add("FreezingTrapP", "/cast [@player] Freezing Trap");
             Macros.Add("FreezingTrapC", "/cast [@cursor] Freezing Trap");
             Macros.Add("TarTrapP", "/cast [@player] Tar Trap");
-            Macros.Add("FreezingTrapP", "/cast [@player] Freezing Trap");
+            Macros.Add("TarTrapC", "/cast [@cursor] Tar Trap");
+            Macros.Add("SentinelC", "/cast [@cursor] " + SentinelOwl_SpellName(Language));
+            Macros.Add("HighExplosiveTrapC", "/cast [@cursor] " + HighExplosiveTrap_SpellName(Language));
+            Macros.Add("HighExplosiveTrapP", "/cast [@player] " + HighExplosiveTrap_SpellName(Language));
+            Macros.Add("SteelTrapC", "/cast [@cursor] " + SteelTrap_SpellName(Language));
+            Macros.Add("SteelTrapP", "/cast [@player] " + SteelTrap_SpellName(Language));
 
             Macros.Add("ResonatingArrowP", "/cast [@player] Resonating Arrow");
             Macros.Add("WildSpiritsP", "/cast [@player] Wild Spirits");
@@ -470,7 +546,7 @@ namespace AimsharpWow.Modules
             CustomFunctions.Add("GetSpellQueueWindow", "local sqw = GetCVar(\"SpellQueueWindow\"); if sqw ~= nil then return tonumber(sqw); end return 0");
 
             CustomFunctions.Add("CooldownsToggleCheck", "local loading, finished = IsAddOnLoaded(\"Hekili\") if loading == true and finished == true then local cooldowns = Hekili:GetToggleState(\"cooldowns\") if cooldowns == true then return 1 else if cooldowns == false then return 2 end end end return 0");
-            
+
             CustomFunctions.Add("UnitIsDead", "if UnitIsDead(\"target\") ~= nil and UnitIsDead(\"target\") == true then return 1 end; if UnitIsDead(\"target\") ~= nil and UnitIsDead(\"target\") == false then return 2 end; return 0");
 
             CustomFunctions.Add("IsTargeting", "if SpellIsTargeting()\r\n then return 1\r\n end\r\n return 0");
@@ -496,34 +572,56 @@ namespace AimsharpWow.Modules
 
         public override void LoadSettings()
         {
-            Settings.Add(new Setting("First 5 Letters of the Addon:", "xxxxx"));
+            Settings.Add(new Setting("Misc"));
+            Settings.Add(new Setting("Debug:", false));
+            Settings.Add(new Setting("Game Client Language", new List<string>()
+            {
+                "English",
+                "Deutsch",
+                "Español",
+                "Français",
+                "Italiano",
+                "Português Brasileiro",
+                "Русский",
+                "한국어",
+                "简体中文"
+            }, "English"));
+            Settings.Add(new Setting(""));
             Settings.Add(new Setting("Race:", m_RaceList, "dwarf"));
             Settings.Add(new Setting("Ingame World Latency:", 1, 200, 50));
             Settings.Add(new Setting(" "));
             Settings.Add(new Setting("Use Trinkets on CD, dont wait for Hekili:", false));
             Settings.Add(new Setting("Auto Healthstone @ HP%", 0, 100, 25));
-            Settings.Add(new Setting("Auto Phial of Serenity @ HP%", 0, 100, 35));
             Settings.Add(new Setting("Kicks/Interrupts"));
             Settings.Add(new Setting("Kick at milliseconds remaining", 50, 1500, 500));
             Settings.Add(new Setting("Kick channels after milliseconds", 50, 1500, 500));
             Settings.Add(new Setting("General"));
             Settings.Add(new Setting("Auto Start Combat:", true));
             Settings.Add(new Setting("Tranquilizing Shot Mouseover:", true));
-            Settings.Add(new Setting("Auto Aspect of the Turtle @ HP%", 0, 100, 20));
-            Settings.Add(new Setting("Auto Exhilaration @ HP%", 0, 100, 40));
             Settings.Add(new Setting("Auto Mend Pet @ HP%", 0, 100, 60));
+            Settings.Add(new Setting("Auto Exhilaration @ HP%", 0, 100, 40));
+            Settings.Add(new Setting("Auto Aspect of the Turtle @ HP%", 0, 100, 20));
+            Settings.Add(new Setting("Auto Fortitude of the Bear @ HP%", 0, 100, 30));
+            Settings.Add(new Setting("Auto Survival of the Fittest @ HP%", 0, 100, 40));
             Settings.Add(new Setting("Covenant Cast:", m_CastingList, "Manual"));
-            Settings.Add(new Setting("Freezing Trap Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Tar Trap Cast:", m_CastingList, "Manual"));
+            Settings.Add(new Setting("Steel Trap Cast:", m_CastingList, "Manual"));
+            Settings.Add(new Setting("Freezing Trap Cast:", m_CastingList, "Manual"));
+            Settings.Add(new Setting("High Explosive Trap Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Always Cast Flare @ Cursor during Rotation", false));
             Settings.Add(new Setting("Always Cast Tar Trap @ Cursor during Rotation", false));
-            Settings.Add(new Setting("Misc"));
-            Settings.Add(new Setting("Debug:", false));
+            Settings.Add(new Setting("    "));
 
         }
 
         public override void Initialize()
         {
+            #region Get Addon Name
+            if (Aimsharp.GetAddonName().Length >= 5)
+            {
+                FiveLetters = Aimsharp.GetAddonName().Substring(0, 5);
+            }
+            #endregion
 
             if (GetCheckBox("Debug:") == true)
             {
@@ -532,30 +630,34 @@ namespace AimsharpWow.Modules
 
 
             Aimsharp.Latency = GetSlider("Ingame World Latency:");
-            Aimsharp.QuickDelay = 150;
-            Aimsharp.SlowDelay = 350;
+            Aimsharp.QuickDelay = 50;
+            Aimsharp.SlowDelay = 75;
 
-            Aimsharp.PrintMessage("Snoogens PVE - Hunter Survival", Color.Yellow);
-            Aimsharp.PrintMessage("This rotation requires the Hekili Addon", Color.Red);
-            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything", Color.Brown);
-            Aimsharp.PrintMessage("Hekili > Toggles > Bind \"Cooldowns\" & \"Display Mode\"", Color.Brown);
+            Aimsharp.PrintMessage("Kanetos PVE - Hunter Survival", Color.Yellow);
+            Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
+            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Red);
+            Aimsharp.PrintMessage("-----", Color.Black);
+            Aimsharp.PrintMessage("- Talents -", Color.White);
+            Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/guide/classes/hunter/survival/overview-pve-dps", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("Pet Summon is Manual", Color.Green);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- General -", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoInterrupts - Disables Interrupts", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoCycle - Disables Target Cycle", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx FreezingTrap - Casts Freezing Trap @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx TarTrap - Casts Tar Trap @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Flare - Casts Flare @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Intimidation - Casts Intimidation @ Target next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx BindingShot - Casts Binding Shot @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx WildSpirits - Casts Wild Spirits @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx ResonatingArrow - Casts Resonating Arrow @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx SerpentSting - Enables Serpent Sting @ Mouseover spread", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx FlareCursor - Toggles Flare always @ Cursor (same as Option)", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx TarTrapCursor - Toggles Tar Trap always @ Cursor (same as Option)", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoCycle - Disables Target Cycle", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " FreezingTrap - Casts Freezing Trap @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " TarTrap - Casts Tar Trap @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Flare - Casts Flare @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Intimidation - Casts Intimidation @ Target next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " BindingShot - Casts Binding Shot @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " WildSpirits - Casts Wild Spirits @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " ResonatingArrow - Casts Resonating Arrow @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " SerpentSting - Enables Serpent Sting @ Mouseover spread", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " FlareCursor - Toggles Flare always @ Cursor (same as Option)", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " TarTrapCursor - Toggles Tar Trap always @ Cursor (same as Option)", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
+
+            Language = GetDropDown("Game Client Language");
 
             #region Racial Spells
             if (GetDropDown("Race:") == "draenei")
@@ -644,8 +746,6 @@ namespace AimsharpWow.Modules
             }
             #endregion
 
-            InitializeSettings();
-
             InitializeMacros();
 
             InitializeSpells();
@@ -729,6 +829,20 @@ namespace AimsharpWow.Modules
             {
                 return false;
             }
+             if (Aimsharp.IsCustomCodeOn("SteelTrap") && Aimsharp.SpellCooldown(SteelTrap_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            {
+                return false;
+            }
+
+            if (Aimsharp.IsCustomCodeOn("HighExplosiveTrap") && Aimsharp.SpellCooldown(HighExplosiveTrap_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            {
+                return false;
+            }
+
+            if (Aimsharp.IsCustomCodeOn("Sentinel") && Aimsharp.SpellCooldown(SentinelOwl_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            {
+                return false;
+            }
             #endregion
 
             #region Interrupts
@@ -791,6 +905,34 @@ namespace AimsharpWow.Modules
                 }
             }
 
+             //Auto Fortitude
+            if (CanCastFortitudeOfTheBear("player"))
+            {
+                if (Aimsharp.Health("player") <= GetSlider("Auto Fortitude of the Bear @ HP%"))
+                {
+                    if (Debug)
+                    {
+                        Aimsharp.PrintMessage("Using Auto Fortitude of the Bear - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Fortitude of the Bear @ HP%"), Color.Purple);
+                    }
+                    Aimsharp.Cast(FortitudeOfTheBear_SpellName(Language));
+                    return true;
+                }
+            }
+
+            //Auto Survival
+            if (CanCastSurvivaloftheFittest("player"))
+            {
+                if (Aimsharp.Health("player") <= GetSlider("Auto Survival of the Fittest @ HP%"))
+                {
+                    if (Debug)
+                    {
+                        Aimsharp.PrintMessage("Using Auto Survival of the Fittest - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Survival of the Fittest @ HP%"), Color.Purple);
+                    }
+                    Aimsharp.Cast(SurvivalOfTheFittest_SpellName(Language));
+                    return true;
+                }
+            }
+
             //Auto Healthstone
             if (Aimsharp.CanUseItem("Healthstone", false) && Aimsharp.ItemCooldown("Healthstone") == 0)
             {
@@ -800,24 +942,11 @@ namespace AimsharpWow.Modules
                     {
                         Aimsharp.PrintMessage("Using Healthstone - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Healthstone @ HP%"), Color.Purple);
                     }
-                    Aimsharp.Cast("Healthstone");
+                    Aimsharp.Cast("UseHealthstone");
                     return true;
                 }
             }
 
-            //Phial of Serenity
-            if (Aimsharp.CanUseItem("Phial of Serenity", false) && Aimsharp.ItemCooldown("Phial of Serenity") == 0)
-            {
-                if (Aimsharp.Health("player") <= GetSlider("Auto Phial of Serenity @ HP%"))
-                {
-                    if (Debug)
-                    {
-                        Aimsharp.PrintMessage("Using Phial of Serenity - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Phial of Serenity @ HP%"), Color.Purple);
-                    }
-                    Aimsharp.Cast("PhialofSerenity");
-                    return true;
-                }
-            }
 
             //Auto Mend Pet
             if (Aimsharp.PlayerHasPet() && !Aimsharp.LineOfSighted() && Aimsharp.Health("pet") > 1 && Aimsharp.Health("pet") <= GetSlider("Auto Mend Pet @ HP%") && CanCastMendPet("pet") && !Aimsharp.HasBuff("Mend Pet", "pet", true) && Aimsharp.LastCast() != "Mend Pet")
@@ -908,6 +1037,87 @@ namespace AimsharpWow.Modules
                         return true;
                 }
             }
+            string SteelTrapCast = GetDropDown("Steel Trap Cast:");
+            bool SteelTrap = Aimsharp.IsCustomCodeOn("SteelTrap");
+            //Queue Steel Trap
+            if (SteelTrap && Aimsharp.SpellCooldown(SteelTrap_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Turning Off Steel Trap Queue", Color.Purple);
+                }
+                Aimsharp.Cast("SteelTrapOff");
+                return true;
+            }
+
+            if (SteelTrap && CanCastSteelTrap("player"))
+            {
+                switch (SteelTrapCast)
+                {
+                    case "Manual":
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Steel Trap - " + SteelTrapCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast(SteelTrap_SpellName(Language));
+                        return true;
+                    case "Player":
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Steel Trap - " + SteelTrapCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast("SteelTrapP");
+                        return true;
+                    case "Cursor":
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Steel Trap - " + SteelTrapCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast("SteelTrapC");
+                        return true;
+                }
+            }
+
+            string HighExplosiveTrapCast = GetDropDown("High Explosive Trap Cast:");
+            bool HighExplosiveTrap = Aimsharp.IsCustomCodeOn("HighExplosiveTrap");
+            //Queue High Explosive Trap
+            if (HighExplosiveTrap && Aimsharp.SpellCooldown(HighExplosiveTrap_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Turning Off High Explosive Trap Queue", Color.Purple);
+                }
+                Aimsharp.Cast("HighExplosiveTrapOff");
+                return true;
+            }
+
+            if (HighExplosiveTrap && CanCastHighExplosiveTrap("player"))
+            {
+                switch (HighExplosiveTrapCast)
+                {
+                    case "Manual":
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting High Explosive Trap - " + HighExplosiveTrapCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast(HighExplosiveTrap_SpellName(Language));
+                        return true;
+                    case "Player":
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting High Explosive Trap - " + HighExplosiveTrapCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast("HighExplosiveTrapP");
+                        return true;
+                    case "Cursor":
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting High Explosive Trap - " + HighExplosiveTrapCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast("HighExplosiveTrapC");
+                        return true;
+                }
+            }
 
             string FreezingTrapCast = GetDropDown("Freezing Trap Cast:");
             bool FreezingTrap = Aimsharp.IsCustomCodeOn("FreezingTrap");
@@ -989,6 +1199,27 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast("TarTrapC");
                         return true;
                 }
+            }
+
+             //Queue Sentinel
+            if (Aimsharp.IsCustomCodeOn(SentinelOwl_SpellName(Language)) && Aimsharp.SpellCooldown(SentinelOwl_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Turning Off Sentinel Queue", Color.Purple);
+                }
+                Aimsharp.Cast("SentinelOff");
+                return true;
+            }
+
+            if (Aimsharp.IsCustomCodeOn(SentinelOwl_SpellName(Language)) && CanCastSentinel("player"))
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Casting Sentinel through queue toggle", Color.Purple);
+                }
+                Aimsharp.Cast("SentinelC");
+                return true;
             }
 
             //Queue Flare
@@ -1627,7 +1858,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 270323 && CanCastPheromoneBomb("target"))
+                    if ((SpellID1 == 270323) && CanCastPheromoneBomb("target"))
                     {
                         if (Debug)
                         {
@@ -1761,6 +1992,20 @@ namespace AimsharpWow.Modules
             {
                 return false;
             }
+             if (Aimsharp.IsCustomCodeOn("SteelTrap") && Aimsharp.SpellCooldown(SteelTrap_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            {
+                return false;
+            }
+
+            if (Aimsharp.IsCustomCodeOn("HighExplosiveTrap") && Aimsharp.SpellCooldown(HighExplosiveTrap_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            {
+                return false;
+            }
+
+            if (Aimsharp.IsCustomCodeOn("Sentinel") && Aimsharp.SpellCooldown(SentinelOwl_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            {
+                return false;
+            }
             #endregion
 
             #region Queues
@@ -1805,6 +2050,26 @@ namespace AimsharpWow.Modules
                 }
             }
 
+             //Queue Sentinel
+            if (Aimsharp.IsCustomCodeOn(SentinelOwl_SpellName(Language)) && Aimsharp.SpellCooldown(SentinelOwl_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Turning Off Sentinel Queue", Color.Purple);
+                }
+                Aimsharp.Cast("SentinelOff");
+                return true;
+            }
+
+            if (Aimsharp.IsCustomCodeOn(SentinelOwl_SpellName(Language)) && CanCastSentinel("player"))
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Casting Sentinel through queue toggle", Color.Purple);
+                }
+                Aimsharp.Cast("SentinelC");
+                return true;
+            }
             //Queue Wild Spirits
             bool WildSpirits = Aimsharp.IsCustomCodeOn("WildSpirits");
             if (Aimsharp.SpellCooldown("Wild Spirits") - Aimsharp.GCD() > 2000 && WildSpirits)
@@ -1841,6 +2106,87 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Casting Wild Spirits - " + CovenantCast + " - Queue", Color.Purple);
                         }
                         Aimsharp.Cast("WildSpiritsC");
+                        return true;
+                }
+            }
+            string SteelTrapCast = GetDropDown("Steel Trap Cast:");
+            bool SteelTrap = Aimsharp.IsCustomCodeOn("SteelTrap");
+            //Queue Steel Trap
+            if (SteelTrap && Aimsharp.SpellCooldown(SteelTrap_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Turning Off Steel Trap Queue", Color.Purple);
+                }
+                Aimsharp.Cast("SteelTrapOff");
+                return true;
+            }
+
+            if (SteelTrap && CanCastSteelTrap("player"))
+            {
+                switch (SteelTrapCast)
+                {
+                    case "Manual":
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Steel Trap - " + SteelTrapCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast(SteelTrap_SpellName(Language));
+                        return true;
+                    case "Player":
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Steel Trap - " + SteelTrapCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast("SteelTrapP");
+                        return true;
+                    case "Cursor":
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Steel Trap - " + SteelTrapCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast("SteelTrapC");
+                        return true;
+                }
+            }
+
+            string HighExplosiveTrapCast = GetDropDown("High Explosive Trap Cast:");
+            bool HighExplosiveTrap = Aimsharp.IsCustomCodeOn("HighExplosiveTrap");
+            //Queue High Explosive Trap
+            if (HighExplosiveTrap && Aimsharp.SpellCooldown(HighExplosiveTrap_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Turning Off High Explosive Trap Queue", Color.Purple);
+                }
+                Aimsharp.Cast("HighExplosiveTrapOff");
+                return true;
+            }
+
+            if (HighExplosiveTrap && CanCastHighExplosiveTrap("player"))
+            {
+                switch (HighExplosiveTrapCast)
+                {
+                    case "Manual":
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting High Explosive Trap - " + HighExplosiveTrapCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast(HighExplosiveTrap_SpellName(Language));
+                        return true;
+                    case "Player":
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting High Explosive Trap - " + HighExplosiveTrapCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast("HighExplosiveTrapP");
+                        return true;
+                    case "Cursor":
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting High Explosive Trap - " + HighExplosiveTrapCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast("HighExplosiveTrapC");
                         return true;
                 }
             }

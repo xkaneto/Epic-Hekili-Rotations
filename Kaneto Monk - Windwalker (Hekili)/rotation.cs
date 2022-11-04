@@ -1424,7 +1424,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastWhirlingDragonPunch(string unit)
         {
-            if (Aimsharp.CanCast(WhirlingDragonPunch_SpellName(Language), unit, false, true) && Aimsharp.Range("target") <= 6 || (Aimsharp.SpellCooldown(WhirlingDragonPunch_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range("target") <= 6 && Aimsharp.HasBuff(WhirlingDragonPunch_SpellName(Language), "player", true) && Aimsharp.Talent(7, 2) && TargetAlive()))
+            if (Aimsharp.CanCast(WhirlingDragonPunch_SpellName(Language), unit, false, true) && Aimsharp.Range("target") <= 6 || (Aimsharp.SpellCooldown(WhirlingDragonPunch_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range("target") <= 6 && Aimsharp.HasBuff(WhirlingDragonPunch_SpellName(Language), "player", true) && TargetAlive()))
                 return true;
 
             return false;
@@ -1432,7 +1432,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastStormEarthandFire(string unit)
         {
-            if (Aimsharp.CanCast(StormEarthAndFire_SpellName(Language), unit, false, true) && Aimsharp.Range("target") <= 8 && !Aimsharp.Talent(7, 3) || ((Aimsharp.SpellCooldown(StormEarthAndFire_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) || Aimsharp.SpellCharges(StormEarthAndFire_SpellName(Language)) >= 1 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0)) && Aimsharp.Range("target") <= 8 && !Aimsharp.Talent(7, 3) && TargetAlive()))
+            if (Aimsharp.CanCast(StormEarthAndFire_SpellName(Language), unit, false, true) && Aimsharp.Range("target") <= 8 || ((Aimsharp.SpellCooldown(StormEarthAndFire_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) || Aimsharp.SpellCharges(StormEarthAndFire_SpellName(Language)) >= 1 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0)) && Aimsharp.Range("target") <= 8  && TargetAlive()))
                 return true;
 
             return false;
@@ -1440,7 +1440,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastSerenity(string unit)
         {
-            if (Aimsharp.CanCast(Serenity_SpellName(Language), unit, false, true) && Aimsharp.Range("target") <= 8 && Aimsharp.Talent(7, 3) || (Aimsharp.SpellCooldown(Serenity_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range("target") <= 8 && Aimsharp.Talent(7, 3) && TargetAlive()))
+            if (Aimsharp.CanCast(Serenity_SpellName(Language), unit, false, true) && Aimsharp.Range("target") <= 8  || (Aimsharp.SpellCooldown(Serenity_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range("target") <= 8 && TargetAlive()))
                 return true;
 
             return false;
@@ -1472,7 +1472,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastRingofPeace(string unit)
         {
-            if (Aimsharp.CanCast(RingOfPeace_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(RingOfPeace_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Talent(4, 3)))
+            if (Aimsharp.CanCast(RingOfPeace_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(RingOfPeace_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0)))
                 return true;
 
             return false;
@@ -1512,7 +1512,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastDiffuseMagic(string unit)
         {
-            if (Aimsharp.CanCast(DiffuseMagic_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(DiffuseMagic_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Talent(5, 2)))
+            if (Aimsharp.CanCast(DiffuseMagic_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(DiffuseMagic_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0)))
                 return true;
 
             return false;
@@ -1520,7 +1520,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastDampenHarm(string unit)
         {
-            if (Aimsharp.CanCast(DampenHarm_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(DampenHarm_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Talent(5, 3)))
+            if (Aimsharp.CanCast(DampenHarm_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(DampenHarm_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0)))
                 return true;
 
             return false;
@@ -1536,7 +1536,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastTigersLust(string unit)
         {
-            if (Aimsharp.CanCast(TigersLust_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(TigersLust_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && (Aimsharp.Range(unit) <= 20 || unit == "player") && Aimsharp.Talent(2, 3)))
+            if (Aimsharp.CanCast(TigersLust_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(TigersLust_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && (Aimsharp.Range(unit) <= 20 || unit == "player")))
                 return true;
 
             return false;
@@ -1615,7 +1615,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastChiBurst(string unit)
         {
-            if (Aimsharp.CanCast(ChiBurst_SpellName(Language), unit, false, true) && Aimsharp.Range("target") <= 40 || (Aimsharp.SpellCooldown(ChiBurst_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range("target") <= 40 && Aimsharp.Talent(1, 3) && TargetAlive()))
+            if (Aimsharp.CanCast(ChiBurst_SpellName(Language), unit, false, true) && Aimsharp.Range("target") <= 40 || (Aimsharp.SpellCooldown(ChiBurst_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range("target") <= 40  && TargetAlive()))
                 return true;
 
             return false;
@@ -1623,7 +1623,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastChiWave(string unit)
         {
-            if (Aimsharp.CanCast(ChiWave_SpellName(Language), unit, true, true) && Aimsharp.Range("target") <= 25 || (Aimsharp.SpellCooldown(ChiWave_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range("target") <= 25 && Aimsharp.Talent(1, 2) && TargetAlive()))
+            if (Aimsharp.CanCast(ChiWave_SpellName(Language), unit, true, true) && Aimsharp.Range("target") <= 25 || (Aimsharp.SpellCooldown(ChiWave_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range("target") <= 25 && TargetAlive()))
                 return true;
 
             return false;

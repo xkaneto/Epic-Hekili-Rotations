@@ -2101,7 +2101,7 @@ namespace AimsharpWow.Modules
 
             //Auto Body and Soul PWS
             bool BodyandSoul = Aimsharp.IsCustomCodeOn("BodyandSoul");
-            if (BodyandSoul && Aimsharp.CanCast(PowerWord_Shield_SpellName(Language), "player", false, true) && !Aimsharp.HasDebuff("Weakened Soul", "player", true) && !Aimsharp.HasDebuff("Weakened Soul", "player", false) && Aimsharp.Talent(2, 1) && Moving)
+            if (BodyandSoul && Aimsharp.CanCast(PowerWord_Shield_SpellName(Language), "player", false, true) && !Aimsharp.HasDebuff("Weakened Soul", "player", true) && !Aimsharp.HasDebuff("Weakened Soul", "player", false) && Moving)
             {
                 Aimsharp.Cast(PowerWord_Shield_SpellName(Language));
                 return true;
@@ -3468,7 +3468,7 @@ namespace AimsharpWow.Modules
 
             //Auto Body and Soul PWS
             bool BodyandSoul = Aimsharp.IsCustomCodeOn("BodyandSoul");
-            if (BodyandSoul && Aimsharp.CanCast(PowerWord_Shield_SpellName(Language), "player", false, true) && !Aimsharp.HasDebuff("Weakened Soul", "player", true) && !Aimsharp.HasDebuff("Weakened Soul", "player", false) && Aimsharp.Talent(2, 1) && Moving)
+            if (BodyandSoul && Aimsharp.CanCast(PowerWord_Shield_SpellName(Language), "player", false, true) && !Aimsharp.HasDebuff("Weakened Soul", "player", true) && !Aimsharp.HasDebuff("Weakened Soul", "player", false) && Moving)
             {
                 Aimsharp.Cast(PowerWord_Shield_SpellName(Language));
                 return true;
