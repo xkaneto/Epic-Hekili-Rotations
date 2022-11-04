@@ -14,13 +14,13 @@ Updated:
 - Demon Hunter - Havoc
 - Druid - Balance
 - Druid - Feral
+- Hunter - Beast Mastery
 - Mage - Arcane
 - Monk - Windwalker
 - Priest - Shadow
 
 To-Do:
 
-- Hunter - Beast Mastery
 - Hunter - Marksmanship
 - Hunter - Survival
 - Mage - Fire
