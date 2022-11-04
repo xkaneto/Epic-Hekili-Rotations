@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using System.Diagnostics;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using AimsharpWow.API;
 
 namespace AimsharpWow.Modules
@@ -20,29 +20,50 @@ namespace AimsharpWow.Modules
         #region Lists
         //Lists
         private List<string> m_IngameCommandsList = new List<string> { "FreezingTrap", "TarTrap", "Turtle", "Intimidation", "NoInterrupts", "NoCycle", "WildSpirits", "ResonatingArrow", "BindingShot", "Flare", "FlareCursor", "TarTrapCursor", "VolleyCursor", };
-        private List<string> m_DebuffsList = new List<string> {  };
+        private List<string> m_DebuffsList = new List<string> { };
         private List<string> m_BuffsList = new List<string> { "Mend Pet", "Flayer's Mark", "Double Tap", "Lock and Load", };
         private List<string> m_BloodlustBuffsList = new List<string> { "Bloodlust", "Heroism", "Time Warp", "Primal Rage", "Drums of Rage" };
-        private List<string> m_ItemsList = new List<string> {"Healthstone" };
+        private List<string> m_ItemsList = new List<string> { "Healthstone" };
 
         private List<string> m_SpellBook = new List<string> {
             //Covenants
-            "Flayed Shot", "Death Chakram", "Wild Spirits", "Resonating Arrow",
+            "Flayed Shot",
+            "Death Chakram",
+            "Wild Spirits",
+            "Resonating Arrow",
+
+            "Summon Steward", "Fleshcraft",
 
             //Interrupt
             "Counter Shot",
 
             //General
-            "A Murder of Crows", "Multi-Shot", "Double Tap", "Explosive Shot", "Volley",
-            "Kill Shot", "Bite", "Arcane Shot", "Barrage", "Serpent Sting", "Chimaera Shot",
-            "Hunter's Mark", "Tranquilizing Shot", "Exhilaration", "Mend Pet", "Trueshot", "Aimed Shot",
-            "Rapid Fire", "Bursting Shot", "Steady Shot", "Wailing Arrow", "Flare",
-
-            "Freezing Trap", "Tar Trap", "Aspect of the Turtle", "Binding Shot",
-
-
-            "Summon Steward", "Fleshcraft",
-
+            "A Murder of Crows",
+            "Aimed Shot",
+            "Arcane Shot",
+            "Aspect of the Turtle",
+            "Barrage",
+            "Binding Shot",
+            "Bite",
+            "Bursting Shot",
+            "Chimaera Shot",
+            "Double Tap",
+            "Exhilaration",
+            "Explosive Shot",
+            "Flare",
+            "Freezing Trap",
+            "Hunter's Mark",
+            "Kill Shot",
+            "Mend Pet",
+            "Multi-Shot",
+            "Rapid Fire",
+            "Serpent Sting",
+            "Steady Shot",
+            "Tar Trap",
+            "Tranquilizing Shot",
+            "Trueshot",
+            "Volley",
+            "Wailing Arrow",
         };
 
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
@@ -250,7 +271,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastExplosiveShot(string unit)
         {
-            if (Aimsharp.CanCast("Explosive Shot", unit, true, true) || (Aimsharp.SpellCooldown("Explosive Shot") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && Aimsharp.Power("player") >= 20 && Aimsharp.Talent(2,3) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Explosive Shot", unit, true, true) || (Aimsharp.SpellCooldown("Explosive Shot") - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && Aimsharp.Power("player") >= 20 && Aimsharp.Talent(2, 3) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -372,10 +393,7 @@ namespace AimsharpWow.Modules
             Macros.Add("BotTrinket", "/use 14");
 
             //Healthstone
-            Macros.Add("Healthstone", "/use Healthstone");
-
-            //Phial
-            Macros.Add("PhialofSerenity", "/use Phial of Serenity");
+            Macros.Add("UseHealthstone", "/use Healthstone");
 
             //SpellQueueWindow
             Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + (Aimsharp.Latency + 100));
@@ -477,35 +495,53 @@ namespace AimsharpWow.Modules
 
         public override void LoadSettings()
         {
-            Settings.Add(new Setting("First 5 Letters of the Addon:", "xxxxx"));
+            Settings.Add(new Setting("Misc"));
+            Settings.Add(new Setting("Debug:", false));
+            Settings.Add(new Setting("Game Client Language", new List<string>()
+            {
+                "English",
+                "Deutsch",
+                "Español",
+                "Français",
+                "Italiano",
+                "Português Brasileiro",
+                "Русский",
+                "한국어",
+                "简体中文"
+            }, "English"));
+            Settings.Add(new Setting(""));
             Settings.Add(new Setting("Race:", m_RaceList, "dwarf"));
             Settings.Add(new Setting("Ingame World Latency:", 1, 200, 50));
             Settings.Add(new Setting(" "));
             Settings.Add(new Setting("Use Trinkets on CD, dont wait for Hekili:", false));
             Settings.Add(new Setting("Auto Healthstone @ HP%", 0, 100, 25));
-            Settings.Add(new Setting("Auto Phial of Serenity @ HP%", 0, 100, 35));
             Settings.Add(new Setting("Kicks/Interrupts"));
             Settings.Add(new Setting("Kick at milliseconds remaining", 50, 1500, 500));
             Settings.Add(new Setting("Kick channels after milliseconds", 50, 1500, 500));
             Settings.Add(new Setting("General"));
             Settings.Add(new Setting("Auto Start Combat:", true));
             Settings.Add(new Setting("Tranquilizing Shot Mouseover:", true));
-            Settings.Add(new Setting("Auto Aspect of the Turtle @ HP%", 0, 100, 20));
-            Settings.Add(new Setting("Auto Exhilaration @ HP%", 0, 100, 40));
             Settings.Add(new Setting("Auto Mend Pet @ HP%", 0, 100, 60));
+            Settings.Add(new Setting("Auto Exhilaration @ HP%", 0, 100, 40));
+            Settings.Add(new Setting("Auto Aspect of the Turtle @ HP%", 0, 100, 20));
             Settings.Add(new Setting("Covenant Cast:", m_CastingList, "Manual"));
-            Settings.Add(new Setting("Freezing Trap Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Tar Trap Cast:", m_CastingList, "Manual"));
+            Settings.Add(new Setting("Freezing Trap Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Always Cast Volley @ Cursor during Rotation", false));
             Settings.Add(new Setting("Always Cast Flare @ Cursor during Rotation", false));
             Settings.Add(new Setting("Always Cast Tar Trap @ Cursor during Rotation", false));
-            Settings.Add(new Setting("Misc"));
-            Settings.Add(new Setting("Debug:", false));
+            Settings.Add(new Setting("    "));
 
         }
 
         public override void Initialize()
         {
+            #region Get Addon Name
+            if (Aimsharp.GetAddonName().Length >= 5)
+            {
+                FiveLetters = Aimsharp.GetAddonName().Substring(0, 5);
+            }
+            #endregion
 
             if (GetCheckBox("Debug:") == true)
             {
@@ -517,26 +553,30 @@ namespace AimsharpWow.Modules
             Aimsharp.QuickDelay = 50;
             Aimsharp.SlowDelay = 75;
 
-            Aimsharp.PrintMessage("Snoogens PVE - Hunter Marksmanship", Color.Yellow);
-            Aimsharp.PrintMessage("This rotation requires the Hekili Addon", Color.Red);
-            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything", Color.Brown);
-            Aimsharp.PrintMessage("Hekili > Toggles > Bind \"Cooldowns\" & \"Display Mode\"", Color.Brown);
+            Aimsharp.PrintMessage("Kanetos PVE - Hunter Marksmanship", Color.Yellow);
+            Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
+            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Red);
+            Aimsharp.PrintMessage("-----", Color.Black);
+            Aimsharp.PrintMessage("- Talents -", Color.White);
+            Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/guide/classes/hunter/marksmanship/overview-pve-dps", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("Pet Summon is Manual", Color.Green);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- General -", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoInterrupts - Disables Interrupts", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoCycle - Disables Target Cycle", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx FreezingTrap - Casts Freezing Trap @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx TarTrap - Casts Tar Trap @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Flare - Casts Flare @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx BindingShot - Casts Binding Shot @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx WildSpirits - Casts Wild Spirits @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx ResonatingArrow - Casts Resonating Arrow @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx VolleyCursor - Toggles Volley always @ Cursor (same as Option)", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx FlareCursor - Toggles Flare always @ Cursor (same as Option)", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx TarTrapCursor - Toggles Tar Trap always @ Cursor (same as Option)", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoCycle - Disables Target Cycle", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " FreezingTrap - Casts Freezing Trap @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " TarTrap - Casts Tar Trap @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Flare - Casts Flare @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " BindingShot - Casts Binding Shot @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " WildSpirits - Casts Wild Spirits @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " ResonatingArrow - Casts Resonating Arrow @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " VolleyCursor - Toggles Volley always @ Cursor (same as Option)", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " FlareCursor - Toggles Flare always @ Cursor (same as Option)", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " TarTrapCursor - Toggles Tar Trap always @ Cursor (same as Option)", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
+
+            Language = GetDropDown("Game Client Language");
 
             #region Racial Spells
             if (GetDropDown("Race:") == "draenei")
@@ -641,7 +681,7 @@ namespace AimsharpWow.Modules
             int Enemies = Aimsharp.CustomFunction("HekiliEnemies");
             int TargetingGroup = Aimsharp.CustomFunction("GroupTargets");
 
-            bool NoInterrupts= Aimsharp.IsCustomCodeOn("NoInterrupts");
+            bool NoInterrupts = Aimsharp.IsCustomCodeOn("NoInterrupts");
             bool NoCycle = Aimsharp.IsCustomCodeOn("NoCycle");
 
             bool Debug = GetCheckBox("Debug:") == true;
@@ -780,7 +820,7 @@ namespace AimsharpWow.Modules
                     {
                         Aimsharp.PrintMessage("Using Healthstone - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Healthstone @ HP%"), Color.Purple);
                     }
-                    Aimsharp.Cast("Healthstone");
+                    Aimsharp.Cast("UseHealthstone");
                     return true;
                 }
             }
