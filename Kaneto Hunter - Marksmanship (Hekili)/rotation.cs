@@ -1482,6 +1482,14 @@ namespace AimsharpWow.Modules
             return false;
         }
 
+        private bool CanCastConcussiveShot(string unit)
+        {
+            if (Aimsharp.CanCast(ConcussiveShot_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(ConcussiveShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
+                return true;
+
+            return false;
+        }
+
         private bool CanCastArcaneShot(string unit)
         {
             if (Aimsharp.CanCast(ArcaneShot_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(ArcaneShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range(unit) <= 43 && Aimsharp.Power("player") >= 20 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
@@ -1792,8 +1800,11 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("- General -", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoCycle - Disables Target Cycle", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " SteelTrap - Casts Tar Trap @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " FreezingTrap - Casts Freezing Trap @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " TarTrap - Casts Tar Trap @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " HighExplosiveTrap - Casts High Explosive Trap @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Intimidation - Casts Intimidation @ Target next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Sentinel - Casts Sentinel @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " Flare - Casts Flare @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " BindingShot - Casts Binding Shot @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " WildSpirits - Casts Wild Spirits @ next GCD", Color.Yellow);
@@ -2961,6 +2972,16 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Casting Steady Shot - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(SteadyShot_SpellName(Language));
+                        return true;
+                    }
+
+                    if (SpellID1 == 5116 && CanCastConcussiveShot("target"))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Concussive Shot - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(ConcussiveShot_SpellName(Language));
                         return true;
                     }
 
