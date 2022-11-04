@@ -1286,7 +1286,7 @@ namespace AimsharpWow.Modules
             Macros.Add("Weapon", "/use 16");
 
             //Healthstone
-            Macros.Add(Healthstone_SpellName(Language), "/use " + Healthstone_SpellName(Language));
+            Macros.Add("UseHealthstone", "/use " + Healthstone_SpellName(Language));
 
 
             //SpellQueueWindow
@@ -1644,7 +1644,7 @@ namespace AimsharpWow.Modules
                     {
                         Aimsharp.PrintMessage("Using Healthstone - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Healthstone @ HP%"), Color.Purple);
                     }
-                    Aimsharp.Cast(Healthstone_SpellName(Language));
+                    Aimsharp.Cast("UseHealthstone");
                     return true;
                 }
             }
