@@ -2742,7 +2742,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 323673 && Aimsharp.CanCast(Mindgames_SpellName(Language), "target", true, true))
+                    if ((SpellID1 == 323673 || SpellID1 == 375901) && Aimsharp.CanCast(Mindgames_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
@@ -3083,7 +3083,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 120644 && Aimsharp.CanCast(Halo_SpellName(Language), "target", true, true))
+                    if ((SpellID1 == 120644 || SpellID1 == 120517) && Aimsharp.CanCast(Halo_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {

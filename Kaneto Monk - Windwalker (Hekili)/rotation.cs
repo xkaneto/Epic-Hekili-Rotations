@@ -1400,7 +1400,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastFistsofFury(string unit)
         {
-            if (Aimsharp.CanCast(StrikeOfTheWindlord_SpellName(Language), unit, false, true) && Aimsharp.Range("target") <= 6 || (Aimsharp.SpellCooldown(StrikeOfTheWindlord_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range("target") <= 6 && (Aimsharp.PlayerSecondaryPower() >= 2 || Aimsharp.HasBuff(Serenity_SpellName(Language), "player", true) || Aimsharp.CustomFunction("WoORSK") > 0 && Aimsharp.PlayerSecondaryPower() >= 2) && TargetAlive()))
+            if (Aimsharp.CanCast(FistsOfFury_SpellName(Language), unit, false, true) && Aimsharp.Range("target") <= 6 || (Aimsharp.SpellCooldown(FistsOfFury_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range("target") <= 6 && (Aimsharp.PlayerSecondaryPower() >= 2 || Aimsharp.HasBuff(Serenity_SpellName(Language), "player", true) || Aimsharp.CustomFunction("WoORSK") > 0 && Aimsharp.PlayerSecondaryPower() >= 2) && TargetAlive()))
                 return true;
 
             return false;
@@ -1408,7 +1408,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastStrikeOfTheWindlord(string unit)
         {
-            if (Aimsharp.CanCast(FistsOfFury_SpellName(Language), unit, false, true) && Aimsharp.Range("target") <= 6 || (Aimsharp.SpellCooldown(FistsOfFury_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range("target") <= 6 && (Aimsharp.PlayerSecondaryPower() >= 2 || Aimsharp.HasBuff(Serenity_SpellName(Language), "player", true))))
+            if (Aimsharp.CanCast(StrikeOfTheWindlord_SpellName(Language), unit, false, true) && Aimsharp.Range("target") <= 6 || (Aimsharp.SpellCooldown(StrikeOfTheWindlord_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range("target") <= 6 && (Aimsharp.PlayerSecondaryPower() >= 2 || Aimsharp.HasBuff(Serenity_SpellName(Language), "player", true))))
                 return true;
 
             return false;
