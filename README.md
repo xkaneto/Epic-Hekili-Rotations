@@ -15,14 +15,14 @@ Updated:
 - Druid - Balance
 - Druid - Feral
 - Hunter - Beast Mastery
+- Hunter - Marksmanship
+- Hunter - Survival
 - Mage - Arcane
 - Monk - Windwalker
 - Priest - Shadow
 
 To-Do:
 
-- Hunter - Marksmanship
-- Hunter - Survival
 - Mage - Fire
 - Mage - Frost
 - Paladin - Retribution

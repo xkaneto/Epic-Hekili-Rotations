@@ -1,14 +1,19 @@
-﻿using System.Linq;
-using System.Diagnostics;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using AimsharpWow.API;
 
 namespace AimsharpWow.Modules
 {
-    public class SnoogensPVEShamanEnhancement : Rotation
+    public class KanetoShamanEnhancementHekili : Rotation
     {
+        private static string Language = "English";
+
+        #region SpellFunctions
+        #endregion
+
         #region Variables
         string FiveLetters;
         #endregion
@@ -19,7 +24,7 @@ namespace AimsharpWow.Modules
         private List<string> m_DebuffsList = new List<string> { };
         private List<string> m_BuffsList = new List<string> { "Maelstrom Weapon", };
         private List<string> m_BloodlustBuffsList = new List<string> { "Bloodlust", "Heroism", "Time Warp", "Primal Rage", "Drums of Rage" };
-        private List<string> m_ItemsList = new List<string> { "Phial of Serenity", "Healthstone" };
+        private List<string> m_ItemsList = new List<string> { "Healthstone" };
 
         private List<string> m_SpellBook_General = new List<string> {
             //Covenants
@@ -62,7 +67,6 @@ namespace AimsharpWow.Modules
             "Stormstrike", //17364
             "Spirit Walk", //58875
             "Windfury Totem", //8512
-
             "Elemental Blast", //117014
             "Ice Strike", //342240
             "Earth Shield", //974
@@ -206,10 +210,6 @@ namespace AimsharpWow.Modules
         #endregion
 
         #region Initializations
-        private void InitializeSettings()
-        {
-            FiveLetters = GetString("First 5 Letters of the Addon:");
-        }
 
         private void InitializeMacros()
         {
@@ -222,9 +222,6 @@ namespace AimsharpWow.Modules
 
             //Healthstone
             Macros.Add("Healthstone", "/use Healthstone");
-
-            //Phial
-            Macros.Add("PhialofSerenity", "/use Phial of Serenity");
 
             //SpellQueueWindow
             Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + (Aimsharp.Latency + 100));
@@ -341,7 +338,21 @@ namespace AimsharpWow.Modules
 
         public override void LoadSettings()
         {
-            Settings.Add(new Setting("First 5 Letters of the Addon:", "xxxxx"));
+            Settings.Add(new Setting("Misc"));
+            Settings.Add(new Setting("Debug:", false));
+            Settings.Add(new Setting("Game Client Language", new List<string>()
+            {
+                "English",
+                "Deutsch",
+                "Español",
+                "Français",
+                "Italiano",
+                "Português Brasileiro",
+                "Русский",
+                "한국어",
+                "简体中文"
+            }, "English"));
+            Settings.Add(new Setting(""));
             Settings.Add(new Setting("Race:", m_RaceList, "orc"));
             Settings.Add(new Setting("Ingame World Latency:", 1, 200, 50));
             Settings.Add(new Setting(" "));
@@ -362,13 +373,18 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Auto Healing Stream Totem @ HP%", 0, 100, 50));
             Settings.Add(new Setting("Totem Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Covenant Cast:", m_CastingList, "Manual"));
-            Settings.Add(new Setting("Misc"));
-            Settings.Add(new Setting("Debug:", false));
+            Settings.Add(new Setting("    "));
 
         }
 
         public override void Initialize()
         {
+            #region Get Addon Name
+            if (Aimsharp.GetAddonName().Length >= 5)
+            {
+                FiveLetters = Aimsharp.GetAddonName().Substring(0, 5);
+            }
+            #endregion
 
             if (GetCheckBox("Debug:") == true)
             {
@@ -376,28 +392,32 @@ namespace AimsharpWow.Modules
             }
 
             Aimsharp.Latency = GetSlider("Ingame World Latency:");
-            Aimsharp.QuickDelay = 150;
-            Aimsharp.SlowDelay = 350;
+            Aimsharp.QuickDelay = 50;
+            Aimsharp.SlowDelay = 75;
 
-            Aimsharp.PrintMessage("Snoogens PVE - Shaman Enhancement", Color.Yellow);
-            Aimsharp.PrintMessage("This rotation requires the Hekili Addon", Color.Red);
-            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything", Color.Brown);
-            Aimsharp.PrintMessage("Hekili > Toggles > Bind \"Cooldowns\" & \"Display Mode\"", Color.Brown);
+            Aimsharp.PrintMessage("Kanetos PVE - Shaman Enhancement", Color.Yellow);
+            Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
+            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Red);
+            Aimsharp.PrintMessage("-----", Color.Black);
+            Aimsharp.PrintMessage("- Talents -", Color.White);
+            Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/guide/classes/shaman/enhancement/overview-pve-dps", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- General -", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoInterrupts - Disables Interrupts", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoCycle - Disables Target Cycle", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoDecurse - Disables Decurse", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Hex - Casts Hex @ Mouseover next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx EarthbindTotem - Casts Earthbind Totem @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx CapacitorTotem - Casts Capacitor Totem @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx WindRushTotem - Casts Wind Rush Totem @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx TremorTotem - Casts Tremor Totem @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx EarthElemental - Casts Earth Elemental @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx VesperTotem - Casts Vesper Totem @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx FaeTransfusion - Casts Fae Transfusion @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx DoorofShadows - Casts Door of Shadows @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoCycle - Disables Target Cycle", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoDecurse - Disables Decurse", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Hex - Casts Hex @ Mouseover next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " EarthbindTotem - Casts Earthbind Totem @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " CapacitorTotem - Casts Capacitor Totem @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " WindRushTotem - Casts Wind Rush Totem @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " TremorTotem - Casts Tremor Totem @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " EarthElemental - Casts Earth Elemental @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " VesperTotem - Casts Vesper Totem @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " FaeTransfusion - Casts Fae Transfusion @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " DoorofShadows - Casts Door of Shadows @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
+
+            Language = GetDropDown("Game Client Language");
 
             #region Racial Spells
             if (GetDropDown("Race:") == "draenei")
@@ -487,8 +507,6 @@ namespace AimsharpWow.Modules
             #endregion
 
             Totems.Add("Healing Stream Totem");
-
-            InitializeSettings();
 
             InitializeMacros();
 
@@ -635,20 +653,6 @@ namespace AimsharpWow.Modules
                         Aimsharp.PrintMessage("Using Healthstone - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Healthstone @ HP%"), Color.Purple);
                     }
                     Aimsharp.Cast("Healthstone");
-                    return true;
-                }
-            }
-
-            //Auto Phial of Serenity
-            if (Aimsharp.CanUseItem("Phial of Serenity", false) && Aimsharp.ItemCooldown("Phial of Serenity") == 0)
-            {
-                if (Aimsharp.Health("player") <= GetSlider("Auto Phial of Serenity @ HP%"))
-                {
-                    if (Debug)
-                    {
-                        Aimsharp.PrintMessage("Using Phial of Serenity - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Phial of Serenity @ HP%"), Color.Purple);
-                    }
-                    Aimsharp.Cast("PhialofSerenity");
                     return true;
                 }
             }
@@ -2108,7 +2112,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
             #endregion
-            
+
             #region Auto Combat
             //Auto Combat
             if (GetCheckBox("Auto Start Combat:") == true && Aimsharp.TargetIsEnemy() && TargetAlive() && Aimsharp.Range("target") <= 10 && TargetInCombat)
