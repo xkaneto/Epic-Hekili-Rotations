@@ -534,6 +534,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+         ///<summary>spell=47568</summary>
+        private static string EmpowerRuneWeapon_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Empower Rune Weapon";
+                case "Deutsch": return "Runenwaffe verstärken";
+                case "Español": return "Potenciar arma de runas";
+                case "Français": return "Renforcer l'arme runique";
+                case "Italiano": return "Attivazione Runica";
+                case "Português Brasileiro": return "Energizar Arma Rúnica";
+                case "Русский": return "Усиление рунического оружия";
+                case "한국어": return "룬 무기 강화";
+                case "简体中文": return "符文武器增效";
+                default: return "Empower Rune Weapon";
+            }
+        }
+
         ///<summary>spell=207317</summary>
         private static string Epidemic_SpellName(string Language = "English")
         {
@@ -1171,6 +1189,7 @@ namespace AimsharpWow.Modules
             DeathStrike_SpellName(Language),
             DeathsAdvance_SpellName(Language),
             Defile_SpellName(Language),
+            EmpowerRuneWeapon_SpellName(Language),
             Epidemic_SpellName(Language), //207317
             FesteringStrike_SpellName(Language), //85948
             IceboundFortitude_SpellName(Language),
@@ -2242,6 +2261,11 @@ namespace AimsharpWow.Modules
                                 Aimsharp.Cast("DeathandDecayC");
                                 return true;
                         }
+                    }
+                    if (SpellID1 == 47568 && Aimsharp.CanCast(EmpowerRuneWeapon_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    {
+                        Aimsharp.Cast(EmpowerRuneWeapon_SpellName(Language));
+                        return true;
                     }
                     #endregion
 

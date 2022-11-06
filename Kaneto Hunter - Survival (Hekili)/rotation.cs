@@ -2977,7 +2977,7 @@ namespace AimsharpWow.Modules
                         }
                     }
 
-                    if (SpellID1 == 325028 && CanCastDeathChakram("target"))
+                    if ((SpellID1 == 325028 || SpellID1 == 375891) && CanCastDeathChakram("target"))
                     {
                         if (Debug)
                         {
