@@ -245,6 +245,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=120360</summary>
+        private static string Barrage_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Barrage";
+                case "Deutsch": return "Sperrfeuer";
+                case "Español": return "Tromba";
+                case "Français": return "Barrage";
+                case "Italiano": return "Sbarramento";
+                case "Português Brasileiro": return "Barragem";
+                case "Русский": return "Шквал";
+                case "한국어": return "탄막";
+                case "简体中文": return "弹幕射击";
+                default: return "Barrage";
+            }
+        }
+
         ///<summary>spell=26297</summary>
         private static string Berserking_SpellName(string Language = "English")
         {
@@ -551,7 +569,7 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=319836</summary>
+        ///<summary>spell=108853</summary>
         private static string FireBlast_SpellName(string Language = "English")
         {
             switch (Language)
@@ -785,6 +803,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=20271</summary>
+        private static string Judgment_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Judgment";
+                case "Deutsch": return "Richturteil";
+                case "Español": return "Sentencia";
+                case "Français": return "Jugement";
+                case "Italiano": return "Giudizio";
+                case "Português Brasileiro": return "Julgamento";
+                case "Русский": return "Правосудие";
+                case "한국어": return "심판";
+                case "简体中文": return "审判";
+                default: return "Judgment";
+            }
+        }
+
         ///<summary>spell=255647</summary>
         private static string LightsJudgment_SpellName(string Language = "English")
         {
@@ -800,6 +836,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "빛의 심판";
                 case "简体中文": return "圣光裁决者";
                 default: return "Light's Judgment";
+            }
+        }
+
+        ///<summary>item=36799</summary>
+        private static string ManaGem_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Mana Gem";
+                case "Deutsch": return "Manaedelstein";
+                case "Español": return "Gema de maná";
+                case "Français": return "Gemme de mana";
+                case "Italiano": return "Gemma di Mana";
+                case "Português Brasileiro": return "Gema de Mana";
+                case "Русский": return "Самоцвет маны";
+                case "한국어": return "마나석";
+                case "简体中文": return "法力宝石";
+                default: return "Mana Gem";
             }
         }
 
@@ -983,24 +1037,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=2782</summary>
-        private static string RemoveCorruption_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Remove Corruption";
-                case "Deutsch": return "Verderbnis entfernen";
-                case "Español": return "Eliminar corrupción";
-                case "Français": return "Délivrance de la corruption";
-                case "Italiano": return "Rimozione Corruzione";
-                case "Português Brasileiro": return "Remover Corrupção";
-                case "Русский": return "Снятие порчи";
-                case "한국어": return "해제";
-                case "简体中文": return "清除腐蚀";
-                default: return "Remove Corruption";
-            }
-        }
-
         ///<summary>spell=475</summary>
         private static string RemoveCurse_SpellName(string Language = "English")
         {
@@ -1091,7 +1127,7 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=314791</summary>
+        ///<summary>spell=382440</summary>
         private static string ShiftingPower_SpellName(string Language = "English")
         {
             switch (Language)
@@ -1217,6 +1253,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=157375</summary>
+        private static string Tempest_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Tempest";
+                case "Deutsch": return "Sturmgewitter";
+                case "Español": return "Tempestad";
+                case "Français": return "Tempête";
+                case "Italiano": return "Tempesta";
+                case "Português Brasileiro": return "Tormenta";
+                case "Русский": return "Буря";
+                case "한국어": return "폭풍";
+                case "简体中文": return "狂风怒号";
+                default: return "Tempest";
+            }
+        }
+
         ///<summary>spell=80353</summary>
         private static string TimeWarp_SpellName(string Language = "English")
         {
@@ -1232,6 +1286,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "시간 왜곡";
                 case "简体中文": return "时间扭曲";
                 default: return "Time Warp";
+            }
+        }
+
+        ///<summary>spell=185245</summary>
+        private static string Torment_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Torment";
+                case "Deutsch": return "Folter";
+                case "Español": return "Tormento";
+                case "Français": return "Tourment";
+                case "Italiano": return "Tormento";
+                case "Português Brasileiro": return "Tormento";
+                case "Русский": return "Мучение";
+                case "한국어": return "고문";
+                case "简体中文": return "折磨";
+                default: return "Torment";
             }
         }
 
@@ -1316,9 +1388,9 @@ namespace AimsharpWow.Modules
         //Lists
         private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", "DoorofShadows", "Polymorph", "Evocation", "RingofFrost", "ArcaneExplosion", "NoSpellsteal", };
         private List<string> m_DebuffsList = new List<string> { Polymorph_SpellName(Language), };
-        private List<string> m_BuffsList = new List<string> { ArcaneIntellect_SpellName(Language), "Arcane Power", Evocation_SpellName(Language), ShiftingPower_SpellName(Language), PresenceOfMind_SpellName(Language), };
+        private List<string> m_BuffsList = new List<string> { ArcaneIntellect_SpellName(Language), ArcaneSurge_SpellName(Language), Evocation_SpellName(Language), ShiftingPower_SpellName(Language), PresenceOfMind_SpellName(Language), };
         private List<string> m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
-        private List<string> m_ItemsList = new List<string> {Healthstone_SpellName(Language), "Mana Gem", };
+        private List<string> m_ItemsList = new List<string> { Healthstone_SpellName(Language), ManaGem_SpellName(Language), };
 
         private List<string> m_SpellBook = new List<string> {
             //Covenants
@@ -1507,7 +1579,7 @@ namespace AimsharpWow.Modules
 
 
             //Mana Gem
-            Macros.Add("ManaGem", "/use Mana Gem");
+            Macros.Add("ManaGem", "/use " + ManaGem_SpellName(Language));
 
             //SpellQueueWindow
             Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + (Aimsharp.Latency + 100));
@@ -1516,6 +1588,7 @@ namespace AimsharpWow.Modules
             Macros.Add("PolymorphOff", "/" + FiveLetters + " Polymorph");
             Macros.Add("RingofFrostOff", "/" + FiveLetters + " RingofFrost");
             Macros.Add("DoorofShadowsOff", "/" + FiveLetters + " DoorofShadows");
+            Macros.Add("EvocationOff", "/" + FiveLetters + " Evocation");
 
             Macros.Add("FOC_party1", "/focus party1");
             Macros.Add("FOC_party2", "/focus party2");
@@ -1528,7 +1601,7 @@ namespace AimsharpWow.Modules
             Macros.Add("SpellstealMO", "/cast [@mouseover] " + Spellsteal_SpellName(Language));
             Macros.Add("RingofFrostC", "/cast [@cursor] RingofFrost");
             Macros.Add("RingofFrostP", "/cast [@player] RingofFrost");
-            Macros.Add("MeteorC", "/cast [@cursor] Meteor");
+            Macros.Add("MeteorC", "/cast [@cursor] " + Meteor_SpellName(Language));
         }
 
         private void InitializeSpells()
@@ -1658,7 +1731,7 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Arcane Intellect Out of Combat:", true));
             Settings.Add(new Setting("Auto Spellsteal Target:", true));
             Settings.Add(new Setting("Auto Spellsteal Mouseover:", true));
-            Settings.Add(new Setting("Don't Spellsteal during Arcane Power:", true));
+            Settings.Add(new Setting("Don't Spellsteal during Arcane Surge:", true));
             Settings.Add(new Setting("Auto Prismatic Barrier @ HP%", 0, 100, 90));
             Settings.Add(new Setting("Auto Ice Block @ HP%", 0, 100, 25));
             Settings.Add(new Setting("Auto Alter Time @ HP%", 0, 100, 15));
@@ -1794,7 +1867,6 @@ namespace AimsharpWow.Modules
             }
             #endregion
 
-
             InitializeMacros();
 
             InitializeSpells();
@@ -1853,7 +1925,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language)))
+            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Polymorph"))
             {
                 if (Debug)
                 {
@@ -1989,7 +2061,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Spellsteal Mouseover
-            if (!NoSpellsteal && Aimsharp.CanCast(Spellsteal_SpellName(Language), "mouseover", true, true) && (!GetCheckBox("Don't Spellsteal during Arcane Power:") || GetCheckBox("Don't Spellsteal during Arcane Power:") && !Aimsharp.HasBuff("Arcane Power", "player", true)))
+            if (!NoSpellsteal && Aimsharp.CanCast(Spellsteal_SpellName(Language), "mouseover", true, true) && (!GetCheckBox("Don't Spellsteal during Arcane Surge:") || GetCheckBox("Don't Spellsteal during Arcane Surge:") && !Aimsharp.HasBuff(ArcaneSurge_SpellName(Language), "player", true)))
             {
                 if (GetCheckBox("Auto Spellsteal Mouseover:") && Aimsharp.CustomFunction("SpellstealCheckMouseover") == 3)
                 {
@@ -2003,7 +2075,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Spellsteal Target
-            if (!NoSpellsteal && Aimsharp.CanCast(Spellsteal_SpellName(Language), "target", true, true) && (!GetCheckBox("Don't Spellsteal during Arcane Power:") || GetCheckBox("Don't Spellsteal during Arcane Power:") && !Aimsharp.HasBuff("Arcane Power", "player", true)))
+            if (!NoSpellsteal && Aimsharp.CanCast(Spellsteal_SpellName(Language), "target", true, true) && (!GetCheckBox("Don't Spellsteal during Arcane Surge:") || GetCheckBox("Don't Spellsteal during Arcane Surge:") && !Aimsharp.HasBuff(ArcaneSurge_SpellName(Language), "player", true)))
             {
                 if (GetCheckBox("Auto Spellsteal Target:") && Aimsharp.CustomFunction("SpellstealCheckTarget") == 3)
                 {
@@ -2018,7 +2090,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Queues
-            bool Polymorph = Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language));
+            bool Polymorph = Aimsharp.IsCustomCodeOn("Polymorph");
             if ((Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 || Moving) && Polymorph)
             {
                 if (Debug)
@@ -2039,7 +2111,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Evocation = Aimsharp.IsCustomCodeOn(Evocation_SpellName(Language));
+            bool Evocation = Aimsharp.IsCustomCodeOn("Evocation");
             if (Aimsharp.SpellCooldown(Evocation_SpellName(Language)) - Aimsharp.GCD() > 2000 && Evocation)
             {
                 if (Debug)
@@ -2135,7 +2207,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Remove Curse
-            if (!NoDecurse && Aimsharp.CustomFunction("CurseCheck") > 0 && Aimsharp.GroupSize() <= 5 && Aimsharp.LastCast() != RemoveCorruption_SpellName(Language))
+            if (!NoDecurse && Aimsharp.CustomFunction("CurseCheck") > 0 && Aimsharp.GroupSize() <= 5 && Aimsharp.LastCast() != RemoveCurse_SpellName(Language))
             {
                 PartyDict.Clear();
                 PartyDict.Add("player", Aimsharp.Health("player"));
@@ -2441,7 +2513,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if ((SpellID1 == 314791 || SpellID1 == 382440 ) && Aimsharp.CanCast(ShiftingPower_SpellName(Language), "player", false, true) && !Moving)
+                    if ((SpellID1 == 314791 || SpellID1 == 382440) && Aimsharp.CanCast(ShiftingPower_SpellName(Language), "player", false, true) && !Moving)
                     {
                         if (Debug)
                         {
@@ -2578,7 +2650,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (!NoSpellsteal && SpellID1 == 30449 && Aimsharp.CanCast(Spellsteal_SpellName(Language), "target", true, true) && (!GetCheckBox("Don't Spellsteal during Arcane Power:") || GetCheckBox("Don't Spellsteal during Arcane Power:") && !Aimsharp.HasBuff("Arcane Power", "player", true)))
+                    if (!NoSpellsteal && SpellID1 == 30449 && Aimsharp.CanCast(Spellsteal_SpellName(Language), "target", true, true) && (!GetCheckBox("Don't Spellsteal during Arcane Surge:") || GetCheckBox("Don't Spellsteal during Arcane Surge:") && !Aimsharp.HasBuff(ArcaneSurge_SpellName(Language), "player", true)))
                     {
                         if (Debug)
                         {
@@ -2610,7 +2682,7 @@ namespace AimsharpWow.Modules
                     #endregion
 
                     #region General Spells - Player GCD
-                    if (SpellID1 == 999999 && Aimsharp.CanUseItem("Mana Gem", false))
+                    if (SpellID1 == 999999 && Aimsharp.CanUseItem(ManaGem_SpellName(Language), false))
                     {
                         if (Debug)
                         {
@@ -2937,7 +3009,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Logic
-            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language)))
+            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Polymorph"))
             {
                 if (Debug)
                 {
@@ -2971,7 +3043,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Queues
-            bool Polymorph = Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language));
+            bool Polymorph = Aimsharp.IsCustomCodeOn("Polymorph");
             if ((Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 || Moving) && Polymorph)
             {
                 if (Debug)
@@ -2992,7 +3064,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Evocation = Aimsharp.IsCustomCodeOn(Evocation_SpellName(Language));
+            bool Evocation = Aimsharp.IsCustomCodeOn("Evocation");
             if (Aimsharp.SpellCooldown(Evocation_SpellName(Language)) - Aimsharp.GCD() > 2000 && Evocation)
             {
                 if (Debug)
