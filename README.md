@@ -2,10 +2,9 @@
 
 All of the Hekili Rotations by Snoogens that are updated by xKaneto.
 
-What is Kaneto doing?
-
 - Updating Spells to Dragonflight Standards
 - Language Support for all the rotations
+- Randomize Kicks Option added
 
 Updated:
 
@@ -18,23 +17,22 @@ Updated:
 - Hunter - Marksmanship
 - Hunter - Survival
 - Mage - Arcane
+- Mage - Fire
+- Mage - Frost
 - Monk - Windwalker
 - Paladin - Retribution
 - Priest - Shadow
 - Shaman - Elemental
 - Shaman - Enhancement
+- Warlock - Affliction
 
 To-Do:
 
-- Mage - Fire
-- Mage - Frost
 - Rogue - Assassination
 - Rogue - Outlaw
 - Rogue - Subtlety
-- Warlock - Affliction
 - Warlock - Demonology
 - Warlock - Destruction
 
-- Randomize Kicks Option
 - Auto Heal Potion Setting
 - Prioritize certain adds in M+ (like Invigorating Fish Sticks)

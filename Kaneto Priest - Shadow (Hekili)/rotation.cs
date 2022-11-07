@@ -9,6 +9,7 @@ namespace AimsharpWow.Modules
 {
     public class KanetoPriestShadowHekili : Rotation
     {
+        Random Timer;
         private static string Language = "English";
 
         #region SpellFunctions
@@ -1748,6 +1749,7 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Auto Healthstone @ HP%", 0, 100, 25));
             Settings.Add(new Setting("Auto Phial of Serenity @ HP%", 0, 100, 35));
             Settings.Add(new Setting("Kicks/Interrupts"));
+            Settings.Add(new Setting("Randomize Kicks:", false));
             Settings.Add(new Setting("Kick at milliseconds remaining", 50, 1500, 500));
             Settings.Add(new Setting("Kick channels after milliseconds", 50, 1500, 500));
             Settings.Add(new Setting("General"));
@@ -2019,6 +2021,11 @@ namespace AimsharpWow.Modules
             #region Interrupts
             if (!NoInterrupts && (Aimsharp.UnitID("target") != 168105 || Torghast_InnerFlame.Contains(Aimsharp.CastingID("target"))) && (Aimsharp.UnitID("target") != 157571 || Torghast_InnerFlame.Contains(Aimsharp.CastingID("target"))))
             {
+                if (GetCheckBox("Randomize Kicks:"))
+                {
+                    KickValue = KickValue + Timer.Next(200,800);
+                    KickChannelsAfter = KickChannelsAfter + Timer.Next(200,800);
+                }
                 if (Aimsharp.CanCast(Silence_SpellName(Language), "target", true, true))
                 {
                     if (IsInterruptable && !IsChanneling && CastingRemaining < KickValue)
@@ -2399,6 +2406,8 @@ namespace AimsharpWow.Modules
                 int states = Aimsharp.CustomFunction("DiseaseCheck");
                 CleansePlayers target;
 
+                int KickTimer = Timer.Next(200,800);
+
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
                     Enum.TryParse(unit.Key, out target);
@@ -2413,6 +2422,7 @@ namespace AimsharpWow.Modules
                         {
                             if (UnitFocus(unit.Key))
                             {
+                                System.Threading.Thread.Sleep(KickTimer);
                                 Aimsharp.Cast("PD_FOC");
                                 if (Debug)
                                 {

@@ -9,6 +9,8 @@ namespace AimsharpWow.Modules
 {
     public class SnoogensPVEWarlockDemonology : Rotation
     {
+        Random Timer;
+
         #region Variables
         string FiveLetters;
         #endregion
@@ -193,7 +195,7 @@ namespace AimsharpWow.Modules
 
             //Healthstone
             Macros.Add("Healthstone", "/use Healthstone");
-            
+
             //Phial
             Macros.Add("PhialofSerenity", "/use Phial of Serenity");
 
@@ -244,7 +246,7 @@ namespace AimsharpWow.Modules
             CustomFunctions.Add("GetSpellQueueWindow", "local sqw = GetCVar(\"SpellQueueWindow\"); if sqw ~= nil then return tonumber(sqw); end return 0");
 
             CustomFunctions.Add("CooldownsToggleCheck", "local loading, finished = IsAddOnLoaded(\"Hekili\") if loading == true and finished == true then local cooldowns = Hekili:GetToggleState(\"cooldowns\") if cooldowns == true then return 1 else if cooldowns == false then return 2 end end end return 0");
-            
+
             CustomFunctions.Add("UnitIsDead", "if UnitIsDead(\"target\") ~= nil and UnitIsDead(\"target\") == true then return 1 end; if UnitIsDead(\"target\") ~= nil and UnitIsDead(\"target\") == false then return 2 end; return 0");
 
             CustomFunctions.Add("IsTargeting", "if SpellIsTargeting()\r\n then return 1\r\n end\r\n return 0");
@@ -298,6 +300,7 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Auto Healthstone @ HP%", 0, 100, 25));
             Settings.Add(new Setting("Auto Phial of Serenity @ HP%", 0, 100, 35));
             Settings.Add(new Setting("Kicks/Interrupts"));
+            Settings.Add(new Setting("Randomize Kicks:", false));
             Settings.Add(new Setting("Kick at milliseconds remaining", 50, 1500, 500));
             Settings.Add(new Setting("Kick channels after milliseconds", 50, 1500, 500));
             Settings.Add(new Setting("General"));
@@ -535,6 +538,11 @@ namespace AimsharpWow.Modules
             #region Interrupts
             if (!NoInterrupts && (Aimsharp.UnitID("target") != 168105 || Torghast_InnerFlame.Contains(Aimsharp.CastingID("target"))) && (Aimsharp.UnitID("target") != 157571 || Torghast_InnerFlame.Contains(Aimsharp.CastingID("target"))))
             {
+                if (GetCheckBox("Randomize Kicks:"))
+                {
+                    KickValue = KickValue + Timer.Next(200,800);
+                    KickChannelsAfter = KickChannelsAfter + Timer.Next(200,800);
+                }
                 if (Aimsharp.CanCast("Spell Lock", "target", true, true))
                 {
                     if (IsInterruptable && !IsChanneling && CastingRemaining < KickValue)

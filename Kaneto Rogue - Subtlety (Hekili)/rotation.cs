@@ -9,6 +9,8 @@ namespace AimsharpWow.Modules
 {
     public class SnoogensPVERogueSubtlety : Rotation
     {
+        Random Timer;
+
         #region Variables
         string FiveLetters;
         #endregion
@@ -547,6 +549,7 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Auto Healthstone @ HP%", 0, 100, 25));
             Settings.Add(new Setting("Auto Phial of Serenity @ HP%", 0, 100, 35));
             Settings.Add(new Setting("Kicks/Interrupts"));
+            Settings.Add(new Setting("Randomize Kicks:", false));
             Settings.Add(new Setting("Kick at milliseconds remaining", 50, 1500, 500));
             Settings.Add(new Setting("Kick channels after milliseconds", 50, 1500, 500));
             Settings.Add(new Setting("General"));
@@ -754,6 +757,11 @@ namespace AimsharpWow.Modules
             #region Interrupts
             if (!NoInterrupts && (Aimsharp.UnitID("target") != 168105 || Torghast_InnerFlame.Contains(Aimsharp.CastingID("target"))) && (Aimsharp.UnitID("target") != 157571 || Torghast_InnerFlame.Contains(Aimsharp.CastingID("target"))))
             {
+                if (GetCheckBox("Randomize Kicks:"))
+                {
+                    KickValue = KickValue + Timer.Next(200,800);
+                    KickChannelsAfter = KickChannelsAfter + Timer.Next(200,800);
+                }
                 if (CanCastKick("target"))
                 {
                     if (IsInterruptable && !IsChanneling && CastingRemaining < KickValue)

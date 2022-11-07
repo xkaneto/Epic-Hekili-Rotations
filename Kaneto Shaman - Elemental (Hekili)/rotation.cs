@@ -9,6 +9,8 @@ namespace AimsharpWow.Modules
 {
     public class KanetoShamanElementalHekili : Rotation
     {
+        Random Timer;
+
         private static string Language = "English";
 
         #region SpellFunctions
@@ -1731,6 +1733,7 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Use Trinkets on CD, dont wait for Hekili:", false));
             Settings.Add(new Setting("Auto Healthstone @ HP%", 0, 100, 25));
             Settings.Add(new Setting("Kicks/Interrupts"));
+            Settings.Add(new Setting("Randomize Kicks:", false));
             Settings.Add(new Setting("Kick at milliseconds remaining", 50, 1500, 500));
             Settings.Add(new Setting("Kick channels after milliseconds", 50, 1500, 500));
             Settings.Add(new Setting("General"));
@@ -2551,6 +2554,8 @@ namespace AimsharpWow.Modules
                 int states = Aimsharp.CustomFunction("CurseCheck");
                 CleansePlayers target;
 
+                int KickTimer = Timer.Next(200,800);
+
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
                     Enum.TryParse(unit.Key, out target);
@@ -2565,6 +2570,7 @@ namespace AimsharpWow.Modules
                         {
                             if (UnitFocus(unit.Key))
                             {
+                                System.Threading.Thread.Sleep(KickTimer);
                                 Aimsharp.Cast("CS_FOC");
                                 if (Debug)
                                 {

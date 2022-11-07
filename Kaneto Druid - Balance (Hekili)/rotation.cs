@@ -9,6 +9,7 @@ namespace AimsharpWow.Modules
 {
     public class KanetoDruidBalanceHekili : Rotation
     {
+        Random Timer;
         private static string Language = "English";
 
         #region SpellFunctions
@@ -2219,6 +2220,8 @@ namespace AimsharpWow.Modules
                 int states = Aimsharp.CustomFunction("CursePoisonCheck");
                 CleansePlayers target;
 
+                int KickTimer = Timer.Next(200,800);
+
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
                     Enum.TryParse(unit.Key, out target);
@@ -2233,6 +2236,7 @@ namespace AimsharpWow.Modules
                         {
                             if (UnitFocus(unit.Key))
                             {
+                                System.Threading.Thread.Sleep(KickTimer);
                                 Aimsharp.Cast("RC_FOC");
                                 if (Debug)
                                 {
