@@ -138,6 +138,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=120360</summary>
+        private static string Barrage_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Barrage";
+                case "Deutsch": return "Sperrfeuer";
+                case "Español": return "Tromba";
+                case "Français": return "Barrage";
+                case "Italiano": return "Sbarramento";
+                case "Português Brasileiro": return "Barragem";
+                case "Русский": return "Шквал";
+                case "한국어": return "탄막";
+                case "简体中文": return "弹幕射击";
+                default: return "Barrage";
+            }
+        }
+
         ///<summary>spell=26297</summary>
         private static string Berserking_SpellName(string Language = "English")
         {
@@ -678,6 +696,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=108839</summary>
+        private static string IceFloes_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Ice Floes";
+                case "Deutsch": return "Eisschollen";
+                case "Español": return "Témpanos de hielo";
+                case "Français": return "Iceberg";
+                case "Italiano": return "Cuore di Ghiaccio";
+                case "Português Brasileiro": return "Banquisas";
+                case "Русский": return "Плавучая льдина";
+                case "한국어": return "얼음발";
+                case "简体中文": return "浮冰";
+                default: return "Ice Floes";
+            }
+        }
+
         ///<summary>spell=157997</summary>
         private static string IceNova_SpellName(string Language = "English")
         {
@@ -711,6 +747,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "투명화";
                 case "简体中文": return "隐形术";
                 default: return "Invisibility";
+            }
+        }
+
+        ///<summary>spell=20271</summary>
+        private static string Judgment_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Judgment";
+                case "Deutsch": return "Richturteil";
+                case "Español": return "Sentencia";
+                case "Français": return "Jugement";
+                case "Italiano": return "Giudizio";
+                case "Português Brasileiro": return "Julgamento";
+                case "Русский": return "Правосудие";
+                case "한국어": return "심판";
+                case "简体中文": return "审判";
+                default: return "Judgment";
             }
         }
 
@@ -1207,7 +1261,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", "DoorofShadows", "Polymorph", "RingofFrost", "Flamestrike", "Meteor", "ArcaneExplosion", "FlamestrikeCursor", "NoSpellsteal" };
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", "DoorofShadows", Polymorph_SpellName(Language), "RingofFrost", Flamestrike_SpellName(Language), Meteor_SpellName(Language), "ArcaneExplosion", "FlamestrikeCursor", "NoSpellsteal" };
         private List<string> m_DebuffsList = new List<string> { Polymorph_SpellName(Language), };
         private List<string> m_BuffsList = new List<string> { ArcaneIntellect_SpellName(Language), ShiftingPower_SpellName(Language), Combustion_SpellName(Language) };
         private List<string> m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
@@ -1232,7 +1286,7 @@ namespace AimsharpWow.Modules
             BlazingBarrier_SpellName(Language), //235313
             BlastWave_SpellName(Language), //157981
             Blink_SpellName(Language), //1953 or 212653
-            ConeOfCold_SpellName(Language), //55342
+            ConeOfCold_SpellName(Language), //120
             Displacement_SpellName(Language), //389713
             DragonsBreath_SpellName(Language), //31661
             Fireball_SpellName(Language), //133
@@ -1241,6 +1295,7 @@ namespace AimsharpWow.Modules
             Frostbolt_SpellName(Language), //116
             GreaterInvisibility_SpellName(Language), //110959
             IceBlock_SpellName(Language), //45438
+            IceFloes_SpellName(Language), //108839
             IceNova_SpellName(Language), //157997
             Invisibility_SpellName(Language), //66
             MassPolymorph_SpellName(Language), //383121
@@ -1391,7 +1446,7 @@ namespace AimsharpWow.Modules
             Macros.Add("BotTrinket", "/use 14");
 
             //Healthstone
-            Macros.Add(Healthstone_SpellName(Language), "/use " + Healthstone_SpellName(Language));
+            Macros.Add("UseHealthstone", "/use " + Healthstone_SpellName(Language));
 
 
             //SpellQueueWindow
@@ -1766,7 +1821,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Polymorph"))
+            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language)))
             {
                 if (Debug)
                 {
@@ -1776,7 +1831,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 2120 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Flamestrike"))
+            if (Aimsharp.CastingID("player") == 2120 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language)))
             {
                 if (Debug)
                 {
@@ -1808,12 +1863,12 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("Flamestrike") && Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language)) && Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("Meteor") && Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn(Meteor_SpellName(Language)) && Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -1860,7 +1915,7 @@ namespace AimsharpWow.Modules
                     {
                         Aimsharp.PrintMessage("Using Healthstone - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Healthstone @ HP%"), Color.Purple);
                     }
-                    Aimsharp.Cast(Healthstone_SpellName(Language));
+                    Aimsharp.Cast("UseHealthstone");
                     return true;
                 }
             }
@@ -1951,7 +2006,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Queues
-            bool Polymorph = Aimsharp.IsCustomCodeOn("Polymorph");
+            bool Polymorph = Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language));
             if ((Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 || Moving) && Polymorph)
             {
                 if (Debug)
@@ -2047,7 +2102,7 @@ namespace AimsharpWow.Modules
 
             //Queue Meteor
             string MeteorCast = GetDropDown("Meteor Cast:");
-            bool Meteor = Aimsharp.IsCustomCodeOn("Meteor");
+            bool Meteor = Aimsharp.IsCustomCodeOn(Meteor_SpellName(Language));
             if ((Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Meteor)
             {
                 if (Debug)
@@ -2088,7 +2143,7 @@ namespace AimsharpWow.Modules
 
             //Queue Flamestrike
             string FlamestrikeCast = GetDropDown("Flamestrike Cast:");
-            bool Flamestrike = Aimsharp.IsCustomCodeOn("Flamestrike");
+            bool Flamestrike = Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language));
             if ((Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving || Aimsharp.LastCast() == Flamestrike_SpellName(Language)) && Flamestrike)
             {
                 if (Debug)
@@ -2614,6 +2669,16 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
+                    if (SpellID1 == 108839 && Aimsharp.CanCast(IceFloes_SpellName(Language), "player", false, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Ice Floes - " + SpellID1, Color.Black);
+                        }
+                        Aimsharp.Cast(IceFloes_SpellName(Language));
+                        return true;
+                    }
+
                     if (SpellID1 == 257997 && Aimsharp.CanCast(IceNova_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
@@ -2874,7 +2939,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Logic
-            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Polymorph"))
+            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language)))
             {
                 if (Debug)
                 {
@@ -2884,7 +2949,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 2120 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Flamestrike"))
+            if (Aimsharp.CastingID("player") == 2120 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language)))
             {
                 if (Debug)
                 {
@@ -2916,19 +2981,19 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("Flamestrike") && Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language)) && Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("Meteor") && Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn(Meteor_SpellName(Language)) && Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
             #endregion
 
             #region Queues
-            bool Polymorph = Aimsharp.IsCustomCodeOn("Polymorph");
+            bool Polymorph = Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language));
             if ((Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 || Moving) && Polymorph)
             {
                 if (Debug)
@@ -3024,7 +3089,7 @@ namespace AimsharpWow.Modules
 
             //Queue Meteor
             string MeteorCast = GetDropDown("Meteor Cast:");
-            bool Meteor = Aimsharp.IsCustomCodeOn("Meteor");
+            bool Meteor = Aimsharp.IsCustomCodeOn(Meteor_SpellName(Language));
             if ((Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Meteor)
             {
                 if (Debug)
@@ -3065,7 +3130,7 @@ namespace AimsharpWow.Modules
 
             //Queue Flamestrike
             string FlamestrikeCast = GetDropDown("Flamestrike Cast:");
-            bool Flamestrike = Aimsharp.IsCustomCodeOn("Flamestrike");
+            bool Flamestrike = Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language));
             if ((Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving || Aimsharp.LastCast() == Flamestrike_SpellName(Language)) && Flamestrike)
             {
                 if (Debug)
