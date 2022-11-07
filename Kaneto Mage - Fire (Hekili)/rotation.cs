@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using System.Diagnostics;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using AimsharpWow.API;
 
 namespace AimsharpWow.Modules
@@ -20,7 +20,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", "DoorofShadows", "Polymorph", "Evocation", "RingofFrost", "Flamestrike", "Meteor", "ArcaneExplosion", "FlamestrikeCursor", "NoSpellsteal"};
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", "DoorofShadows", "Polymorph", "Evocation", "RingofFrost", "Flamestrike", "Meteor", "ArcaneExplosion", "FlamestrikeCursor", "NoSpellsteal" };
         private List<string> m_DebuffsList = new List<string> { "Polymorph", };
         private List<string> m_BuffsList = new List<string> { "Arcane Intellect", "Shifting Power", "Combustion" };
         private List<string> m_BloodlustBuffsList = new List<string> { "Bloodlust", "Heroism", "Time Warp", "Primal Rage", "Drums of Rage" };
@@ -30,46 +30,51 @@ namespace AimsharpWow.Modules
             //Covenants
             "Radiant Spark", //307443
             "Deathborne", //324220
-            "Shifting Power", //314791
+            "Shifting Power", //314791, 382440
             "Mirrors of Torment", //314793
+
+            "Summon Steward", "Fleshcraft", "Door of Shadows",
 
             //Interrupt
             "Counterspell", //2139
 
             //General Mage
+            "Alter Time", //342245
             "Arcane Explosion", //1449
             "Arcane Intellect", //1459
+            "Blazing Barrier", //235313
+            "Blast Wave", //157981
             "Blink", //1953 or 212653
-            "Frostbolt", //116
+            "Cone of Cold", //55342
+            "Displacement", //389713
+            "Dragon's Breath", //31661
+            "Fireball", //133
+            "Fire Blast", //108853
             "Frost Nova", //122
+            "Frostbolt", //116
+            "Greater Invisibility", //110959
             "Ice Block", //45438
+            "Ice Nova", //157997
+            "Invisibility", //45438
+            "Mass Polymorph", //55342
+            "Meteor", //153561
             "Mirror Image", //55342
             "Polymorph", //118
             "Remove Curse", //475
+            "Ring of Frost", //113724
             "Rune of Power", //116011
             "Slow Fall", //130
             "Spellsteal", //30449
             "Time Warp", //80353
 
             //Fire Mage
-            "Fire Blast", //108853
-            "Blazing Barrier", //235313
-            "Phoenix Flames", //257541
             "Combustion", //190319
-            "Pyroblast", //11366
-            "Dragon's Breath", //31661
-            "Scorch", //2948
-            "Fireball", //133
             "Flamestrike", //2120
-            "Blast Wave", //157981
             "Focus Magic", //321358
-            "Ring of Frost", //113724
             "Living Bomb", //44457
-            "Meteor", //153561
-
-
-            "Summon Steward", "Fleshcraft", "Door of Shadows"
-
+            "Phoenix Flames", //257541
+            "Pyroblast", //11366
+            "Scorch", //2948
         };
 
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
@@ -212,6 +217,7 @@ namespace AimsharpWow.Modules
             Macros.Add("RingofFrostOff", "/" + FiveLetters + " RingofFrost");
             Macros.Add("FlamestrikeOff", "/" + FiveLetters + " Flamestrike");
             Macros.Add("MeteorOff", "/" + FiveLetters + " Meteor");
+            Macros.Add("DoorofShadowsOff", "/" + FiveLetters + " DoorofShadows");
 
             Macros.Add("FOC_party1", "/focus party1");
             Macros.Add("FOC_party2", "/focus party2");
@@ -357,9 +363,10 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Auto Spellsteal Target:", true));
             Settings.Add(new Setting("Auto Spellsteal Mouseover:", true));
             Settings.Add(new Setting("Don't Spellsteal during Combustion:", true));
-            Settings.Add(new Setting("Auto Blazing Barrier @ HP%", 0, 100, 90));
             Settings.Add(new Setting("Auto Ice Block @ HP%", 0, 100, 25));
             Settings.Add(new Setting("Auto Alter Time @ HP%", 0, 100, 15));
+            Settings.Add(new Setting("Auto Blazing Barrier @ HP%", 0, 100, 90));
+            Settings.Add(new Setting("Auto Greater Invisibility @ HP%", 0, 100, 35));
             Settings.Add(new Setting("Ring of Frost Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Meteor Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Flamestrike Cast:", m_CastingList, "Manual"));
@@ -387,24 +394,28 @@ namespace AimsharpWow.Modules
             Aimsharp.QuickDelay = 50;
             Aimsharp.SlowDelay = 150;
 
-            Aimsharp.PrintMessage("Snoogens PVE - Mage Fire", Color.Yellow);
-            Aimsharp.PrintMessage("This rotation requires the Hekili Addon", Color.Red);
-            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything", Color.Brown);
-            Aimsharp.PrintMessage("Hekili > Toggles > Bind \"Cooldowns\" & \"Display Mode\"", Color.Brown);
+            Aimsharp.PrintMessage("Kanetos PVE - Mage Fire", Color.Yellow);
+            Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
+            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Brown);
+            Aimsharp.PrintMessage("-----", Color.Black);
+            Aimsharp.PrintMessage("- Talents -", Color.White);
+            Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/de/guide/classes/mage/fire/overview-pve-dps", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- General -", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoInterrupts - Disables Interrupts", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoCycle - Disables Target Cycle", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoDecurse - Disables Decurse", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoSpellsteal - Disables Spellsteal", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Polymorph - Casts Polymorph @ Mouseover next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx ArcaneExplosion - Spams Arcane Explosion until turned Off", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx RingofFrost - Casts Ring of Frost @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Flamestrike - Casts Flamestrike @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Meteor - Casts Meteor @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx DoorofShadows - Casts Door of Shadows @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx FlamestrikeCursor - Toggles Flamestrike always @ Cursor (same as Option)", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoCycle - Disables Target Cycle", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoDecurse - Disables Decurse", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoSpellsteal - Disables Spellsteal", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Polymorph - Casts Polymorph @ Mouseover next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " ArcaneExplosion - Spams Arcane Explosion until turned Off", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " RingofFrost - Casts Ring of Frost @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Flamestrike - Casts Flamestrike @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Meteor - Casts Meteor @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " DoorofShadows - Casts Door of Shadows @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " FlamestrikeCursor - Toggles Flamestrike always @ Cursor (same as Option)", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
+
+            Language = GetDropDown("Game Client Language");
 
             #region Racial Spells
             if (GetDropDown("Race:") == "draenei")
@@ -493,8 +504,6 @@ namespace AimsharpWow.Modules
             }
             #endregion
 
-            InitializeSettings();
-
             InitializeMacros();
 
             InitializeSpells();
@@ -511,7 +520,7 @@ namespace AimsharpWow.Modules
             int Enemies = Aimsharp.CustomFunction("HekiliEnemies");
             int TargetingGroup = Aimsharp.CustomFunction("GroupTargets");
 
-            bool NoInterrupts= Aimsharp.IsCustomCodeOn("NoInterrupts");
+            bool NoInterrupts = Aimsharp.IsCustomCodeOn("NoInterrupts");
             bool NoDecurse = Aimsharp.IsCustomCodeOn("NoDecurse");
             bool NoCycle = Aimsharp.IsCustomCodeOn("NoCycle");
             bool NoSpellsteal = Aimsharp.IsCustomCodeOn("NoSpellsteal");
@@ -709,6 +718,20 @@ namespace AimsharpWow.Modules
                     if (Debug)
                     {
                         Aimsharp.PrintMessage("Casting Alter Time - Player HP% " + PlayerHP + " due to setting being on HP% " + GetSlider("Auto Alter Time @ HP%"), Color.Purple);
+                    }
+                    return true;
+                }
+            }
+
+            //Auto Greater Invisibility
+            if (Aimsharp.CanCast("Greater Invisibility", "player", false, true))
+            {
+                if (PlayerHP <= GetSlider("Auto Greater Invisibility @ HP%"))
+                {
+                    Aimsharp.Cast("Greater Invisibility");
+                    if (Debug)
+                    {
+                        Aimsharp.PrintMessage("Casting Greater Invisibility - Player HP% " + PlayerHP + " due to setting being on HP% " + GetSlider("Auto Greater Invisibility @ HP%"), Color.Black);
                     }
                     return true;
                 }
@@ -1242,7 +1265,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 314791 && Aimsharp.CanCast("Shifting Power", "player", false, true) && !Moving)
+                    if ((SpellID1 == 314791 || SpellID1 == 382440) && Aimsharp.CanCast("Shifting Power", "player", false, true) && !Moving)
                     {
                         if (Debug)
                         {
@@ -1309,6 +1332,16 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
+                    if (SpellID1 == 383121 && Aimsharp.CanCast("Mass Polymorph", "target", true, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Mass Polymorph - " + SpellID1, Color.Black);
+                        }
+                        Aimsharp.Cast("Mass Polymorph");
+                        return true;
+                    }
+
                     if (!NoSpellsteal && SpellID1 == 30449 && Aimsharp.CanCast("Spellsteal", "target", true, true) && (!GetCheckBox("Don't Spellsteal during Combustion:") || GetCheckBox("Don't Spellsteal during Combustion:") && !Aimsharp.HasBuff("Combustion", "player", true)))
                     {
                         if (Debug)
@@ -1351,6 +1384,26 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
+                    if (SpellID1 == 120 && Aimsharp.CanCast("Cone of Cold", "player", false, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Cone of Cold - " + SpellID1, Color.Black);
+                        }
+                        Aimsharp.Cast("Cone of Cold");
+                        return true;
+                    }
+
+                    if (SpellID1 == 389713 && Aimsharp.CanCast("Displacement", "player", false, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Displacement - " + SpellID1, Color.Black);
+                        }
+                        Aimsharp.Cast("Displacement");
+                        return true;
+                    }
+
                     if (SpellID1 == 321358 && Aimsharp.CanCast("Focus Magic", "player", false, true))
                     {
                         if (Debug)
@@ -1371,6 +1424,16 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
+                    if (SpellID1 == 66 && Aimsharp.CanCast("Invisibility", "player", false, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Invisibility - " + SpellID1, Color.Black);
+                        }
+                        Aimsharp.Cast("Invisibility");
+                        return true;
+                    }
+
                     if (SpellID1 == 45438 && Aimsharp.CanCast("Ice Block", "player", false, true))
                     {
                         if (Debug)
@@ -1378,6 +1441,16 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Casting Ice Block - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast("Ice Block");
+                        return true;
+                    }
+
+                    if (SpellID1 == 257997 && Aimsharp.CanCast("Ice Nova", "player", false, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Ice Nova - " + SpellID1, Color.Black);
+                        }
+                        Aimsharp.Cast("Ice Nova");
                         return true;
                     }
 

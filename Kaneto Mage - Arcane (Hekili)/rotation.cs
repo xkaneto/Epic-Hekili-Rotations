@@ -2440,7 +2440,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 314791 && Aimsharp.CanCast(ShiftingPower_SpellName(Language), "player", false, true) && !Moving)
+                    if ((SpellID1 == 314791 || SpellID1 == 382440 ) && Aimsharp.CanCast(ShiftingPower_SpellName(Language), "player", false, true) && !Moving)
                     {
                         if (Debug)
                         {
