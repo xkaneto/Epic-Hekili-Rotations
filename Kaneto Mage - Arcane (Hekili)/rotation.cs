@@ -1669,7 +1669,6 @@ namespace AimsharpWow.Modules
 
         public override void Initialize()
         {
-
             #region Get Addon Name
             if (Aimsharp.GetAddonName().Length >= 5)
             {
@@ -1685,7 +1684,7 @@ namespace AimsharpWow.Modules
 
             Aimsharp.Latency = GetSlider("Ingame World Latency:");
             Aimsharp.QuickDelay = 50;
-            Aimsharp.SlowDelay = 75;
+            Aimsharp.SlowDelay = 150;
 
             Aimsharp.PrintMessage("Kanetos PVE - Mage Arcane", Color.Yellow);
             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);

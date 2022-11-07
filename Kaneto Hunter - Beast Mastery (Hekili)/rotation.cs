@@ -1822,7 +1822,7 @@ namespace AimsharpWow.Modules
 
             Aimsharp.Latency = GetSlider("Ingame World Latency:");
             Aimsharp.QuickDelay = 50;
-            Aimsharp.SlowDelay = 75;
+            Aimsharp.SlowDelay = 150;
 
             Aimsharp.PrintMessage("Kaneto PVE - Hunter Beast Mastery", Color.Yellow);
             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);

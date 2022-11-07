@@ -34,3 +34,7 @@ To-Do:
 - Warlock - Affliction
 - Warlock - Demonology
 - Warlock - Destruction
+
+- Randomize Kicks Option
+- Auto Heal Potion Setting
+- Prioritize certain adds in M+ (like Invigorating Fish Sticks)
