@@ -3287,7 +3287,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 384052 && Aimsharp.CanCast(RadiantDecree_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if ((SpellID1 == 384052 || SpellID1 == 255937) && Aimsharp.CanCast(RadiantDecree_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
                     {
                         if (Debug)
                         {
