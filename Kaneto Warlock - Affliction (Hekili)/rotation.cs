@@ -7,8 +7,13 @@ using AimsharpWow.API;
 
 namespace AimsharpWow.Modules
 {
-    public class SnoogensPVEWarlockAffliction : Rotation
+    public class KanetoWarlockAfflictionHekili : Rotation
     {
+        private static string Language = "English";
+
+        #region SpellFunctions
+        #endregion
+
         #region Variables
         string FiveLetters;
         #endregion
@@ -19,7 +24,7 @@ namespace AimsharpWow.Modules
         private List<string> m_DebuffsList = new List<string> { "Banish", "Fear", };
         private List<string> m_BuffsList = new List<string> {  };
         private List<string> m_BloodlustBuffsList = new List<string> { "Bloodlust", "Heroism", "Time Warp", "Primal Rage", "Drums of Rage" };
-        private List<string> m_ItemsList = new List<string> { "Phial of Serenity", "Healthstone", };
+        private List<string> m_ItemsList = new List<string> { "Healthstone", };
 
         private List<string> m_SpellBook = new List<string> {
             //Covenants
@@ -28,34 +33,45 @@ namespace AimsharpWow.Modules
             "Soul Rot", //325640
             "Decimating Bolt", //325289
 
+            "Summon Steward", "Fleshcraft", "Door of Shadows",
+
             //Interrupt
             "Spell Lock", //119910
 
             //General
-            //"Command Demon", //119898
-            "Corruption", //172
-            "Fear", //5782
-            //"Create Healthstone", //6201
-            "Fel Domination", //333889
-            "Curse of Exhaustion", //334275
-            "Health Funnel", //755
-            "Curse of Weakness", //702
-            "Shadow Bolt", //686
-            "Drain Life", //234153
-            //"Subjugate Demon", //1098
-            "Summon Imp", //688
-            "Summon Voidwalker", //697
-            "Summon Felhunter", //691
-            "Summon Succubus", //712
-            "Summon Felguard", //30146
-            "Unending Resolve", //104773
-            "Soulstone", //20707
-            "Curse of Tongues", //1714
-            "Demonic Circle", //48018
-            "Demonic Circle: Teleport", //48020
+            "Agony", //980
+            "Amplify Curse", //328774
             "Banish", //710
+            "Burning Rush", //111400
+            "Corruption", //172
+            "Curse of Exhaustion", //334275
+            "Curse of Tongues", //1714, 199890
+            "Curse of Weakness", //702
+            "Dark Pact", //108416
+            "Demonic Circle: Teleport", //48020
+            "Demonic Circle", //48018
             "Demonic Gateway", //111771
+            "Drain Life", //234153
+            "Fear", //5782
+            "Fel Domination", //333889
+            "Health Funnel", //755
+            "Howl of Terror", //5484
+            "Inquisitor's Gaze", //386344
+            "Mortal Coil", //6789
+            "Shadow Bolt", //686
+            "Shadowflame", //384069
             "Shadowfury", //30283
+            "Soulstone", //20707
+            "Summon Felguard", //30146
+            "Summon Felhunter", //691
+            "Summon Imp", //688
+            "Summon Sayaad", //366222
+            "Summon Soulkeeper", //386244
+            "Summon Voidwalker", //697
+            "Unending Resolve", //104773
+            //"Command Demon", //119898
+            //"Create Healthstone", //6201
+            //"Subjugate Demon", //1098
 
             //Pet
             "Devour Magic", //19505
@@ -63,25 +79,17 @@ namespace AimsharpWow.Modules
             "Seduction", //6358
 
             //Affliction
-            "Agony", //980
-            "Malefic Rapture", //324536
-            "Seed of Corruption", //27243
-            "Unstable Affliction", //316099
-            "Summon Darkglare", //205180
-
-            "Drain Soul", //198590
-            "Siphon Life", //63106
-            "Burning Rush", //111400
-            "Dark Pact", //108416
-            "Phantom Singularity", //205179
-            "Vile Taint", //278350
-            "Mortal Coil", //6789
-            "Howl of Terror", //5484
-            "Haunt", //48181
-            "Grimoire of Sacrifice", //108503
             "Dark Soul: Misery", //113860
-
-            "Summon Steward", "Fleshcraft", "Door of Shadows"
+            "Drain Soul", //198590
+            "Grimoire of Sacrifice", //108503
+            "Haunt", //48181
+            "Malefic Rapture", //324536
+            "Phantom Singularity", //205179
+            "Seed of Corruption", //27243
+            "Siphon Life", //63106
+            "Summon Darkglare", //205180
+            "Unstable Affliction", //316099
+            "Vile Taint", //278350
 
         };
 
@@ -175,10 +183,6 @@ namespace AimsharpWow.Modules
         #endregion
 
         #region Initializations
-        private void InitializeSettings()
-        {
-            FiveLetters = GetString("First 5 Letters of the Addon:");
-        }
 
         private void InitializeMacros()
         {
@@ -190,10 +194,7 @@ namespace AimsharpWow.Modules
             Macros.Add("BotTrinket", "/use 14");
 
             //Healthstone
-            Macros.Add("Healthstone", "/use Healthstone");
-            
-            //Phial
-            Macros.Add("PhialofSerenity", "/use Phial of Serenity");
+            Macros.Add("UseHealthstone", "/use Healthstone");
 
             //SpellQueueWindow
             Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + (Aimsharp.Latency + 100));
@@ -242,7 +243,7 @@ namespace AimsharpWow.Modules
             CustomFunctions.Add("GetSpellQueueWindow", "local sqw = GetCVar(\"SpellQueueWindow\"); if sqw ~= nil then return tonumber(sqw); end return 0");
 
             CustomFunctions.Add("CooldownsToggleCheck", "local loading, finished = IsAddOnLoaded(\"Hekili\") if loading == true and finished == true then local cooldowns = Hekili:GetToggleState(\"cooldowns\") if cooldowns == true then return 1 else if cooldowns == false then return 2 end end end return 0");
-            
+
             CustomFunctions.Add("UnitIsDead", "if UnitIsDead(\"target\") ~= nil and UnitIsDead(\"target\") == true then return 1 end; if UnitIsDead(\"target\") ~= nil and UnitIsDead(\"target\") == false then return 2 end; return 0");
 
             CustomFunctions.Add("IsTargeting", "if SpellIsTargeting()\r\n then return 1\r\n end\r\n return 0");
@@ -289,13 +290,26 @@ namespace AimsharpWow.Modules
 
         public override void LoadSettings()
         {
-            Settings.Add(new Setting("First 5 Letters of the Addon:", "xxxxx"));
+            Settings.Add(new Setting("Misc"));
+            Settings.Add(new Setting("Debug:", false));
+            Settings.Add(new Setting("Game Client Language", new List<string>()
+            {
+                "English",
+                "Deutsch",
+                "Español",
+                "Français",
+                "Italiano",
+                "Português Brasileiro",
+                "Русский",
+                "한국어",
+                "简体中文"
+            }, "English"));
+            Settings.Add(new Setting(""));
             Settings.Add(new Setting("Race:", m_RaceList, "bloodelf"));
             Settings.Add(new Setting("Ingame World Latency:", 1, 200, 50));
             Settings.Add(new Setting(" "));
             Settings.Add(new Setting("Use Trinkets on CD, dont wait for Hekili:", false));
             Settings.Add(new Setting("Auto Healthstone @ HP%", 0, 100, 25));
-            Settings.Add(new Setting("Auto Phial of Serenity @ HP%", 0, 100, 35));
             Settings.Add(new Setting("Kicks/Interrupts"));
             Settings.Add(new Setting("Kick at milliseconds remaining", 50, 1500, 500));
             Settings.Add(new Setting("Kick channels after milliseconds", 50, 1500, 500));
@@ -309,13 +323,18 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Shadowfury Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Vile Taint Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Always Cast Vile Taint @ Cursor during Rotation", false));
-            Settings.Add(new Setting("Misc"));
-            Settings.Add(new Setting("Debug:", false));
+            Settings.Add(new Setting("    "));
 
         }
 
         public override void Initialize()
         {
+            #region Get Addon Name
+            if (Aimsharp.GetAddonName().Length >= 5)
+            {
+                FiveLetters = Aimsharp.GetAddonName().Substring(0, 5);
+            }
+            #endregion
 
             if (GetCheckBox("Debug:") == true)
             {
@@ -324,25 +343,29 @@ namespace AimsharpWow.Modules
 
 
             Aimsharp.Latency = GetSlider("Ingame World Latency:");
-            Aimsharp.QuickDelay = 150;
-            Aimsharp.SlowDelay = 350;
+            Aimsharp.QuickDelay = 50;
+            Aimsharp.SlowDelay = 150;
 
-            Aimsharp.PrintMessage("Snoogens PVE - Warlock Affliction", Color.Yellow);
-            Aimsharp.PrintMessage("This rotation requires the Hekili Addon", Color.Red);
-            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything", Color.Brown);
-            Aimsharp.PrintMessage("Hekili > Toggles > Bind \"Cooldowns\" & \"Display Mode\"", Color.Brown);
+            Aimsharp.PrintMessage("Kanetos PVE - Warlock Affliction", Color.Yellow);
+             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
+            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Brown);
+            Aimsharp.PrintMessage("-----", Color.Black);
+            Aimsharp.PrintMessage("- Talents -", Color.White);
+            Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/guide/classes/warlock/affliction/overview-pve-dps", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- General -", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoInterrupts - Disables Interrupts", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoCycle - Disables Target Cycle", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Fear - Casts Fear @ Mouseover next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Banish - Casts Banish @ Mouseover next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx HowlofTerror - Casts Howl of Terror @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx MortalCoil - Casts Mortal Coil @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Shadowfury - Casts Shadowfury @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx VileTaint - Casts Vile Taint @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx VileTaintCursor - Toggles Vile Taint always @ Cursor (same as Option)", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoCycle - Disables Target Cycle", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Fear - Casts Fear @ Mouseover next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Banish - Casts Banish @ Mouseover next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " HowlofTerror - Casts Howl of Terror @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " MortalCoil - Casts Mortal Coil @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Shadowfury - Casts Shadowfury @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " VileTaint - Casts Vile Taint @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " VileTaintCursor - Toggles Vile Taint always @ Cursor (same as Option)", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
+
+            Language = GetDropDown("Game Client Language");
 
             #region Racial Spells
             if (GetDropDown("Race:") == "draenei")
@@ -430,8 +453,6 @@ namespace AimsharpWow.Modules
                 Spellbook.Add("Shadowmeld"); //58984
             }
             #endregion
-
-            InitializeSettings();
 
             InitializeMacros();
 
@@ -572,21 +593,7 @@ namespace AimsharpWow.Modules
                     {
                         Aimsharp.PrintMessage("Using Healthstone - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Healthstone @ HP%"), Color.Purple);
                     }
-                    Aimsharp.Cast("Healthstone");
-                    return true;
-                }
-            }
-
-            //Phial of Serenity
-            if (Aimsharp.CanUseItem("Phial of Serenity", false) && Aimsharp.ItemCooldown("Phial of Serenity") == 0)
-            {
-                if (Aimsharp.Health("player") <= GetSlider("Auto Phial of Serenity @ HP%"))
-                {
-                    if (Debug)
-                    {
-                        Aimsharp.PrintMessage("Using Phial of Serenity - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Phial of Serenity @ HP%"), Color.Purple);
-                    }
-                    Aimsharp.Cast("PhialofSerenity");
+                    Aimsharp.Cast("UseHealthstone");
                     return true;
                 }
             }
@@ -1239,7 +1246,7 @@ namespace AimsharpWow.Modules
                     }
                     */
 
-                    if (SpellID1 == 1714 && Aimsharp.CanCast("Curse of Tongues", "target", true, true))
+                    if ((SpellID1 == 1714 || SpellID1 == 199890) && Aimsharp.CanCast("Curse of Tongues", "target", true, true))
                     {
                         if (Debug)
                         {
@@ -1333,13 +1340,13 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 712 && Aimsharp.CanCast("Summon Succubus", "player", false, true))
+                    if (SpellID1 == 366222 && Aimsharp.CanCast("Summon Sayaad", "player", false, true))
                     {
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Summon Succubus - " + SpellID1, Color.Purple);
+                            Aimsharp.PrintMessage("Casting Summon Sayaad - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Summon Succubus");
+                        Aimsharp.Cast("Summon Sayaad");
                         return true;
                     }
 
@@ -1429,6 +1436,16 @@ namespace AimsharpWow.Modules
                                 Aimsharp.Cast("ShadowfuryC");
                                 return true;
                         }
+                    }
+
+                    if (SpellID1 == 384069 && Aimsharp.CanCast("Shadowflame", "player", false, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Shadowflame - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast("Shadowflame");
+                        return true;
                     }
 
                     if (SpellID1 == 89808 && Aimsharp.CanCast("Singe Magic", "player", false, true))
@@ -1591,6 +1608,16 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Casting Agony - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast("Agony");
+                        return true;
+                    }
+
+                    if (SpellID1 == 328774 && Aimsharp.CanCast("Amplify Curse", "target", true, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Amplify Curse - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast("Amplify Curse");
                         return true;
                     }
 
@@ -1912,13 +1939,13 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (SpellID1 == 712 && Aimsharp.CanCast("Summon Succubus", "player", false, true) && SummonDemonOOC && !Moving)
+            if (SpellID1 == 712 && Aimsharp.CanCast("Summon Sayaad", "player", false, true) && SummonDemonOOC && !Moving)
             {
                 if (Debug)
                 {
-                    Aimsharp.PrintMessage("Casting Summon Succubus - " + SpellID1, Color.Purple);
+                    Aimsharp.PrintMessage("Casting Summon Sayaad - " + SpellID1, Color.Purple);
                 }
-                Aimsharp.Cast("Summon Succubus");
+                Aimsharp.Cast("Summon Sayaad");
                 return true;
             }
 

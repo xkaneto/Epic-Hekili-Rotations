@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Diagnostics;
 using System;
 using System.Collections.Generic;
@@ -7,19 +7,24 @@ using AimsharpWow.API;
 
 namespace AimsharpWow.Modules
 {
-    public class SnoogensPVERogueOutlaw : Rotation
+    public class KanetoRogueOutlawHekili : Rotation
     {
+        private static string Language = "English";
+
+        #region SpellFunctions
+        #endregion
+
         #region Variables
         string FiveLetters;
         #endregion
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "Distract", "Blind", "Sap", "KidneyShot", "NoCycle", "GrapplingHook",};
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "Distract", "Blind", "Sap", "KidneyShot", "NoCycle", "GrapplingHook", };
         private List<string> m_DebuffsList = new List<string> { "Sap", "Blind", "Garrote", "Rupture", "Serrated Bone Spike", };
-        private List<string> m_BuffsList = new List<string> { "Stealth", "Vanish", "Blindside", "Subterfuge",};
+        private List<string> m_BuffsList = new List<string> { "Stealth", "Vanish", "Blindside", "Subterfuge","Instant Poison","Numbing Poison", };
         private List<string> m_BloodlustBuffsList = new List<string> { "Bloodlust", "Heroism", "Time Warp", "Primal Rage", "Drums of Rage" };
-        private List<string> m_ItemsList = new List<string> { "Phial of Serenity", "Healthstone" };
+        private List<string> m_ItemsList = new List<string> { "Healthstone" };
 
         private List<string> m_SpellBook_General = new List<string> {
             //Covenants
@@ -49,6 +54,8 @@ namespace AimsharpWow.Modules
             "Shroud of Concealment",
             "Fleshcraft",
             "Shadowstep",
+            "Instant Poison",
+            "Numbing Poison",
 
             //General Talents
             "Marked for Death",
@@ -71,6 +78,9 @@ namespace AimsharpWow.Modules
             "Dreadblades",
             "Killing Spree",
             "Blade Rush",
+            "Echoing Reprimand",
+            "Ghostly Strike",
+            "Shadow Dance",
         };
 
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
@@ -135,7 +145,7 @@ namespace AimsharpWow.Modules
         List<int> TorghastList = new List<int> { 1618 - 1641, 1645, 1705, 1712, 1716, 1720, 1721, 1736, 1749, 1751 - 1754, 1756 - 1812, 1833 - 1911, 1913, 1914, 1920, 1921, 1962 - 1969, 1974 - 1988, 2010 - 2012, 2019 };
 
         List<int> SpecialUnitList = new List<int> { 176581, 176920, 178008, 168326, 168969, 175861, };
-#endregion
+        #endregion
 
         #region Misc Checks
         private bool TargetAlive()
@@ -335,7 +345,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastMarkedforDeath(string unit)
         {
-            if (Aimsharp.CanCast("Marked for Death", unit, true, true) || (Aimsharp.SpellCooldown("Marked for Death") <= 0 && Aimsharp.Range(unit) <= 30 && Aimsharp.Talent(3,3) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Marked for Death", unit, true, true) || (Aimsharp.SpellCooldown("Marked for Death") <= 0 && Aimsharp.Range(unit) <= 30 && Aimsharp.Talent(3, 3) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -449,10 +459,6 @@ namespace AimsharpWow.Modules
         #endregion
 
         #region Initializations
-        private void InitializeSettings()
-        {
-            FiveLetters = GetString("First 5 Letters of the Addon:");
-        }
 
         private void InitializeMacros()
         {
@@ -464,10 +470,8 @@ namespace AimsharpWow.Modules
             Macros.Add("BotTrinket", "/use 14");
 
             //Healthstone
-            Macros.Add("Healthstone", "/use Healthstone");
+            Macros.Add("UseHealthstone", "/use Healthstone");
 
-            //Phial
-            Macros.Add("PhialofSerenity", "/use Phial of Serenity");
 
             //SpellQueueWindow
             Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + (Aimsharp.Latency + 100));
@@ -541,13 +545,26 @@ namespace AimsharpWow.Modules
 
         public override void LoadSettings()
         {
-            Settings.Add(new Setting("First 5 Letters of the Addon:", "xxxxx"));
+            Settings.Add(new Setting("Misc"));
+            Settings.Add(new Setting("Debug:", false));
+            Settings.Add(new Setting("Game Client Language", new List<string>()
+            {
+                "English",
+                "Deutsch",
+                "Español",
+                "Français",
+                "Italiano",
+                "Português Brasileiro",
+                "Русский",
+                "한국어",
+                "简体中文"
+            }, "English"));
+            Settings.Add(new Setting(""));
             Settings.Add(new Setting("Race:", m_RaceList, "orc"));
             Settings.Add(new Setting("Ingame World Latency:", 1, 200, 50));
             Settings.Add(new Setting(" "));
             Settings.Add(new Setting("Use Trinkets on CD, dont wait for Hekili:", false));
             Settings.Add(new Setting("Auto Healthstone @ HP%", 0, 100, 25));
-            Settings.Add(new Setting("Auto Phial of Serenity @ HP%", 0, 100, 35));
             Settings.Add(new Setting("Kicks/Interrupts"));
             Settings.Add(new Setting("Kick at milliseconds remaining", 50, 1500, 500));
             Settings.Add(new Setting("Kick channels after milliseconds", 50, 1500, 500));
@@ -562,13 +579,18 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Auto Evasion @ HP%", 0, 100, 25));
             Settings.Add(new Setting("Auto Cloak @ HP%", 0, 100, 15));
             Settings.Add(new Setting("Auto Vial @ HP%", 0, 100, 35));
-            Settings.Add(new Setting("Misc"));
-            Settings.Add(new Setting("Debug:", false));
+            Settings.Add(new Setting("    "));
 
         }
 
         public override void Initialize()
         {
+            #region Get Addon Name
+            if (Aimsharp.GetAddonName().Length >= 5)
+            {
+                FiveLetters = Aimsharp.GetAddonName().Substring(0, 5);
+            }
+            #endregion
 
             if (GetCheckBox("Debug:") == true)
             {
@@ -576,24 +598,28 @@ namespace AimsharpWow.Modules
             }
 
             Aimsharp.Latency = GetSlider("Ingame World Latency:");
-            Aimsharp.QuickDelay = 150;
-            Aimsharp.SlowDelay = 350;
+            Aimsharp.QuickDelay = 50;
+            Aimsharp.SlowDelay = 150;
 
-            Aimsharp.PrintMessage("Snoogens PVE - Rogue Outlaw", Color.Yellow);
-            Aimsharp.PrintMessage("This rotation requires the Hekili Addon", Color.Red);
-            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything", Color.Brown);
-            Aimsharp.PrintMessage("Hekili > Toggles > Bind \"Cooldowns\" & \"Display Mode\"", Color.Brown);
+            Aimsharp.PrintMessage("Kanetos PVE - Rogue Outlaw", Color.Yellow);
+            Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
+            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Brown);
+            Aimsharp.PrintMessage("-----", Color.Black);
+            Aimsharp.PrintMessage("- Talents -", Color.White);
+            Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/guide/classes/rogue/outlaw/overview-pve-dps", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("Poisons are Manual - apply them before Combat", Color.Green);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- General -", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoInterrupts - Disables Interrupts", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoCycle - Disables Target Cycle", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Blind - Casts Blind @ Mouseover on the next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Sap - Casts Sap @ Target on the next GCD, turns off Auto Combat while On", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Distract - Casts Distract @ Manual/Cursor/Player on the next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx KidneyShot - Casts Kidney Shit @ Target next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoCycle - Disables Target Cycle", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Blind - Casts Blind @ Mouseover on the next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Sap - Casts Sap @ Target on the next GCD, turns off Auto Combat while On", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Distract - Casts Distract @ Manual/Cursor/Player on the next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " KidneyShot - Casts Kidney Shit @ Target next GCD", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
+
+            Language = GetDropDown("Game Client Language");
 
             #region Racial Spells
             if (GetDropDown("Race:") == "draenei")
@@ -681,8 +707,6 @@ namespace AimsharpWow.Modules
                 Spellbook.Add("Shadowmeld"); //58984
             }
             #endregion
-
-            InitializeSettings();
 
             InitializeMacros();
 
@@ -800,27 +824,13 @@ namespace AimsharpWow.Modules
                     {
                         Aimsharp.PrintMessage("Using Healthstone - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Healthstone @ HP%"), Color.Purple);
                     }
-                    Aimsharp.Cast("Healthstone");
-                    return true;
-                }
-            }
-
-            //Auto Phial of Serenity
-            if (Aimsharp.CanUseItem("Phial of Serenity", false) && Aimsharp.ItemCooldown("Phial of Serenity") == 0)
-            {
-                if (Aimsharp.Health("player") <= GetSlider("Auto Phial of Serenity @ HP%"))
-                {
-                    if (Debug)
-                    {
-                        Aimsharp.PrintMessage("Using Phial of Serenity - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Phial of Serenity @ HP%"), Color.Purple);
-                    }
-                    Aimsharp.Cast("PhialofSerenity");
+                    Aimsharp.Cast("UseHealthstone");
                     return true;
                 }
             }
 
             //Auto Evasion
-            if(PlayerHP <= EvasionHP && CanCastEvasion("player"))
+            if (PlayerHP <= EvasionHP && CanCastEvasion("player"))
             {
                 if (Debug)
                 {
@@ -1310,6 +1320,17 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
+
+                    if (SpellID1 == 385408 && CanCastSepsis("target"))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Sepsis - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast("Sepsis");
+                        return true;
+                    }
+
                     if (SpellID1 == 328547 && CanCastSerratedBoneSpike("target"))
                     {
                         if (Debug)
@@ -1526,7 +1547,6 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast("Blade Flurry");
                         return true;
                     }
-
                     if (SpellID1 == 315508 && Aimsharp.CanCast("Roll the Bones", "player", false, true) && Aimsharp.Range("target") <= 10)
                     {
                         if (Debug)
@@ -1536,7 +1556,6 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast("Roll the Bones");
                         return true;
                     }
-
                     if (SpellID1 == 13750 && Aimsharp.CanCast("Adrenaline Rush", "player", false, true) && MeleeRange)
                     {
                         if (Debug)
@@ -1546,129 +1565,62 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast("Adrenaline Rush");
                         return true;
                     }
-
-                    if (SpellID1 == 51690 && Aimsharp.CanCast("Killing Spree", "player", false, true) && MeleeRange)
+                    if (SpellID1 == 185313 && Aimsharp.CanCast("Shadow Dance", "player", false, true) && MeleeRange)
                     {
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Killing Spree - " + SpellID1, Color.Purple);
+                            Aimsharp.PrintMessage("Casting Shadow Dance - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Killing Spree");
+                        Aimsharp.Cast("Shadow Dance");
                         return true;
                     }
+                    /*
+                                        //Killing Spree
+                                        canCastSpell(spellID,51690,"Killing Spree","player",false,true,MeleeRange);
+                                        //Killing Spree
+                                        canCastSpell(spellID,51690,"Killing Spree","player",false,true,MeleeRange);
+                                        //Killing Spree
+                                        canCastSpell(spellID,51690,"Killing Spree","player",false,true,MeleeRange);
+
+                                        //Killing Spree
+                                        canCastSpell(spellID,51690,"Killing Spree","player",false,true,MeleeRange);
+                                        */
                     #endregion
 
                     #region Outlaw Spells - Target GCD
                     ////Target
-                    if (SpellID1 == 193315 && Aimsharp.CanCast("Sinister Strike", "target", true, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Sinister Strike - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Sinister Strike");
-                        return true;
-                    }
+                    //Echoing Reprimand
+                    canCastSpell(SpellID1, 323547, "Echoing Reprimand", Debug, "target", true, true);
+                    canCastSpell(SpellID1, 385616, "Echoing Reprimand", Debug, "target", true, true);
+                    //Killing Spree
+                    canCastSpell(SpellID1, 51690, "Killing Spree", Debug, MeleeRange, "player", false, true);
+                    //Adrenaline Rush
+                    canCastSpell(SpellID1, 13750, "Adrenaline Rush", Debug, MeleeRange, "player", false, true);
+                    //Sinister Strike
+                    canCastSpell(SpellID1, 193315, "Sinister Strike", Debug, "target", true, true);
+                    //Ambush
+                    canCastSpell(SpellID1, 8676, "Ambush", Debug, "target", true, true);
+                    //Pistol Shot
+                    canCastSpell(SpellID1, 185763, "Pistol Shot", Debug, "target", true, true);
+                    //Between the Eyes
+                    canCastSpell(SpellID1, 315341, "Between the Eyes", Debug, "target", true, true);
+                    //Dispatch
+                    canCastSpell(SpellID1, 2098, "Dispatch", Debug, "target", true, true);
+                    //Gouge
+                    canCastSpell(SpellID1, 1776, "Gouge", Debug, "target", true, true);
+                    //Ghostly Strike
+                    canCastSpell(SpellID1, 196937, "Ghostly Strike", Debug, "target", true, true);
+                    //Dreadblades
+                    canCastSpell(SpellID1, 343142, "Dreadblades", Debug, "target", true, true);
+                    //Blade Rush
+                    canCastSpell(SpellID1, 281877, "Blade Rush", Debug, "target", true, true);
+                    //Dismantle
+                    canCastSpell(SpellID1, 207777, "Dismantle", Debug, "target", true, true);
+                    //Plunder Armor
+                    canCastSpell(SpellID1, 198529, "Plunder Armor", Debug, "target", true, true);
+                    //Ghostly Strike
+                    canCastSpell(SpellID1, 196937, "Ghostly Strike", Debug, "target", true, true);
 
-                    if (SpellID1 == 8676 && Aimsharp.CanCast("Ambush", "target", true, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Ambush - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Ambush");
-                        return true;
-                    }
-
-                    if (SpellID1 == 185763 && Aimsharp.CanCast("Pistol Shot", "target", true, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Pistol Shot - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Pistol Shot");
-                        return true;
-                    }
-
-                    if (SpellID1 == 315341 && Aimsharp.CanCast("Between the Eyes", "target", true, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Between the Eyes - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Between the Eyes");
-                        return true;
-                    }
-
-                    if (SpellID1 == 2098 && Aimsharp.CanCast("Dispatch", "target", true, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Dispatch - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Dispatch");
-                        return true;
-                    }
-
-                    if (SpellID1 == 1776 && Aimsharp.CanCast("Gouge", "target", true, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Gouge - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Gouge");
-                        return true;
-                    }
-
-                    if (SpellID1 == 196937 && Aimsharp.CanCast("Ghostly Strike", "target", true, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Ghostly Strike - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Ghostly Strike");
-                        return true;
-                    }
-
-                    if (SpellID1 == 343142 && Aimsharp.CanCast("Dreadblades", "target", true, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Dreadblades - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Dreadblades");
-                        return true;
-                    }
-
-                    if (SpellID1 == 271877 && Aimsharp.CanCast("Blade Rush", "target", true, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Blade Rush - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Blade Rush");
-                        return true;
-                    }
-
-                    if (SpellID1 == 207777 && Aimsharp.CanCast("Dismantle", "target", true, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Dismantle - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Dismantle");
-                        return true;
-                    }
-
-                    if (SpellID1 == 198529 && Aimsharp.CanCast("Plunder Armor", "target", true, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Plunder Armor - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Plunder Armor");
-                        return true;
-                    }
                     #endregion
 
                 }
@@ -1681,6 +1633,7 @@ namespace AimsharpWow.Modules
         {
             #region Declarations
             int SpellID1 = Aimsharp.CustomFunction("HekiliID1");
+            Aimsharp.PrintMessage("HekiliID => " + SpellID1, Color.Black);
             int PhialCount = Aimsharp.CustomFunction("PhialCount");
             bool Debug = GetCheckBox("Debug:") == true;
             bool Moving = Aimsharp.PlayerIsMoving();
@@ -1844,6 +1797,26 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Out of Combat Spells
+            //Auto Poison
+            if (!Moving && !Aimsharp.HasBuff("Instant Poison", "player", true))
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Casting Instant Poison - ", Color.Purple);
+                }
+                Aimsharp.Cast("Instant Poison");
+                return true;
+            }
+            if (!Moving && !Aimsharp.HasBuff("Numbing Poison", "player", true))
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Casting Numbing - ", Color.Purple);
+                }
+                Aimsharp.Cast("Numbing Poison");
+                return true;
+            }
+
             //Auto Fleshcraft
             if (SpellID1 == 324631 && CanCastFleshcraft("player") && !Moving && !Aimsharp.HasBuff("Stealth", "player", true))
             {
@@ -1914,6 +1887,36 @@ namespace AimsharpWow.Modules
 
             return false;
         }
+
+        public bool canCastSpell(int hekiliSpellID, int spellID, string spellName, bool debug,
+            string unit = "target", bool checkRange = true, bool checkCasting = false)
+        {
+            if (hekiliSpellID == spellID && Aimsharp.CanCast(spellName, unit, checkRange, checkCasting))
+            {
+                if (debug)
+                {
+                    Aimsharp.PrintMessage("Casting " + spellName + " - " + spellID, Color.Purple);
+                }
+                Aimsharp.Cast(spellName);
+                return true;
+            }
+            return false;
+        }
+        public bool canCastSpell(int hekiliSpellID, int spellID, string spellName, bool debug, bool meleeRange,
+            string unit = "target", bool checkRange = true, bool checkCasting = false)
+        {
+            if (hekiliSpellID == spellID && Aimsharp.CanCast(spellName, unit, checkRange, checkCasting) && meleeRange)
+            {
+                if (debug)
+                {
+                    Aimsharp.PrintMessage("Casting " + spellName + " - " + spellID, Color.Purple);
+                }
+                Aimsharp.Cast(spellName);
+                return true;
+            }
+            return false;
+        }
+
 
     }
 }

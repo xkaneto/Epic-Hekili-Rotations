@@ -2071,7 +2071,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 323639 && Aimsharp.CanCast(TheHunt_SpellName(Language), "target", true, true) && !Moving)
+                    if ((SpellID1 == 323639 || SpellID1 == 370965) && Aimsharp.CanCast(TheHunt_SpellName(Language), "target", true, true) && !Moving)
                     {
                         if (Debug)
                         {

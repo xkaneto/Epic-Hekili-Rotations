@@ -1297,9 +1297,9 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", "DoorofShadows", Polymorph_SpellName(Language), "RingofFrost", Blizzard_SpellName(Language), "ArcaneExplosion", "FrozenOrb", "BlizzardCursor", "FrozenOrbCursor", "NoSpellsteal", };
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", "DoorofShadows", "Polymorph", "RingofFrost", "Blizzard", "ArcaneExplosion", "FrozenOrb", "BlizzardCursor", "FrozenOrbCursor", "NoSpellsteal", };
         private List<string> m_DebuffsList = new List<string> { Polymorph_SpellName(Language), };
-        private List<string> m_BuffsList = new List<string> { ArcaneIntellect_SpellName(Language), "Arcane Power", ShiftingPower_SpellName(Language), IcyVeins_SpellName(Language), };
+        private List<string> m_BuffsList = new List<string> { ArcaneIntellect_SpellName(Language), ShiftingPower_SpellName(Language), IcyVeins_SpellName(Language), };
         private List<string> m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
         private List<string> m_ItemsList = new List<string> { Healthstone_SpellName(Language), };
 
@@ -1838,7 +1838,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Logic
-            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language)))
+            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Polymorph"))
             {
                 if (Debug)
                 {
@@ -1880,7 +1880,7 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn(Blizzard_SpellName(Language)) && Aimsharp.SpellCooldown(Blizzard_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("Blizzard") && Aimsharp.SpellCooldown(Blizzard_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -2023,7 +2023,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Queues
-            bool Polymorph = Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language));
+            bool Polymorph = Aimsharp.IsCustomCodeOn("Polymorph");
             if ((Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 || Moving) && Polymorph)
             {
                 if (Debug)
@@ -2119,7 +2119,7 @@ namespace AimsharpWow.Modules
 
             //Queue Blizzard
             string BlizzardCast = GetDropDown("Blizzard Cast:");
-            bool Blizzard = Aimsharp.IsCustomCodeOn(Blizzard_SpellName(Language));
+            bool Blizzard = Aimsharp.IsCustomCodeOn("Blizzard");
             if ((Aimsharp.SpellCooldown(Blizzard_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Blizzard)
             {
                 if (Debug)
@@ -2987,7 +2987,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Logic
-            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language)))
+            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Polymorph"))
             {
                 if (Debug)
                 {
@@ -3019,7 +3019,7 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn(Blizzard_SpellName(Language)) && Aimsharp.SpellCooldown(Blizzard_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("Blizzard") && Aimsharp.SpellCooldown(Blizzard_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -3031,7 +3031,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Queues
-            bool Polymorph = Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language));
+            bool Polymorph = Aimsharp.IsCustomCodeOn("Polymorph");
             if ((Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 || Moving) && Polymorph)
             {
                 if (Debug)
@@ -3127,7 +3127,7 @@ namespace AimsharpWow.Modules
 
             //Queue Blizzard
             string BlizzardCast = GetDropDown("Blizzard Cast:");
-            bool Blizzard = Aimsharp.IsCustomCodeOn(Blizzard_SpellName(Language));
+            bool Blizzard = Aimsharp.IsCustomCodeOn("Blizzard");
             if ((Aimsharp.SpellCooldown(Blizzard_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Blizzard)
             {
                 if (Debug)
