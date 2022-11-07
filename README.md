@@ -19,18 +19,18 @@ Updated:
 - Hunter - Survival
 - Mage - Arcane
 - Monk - Windwalker
+- Paladin - Retribution
 - Priest - Shadow
+- Shaman - Elemental
+- Shaman - Enhancement
 
 To-Do:
 
 - Mage - Fire
 - Mage - Frost
-- Paladin - Retribution
 - Rogue - Assassination
 - Rogue - Outlaw
 - Rogue - Subtlety
-- Shaman - Elemental
-- Shaman - Enhancement
 - Warlock - Affliction
 - Warlock - Demonology
 - Warlock - Destruction
