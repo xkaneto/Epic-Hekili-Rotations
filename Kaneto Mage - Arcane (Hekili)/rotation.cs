@@ -1528,6 +1528,7 @@ namespace AimsharpWow.Modules
             Macros.Add("SpellstealMO", "/cast [@mouseover] " + Spellsteal_SpellName(Language));
             Macros.Add("RingofFrostC", "/cast [@cursor] RingofFrost");
             Macros.Add("RingofFrostP", "/cast [@player] RingofFrost");
+            Macros.Add("MeteorC", "/cast [@cursor] Meteor");
         }
 
         private void InitializeSpells()
@@ -2823,7 +2824,7 @@ namespace AimsharpWow.Modules
                         {
                             Aimsharp.PrintMessage("Casting Meteor - " + SpellID1, Color.Black);
                         }
-                        Aimsharp.Cast(Meteor_SpellName(Language));
+                        Aimsharp.Cast("MeteorC");
                         return true;
                     }
 

@@ -24,7 +24,7 @@ namespace AimsharpWow.Modules
         private List<string> m_DebuffsList = new List<string> { "Polymorph", };
         private List<string> m_BuffsList = new List<string> { "Arcane Intellect", "Shifting Power", "Combustion" };
         private List<string> m_BloodlustBuffsList = new List<string> { "Bloodlust", "Heroism", "Time Warp", "Primal Rage", "Drums of Rage" };
-        private List<string> m_ItemsList = new List<string> { "Phial of Serenity", "Healthstone", };
+        private List<string> m_ItemsList = new List<string> { "Healthstone", };
 
         private List<string> m_SpellBook = new List<string> {
             //Covenants
@@ -55,8 +55,8 @@ namespace AimsharpWow.Modules
             "Greater Invisibility", //110959
             "Ice Block", //45438
             "Ice Nova", //157997
-            "Invisibility", //45438
-            "Mass Polymorph", //55342
+            "Invisibility", //66
+            "Mass Polymorph", //383121
             "Meteor", //153561
             "Mirror Image", //55342
             "Polymorph", //118
@@ -206,8 +206,6 @@ namespace AimsharpWow.Modules
             //Healthstone
             Macros.Add("Healthstone", "/use Healthstone");
 
-            //Phial
-            Macros.Add("PhialofSerenity", "/use Phial of Serenity");
 
             //SpellQueueWindow
             Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + (Aimsharp.Latency + 100));
@@ -353,7 +351,6 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting(" "));
             Settings.Add(new Setting("Use Trinkets on CD, dont wait for Hekili:", false));
             Settings.Add(new Setting("Auto Healthstone @ HP%", 0, 100, 25));
-            Settings.Add(new Setting("Auto Phial of Serenity @ HP%", 0, 100, 35));
             Settings.Add(new Setting("Kicks/Interrupts"));
             Settings.Add(new Setting("Kick at milliseconds remaining", 50, 1500, 500));
             Settings.Add(new Setting("Kick channels after milliseconds", 50, 1500, 500));
@@ -677,20 +674,6 @@ namespace AimsharpWow.Modules
                         Aimsharp.PrintMessage("Using Healthstone - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Healthstone @ HP%"), Color.Purple);
                     }
                     Aimsharp.Cast("Healthstone");
-                    return true;
-                }
-            }
-
-            //Phial of Serenity
-            if (Aimsharp.CanUseItem("Phial of Serenity", false) && Aimsharp.ItemCooldown("Phial of Serenity") == 0)
-            {
-                if (Aimsharp.Health("player") <= GetSlider("Auto Phial of Serenity @ HP%"))
-                {
-                    if (Debug)
-                    {
-                        Aimsharp.PrintMessage("Using Phial of Serenity - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Phial of Serenity @ HP%"), Color.Purple);
-                    }
-                    Aimsharp.Cast("PhialofSerenity");
                     return true;
                 }
             }
