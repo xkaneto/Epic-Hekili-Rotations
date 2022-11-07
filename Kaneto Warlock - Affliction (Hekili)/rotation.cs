@@ -1406,7 +1406,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", "DoorofShadows", Banish_SpellName(Language), Fear_SpellName(Language), Shadowfury_SpellName(Language), "VileTaint", "HowlofTerror", "MortalCoil", "VileTaintCursor", };
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", "DoorofShadows", "Banish", "Fear", "Shadowfury", "VileTaint", "HowlofTerror", "MortalCoil", "VileTaintCursor", };
         private List<string> m_DebuffsList = new List<string> { Banish_SpellName(Language), Fear_SpellName(Language), };
         private List<string> m_BuffsList = new List<string> {  };
         private List<string> m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
@@ -1894,7 +1894,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Logic
-            if (Aimsharp.CastingID("player") == 710 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Banish_SpellName(Language)))
+            if (Aimsharp.CastingID("player") == 710 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Banish"))
             {
                 if (Debug)
                 {
@@ -1904,7 +1904,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 5782 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Fear_SpellName(Language)))
+            if (Aimsharp.CastingID("player") == 5782 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Fear"))
             {
                 if (Debug)
                 {
@@ -1931,7 +1931,7 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn(Shadowfury_SpellName(Language)) && Aimsharp.SpellCooldown(Shadowfury_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("Shadowfury") && Aimsharp.SpellCooldown(Shadowfury_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -2051,7 +2051,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Queues
-            bool Banish = Aimsharp.IsCustomCodeOn(Banish_SpellName(Language));
+            bool Banish = Aimsharp.IsCustomCodeOn("Banish");
             if ((Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 || Moving) && Banish)
             {
                 if (Debug)
@@ -2072,7 +2072,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Fear = Aimsharp.IsCustomCodeOn(Fear_SpellName(Language));
+            bool Fear = Aimsharp.IsCustomCodeOn("Fear");
             if ((Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 || Moving) && Fear)
             {
                 if (Debug)
@@ -2158,7 +2158,7 @@ namespace AimsharpWow.Modules
 
             //Queue Shadowfury
             string ShadowfuryCast = GetDropDown("Shadowfury Cast:");
-            bool Shadowfury = Aimsharp.IsCustomCodeOn(Shadowfury_SpellName(Language));
+            bool Shadowfury = Aimsharp.IsCustomCodeOn("Shadowfury");
             if ((Aimsharp.SpellCooldown(Shadowfury_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Shadowfury)
             {
                 if (Debug)
@@ -3085,7 +3085,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Logic
-            if (Aimsharp.CastingID("player") == 710 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Banish_SpellName(Language)))
+            if (Aimsharp.CastingID("player") == 710 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Banish"))
             {
                 if (Debug)
                 {
@@ -3095,7 +3095,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 5782 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Fear_SpellName(Language)))
+            if (Aimsharp.CastingID("player") == 5782 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Fear"))
             {
                 if (Debug)
                 {
@@ -3122,7 +3122,7 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn(Shadowfury_SpellName(Language)) && Aimsharp.SpellCooldown(Shadowfury_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("Shadowfury") && Aimsharp.SpellCooldown(Shadowfury_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -3134,7 +3134,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Queues
-            bool Banish = Aimsharp.IsCustomCodeOn(Banish_SpellName(Language));
+            bool Banish = Aimsharp.IsCustomCodeOn("Banish");
             if ((Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 || Moving) && Banish)
             {
                 if (Debug)
@@ -3155,7 +3155,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Fear = Aimsharp.IsCustomCodeOn(Fear_SpellName(Language));
+            bool Fear = Aimsharp.IsCustomCodeOn("Fear");
             if ((Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 || Moving) && Fear)
             {
                 if (Debug)
@@ -3241,7 +3241,7 @@ namespace AimsharpWow.Modules
 
             //Queue Shadowfury
             string ShadowfuryCast = GetDropDown("Shadowfury Cast:");
-            bool Shadowfury = Aimsharp.IsCustomCodeOn(Shadowfury_SpellName(Language));
+            bool Shadowfury = Aimsharp.IsCustomCodeOn("Shadowfury");
             if ((Aimsharp.SpellCooldown(Shadowfury_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Shadowfury)
             {
                 if (Debug)
