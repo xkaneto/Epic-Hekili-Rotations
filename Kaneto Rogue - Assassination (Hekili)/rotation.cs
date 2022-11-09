@@ -470,7 +470,7 @@ namespace AimsharpWow.Modules
             Macros.Add("BotTrinket", "/use 14");
 
             //Healthstone
-            Macros.Add("Healthstone", "/use Healthstone");
+            Macros.Add("UseHealthstone", "/use Healthstone");
 
             //SpellQueueWindow
             Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + (Aimsharp.Latency + 100));
@@ -854,7 +854,7 @@ namespace AimsharpWow.Modules
                     {
                         Aimsharp.PrintMessage("Using Healthstone - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Healthstone @ HP%"), Color.Purple);
                     }
-                    Aimsharp.Cast("Healthstone");
+                    Aimsharp.Cast("UseHealthstone");
                     return true;
                 }
             }

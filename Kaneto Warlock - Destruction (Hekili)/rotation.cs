@@ -10,6 +10,10 @@ namespace AimsharpWow.Modules
     public class SnoogensPVEWarlockDestruction : Rotation
     {
         Random Timer;
+        private static string Language = "English";
+
+        #region SpellFunctions
+        #endregion
 
         #region Variables
         string FiveLetters;
@@ -21,7 +25,7 @@ namespace AimsharpWow.Modules
         private List<string> m_DebuffsList = new List<string> { "Banish", "Fear", "Immolate", "Havoc", };
         private List<string> m_BuffsList = new List<string> {  };
         private List<string> m_BloodlustBuffsList = new List<string> { "Bloodlust", "Heroism", "Time Warp", "Primal Rage", "Drums of Rage" };
-        private List<string> m_ItemsList = new List<string> { "Phial of Serenity", "Healthstone", };
+        private List<string> m_ItemsList = new List<string> { "Healthstone", };
 
         private List<string> m_SpellBook = new List<string> {
             //Covenants
@@ -181,10 +185,6 @@ namespace AimsharpWow.Modules
         #endregion
 
         #region Initializations
-        private void InitializeSettings()
-        {
-            FiveLetters = GetString("First 5 Letters of the Addon:");
-        }
 
         private void InitializeMacros()
         {
@@ -196,10 +196,7 @@ namespace AimsharpWow.Modules
             Macros.Add("BotTrinket", "/use 14");
 
             //Healthstone
-            Macros.Add("Healthstone", "/use Healthstone");
-
-            //Phial
-            Macros.Add("PhialofSerenity", "/use Phial of Serenity");
+            Macros.Add("UseHealthstone", "/use Healthstone");
 
             //SpellQueueWindow
             Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + (Aimsharp.Latency + 100));
@@ -303,13 +300,26 @@ namespace AimsharpWow.Modules
 
         public override void LoadSettings()
         {
-            Settings.Add(new Setting("First 5 Letters of the Addon:", "xxxxx"));
+            Settings.Add(new Setting("Misc"));
+            Settings.Add(new Setting("Leveling/Questing:", false));
+            Settings.Add(new Setting("Debug:", false));
+            Settings.Add(new Setting("Game Client Language", new List<string>()
+            {
+                "English",
+                "Deutsch",
+                "Español",
+                "Français",
+                "Italiano",
+                "Português Brasileiro",
+                "Русский",
+                "한국어",
+                "简体中文"
+            }, "English"));
             Settings.Add(new Setting("Race:", m_RaceList, "bloodelf"));
             Settings.Add(new Setting("Ingame World Latency:", 1, 200, 50));
             Settings.Add(new Setting(" "));
             Settings.Add(new Setting("Use Trinkets on CD, dont wait for Hekili:", false));
             Settings.Add(new Setting("Auto Healthstone @ HP%", 0, 100, 25));
-            Settings.Add(new Setting("Auto Phial of Serenity @ HP%", 0, 100, 35));
             Settings.Add(new Setting("Kicks/Interrupts"));
             Settings.Add(new Setting("Randomize Kicks:", false));
             Settings.Add(new Setting("Kick at milliseconds remaining", 50, 1500, 500));
@@ -327,14 +337,18 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Always Cast Cataclysm @ Cursor during Rotation", false));
             Settings.Add(new Setting("Rain of Fire Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Always Cast Rain of Fire @ Cursor during Rotation", false));
-            Settings.Add(new Setting("Misc"));
-            Settings.Add(new Setting("Leveling/Questing:", false));
-            Settings.Add(new Setting("Debug:", false));
+            Settings.Add(new Setting("    "));
 
         }
 
         public override void Initialize()
         {
+            #region Get Addon Name
+            if (Aimsharp.GetAddonName().Length >= 5)
+            {
+                FiveLetters = Aimsharp.GetAddonName().Substring(0, 5);
+            }
+            #endregion
 
             if (GetCheckBox("Debug:") == true)
             {
@@ -343,28 +357,32 @@ namespace AimsharpWow.Modules
 
 
             Aimsharp.Latency = GetSlider("Ingame World Latency:");
-            Aimsharp.QuickDelay = 150;
-            Aimsharp.SlowDelay = 350;
+            Aimsharp.QuickDelay = 50;
+            Aimsharp.SlowDelay = 150;
 
-            Aimsharp.PrintMessage("Snoogens PVE - Warlock Destruction", Color.Yellow);
-            Aimsharp.PrintMessage("This rotation requires the Hekili Addon", Color.Red);
-            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything", Color.Brown);
-            Aimsharp.PrintMessage("Hekili > Toggles > Bind \"Cooldowns\" & \"Display Mode\"", Color.Brown);
+            Aimsharp.PrintMessage("Kanetos PVE - Rogue Outlaw", Color.Yellow);
+            Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
+            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Brown);
+            Aimsharp.PrintMessage("-----", Color.Black);
+            Aimsharp.PrintMessage("- Talents -", Color.White);
+            Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/guide/classes/warlock/destruction/overview-pve-dps", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- General -", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoInterrupts - Disables Interrupts", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoCycle - Disables Target Cycle", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Fear - Casts Fear @ Mouseover next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Banish - Casts Banish @ Mouseover next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx HowlofTerror - Casts Howl of Terror @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx MortalCoil - Casts Mortal Coil @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Shadowfury - Casts Shadowfury @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx SummonInfernal - Casts Summon Infernal @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Cataclysm - Casts Cataclysm @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx CataclysmCursor - Toggles Rain of Fire always @ Cursor (same as Option)", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx RainofFire - Casts Rain of Fire @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx RainofFireCursor - Toggles Rain of Fire always @ Cursor (same as Option)", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoCycle - Disables Target Cycle", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Fear - Casts Fear @ Mouseover next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Banish - Casts Banish @ Mouseover next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " HowlofTerror - Casts Howl of Terror @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " MortalCoil - Casts Mortal Coil @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Shadowfury - Casts Shadowfury @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " SummonInfernal - Casts Summon Infernal @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Cataclysm - Casts Cataclysm @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " CataclysmCursor - Toggles Rain of Fire always @ Cursor (same as Option)", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " RainofFire - Casts Rain of Fire @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " RainofFireCursor - Toggles Rain of Fire always @ Cursor (same as Option)", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
+
+            Language = GetDropDown("Game Client Language");
 
             #region Racial Spells
             if (GetDropDown("Race:") == "draenei")
@@ -452,8 +470,6 @@ namespace AimsharpWow.Modules
                 Spellbook.Add("Shadowmeld"); //58984
             }
             #endregion
-
-            InitializeSettings();
 
             InitializeMacros();
 
@@ -621,21 +637,7 @@ namespace AimsharpWow.Modules
                     {
                         Aimsharp.PrintMessage("Using Healthstone - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Healthstone @ HP%"), Color.Purple);
                     }
-                    Aimsharp.Cast("Healthstone");
-                    return true;
-                }
-            }
-
-            //Phial of Serenity
-            if (Aimsharp.CanUseItem("Phial of Serenity", false) && Aimsharp.ItemCooldown("Phial of Serenity") == 0)
-            {
-                if (Aimsharp.Health("player") <= GetSlider("Auto Phial of Serenity @ HP%"))
-                {
-                    if (Debug)
-                    {
-                        Aimsharp.PrintMessage("Using Phial of Serenity - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Phial of Serenity @ HP%"), Color.Purple);
-                    }
-                    Aimsharp.Cast("PhialofSerenity");
+                    Aimsharp.Cast("UseHealthstone");
                     return true;
                 }
             }
