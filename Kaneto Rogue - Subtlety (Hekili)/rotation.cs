@@ -7,9 +7,14 @@ using AimsharpWow.API;
 
 namespace AimsharpWow.Modules
 {
-    public class SnoogensPVERogueSubtlety : Rotation
+    public class KanetosRogueSubtletyHekili : Rotation
     {
         Random Timer;
+
+        private static string Language = "English";
+
+        #region SpellFunctions
+        #endregion
 
         #region Variables
         string FiveLetters;
@@ -21,7 +26,7 @@ namespace AimsharpWow.Modules
         private List<string> m_DebuffsList = new List<string> { "Sap", "Blind", "Garrote", "Rupture", "Serrated Bone Spike", };
         private List<string> m_BuffsList = new List<string> { "Stealth", "Vanish", "Blindside", "Subterfuge",};
         private List<string> m_BloodlustBuffsList = new List<string> { "Bloodlust", "Heroism", "Time Warp", "Primal Rage", "Drums of Rage" };
-        private List<string> m_ItemsList = new List<string> { "Phial of Serenity", "Healthstone" };
+        private List<string> m_ItemsList = new List<string> { "Healthstone" };
 
         private List<string> m_SpellBook_General = new List<string> {
             //Covenants
@@ -458,10 +463,6 @@ namespace AimsharpWow.Modules
         #endregion
 
         #region Initializations
-        private void InitializeSettings()
-        {
-            FiveLetters = GetString("First 5 Letters of the Addon:");
-        }
 
         private void InitializeMacros()
         {
@@ -474,9 +475,6 @@ namespace AimsharpWow.Modules
 
             //Healthstone
             Macros.Add("Healthstone", "/use Healthstone");
-
-            //Phial
-            Macros.Add("PhialofSerenity", "/use Phial of Serenity");
 
             //SpellQueueWindow
             Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + (Aimsharp.Latency + 100));
@@ -548,13 +546,26 @@ namespace AimsharpWow.Modules
 
         public override void LoadSettings()
         {
-            Settings.Add(new Setting("First 5 Letters of the Addon:", "xxxxx"));
+            Settings.Add(new Setting("Misc"));
+            Settings.Add(new Setting("Debug:", false));
+            Settings.Add(new Setting("Game Client Language", new List<string>()
+            {
+                "English",
+                "Deutsch",
+                "Español",
+                "Français",
+                "Italiano",
+                "Português Brasileiro",
+                "Русский",
+                "한국어",
+                "简体中文"
+            }, "English"));
+            Settings.Add(new Setting(""));
             Settings.Add(new Setting("Race:", m_RaceList, "orc"));
             Settings.Add(new Setting("Ingame World Latency:", 1, 200, 50));
             Settings.Add(new Setting(" "));
             Settings.Add(new Setting("Use Trinkets on CD, dont wait for Hekili:", false));
             Settings.Add(new Setting("Auto Healthstone @ HP%", 0, 100, 25));
-            Settings.Add(new Setting("Auto Phial of Serenity @ HP%", 0, 100, 35));
             Settings.Add(new Setting("Kicks/Interrupts"));
             Settings.Add(new Setting("Randomize Kicks:", false));
             Settings.Add(new Setting("Kick at milliseconds remaining", 50, 1500, 500));
@@ -562,20 +573,25 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("General"));
             Settings.Add(new Setting("Auto Start Combat:", true));
             Settings.Add(new Setting("Stealth Out of Combat:", true));
+            Settings.Add(new Setting("Auto Vial @ HP%", 0, 100, 35));
+            Settings.Add(new Setting("Auto Cloak @ HP%", 0, 100, 15));
+            Settings.Add(new Setting("Auto Evasion @ HP%", 0, 100, 25));
             Settings.Add(new Setting("Slice and Dice Out of Combat:", true));
             Settings.Add(new Setting("Spread Bone Spike with Mouseover:", false));
             Settings.Add(new Setting("Kidney Shot Queue - Dont wait for Max CP", false));
             Settings.Add(new Setting("Distract Cast:", m_CastingList, "Manual"));
-            Settings.Add(new Setting("Auto Evasion @ HP%", 0, 100, 25));
-            Settings.Add(new Setting("Auto Cloak @ HP%", 0, 100, 15));
-            Settings.Add(new Setting("Auto Vial @ HP%", 0, 100, 35));
-            Settings.Add(new Setting("Misc"));
-            Settings.Add(new Setting("Debug:", false));
+            Settings.Add(new Setting("    "));
 
         }
 
         public override void Initialize()
         {
+            #region Get Addon Name
+            if (Aimsharp.GetAddonName().Length >= 5)
+            {
+                FiveLetters = Aimsharp.GetAddonName().Substring(0, 5);
+            }
+            #endregion
 
             if (GetCheckBox("Debug:") == true)
             {
@@ -583,24 +599,28 @@ namespace AimsharpWow.Modules
             }
 
             Aimsharp.Latency = GetSlider("Ingame World Latency:");
-            Aimsharp.QuickDelay = 150;
-            Aimsharp.SlowDelay = 350;
+            Aimsharp.QuickDelay = 50;
+            Aimsharp.SlowDelay = 150;
 
-            Aimsharp.PrintMessage("Snoogens PVE - Rogue Subtlety", Color.Yellow);
-            Aimsharp.PrintMessage("This rotation requires the Hekili Addon", Color.Red);
-            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything", Color.Brown);
-            Aimsharp.PrintMessage("Hekili > Toggles > Bind \"Cooldowns\" & \"Display Mode\"", Color.Brown);
+            Aimsharp.PrintMessage("Kanetos PVE - Rogue Subtlety", Color.Yellow);
+             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
+            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Brown);
+            Aimsharp.PrintMessage("-----", Color.Black);
+            Aimsharp.PrintMessage("- Talents -", Color.White);
+            Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/guide/classes/rogue/subtlety/overview-pve-dps", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("Poisons are Manual - apply them before Combat", Color.Green);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- General -", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoInterrupts - Disables Interrupts", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx NoCycle - Disables Target Cycle", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Blind - Casts Blind @ Mouseover on the next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Sap - Casts Sap @ Target on the next GCD, turns off Auto Combat while On", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx Distract - Casts Distract @ Manual/Cursor/Player on the next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/xxxxx KidneyShot - Casts Kidney Shit @ Target next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoCycle - Disables Target Cycle", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Blind - Casts Blind @ Mouseover on the next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Sap - Casts Sap @ Target on the next GCD, turns off Auto Combat while On", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Distract - Casts Distract @ Manual/Cursor/Player on the next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " KidneyShot - Casts Kidney Shit @ Target next GCD", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
+
+            Language = GetDropDown("Game Client Language");
 
             #region Racial Spells
             if (GetDropDown("Race:") == "draenei")
@@ -688,8 +708,6 @@ namespace AimsharpWow.Modules
                 Spellbook.Add("Shadowmeld"); //58984
             }
             #endregion
-
-            InitializeSettings();
 
             InitializeMacros();
 

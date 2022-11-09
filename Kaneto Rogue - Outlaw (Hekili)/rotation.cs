@@ -1745,14 +1745,14 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("General"));
             Settings.Add(new Setting("Auto Start Combat:", true));
             Settings.Add(new Setting("Stealth Out of Combat:", true));
+            Settings.Add(new Setting("Auto Vial @ HP%", 0, 100, 35));
+            Settings.Add(new Setting("Auto Cloak @ HP%", 0, 100, 15));
+            Settings.Add(new Setting("Auto Evasion @ HP%", 0, 100, 25));
             Settings.Add(new Setting("Slice and Dice Out of Combat:", true));
             Settings.Add(new Setting("Spread Bone Spike with Mouseover:", false));
             Settings.Add(new Setting("Kidney Shot Queue - Dont wait for Max CP", false));
             Settings.Add(new Setting("Distract Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Grappling Hook Cast:", m_CastingList, "Manual"));
-            Settings.Add(new Setting("Auto Evasion @ HP%", 0, 100, 25));
-            Settings.Add(new Setting("Auto Cloak @ HP%", 0, 100, 15));
-            Settings.Add(new Setting("Auto Vial @ HP%", 0, 100, 35));
             Settings.Add(new Setting("    "));
 
         }
