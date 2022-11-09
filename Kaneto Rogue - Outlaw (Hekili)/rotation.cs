@@ -9,9 +9,17 @@ namespace AimsharpWow.Modules
 {
     public class KanetoRogueOutlawHekili : Rotation
     {
-        Random Timer;
-
         private static string Language = "English";
+
+        //Random Number
+        private static readonly Random getrandom = new Random();
+        public static int GetRandomNumber(int min, int max)
+        {
+            lock (getrandom) // synchronize
+            {
+                return getrandom.Next(min, max);
+            }
+        }
 
         #region SpellFunctions
         ///<summary>spell=13750</summary>
@@ -1960,14 +1968,21 @@ namespace AimsharpWow.Modules
             #region Interrupts
             if (!NoInterrupts && (Aimsharp.UnitID("target") != 168105 || Torghast_InnerFlame.Contains(Aimsharp.CastingID("target"))) && (Aimsharp.UnitID("target") != 157571 || Torghast_InnerFlame.Contains(Aimsharp.CastingID("target"))))
             {
+                int KickValueRandom;
+                int KickChannelsAfterRandom;
                 if (GetCheckBox("Randomize Kicks:"))
                 {
-                    KickValue = KickValue + Timer.Next(200, 800);
-                    KickChannelsAfter = KickChannelsAfter + Timer.Next(200, 800);
+                    KickValueRandom = KickValue + GetRandomNumber(200, 800);
+                    KickChannelsAfterRandom = KickChannelsAfter + GetRandomNumber(200, 800);
+                }
+                else
+                {
+                    KickValueRandom = KickValue;
+                    KickChannelsAfterRandom = KickChannelsAfter;
                 }
                 if (CanCastKick("target"))
                 {
-                    if (IsInterruptable && !IsChanneling && CastingRemaining < KickValue)
+                    if (IsInterruptable && !IsChanneling && CastingRemaining < KickValueRandom)
                     {
                         if (Debug)
                         {
@@ -1980,7 +1995,7 @@ namespace AimsharpWow.Modules
 
                 if (CanCastKick("target"))
                 {
-                    if (IsInterruptable && IsChanneling && CastingElapsed > KickChannelsAfter)
+                    if (IsInterruptable && IsChanneling && CastingElapsed > KickChannelsAfterRandom)
                     {
                         if (Debug)
                         {

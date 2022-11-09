@@ -11,6 +11,7 @@ namespace AimsharpWow.Modules
     {
         private static string Language = "English";
 
+        //Random Number
         private static readonly Random getrandom = new Random();
         public static int GetRandomNumber(int min, int max)
         {
