@@ -24,12 +24,12 @@ Updated:
 - Priest - Shadow
 - Shaman - Elemental
 - Shaman - Enhancement
+- Rogue - Outlaw
 - Warlock - Affliction
 
 To-Do:
 
 - Rogue - Assassination
-- Rogue - Outlaw
 - Rogue - Subtlety
 - Warlock - Demonology
 - Warlock - Destruction

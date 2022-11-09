@@ -715,42 +715,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=453</summary>
-        private static string MindSoothe_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Mind Soothe";
-                case "Deutsch": return "Gedankenbesänftigung";
-                case "Español": return "Calma mental";
-                case "Français": return "Apaisement";
-                case "Italiano": return "Pacificazione Mentale";
-                case "Português Brasileiro": return "Reconforto Mental";
-                case "Русский": return "Успокоение разума";
-                case "한국어": return "정신의 위안";
-                case "简体中文": return "安抚心灵";
-                default: return "Mind Soothe";
-            }
-        }
-
-        ///<summary>spell=73510</summary>
-        private static string MindSpike_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Mind Spike";
-                case "Deutsch": return "Gedankenstachel";
-                case "Español": return "Púa mental";
-                case "Français": return "Pointe mentale";
-                case "Italiano": return "Aculeo Mentale";
-                case "Português Brasileiro": return "Aguilhão Mental";
-                case "Русский": return "Пронзание разума";
-                case "한국어": return "정신의 쐐기";
-                case "简体中文": return "心灵尖刺";
-                default: return "Mind Spike";
-            }
-        }
-
         ///<summary>spell=200174</summary>
         private static string Mindbender_SpellName(string Language = "English")
         {
@@ -1417,7 +1381,6 @@ namespace AimsharpWow.Modules
             MassDispel_SpellName(Language), //32375 - queue Cast
             MindBlast_SpellName(Language), //8092
             MindControl_SpellName(Language), //605 - queue MO
-            MindSoothe_SpellName(Language), //453
             PowerInfusion_SpellName(Language), //10060 - queue MO
             PowerWord_Fortitude_SpellName(Language), //21562
             PowerWord_Shield_SpellName(Language), //17
@@ -1436,7 +1399,6 @@ namespace AimsharpWow.Modules
             MindFlay_SpellName(Language), //15407
             MindFlay_Insanity_SpellName(Language), //391403
             MindSear_SpellName(Language), //48045
-            MindSpike_SpellName(Language), //73510
             Mindbender_SpellName(Language), //200174
             PsychicHorror_SpellName(Language), //64044 - queue mo
             PurifyDisease_SpellName(Language), //213634
