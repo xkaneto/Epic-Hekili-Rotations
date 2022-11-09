@@ -316,10 +316,10 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("General"));
             Settings.Add(new Setting("Auto Start Combat:", true));
             Settings.Add(new Setting("Summon Demon Out of Combat:", true));
-            Settings.Add(new Setting("Auto Unending Resolve @ HP%", 0, 100, 25));
             Settings.Add(new Setting("Auto Dark Pact @ HP%", 0, 100, 15));
             Settings.Add(new Setting("Auto Drain Life @ HP%", 0, 100, 25));
             Settings.Add(new Setting("Auto Health Funnel @ HP%", 0, 100, 15));
+            Settings.Add(new Setting("Auto Unending Resolve @ HP%", 0, 100, 25));
             Settings.Add(new Setting("Shadowfury Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Bilescourge Bombers Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Always Cast Bilescourge Bombers @ Cursor during Rotation", false));

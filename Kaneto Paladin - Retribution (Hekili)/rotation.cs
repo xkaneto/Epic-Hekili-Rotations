@@ -1147,23 +1147,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>item=171267</summary>
-        private static string SpiritualHealingPotion_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Spiritual Healing Potion";
-                case "Deutsch": return "Spiritueller Heiltrank";
-                case "Español": return "Poción de sanación espiritual";
-                case "Français": return "Potion de soins spirituels";
-                case "Italiano": return "Pozione di Cura Spirituale";
-                case "Português Brasileiro": return "Poção de Cura Espiritual";
-                case "Русский": return "Духовное зелье исцеления";
-                case "한국어": return "영적인 치유 물약";
-                case "简体中文": return "灵魂治疗药水";
-                default: return "Spiritual Healing Potion";
-            }
-        }
 
         ///<summary>spell=20594</summary>
         private static string Stoneform_SpellName(string Language = "English")
@@ -1392,7 +1375,7 @@ namespace AimsharpWow.Modules
         private List<string> m_DebuffsList = new List<string> { GrippingInfection_SpellName(Language), BarbedShackles_SpellName(Language), BindingsOfMisery_SpellName(Language), };
         private List<string> m_BuffsList = new List<string> { "Selfless Healer", ShieldOfVengeance_SpellName(Language), DivineSteed_SpellName(Language), };
         private List<string> m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
-        private List<string> m_ItemsList = new List<string> { Healthstone_SpellName(Language), SpiritualHealingPotion_SpellName(Language), };
+        private List<string> m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
 
         private List<string> m_SpellBook_General = new List<string> {
             //Covenants
@@ -1640,9 +1623,6 @@ namespace AimsharpWow.Modules
 
             //Healthstone
             Macros.Add("UseHealthstone", "/use " + Healthstone_SpellName(Language));
-
-            //HP Pot
-            Macros.Add("SpiritualHPPotion", "/use " + SpiritualHealingPotion_SpellName(Language));
 
             //SpellQueueWindow
             Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + (Aimsharp.Latency + 100));
@@ -2128,20 +2108,6 @@ namespace AimsharpWow.Modules
                         Aimsharp.PrintMessage("Using Healthstone - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Healthstone @ HP%"), Color.Purple);
                     }
                     Aimsharp.Cast("UseHealthstone");
-                    return true;
-                }
-            }
-
-            //Auto Spiritual Healing Potion
-            if (Aimsharp.CanUseItem(SpiritualHealingPotion_SpellName(Language), false) && Aimsharp.ItemCooldown(SpiritualHealingPotion_SpellName(Language)) == 0)
-            {
-                if (Aimsharp.Health("player") <= GetSlider("Auto Spiritual Potion @ HP%"))
-                {
-                    if (Debug)
-                    {
-                        Aimsharp.PrintMessage("Using Spiritual Healing Potion - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Spiritual Potion @ HP%"), Color.Purple);
-                    }
-                    Aimsharp.Cast("SpiritualHPPotion");
                     return true;
                 }
             }
