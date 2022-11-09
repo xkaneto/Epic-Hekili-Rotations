@@ -25,50 +25,57 @@ namespace AimsharpWow.Modules
 
         private List<string> m_SpellBook_General = new List<string> {
             //Covenants
-            "Sepsis", "Serrated Bone Spike", "Echoing Reprimand", "Flagellation",
+            "Echoing Reprimand", //385616,323547
+            "Flagellation", //323654 , 384631
+            "Sepsis", //328305 , 385408
+            "Serrated Bone Spike", //328547 , 385424
 
             //Interrupt
-            "Kick",
+            "Kick", //1766
 
             //General Rogue
-            "Eviscerate",
-            "Cheap Shot",
-            "Stealth",
-            "Sprint",
-            "Ambush",
-            "Crimson Vial",
-            "Slice and Dice",
-            "Sap",
-            "Kidney Shot",
-            "Evasion",
-            "Vanish",
-            "Distract",
-            "Shiv",
-            "Feint",
-            "Blind",
-            "Cloak of Shadows",
-            "Tricks of the Trade",
-            "Shroud of Concealment",
+            "Ambush", //8676
+            "Cheap Shot", //1833
+            "Crimson Vial", //185311
+            "Distract", //1725
+            "Eviscerate", //196819
             "Fleshcraft",
-            "Shadowstep",
+            "Instant Poison", //315584
+            "Kidney Shot", //408
+            "Slice and Dice", //315496
+            "Sprint", //2983
+            "Stealth", //1784
+            "Vanish", //1856
 
             //General Talents
-            "Marked for Death",
+            "Blind", //2094
+            "Cloak of Shadows", //31224
+            "Cold Blood", //382245
+            "Evasion", //5277
+            "Feint", //1966
+            "Gouge", //1776
+            "Marked for Death", //137619
+            "Numbing Poison", //5761
+            "Sap", //6770
+            "Shadow Dance", //185313
+            "Shadowstep", //36554
+            "Shiv", //5938
+            "Thistle Tea", //381623
+            "Tricks of the Trade", //57934
         };
 
         private List<string> m_SpellBook_Assassination = new List<string> {
             //Assassination Rogue
-            "Mutilate",
+            "Crimson Tempest",
+            "Envenom",
+            "Exsanguinate",
+            "Fan of Knives",
             "Garrote",
+            "Mutilate",
+            "Poisoned Knife",
             "Rupture",
             "Shadowstep",
-            "Fan of Knives",
-            "Envenom",
-            "Poisoned Knife",
             "Vendetta",
-            //Talents
-            "Exsanguinate",
-            "Crimson Tempest",
         };
 
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
