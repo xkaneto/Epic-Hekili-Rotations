@@ -1972,8 +1972,8 @@ namespace AimsharpWow.Modules
                 int KickChannelsAfterRandom;
                 if (GetCheckBox("Randomize Kicks:"))
                 {
-                    KickValueRandom = KickValue + GetRandomNumber(200, 800);
-                    KickChannelsAfterRandom = KickChannelsAfter + GetRandomNumber(200, 800);
+                    KickValueRandom = KickValue + GetRandomNumber(200, 500);
+                    KickChannelsAfterRandom = KickChannelsAfter + GetRandomNumber(200, 500);
                 }
                 else
                 {
@@ -2235,6 +2235,16 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Casting Ambush - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(Ambush_SpellName(Language));
+                        return true;
+                    }
+
+                    if ((SpellID1 == 8676 || SpellID1 == 196819) && Aimsharp.GetPlayerLevel() < 22 && CanCastEviscerate("target"))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Eviscerate - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(Eviscerate_SpellName(Language));
                         return true;
                     }
 
