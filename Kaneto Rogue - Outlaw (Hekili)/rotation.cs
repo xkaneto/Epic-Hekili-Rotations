@@ -1411,11 +1411,41 @@ namespace AimsharpWow.Modules
 
         private bool TalentDeeperStratagem()
         {
-            if (Aimsharp.Talent(3, 2))
+            if (Aimsharp.CustomFunction("GetTalentDeeperStrategem") == 1)
                 return true;
 
             return false;
         }
+
+        public bool canCastSpell(int hekiliSpellID, int spellID, string spellName, bool debug,
+            string unit = "target", bool checkRange = true, bool checkCasting = false)
+        {
+            if (hekiliSpellID == spellID && Aimsharp.CanCast(spellName, unit, checkRange, checkCasting))
+            {
+                if (debug)
+                {
+                    Aimsharp.PrintMessage("Casting " + spellName + " - " + spellID, Color.Purple);
+                }
+                Aimsharp.Cast(spellName);
+                return true;
+            }
+            return false;
+        }
+        public bool canCastSpell(int hekiliSpellID, int spellID, string spellName, bool debug, bool meleeRange,
+            string unit = "target", bool checkRange = true, bool checkCasting = false)
+        {
+            if (hekiliSpellID == spellID && Aimsharp.CanCast(spellName, unit, checkRange, checkCasting) && meleeRange)
+            {
+                if (debug)
+                {
+                    Aimsharp.PrintMessage("Casting " + spellName + " - " + spellID, Color.Purple);
+                }
+                Aimsharp.Cast(spellName);
+                return true;
+            }
+            return false;
+        }
+
         #endregion
 
         #region CanCasts
@@ -1598,7 +1628,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastMarkedforDeath(string unit)
         {
-            if (Aimsharp.CanCast(MarkedForDeath_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(MarkedForDeath_SpellName(Language)) <= 0 && Aimsharp.Range(unit) <= 30 && Aimsharp.Talent(3, 3) && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(MarkedForDeath_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(MarkedForDeath_SpellName(Language)) <= 0 && Aimsharp.Range(unit) <= 30 && Aimsharp.CustomFunction("GetSpellMarkedForDeath") == 1 && TargetAlive() && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1721,6 +1751,10 @@ namespace AimsharpWow.Modules
             CustomFunctions.Add("IsRMBDown", "local MBD = 0 local isDown = IsMouseButtonDown(\"RightButton\") if isDown == true then MBD = 1 end return MBD");
 
             CustomFunctions.Add("CycleNotEnabled", "local cycle = 0 if Hekili.State.settings.spec.cycle == true then cycle = 1 else if Hekili.State.settings.spec.cycle == false then cycle = 2 end end return cycle");
+
+            CustomFunctions.Add("GetTalentDeeperStrategem", "if (IsSpellKnown(193531) or IsPlayerSpell(193531)) then return 1 else return 0 end");
+
+            CustomFunctions.Add("GetSpellMarkedForDeath", "if (IsSpellKnown(137619) or IsPlayerSpell(137619)) then return 1 else return 0 end");
         }
         #endregion
 
@@ -2228,23 +2262,14 @@ namespace AimsharpWow.Modules
                 #region Kidney Shot
                 if (KidneyShot && !GetCheckBox("Kidney Shot Queue - Dont wait for Max CP"))
                 {
-                    if (SpellID1 == 8676 && CanCastAmbush("target"))
+                    if ((SpellID1 == 8676 && CanCastAmbush("target")) || SpellID1 == 196819 && Aimsharp.GetPlayerLevel() < 22 && CanCastEviscerate("target"))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Ambush - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast(Ambush_SpellName(Language));
-                        return true;
-                    }
-
-                    if ((SpellID1 == 8676 || SpellID1 == 196819) && Aimsharp.GetPlayerLevel() < 22 && CanCastEviscerate("target"))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Eviscerate - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(Eviscerate_SpellName(Language));
+                        if (Aimsharp.GetPlayerLevel() < 22) Aimsharp.Cast(Eviscerate_SpellName(Language));
+                        if (Aimsharp.GetPlayerLevel() >= 22) Aimsharp.Cast(Ambush_SpellName(Language));
                         return true;
                     }
 
@@ -3007,7 +3032,7 @@ namespace AimsharpWow.Modules
 
             #region Out of Combat Spells
             //Auto Poison
-            if (!Moving && Aimsharp.CanCast(InstantPoison_SpellName(Language),"player") && !Aimsharp.HasBuff(InstantPoison_SpellName(Language), "player", true))
+            if (!Moving && Aimsharp.CanCast(InstantPoison_SpellName(Language), "player") && !Aimsharp.HasBuff(InstantPoison_SpellName(Language), "player", true))
             {
                 if (Debug)
                 {
@@ -3016,7 +3041,7 @@ namespace AimsharpWow.Modules
                 Aimsharp.Cast(InstantPoison_SpellName(Language));
                 return true;
             }
-            if (!Moving && Aimsharp.CanCast(NumbingPoison_SpellName(Language),"player") && !Aimsharp.HasBuff(NumbingPoison_SpellName(Language), "player", true))
+            if (!Moving && Aimsharp.CanCast(NumbingPoison_SpellName(Language), "player") && !Aimsharp.HasBuff(NumbingPoison_SpellName(Language), "player", true))
             {
                 if (Debug)
                 {
@@ -3096,36 +3121,5 @@ namespace AimsharpWow.Modules
 
             return false;
         }
-
-        public bool canCastSpell(int hekiliSpellID, int spellID, string spellName, bool debug,
-            string unit = "target", bool checkRange = true, bool checkCasting = false)
-        {
-            if (hekiliSpellID == spellID && Aimsharp.CanCast(spellName, unit, checkRange, checkCasting))
-            {
-                if (debug)
-                {
-                    Aimsharp.PrintMessage("Casting " + spellName + " - " + spellID, Color.Purple);
-                }
-                Aimsharp.Cast(spellName);
-                return true;
-            }
-            return false;
-        }
-        public bool canCastSpell(int hekiliSpellID, int spellID, string spellName, bool debug, bool meleeRange,
-            string unit = "target", bool checkRange = true, bool checkCasting = false)
-        {
-            if (hekiliSpellID == spellID && Aimsharp.CanCast(spellName, unit, checkRange, checkCasting) && meleeRange)
-            {
-                if (debug)
-                {
-                    Aimsharp.PrintMessage("Casting " + spellName + " - " + spellID, Color.Purple);
-                }
-                Aimsharp.Cast(spellName);
-                return true;
-            }
-            return false;
-        }
-
-
     }
 }

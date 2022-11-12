@@ -166,7 +166,7 @@ namespace AimsharpWow.Modules
 
         private bool TalentDeeperStratagem()
         {
-            if (Aimsharp.Talent(3, 2))
+            if (Aimsharp.CustomFunction("GetTalentDeeperStrategem") == 1)
                 return true;
 
             return false;
@@ -353,7 +353,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastMarkedforDeath(string unit)
         {
-            if (Aimsharp.CanCast("Marked for Death", unit, true, true) || (Aimsharp.SpellCooldown("Marked for Death") <= 0 && Aimsharp.Range(unit) <= 30 && Aimsharp.Talent(3,3) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast("Marked for Death", unit, true, true) || (Aimsharp.SpellCooldown("Marked for Death") <= 0 && Aimsharp.Range(unit) <= 30 && Aimsharp.CustomFunction("GetSpellMarkedForDeath") == 1 && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -556,6 +556,10 @@ namespace AimsharpWow.Modules
             CustomFunctions.Add("CycleNotEnabled", "local cycle = 0 if Hekili.State.settings.spec.cycle == true then cycle = 1 else if Hekili.State.settings.spec.cycle == false then cycle = 2 end end return cycle");
 
             CustomFunctions.Add("FunnelAOE", "if Hekili.State.settings.spec.settings.priority_rotation == false then return 1 else if Hekili.State.settings.spec.settings.priority_rotation == true then return 2 end end return 0");
+
+            CustomFunctions.Add("GetTalentDeeperStrategem", "if (IsSpellKnown(193531) or IsPlayerSpell(193531)) then return 1 else return 0 end");
+
+            CustomFunctions.Add("GetSpellMarkedForDeath", "if (IsSpellKnown(137619) or IsPlayerSpell(137619)) then return 1 else return 0 end");
         }
         #endregion
 
