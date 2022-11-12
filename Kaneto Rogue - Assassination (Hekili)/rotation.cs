@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using System.Diagnostics;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using AimsharpWow.API;
 
 namespace AimsharpWow.Modules
@@ -30,9 +30,9 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "Distract", "Blind", "Sap", "KidneyShot", "NoCycle", "FunnelAOE",};
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "Distract", "Blind", "Sap", "KidneyShot", "NoCycle", "FunnelAOE", };
         private List<string> m_DebuffsList = new List<string> { "Sap", "Blind", "Garrote", "Rupture", "Serrated Bone Spike", };
-        private List<string> m_BuffsList = new List<string> { "Stealth", "Vanish", "Blindside", "Subterfuge",};
+        private List<string> m_BuffsList = new List<string> { "Stealth", "Vanish", "Blindside", "Subterfuge", };
         private List<string> m_BloodlustBuffsList = new List<string> { "Bloodlust", "Heroism", "Time Warp", "Primal Rage", "Drums of Rage" };
         private List<string> m_ItemsList = new List<string> { "Healthstone" };
 
@@ -79,16 +79,17 @@ namespace AimsharpWow.Modules
 
         private List<string> m_SpellBook_Assassination = new List<string> {
             //Assassination Rogue
-            "Crimson Tempest",
-            "Envenom",
-            "Exsanguinate",
-            "Fan of Knives",
-            "Garrote",
-            "Mutilate",
-            "Poisoned Knife",
-            "Rupture",
-            "Shadowstep",
-            "Vendetta",
+            "Crimson Tempest", //121411
+            "Deathmark", //360194
+            "Envenom", //32645
+            "Exsanguinate", //200806
+            "Fan of Knives", //51723
+            "Garrote", //703
+            "Indiscriminate Carnage", //381802
+            "Kingsbane", // 385627
+            "Mutilate", //1329
+            "Poisoned Knife", //185565
+            "Rupture", //1943
         };
 
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
@@ -153,7 +154,7 @@ namespace AimsharpWow.Modules
         List<int> TorghastList = new List<int> { 1618 - 1641, 1645, 1705, 1712, 1716, 1720, 1721, 1736, 1749, 1751 - 1754, 1756 - 1812, 1833 - 1911, 1913, 1914, 1920, 1921, 1962 - 1969, 1974 - 1988, 2010 - 2012, 2019 };
 
         List<int> SpecialUnitList = new List<int> { 176581, 176920, 178008, 168326, 168969, 175861, };
-#endregion
+        #endregion
 
         #region Misc Checks
         private bool TargetAlive()
@@ -625,7 +626,7 @@ namespace AimsharpWow.Modules
             Aimsharp.SlowDelay = 150;
 
             Aimsharp.PrintMessage("Kanetos PVE - Rogue Assassination", Color.Yellow);
-             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
+            Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
             Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Brown);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- Talents -", Color.White);
@@ -879,7 +880,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Evasion
-            if(PlayerHP <= EvasionHP && CanCastEvasion("player"))
+            if (PlayerHP <= EvasionHP && CanCastEvasion("player"))
             {
                 if (Debug)
                 {
@@ -1353,7 +1354,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 328305 && CanCastSepsis("target"))
+                    if ((SpellID1 == 328305 || SpellID1 == 385408) && CanCastSepsis("target"))
                     {
                         if (Debug)
                         {
@@ -1363,7 +1364,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 328547 && CanCastSerratedBoneSpike("target"))
+                    if ((SpellID1 == 328547 || SpellID1 == 385424) && CanCastSerratedBoneSpike("target"))
                     {
                         if (Debug)
                         {
@@ -1569,6 +1570,16 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast("Crimson Tempest");
                         return true;
                     }
+
+                    if (SpellID1 == 381802 && Aimsharp.CanCast("Indiscriminate Carnage", "player") && MeleeRange)
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Indiscriminate Carnage - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast("Indiscriminate Carnage");
+                        return true;
+                    }
                     #endregion
 
                     #region Assassination Spells - Target GCD
@@ -1630,6 +1641,26 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Casting Envenom - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast("Envenom");
+                        return true;
+                    }
+
+                    if (SpellID1 == 385627 && Aimsharp.CanCast("Kingsbane", "target"))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Kingsbane - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast("Kingsbane");
+                        return true;
+                    }
+
+                    if (SpellID1 == 360194 && Aimsharp.CanCast("Deathmark", "target"))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Deathmark - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast("Deathmark");
                         return true;
                     }
 
