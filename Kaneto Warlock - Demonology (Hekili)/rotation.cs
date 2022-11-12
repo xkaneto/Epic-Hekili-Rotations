@@ -7,9 +7,17 @@ using AimsharpWow.API;
 
 namespace AimsharpWow.Modules
 {
-    public class SnoogensPVEWarlockDemonology : Rotation
+    public class KanetoWarlockDemonologyHekili : Rotation
     {
-        Random Timer;
+        //Random Number
+        private static readonly Random getrandom = new Random();
+        public static int GetRandomNumber(int min, int max)
+        {
+            lock (getrandom) // synchronize
+            {
+                return getrandom.Next(min, max);
+            }
+        }
 
         private static string Language = "English";
 
@@ -346,7 +354,7 @@ namespace AimsharpWow.Modules
             Aimsharp.QuickDelay = 50;
             Aimsharp.SlowDelay = 150;
 
-           Aimsharp.PrintMessage("Kanetos PVE - Rogue Outlaw", Color.Yellow);
+            Aimsharp.PrintMessage("Kanetos PVE - Warlock Demonology", Color.Yellow);
             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
             Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Brown);
             Aimsharp.PrintMessage("-----", Color.Black);
@@ -555,14 +563,21 @@ namespace AimsharpWow.Modules
             #region Interrupts
             if (!NoInterrupts && (Aimsharp.UnitID("target") != 168105 || Torghast_InnerFlame.Contains(Aimsharp.CastingID("target"))) && (Aimsharp.UnitID("target") != 157571 || Torghast_InnerFlame.Contains(Aimsharp.CastingID("target"))))
             {
+                int KickValueRandom;
+                int KickChannelsAfterRandom;
                 if (GetCheckBox("Randomize Kicks:"))
                 {
-                    KickValue = KickValue + Timer.Next(200,800);
-                    KickChannelsAfter = KickChannelsAfter + Timer.Next(200,800);
+                    KickValueRandom = KickValue + GetRandomNumber(200, 500);
+                    KickChannelsAfterRandom = KickChannelsAfter + GetRandomNumber(200, 500);
+                }
+                else
+                {
+                    KickValueRandom = KickValue;
+                    KickChannelsAfterRandom = KickChannelsAfter;
                 }
                 if (Aimsharp.CanCast("Spell Lock", "target", true, true))
                 {
-                    if (IsInterruptable && !IsChanneling && CastingRemaining < KickValue)
+                    if (IsInterruptable && !IsChanneling && CastingRemaining < KickValueRandom)
                     {
                         if (Debug)
                         {
@@ -575,7 +590,7 @@ namespace AimsharpWow.Modules
 
                 if (Aimsharp.CanCast("Axe Toss", "target", true, true))
                 {
-                    if (IsInterruptable && !IsChanneling && CastingRemaining < KickValue)
+                    if (IsInterruptable && !IsChanneling && CastingRemaining < KickValueRandom)
                     {
                         if (Debug)
                         {
@@ -588,7 +603,7 @@ namespace AimsharpWow.Modules
 
                 if (Aimsharp.CanCast("Spell Lock", "target", true, true))
                 {
-                    if (IsInterruptable && IsChanneling && CastingElapsed > KickChannelsAfter)
+                    if (IsInterruptable && IsChanneling && CastingElapsed > KickChannelsAfterRandom)
                     {
                         if (Debug)
                         {
@@ -601,7 +616,7 @@ namespace AimsharpWow.Modules
 
                 if (Aimsharp.CanCast("Axe Toss", "target", true, true))
                 {
-                    if (IsInterruptable && IsChanneling && CastingElapsed > KickChannelsAfter)
+                    if (IsInterruptable && IsChanneling && CastingElapsed > KickChannelsAfterRandom)
                     {
                         if (Debug)
                         {

@@ -1271,7 +1271,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", Distract_SpellName(Language), Blind_SpellName(Language), Sap_SpellName(Language), "KidneyShot", "NoCycle", "GrapplingHook", };
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "Distract", "Blind", "Sap", "KidneyShot", "NoCycle", "GrapplingHook", };
         private List<string> m_DebuffsList = new List<string> { Sap_SpellName(Language), Blind_SpellName(Language), "Garrote", "Rupture", SerratedBoneSpike_SpellName(Language), };
         private List<string> m_BuffsList = new List<string> { Stealth_SpellName(Language), Vanish_SpellName(Language), "Blindside", "Subterfuge", InstantPoison_SpellName(Language), NumbingPoison_SpellName(Language), };
         private List<string> m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
@@ -1954,7 +1954,7 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn(Distract_SpellName(Language)) && Aimsharp.SpellCooldown(Distract_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("Distract") && Aimsharp.SpellCooldown(Distract_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -2059,7 +2059,7 @@ namespace AimsharpWow.Modules
 
             #region Queues
             //Queues
-            bool Sap = Aimsharp.IsCustomCodeOn(Sap_SpellName(Language));
+            bool Sap = Aimsharp.IsCustomCodeOn("Sap");
             if (Sap)
             {
                 if (Debug)
@@ -2070,7 +2070,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Blind = Aimsharp.IsCustomCodeOn(Blind_SpellName(Language));
+            bool Blind = Aimsharp.IsCustomCodeOn("Blind");
             if (Aimsharp.SpellCooldown(Blind_SpellName(Language)) - Aimsharp.GCD() > 2000 && Blind)
             {
                 if (Debug)
@@ -2113,7 +2113,7 @@ namespace AimsharpWow.Modules
             }
 
             string DistractCast = GetDropDown("Distract Cast:");
-            bool Distract = Aimsharp.IsCustomCodeOn(Distract_SpellName(Language));
+            bool Distract = Aimsharp.IsCustomCodeOn("Distract");
             if (Aimsharp.SpellCooldown(Distract_SpellName(Language)) - Aimsharp.GCD() > 2000 && Distract)
             {
                 if (Debug)
@@ -2849,7 +2849,7 @@ namespace AimsharpWow.Modules
             bool Enemy = Aimsharp.TargetIsEnemy();
             bool SnDOOC = GetCheckBox("Slice and Dice Out of Combat:");
             bool StealthOOC = GetCheckBox("Stealth Out of Combat:");
-            bool Sap = Aimsharp.IsCustomCodeOn(Sap_SpellName(Language));
+            bool Sap = Aimsharp.IsCustomCodeOn("Sap");
             bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
             #endregion
 
@@ -2875,7 +2875,7 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn(Distract_SpellName(Language)) && Aimsharp.SpellCooldown(Distract_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("Distract") && Aimsharp.SpellCooldown(Distract_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -2888,7 +2888,7 @@ namespace AimsharpWow.Modules
 
             #region Queues
             //Queues
-            bool Blind = Aimsharp.IsCustomCodeOn(Blind_SpellName(Language));
+            bool Blind = Aimsharp.IsCustomCodeOn("Blind");
             if (Aimsharp.SpellCooldown(Blind_SpellName(Language)) - Aimsharp.GCD() > 2000 && Blind)
             {
                 if (Debug)
@@ -2910,7 +2910,7 @@ namespace AimsharpWow.Modules
             }
 
             string DistractCast = GetDropDown("Distract Cast:");
-            bool Distract = Aimsharp.IsCustomCodeOn(Distract_SpellName(Language));
+            bool Distract = Aimsharp.IsCustomCodeOn("Distract");
             if (Aimsharp.SpellCooldown(Distract_SpellName(Language)) - Aimsharp.GCD() > 2000 && Distract)
             {
                 if (Debug)
@@ -3007,7 +3007,7 @@ namespace AimsharpWow.Modules
 
             #region Out of Combat Spells
             //Auto Poison
-            if (!Moving && !Aimsharp.HasBuff(InstantPoison_SpellName(Language), "player", true))
+            if (!Moving && Aimsharp.CanCast(InstantPoison_SpellName(Language),"player") && !Aimsharp.HasBuff(InstantPoison_SpellName(Language), "player", true))
             {
                 if (Debug)
                 {
@@ -3016,7 +3016,7 @@ namespace AimsharpWow.Modules
                 Aimsharp.Cast(InstantPoison_SpellName(Language));
                 return true;
             }
-            if (!Moving && !Aimsharp.HasBuff(NumbingPoison_SpellName(Language), "player", true))
+            if (!Moving && Aimsharp.CanCast(NumbingPoison_SpellName(Language),"player") && !Aimsharp.HasBuff(NumbingPoison_SpellName(Language), "player", true))
             {
                 if (Debug)
                 {

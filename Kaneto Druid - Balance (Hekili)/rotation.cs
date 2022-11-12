@@ -9,7 +9,15 @@ namespace AimsharpWow.Modules
 {
     public class KanetoDruidBalanceHekili : Rotation
     {
-        Random Timer;
+        //Random Number
+        private static readonly Random getrandom = new Random();
+        public static int GetRandomNumber(int min, int max)
+        {
+            lock (getrandom) // synchronize
+            {
+                return getrandom.Next(min, max);
+            }
+        }
         private static string Language = "English";
 
         #region SpellFunctions
@@ -2220,7 +2228,7 @@ namespace AimsharpWow.Modules
                 int states = Aimsharp.CustomFunction("CursePoisonCheck");
                 CleansePlayers target;
 
-                int KickTimer = Timer.Next(200,800);
+                int KickTimer = GetRandomNumber(200,800);
 
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {

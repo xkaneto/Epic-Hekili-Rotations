@@ -9,7 +9,15 @@ namespace AimsharpWow.Modules
 {
     public class KanetoDeathKnightFrostHekili : Rotation
     {
-        Random Timer;
+        //Random Number
+        private static readonly Random getrandom = new Random();
+        public static int GetRandomNumber(int min, int max)
+        {
+            lock (getrandom) // synchronize
+            {
+                return getrandom.Next(min, max);
+            }
+        }
         private static string Language = "English";
 
         #region SpellFunctions
@@ -1702,14 +1710,21 @@ namespace AimsharpWow.Modules
             #region Interrupts
             if (!NoInterrupts && (Aimsharp.UnitID("target") != 168105 || Torghast_InnerFlame.Contains(Aimsharp.CastingID("target"))) && (Aimsharp.UnitID("target") != 157571 || Torghast_InnerFlame.Contains(Aimsharp.CastingID("target"))))
             {
+                int KickValueRandom;
+                int KickChannelsAfterRandom;
                 if (GetCheckBox("Randomize Kicks:"))
                 {
-                    KickValue = KickValue + Timer.Next(200,800);
-                    KickChannelsAfter = KickChannelsAfter + Timer.Next(200,800);
+                    KickValueRandom = KickValue + GetRandomNumber(200, 500);
+                    KickChannelsAfterRandom = KickChannelsAfter + GetRandomNumber(200, 500);
+                }
+                else
+                {
+                    KickValueRandom = KickValue;
+                    KickChannelsAfterRandom = KickChannelsAfter;
                 }
                 if (Aimsharp.CanCast(MindFreeze_SpellName(Language), "target", true, true))
                 {
-                    if (IsInterruptable && !IsChanneling && CastingRemaining < KickValue)
+                    if (IsInterruptable && !IsChanneling && CastingRemaining < KickValueRandom)
                     {
                         if (Debug)
                         {
@@ -1722,7 +1737,7 @@ namespace AimsharpWow.Modules
 
                 if (Aimsharp.CanCast(MindFreeze_SpellName(Language), "target", true, true))
                 {
-                    if (IsInterruptable && IsChanneling && CastingElapsed > KickChannelsAfter)
+                    if (IsInterruptable && IsChanneling && CastingElapsed > KickChannelsAfterRandom)
                     {
                         if (Debug)
                         {
