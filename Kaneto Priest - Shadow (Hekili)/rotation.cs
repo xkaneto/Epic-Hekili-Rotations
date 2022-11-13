@@ -1361,67 +1361,11 @@ namespace AimsharpWow.Modules
         #region Lists
         //Lists
         private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "NoPurify", "ShadowCrash", "MindControl", "LeapofFaith", "ShackleUndead", "PowerInfusion", "MindBomb", "PsychicHorror", "PsychicScream", "MassDispel", "DoorofShadows", "VampiricTouch", "ShadowWordPain", "BodyandSoul", };
-        private List<string> m_DebuffsList = new List<string> { "Weakened Soul", };
-        private List<string> m_BuffsList = new List<string> { DarkThought_SpellName(Language), };
-        private List<string> m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
-        private List<string> m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
-
-        private List<string> m_SpellBook_General = new List<string> {
-            //Covenants
-            BoonOfTheAscended_SpellName(Language), //325013
-            AscendedNova_SpellName(Language), //325020
-            AscendedBlast_SpellName(Language), //325283
-            UnholyNova_SpellName(Language), //324724
-            FaeGuardians_SpellName(Language), //327661
-            Mindgames_SpellName(Language), //323673
-
-            Fleshcraft_SpellName(Language), SummonSteward_SpellName(Language), DoorOfShadows_SpellName(Language),
-
-            //Interrupt
-            Silence_SpellName(Language), //15487
-
-            //General
-            DesperatePrayer_SpellName(Language), //19236
-            DispelMagic_SpellName(Language), //528
-            DivineStar_SpellName(Language), //122121
-            Halo_SpellName(Language), //120644
-            LeapOfFaith_SpellName(Language), //73325 - queue MO
-            MassDispel_SpellName(Language), //32375 - queue Cast
-            MindBlast_SpellName(Language), //8092
-            MindControl_SpellName(Language), //605 - queue MO
-            PowerInfusion_SpellName(Language), //10060 - queue MO
-            PowerWord_Fortitude_SpellName(Language), //21562
-            PowerWord_Shield_SpellName(Language), //17
-            PsychicScream_SpellName(Language), //8122 - queue
-            ShackleUndead_SpellName(Language), //9484 - queue MO
-            ShadowWord_Death_SpellName(Language), //32379
-            ShadowWord_Pain_SpellName(Language), //589
-
-            //Shadow
-            Damnation_SpellName(Language), //341374
-            DarkAscension_SpellName(Language), //391109
-            DarkVoid_SpellName(Language), //263346
-            DevouringPlague_SpellName(Language), //335467
-            Dispersion_SpellName(Language), //47585 - option
-            MindBomb_SpellName(Language), //205369 - queue mo
-            MindFlay_SpellName(Language), //15407
-            MindFlay_Insanity_SpellName(Language), //391403
-            MindSear_SpellName(Language), //48045
-            Mindbender_SpellName(Language), //200174
-            PsychicHorror_SpellName(Language), //64044 - queue mo
-            PurifyDisease_SpellName(Language), //213634
-            SearingNightmare_SpellName(Language), //341385
-            ShadowCrash_SpellName(Language), //205385 - Cast
-            ShadowMend_SpellName(Language), //299268
-            Shadowfiend_SpellName(Language), //34433
-            Shadowform_SpellName(Language), //232698
-            VampiricEmbrace_SpellName(Language), //15286
-            VampiricTouch_SpellName(Language), //34914
-            VoidBolt_SpellName(Language), //205448
-            VoidEruption_SpellName(Language), //228260
-            VoidTorrent_SpellName(Language), //263165
-            Voidform_SpellName(Language), //194249
-        };
+        private List<string> m_DebuffsList;
+        private List<string> m_BuffsList;
+        private List<string> m_BloodlustBuffsList;
+        private List<string> m_ItemsList;
+        private List<string> m_SpellBook_General;
 
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
         private List<string> m_CastingList = new List<string> { "Manual", "Cursor", "Player" };
@@ -1865,6 +1809,69 @@ namespace AimsharpWow.Modules
             {
                 Spellbook.Add(Shadowmeld_SpellName(Language)); //58984
             }
+            #endregion
+
+            #region ReinitializeLists
+            m_DebuffsList = new List<string> { "Weakened Soul", };
+            m_BuffsList = new List<string> { DarkThought_SpellName(Language), };
+            m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
+            m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
+            m_SpellBook_General = new List<string> {
+                //Covenants
+                BoonOfTheAscended_SpellName(Language), //325013
+                AscendedNova_SpellName(Language), //325020
+                AscendedBlast_SpellName(Language), //325283
+                UnholyNova_SpellName(Language), //324724
+                FaeGuardians_SpellName(Language), //327661
+                Mindgames_SpellName(Language), //323673
+
+                Fleshcraft_SpellName(Language), SummonSteward_SpellName(Language), DoorOfShadows_SpellName(Language),
+
+                //Interrupt
+                Silence_SpellName(Language), //15487
+
+                //General
+                DesperatePrayer_SpellName(Language), //19236
+                DispelMagic_SpellName(Language), //528
+                DivineStar_SpellName(Language), //122121
+                Halo_SpellName(Language), //120644
+                LeapOfFaith_SpellName(Language), //73325 - queue MO
+                MassDispel_SpellName(Language), //32375 - queue Cast
+                MindBlast_SpellName(Language), //8092
+                MindControl_SpellName(Language), //605 - queue MO
+                PowerInfusion_SpellName(Language), //10060 - queue MO
+                PowerWord_Fortitude_SpellName(Language), //21562
+                PowerWord_Shield_SpellName(Language), //17
+                PsychicScream_SpellName(Language), //8122 - queue
+                ShackleUndead_SpellName(Language), //9484 - queue MO
+                ShadowWord_Death_SpellName(Language), //32379
+                ShadowWord_Pain_SpellName(Language), //589
+
+                //Shadow
+                Damnation_SpellName(Language), //341374
+                DarkAscension_SpellName(Language), //391109
+                DarkVoid_SpellName(Language), //263346
+                DevouringPlague_SpellName(Language), //335467
+                Dispersion_SpellName(Language), //47585 - option
+                MindBomb_SpellName(Language), //205369 - queue mo
+                MindFlay_SpellName(Language), //15407
+                MindFlay_Insanity_SpellName(Language), //391403
+                MindSear_SpellName(Language), //48045
+                Mindbender_SpellName(Language), //200174
+                PsychicHorror_SpellName(Language), //64044 - queue mo
+                PurifyDisease_SpellName(Language), //213634
+                SearingNightmare_SpellName(Language), //341385
+                ShadowCrash_SpellName(Language), //205385 - Cast
+                ShadowMend_SpellName(Language), //299268
+                Shadowfiend_SpellName(Language), //34433
+                Shadowform_SpellName(Language), //232698
+                VampiricEmbrace_SpellName(Language), //15286
+                VampiricTouch_SpellName(Language), //34914
+                VoidBolt_SpellName(Language), //205448
+                VoidEruption_SpellName(Language), //228260
+                VoidTorrent_SpellName(Language), //263165
+                Voidform_SpellName(Language), //194249
+            };
             #endregion
 
             InitializeMacros();

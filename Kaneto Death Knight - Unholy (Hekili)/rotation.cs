@@ -1164,58 +1164,11 @@ namespace AimsharpWow.Modules
         #region Lists
         //Lists
         private List<string> m_IngameCommandsList = new List<string> { "DoorofShadows", "NoInterrupts", "NoCycle", "Asphyxiate", "RaiseAlly", "ArmyoftheDead", "DeathandDecay", "DeathsDue", "AntiMagicZone", };
-        private List<string> m_DebuffsList = new List<string> { };
-        private List<string> m_BuffsList = new List<string> {  };
-        private List<string> m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
-        private List<string> m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
-
-        private List<string> m_SpellBook_General = new List<string> {
-            //Covenants
-            ShackleTheUnworthy_SpellName(Language),
-            SwarmingMist_SpellName(Language),
-            DeathsDue_SpellName(Language),
-            AbominationLimb_SpellName(Language),
-
-            Fleshcraft_SpellName(Language), DoorOfShadows_SpellName(Language),
-
-            //Interrupt
-            MindFreeze_SpellName(Language),
-
-            //General
-            AntimagicShell_SpellName(Language),
-            AntimagicZone_SpellName(Language),
-            Apocalypse_SpellName(Language), //275699
-            ArmyOfTheDead_SpellName(Language), //42650
-            Asphyxiate_SpellName(Language),
-            BlindingSleet_SpellName(Language),
-            ChainsOfIce_SpellName(Language),
-            ClawingShadows_SpellName(Language), //207311
-            DarkCommand_SpellName(Language),
-            DarkTransformation_SpellName(Language), //63560
-            DeathAndDecay_SpellName(Language),
-            DeathCoil_SpellName(Language),
-            DeathGrip_SpellName(Language),
-            DeathPact_SpellName(Language),
-            DeathStrike_SpellName(Language),
-            DeathsAdvance_SpellName(Language),
-            Defile_SpellName(Language),
-            EmpowerRuneWeapon_SpellName(Language),
-            Epidemic_SpellName(Language), //207317
-            FesteringStrike_SpellName(Language), //85948
-            IceboundFortitude_SpellName(Language),
-            Lichborne_SpellName(Language),
-            Outbreak_SpellName(Language), //77575
-            RaiseAlly_SpellName(Language),
-            RaiseDead_SpellName(Language),
-            ScourgeStrike_SpellName(Language), //55090
-            SoulReaper_SpellName(Language),
-            SummonGargoyle_SpellName(Language), //49206
-            UnholyAssault_SpellName(Language), //207289
-            UnholyBlight_SpellName(Language), //115989
-            VileContagion_SpellName(Language), //390279
-            WraithWalk_SpellName(Language),
-        };
-
+        private List<string> m_DebuffsList;
+        private List<string> m_BuffsList;
+        private List<string> m_BloodlustBuffsList;
+        private List<string> m_ItemsList;
+        private List<string> m_SpellBook_General;
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
         private List<string> m_CastingList = new List<string> { "Manual", "Cursor", "Player" };
 
@@ -1548,6 +1501,59 @@ namespace AimsharpWow.Modules
             {
                 Spellbook.Add(Shadowmeld_SpellName(Language)); //58984
             }
+            #endregion
+
+            #region Reinitialize Lists
+            m_DebuffsList = new List<string> { };
+            m_BuffsList = new List<string> {  };
+            m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
+            m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
+            m_SpellBook_General = new List<string> {
+                //Covenants
+                ShackleTheUnworthy_SpellName(Language),
+                SwarmingMist_SpellName(Language),
+                DeathsDue_SpellName(Language),
+                AbominationLimb_SpellName(Language),
+
+                Fleshcraft_SpellName(Language), DoorOfShadows_SpellName(Language),
+
+                //Interrupt
+                MindFreeze_SpellName(Language),
+
+                //General
+                AntimagicShell_SpellName(Language),
+                AntimagicZone_SpellName(Language),
+                Apocalypse_SpellName(Language), //275699
+                ArmyOfTheDead_SpellName(Language), //42650
+                Asphyxiate_SpellName(Language),
+                BlindingSleet_SpellName(Language),
+                ChainsOfIce_SpellName(Language),
+                ClawingShadows_SpellName(Language), //207311
+                DarkCommand_SpellName(Language),
+                DarkTransformation_SpellName(Language), //63560
+                DeathAndDecay_SpellName(Language),
+                DeathCoil_SpellName(Language),
+                DeathGrip_SpellName(Language),
+                DeathPact_SpellName(Language),
+                DeathStrike_SpellName(Language),
+                DeathsAdvance_SpellName(Language),
+                Defile_SpellName(Language),
+                EmpowerRuneWeapon_SpellName(Language),
+                Epidemic_SpellName(Language), //207317
+                FesteringStrike_SpellName(Language), //85948
+                IceboundFortitude_SpellName(Language),
+                Lichborne_SpellName(Language),
+                Outbreak_SpellName(Language), //77575
+                RaiseAlly_SpellName(Language),
+                RaiseDead_SpellName(Language),
+                ScourgeStrike_SpellName(Language), //55090
+                SoulReaper_SpellName(Language),
+                SummonGargoyle_SpellName(Language), //49206
+                UnholyAssault_SpellName(Language), //207289
+                UnholyBlight_SpellName(Language), //115989
+                VileContagion_SpellName(Language), //390279
+                WraithWalk_SpellName(Language),
+            };
             #endregion
 
             InitializeMacros();

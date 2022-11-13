@@ -1055,56 +1055,11 @@ namespace AimsharpWow.Modules
         #region Lists
         //Lists
         private List<string> m_IngameCommandsList = new List<string> { "DoorofShadows", "NoInterrupts", "NoCycle", "NoMovement", "ChaosNova", "Imprison", "Darkness", "FelEruption", "FelRush", "Felblade", "SigilofFlame", "SigilofMisery" };
-        private List<string> m_DebuffsList = new List<string> { Imprison_SpellName(Language), };
-        private List<string> m_BuffsList = new List<string> { Netherwalk_SpellName(Language), };
-        private List<string> m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
-        private List<string> m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
-
-        private List<string> m_SpellBook_General = new List<string> {
-            //Covenants
-            ElysianDecree_SpellName(Language), //390163
-            FodderToTheFlame_SpellName(Language), //329554
-            TheHunt_SpellName(Language), //370965
-            SinfulBrand_SpellName(Language), //317009
-
-            DoorOfShadows_SpellName(Language),
-            Fleshcraft_SpellName(Language),
-            SummonSteward_SpellName(Language),
-
-            //Interrupt
-            Disrupt_SpellName(Language), //183752
-
-            //General
-            Annihilation_SpellName(Language), //201427
-            BladeDance_SpellName(Language), //188499
-            Blur_SpellName(Language), //198589
-            ChaosNova_SpellName(Language), //179057
-            ChaosStrike_SpellName(Language), //162794
-            CollectiveAnguish_SpellName(Language), //390152
-            ConsumeMagic_SpellName(Language), //278326
-            Darkness_SpellName(Language), //196718
-            DeathSweep_SpellName(Language), //210152
-            DemonsBite_SpellName(Language), //162243
-            EssenceBreak_SpellName(Language), //258860
-            EyeBeam_SpellName(Language), //198013
-            FelBarrage_SpellName(Language), //258925
-            FelEruption_SpellName(Language), //211881
-            FelRush_SpellName(Language), //195072
-            Felblade_SpellName(Language), //232893
-            GlaiveTempest_SpellName(Language), //342817
-            ImmolationAura_SpellName(Language), //258920
-            Imprison_SpellName(Language), //217832
-            Metamorphosis_SpellName(Language), //191427
-            Netherwalk_SpellName(Language), //196555
-            SigilOfFlame_SpellName(Language), //204596 -- Neue Cursor oder Player Funktion einfügen
-            SigilOfMisery_SpellName(Language), //207684 -- Neue Cursor oder Player Funktion einfügen
-            ThrowGlaive_SpellName(Language), //185123
-            Torment_SpellName(Language), //185245
-            VengefulRetreat_SpellName(Language), //198793
-
-        };
-
-
+        private List<string> m_DebuffsList;
+        private List<string> m_BuffsList;
+        private List<string> m_BloodlustBuffsList;
+        private List<string> m_ItemsList;
+        private List<string> m_SpellBook_General;
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
         private List<string> m_CastingList = new List<string> { "Manual", "Player" };
 
@@ -1435,6 +1390,54 @@ namespace AimsharpWow.Modules
             }
             #endregion
 
+            #region Reinitialize Lists
+            m_DebuffsList = new List<string> { Imprison_SpellName(Language), };
+            m_BuffsList = new List<string> { Netherwalk_SpellName(Language), };
+            m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
+            m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
+            m_SpellBook_General = new List<string> {
+                //Covenants
+                ElysianDecree_SpellName(Language), //390163
+                FodderToTheFlame_SpellName(Language), //329554
+                TheHunt_SpellName(Language), //370965
+                SinfulBrand_SpellName(Language), //317009
+
+                DoorOfShadows_SpellName(Language),
+                Fleshcraft_SpellName(Language),
+                SummonSteward_SpellName(Language),
+
+                //Interrupt
+                Disrupt_SpellName(Language), //183752
+
+                //General
+                Annihilation_SpellName(Language), //201427
+                BladeDance_SpellName(Language), //188499
+                Blur_SpellName(Language), //198589
+                ChaosNova_SpellName(Language), //179057
+                ChaosStrike_SpellName(Language), //162794
+                CollectiveAnguish_SpellName(Language), //390152
+                ConsumeMagic_SpellName(Language), //278326
+                Darkness_SpellName(Language), //196718
+                DeathSweep_SpellName(Language), //210152
+                DemonsBite_SpellName(Language), //162243
+                EssenceBreak_SpellName(Language), //258860
+                EyeBeam_SpellName(Language), //198013
+                FelBarrage_SpellName(Language), //258925
+                FelEruption_SpellName(Language), //211881
+                FelRush_SpellName(Language), //195072
+                Felblade_SpellName(Language), //232893
+                GlaiveTempest_SpellName(Language), //342817
+                ImmolationAura_SpellName(Language), //258920
+                Imprison_SpellName(Language), //217832
+                Metamorphosis_SpellName(Language), //191427
+                Netherwalk_SpellName(Language), //196555
+                SigilOfFlame_SpellName(Language), //204596
+                SigilOfMisery_SpellName(Language), //207684
+                ThrowGlaive_SpellName(Language), //185123
+                Torment_SpellName(Language), //185245
+                VengefulRetreat_SpellName(Language), //198793
+            };
+            #endregion
 
             InitializeMacros();
 

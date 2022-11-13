@@ -1272,69 +1272,12 @@ namespace AimsharpWow.Modules
         #region Lists
         //Lists
         private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "Distract", "Blind", "Sap", "KidneyShot", "NoCycle", "GrapplingHook", };
-        private List<string> m_DebuffsList = new List<string> { Sap_SpellName(Language), Blind_SpellName(Language), "Garrote", "Rupture", SerratedBoneSpike_SpellName(Language), };
-        private List<string> m_BuffsList = new List<string> { Stealth_SpellName(Language), Vanish_SpellName(Language), "Blindside", "Subterfuge", InstantPoison_SpellName(Language), NumbingPoison_SpellName(Language), };
-        private List<string> m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
-        private List<string> m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
-
-        private List<string> m_SpellBook_General = new List<string> {
-            //Covenants
-            EchoingReprimand_SpellName(Language), //385616,323547
-            Flagellation_SpellName(Language), //323654 , 384631
-            Sepsis_SpellName(Language), //328305 , 385408
-            SerratedBoneSpike_SpellName(Language), //328547 , 385424
-
-            //Interrupt
-            Kick_SpellName(Language), //1766
-
-            //General Rogue
-            Ambush_SpellName(Language), //8676
-            CheapShot_SpellName(Language), //1833
-            CrimsonVial_SpellName(Language), //185311
-            Distract_SpellName(Language), //1725
-            Eviscerate_SpellName(Language), //196819
-            Fleshcraft_SpellName(Language),
-            InstantPoison_SpellName(Language), //315584
-            KidneyShot_SpellName(Language), //408
-            SliceAndDice_SpellName(Language), //315496
-            Sprint_SpellName(Language), //2983
-            Stealth_SpellName(Language), //1784
-            Vanish_SpellName(Language), //1856
-
-            //General Talents
-            Blind_SpellName(Language), //2094
-            CloakOfShadows_SpellName(Language), //31224
-            ColdBlood_SpellName(Language), //382245
-            Evasion_SpellName(Language), //5277
-            Feint_SpellName(Language), //1966
-            Gouge_SpellName(Language), //1776
-            MarkedForDeath_SpellName(Language), //137619
-            NumbingPoison_SpellName(Language), //5761
-            Sap_SpellName(Language), //6770
-            ShadowDance_SpellName(Language), //185313
-            Shadowstep_SpellName(Language), //36554
-            Shiv_SpellName(Language), //5938
-            ThistleTea_SpellName(Language), //381623
-            TricksOfTheTrade_SpellName(Language), //57934
-        };
-
-        private List<string> m_SpellBook_Outlaw = new List<string>
-        {
-            //Outlaw Rogue
-            AdrenalineRush_SpellName(Language), //13750
-            BetweenTheEyes_SpellName(Language), //315341
-            BladeFlurry_SpellName(Language), //13877
-            BladeRush_SpellName(Language), //271877
-            Dispatch_SpellName(Language), //2098
-            Dreadblades_SpellName(Language), //343142
-            GhostlyStrike_SpellName(Language), //196937
-            GrapplingHook_SpellName(Language), //195457
-            KeepItRolling_SpellName(Language), //381989
-            KillingSpree_SpellName(Language), //51690
-            PistolShot_SpellName(Language), //185763
-            RollTheBones_SpellName(Language), //315508
-            SinisterStrike_SpellName(Language), //193315
-        };
+        private List<string> m_DebuffsList;
+        private List<string> m_BuffsList;
+        private List<string> m_BloodlustBuffsList;
+        private List<string> m_ItemsList;
+        private List<string> m_SpellBook_General;
+        private List<string> m_SpellBook_Outlaw;
 
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
         private List<string> m_CastingList = new List<string> { "Manual", "Cursor", "Player" };
@@ -1922,6 +1865,71 @@ namespace AimsharpWow.Modules
             {
                 Spellbook.Add(Shadowmeld_SpellName(Language)); //58984
             }
+            #endregion
+
+            #region Reinitialize Lists
+            m_DebuffsList = new List<string> { Sap_SpellName(Language), Blind_SpellName(Language), SerratedBoneSpike_SpellName(Language), };
+            m_BuffsList = new List<string> { Stealth_SpellName(Language), Vanish_SpellName(Language), "Blindside", "Subterfuge", InstantPoison_SpellName(Language), NumbingPoison_SpellName(Language), };
+            m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
+            m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
+            m_SpellBook_General = new List<string> {
+                //Covenants
+                EchoingReprimand_SpellName(Language), //385616,323547
+                Flagellation_SpellName(Language), //323654 , 384631
+                Sepsis_SpellName(Language), //328305 , 385408
+                SerratedBoneSpike_SpellName(Language), //328547 , 385424
+
+                //Interrupt
+                Kick_SpellName(Language), //1766
+
+                //General Rogue
+                Ambush_SpellName(Language), //8676
+                CheapShot_SpellName(Language), //1833
+                CrimsonVial_SpellName(Language), //185311
+                Distract_SpellName(Language), //1725
+                Eviscerate_SpellName(Language), //196819
+                Fleshcraft_SpellName(Language),
+                InstantPoison_SpellName(Language), //315584
+                KidneyShot_SpellName(Language), //408
+                SliceAndDice_SpellName(Language), //315496
+                Sprint_SpellName(Language), //2983
+                Stealth_SpellName(Language), //1784
+                Vanish_SpellName(Language), //1856
+
+                //General Talents
+                Blind_SpellName(Language), //2094
+                CloakOfShadows_SpellName(Language), //31224
+                ColdBlood_SpellName(Language), //382245
+                Evasion_SpellName(Language), //5277
+                Feint_SpellName(Language), //1966
+                Gouge_SpellName(Language), //1776
+                MarkedForDeath_SpellName(Language), //137619
+                NumbingPoison_SpellName(Language), //5761
+                Sap_SpellName(Language), //6770
+                ShadowDance_SpellName(Language), //185313
+                Shadowstep_SpellName(Language), //36554
+                Shiv_SpellName(Language), //5938
+                ThistleTea_SpellName(Language), //381623
+                TricksOfTheTrade_SpellName(Language), //57934
+            };
+
+            m_SpellBook_Outlaw = new List<string>
+            {
+                //Outlaw Rogue
+                AdrenalineRush_SpellName(Language), //13750
+                BetweenTheEyes_SpellName(Language), //315341
+                BladeFlurry_SpellName(Language), //13877
+                BladeRush_SpellName(Language), //271877
+                Dispatch_SpellName(Language), //2098
+                Dreadblades_SpellName(Language), //343142
+                GhostlyStrike_SpellName(Language), //196937
+                GrapplingHook_SpellName(Language), //195457
+                KeepItRolling_SpellName(Language), //381989
+                KillingSpree_SpellName(Language), //51690
+                PistolShot_SpellName(Language), //185763
+                RollTheBones_SpellName(Language), //315508
+                SinisterStrike_SpellName(Language), //193315
+            };
             #endregion
 
             InitializeMacros();

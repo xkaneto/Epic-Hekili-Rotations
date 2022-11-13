@@ -1415,79 +1415,11 @@ namespace AimsharpWow.Modules
         #region Lists
         //Lists
         private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", "DoorofShadows", "Banish", "Fear", "Shadowfury", "VileTaint", "HowlofTerror", "MortalCoil", "VileTaintCursor", };
-        private List<string> m_DebuffsList = new List<string> { Banish_SpellName(Language), Fear_SpellName(Language), };
-        private List<string> m_BuffsList = new List<string> {  };
-        private List<string> m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
-        private List<string> m_ItemsList = new List<string> { Healthstone_SpellName(Language), };
-
-        private List<string> m_SpellBook = new List<string> {
-            //Covenants
-            ScouringTithe_SpellName(Language), //312321
-            ImpendingCatastrophe_SpellName(Language), //321792
-            SoulRot_SpellName(Language), //325640, 386991
-            DecimatingBolt_SpellName(Language), //325289
-
-            SummonSteward_SpellName(Language), Fleshcraft_SpellName(Language), DoorOfShadows_SpellName(Language),
-
-            //Interrupt
-            SpellLock_SpellName(Language), //119910
-
-            //General
-            Agony_SpellName(Language), //980
-            AmplifyCurse_SpellName(Language), //328774
-            Banish_SpellName(Language), //710
-            BurningRush_SpellName(Language), //111400
-            Corruption_SpellName(Language), //172
-            CurseOfExhaustion_SpellName(Language), //334275
-            CurseOfTongues_SpellName(Language), //1714, 199890
-            CurseOfWeakness_SpellName(Language), //702
-            DarkPact_SpellName(Language), //108416
-            DemonicCircle_Teleport_SpellName(Language), //48020
-            DemonicCircle_SpellName(Language), //48018
-            DemonicGateway_SpellName(Language), //111771
-            DrainLife_SpellName(Language), //234153
-            Fear_SpellName(Language), //5782
-            FelDomination_SpellName(Language), //333889
-            HealthFunnel_SpellName(Language), //755
-            HowlOfTerror_SpellName(Language), //5484
-            InquisitorsGaze_SpellName(Language), //386344
-            MortalCoil_SpellName(Language), //6789
-            ShadowBolt_SpellName(Language), //686
-            Shadowflame_SpellName(Language), //384069
-            Shadowfury_SpellName(Language), //30283
-            Soulstone_SpellName(Language), //20707
-            SummonFelguard_SpellName(Language), //30146
-            SummonFelhunter_SpellName(Language), //691
-            SummonImp_SpellName(Language), //688
-            SummonSayaad_SpellName(Language), //366222
-            SummonSoulkeeper_SpellName(Language), //386244
-            SummonVoidwalker_SpellName(Language), //697
-            UnendingResolve_SpellName(Language), //104773
-            //"Command Demon", //119898
-            //"Create Healthstone", //6201
-            //"Subjugate Demon", //1098
-
-            //Pet
-            DevourMagic_SpellName(Language), //19505
-            SingeMagic_SpellName(Language), //89808
-            Seduction_SpellName(Language), //6358
-
-            //Affliction
-            DarkSoul_Misery_SpellName(Language), //113860
-            DrainSoul_SpellName(Language), //198590
-            GrimoireOfSacrifice_SpellName(Language), //108503
-            Haunt_SpellName(Language), //48181
-            MaleficRapture_SpellName(Language), //324536
-            PhantomSingularity_SpellName(Language), //205179
-            SeedOfCorruption_SpellName(Language), //27243
-            SiphonLife_SpellName(Language), //63106
-            SoulSwap_SpellName(Language), //386951
-            SoulTap_SpellName(Language), //387118
-            SummonDarkglare_SpellName(Language), //205180
-            UnstableAffliction_SpellName(Language), //316099
-            VileTaint_SpellName(Language), //278350
-
-        };
+        private List<string> m_DebuffsList;
+        private List<string> m_BuffsList;
+        private List<string> m_BloodlustBuffsList;
+        private List<string> m_ItemsList;
+        private List<string> m_SpellBook;
 
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
 
@@ -1850,6 +1782,81 @@ namespace AimsharpWow.Modules
             {
                 Spellbook.Add(Shadowmeld_SpellName(Language)); //58984
             }
+            #endregion
+
+            #region Reinitialize Lists
+            m_DebuffsList = new List<string> { Banish_SpellName(Language), Fear_SpellName(Language), };
+            m_BuffsList = new List<string> {  };
+            m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
+            m_ItemsList = new List<string> { Healthstone_SpellName(Language), };
+            m_SpellBook = new List<string> {
+                //Covenants
+                ScouringTithe_SpellName(Language), //312321
+                ImpendingCatastrophe_SpellName(Language), //321792
+                SoulRot_SpellName(Language), //325640, 386991
+                DecimatingBolt_SpellName(Language), //325289
+
+                SummonSteward_SpellName(Language), Fleshcraft_SpellName(Language), DoorOfShadows_SpellName(Language),
+
+                //Interrupt
+                SpellLock_SpellName(Language), //119910
+
+                //General
+                Agony_SpellName(Language), //980
+                AmplifyCurse_SpellName(Language), //328774
+                Banish_SpellName(Language), //710
+                BurningRush_SpellName(Language), //111400
+                Corruption_SpellName(Language), //172
+                CurseOfExhaustion_SpellName(Language), //334275
+                CurseOfTongues_SpellName(Language), //1714, 199890
+                CurseOfWeakness_SpellName(Language), //702
+                DarkPact_SpellName(Language), //108416
+                DemonicCircle_Teleport_SpellName(Language), //48020
+                DemonicCircle_SpellName(Language), //48018
+                DemonicGateway_SpellName(Language), //111771
+                DrainLife_SpellName(Language), //234153
+                Fear_SpellName(Language), //5782
+                FelDomination_SpellName(Language), //333889
+                HealthFunnel_SpellName(Language), //755
+                HowlOfTerror_SpellName(Language), //5484
+                InquisitorsGaze_SpellName(Language), //386344
+                MortalCoil_SpellName(Language), //6789
+                ShadowBolt_SpellName(Language), //686
+                Shadowflame_SpellName(Language), //384069
+                Shadowfury_SpellName(Language), //30283
+                Soulstone_SpellName(Language), //20707
+                SummonFelguard_SpellName(Language), //30146
+                SummonFelhunter_SpellName(Language), //691
+                SummonImp_SpellName(Language), //688
+                SummonSayaad_SpellName(Language), //366222
+                SummonSoulkeeper_SpellName(Language), //386244
+                SummonVoidwalker_SpellName(Language), //697
+                UnendingResolve_SpellName(Language), //104773
+                //"Command Demon", //119898
+                //"Create Healthstone", //6201
+                //"Subjugate Demon", //1098
+
+                //Pet
+                DevourMagic_SpellName(Language), //19505
+                SingeMagic_SpellName(Language), //89808
+                Seduction_SpellName(Language), //6358
+
+                //Affliction
+                DarkSoul_Misery_SpellName(Language), //113860
+                DrainSoul_SpellName(Language), //198590
+                GrimoireOfSacrifice_SpellName(Language), //108503
+                Haunt_SpellName(Language), //48181
+                MaleficRapture_SpellName(Language), //324536
+                PhantomSingularity_SpellName(Language), //205179
+                SeedOfCorruption_SpellName(Language), //27243
+                SiphonLife_SpellName(Language), //63106
+                SoulSwap_SpellName(Language), //386951
+                SoulTap_SpellName(Language), //387118
+                SummonDarkglare_SpellName(Language), //205180
+                UnstableAffliction_SpellName(Language), //316099
+                VileTaint_SpellName(Language), //278350
+
+            };
             #endregion
 
             InitializeMacros();

@@ -1379,73 +1379,11 @@ namespace AimsharpWow.Modules
         #region Lists
         //Lists
         private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "NoDecurse", "EarthbindTotem", "WindRushTotem", "CapacitorTotem", "TremorTotem", "Hex", "EarthElemental", "VesperTotem", "FaeTransfusion", "DoorofShadows" };
-        private List<string> m_DebuffsList = new List<string> { };
-        private List<string> m_BuffsList = new List<string> { MaelstromWeapon_SpellName(Language), };
-        private List<string> m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
-        private List<string> m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
-
-        private List<string> m_SpellBook_General = new List<string> {
-            //Covenants
-            VesperTotem_SpellName(Language), //324386
-            FaeTransfusion_SpellName(Language), //328923
-            ChainHarvest_SpellName(Language), //320674
-            PrimordialWave_SpellName(Language), //326059
-
-            Fleshcraft_SpellName(Language), SummonSteward_SpellName(Language), DoorOfShadows_SpellName(Language),
-
-            //Interrupt
-            WindShear_SpellName(Language), //57994
-
-            //General
-            AncestralGuidance_SpellName(Language), //108281
-            AstralShift_SpellName(Language), //108271
-            Bloodlust_SpellName(Language), //2825
-            CapacitorTotem_SpellName(Language), //192058
-            ChainHeal_SpellName(Language), //1064
-            ChainLightning_SpellName(Language), //188443
-            EarthElemental_SpellName(Language), //198103
-            EarthbindTotem_SpellName(Language), //2484
-            FlameShock_SpellName(Language), //188389
-            FlametongueWeapon_SpellName(Language), //318038
-            FrostShock_SpellName(Language), //196840
-            GhostWolf_SpellName(Language), //2645
-            HealingStreamTotem_SpellName(Language), //5394
-            HealingSurge_SpellName(Language), //8004
-            Heroism_SpellName(Language), //32182
-            Hex_SpellName(Language), //51514
-            LightningBolt_SpellName(Language), //188196
-            LightningLasso_SpellName(Language), //305483
-            LightningShield_SpellName(Language), //192106
-            ManaSpringTotem_SpellName(Language), //381930
-            NaturesSwiftness_SpellName(Language), //378081
-            PrimalStrike_SpellName(Language), //73899
-            Purge_SpellName(Language), //370
-            TremorTotem_SpellName(Language), //8143
-
-            //Enhancement
-            Ascendance_SpellName(Language), //114051
-            CleanseSpirit_SpellName(Language), //51886
-            CrashLightning_SpellName(Language), //187874
-            DoomWinds_SpellName(Language), //384352
-            EarthShield_SpellName(Language), //974
-            ElementalBlast_SpellName(Language), //117014
-            FeralLunge_SpellName(Language), //196884
-            FeralSpirit_SpellName(Language), //51533
-            FireNova_SpellName(Language), //333974
-            IceStrike_SpellName(Language), //342240
-            LavaBurst_SpellName(Language), //51505
-            LavaLash_SpellName(Language), //60103
-            SpiritWalk_SpellName(Language), //58875
-            Stormkeeper_SpellName(Language), //320137
-            Stormstrike_SpellName(Language), //17364
-            Sundering_SpellName(Language), //197214
-            Thundercharge_SpellName(Language), //204366
-            WindRushTotem_SpellName(Language), //192077
-            WindfuryTotem_SpellName(Language), //8512
-            WindfuryWeapon_SpellName(Language), //33757
-            Windstrike_SpellName(Language), //115356
-
-        };
+        private List<string> m_DebuffsList;
+        private List<string> m_BuffsList;
+        private List<string> m_BloodlustBuffsList;
+        private List<string> m_ItemsList;
+        private List<string> m_SpellBook_General;
 
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
         private List<string> m_CastingList = new List<string> { "Manual", "Cursor", "Player" };
@@ -1871,6 +1809,75 @@ namespace AimsharpWow.Modules
             {
                 Spellbook.Add(Shadowmeld_SpellName(Language)); //58984
             }
+            #endregion
+
+            #region Reinitialize Lists
+            m_DebuffsList = new List<string> { };
+            m_BuffsList = new List<string> { MaelstromWeapon_SpellName(Language), };
+            m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
+            m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
+            m_SpellBook_General = new List<string> {
+                //Covenants
+                VesperTotem_SpellName(Language), //324386
+                FaeTransfusion_SpellName(Language), //328923
+                ChainHarvest_SpellName(Language), //320674
+                PrimordialWave_SpellName(Language), //326059
+
+                Fleshcraft_SpellName(Language), SummonSteward_SpellName(Language), DoorOfShadows_SpellName(Language),
+
+                //Interrupt
+                WindShear_SpellName(Language), //57994
+
+                //General
+                AncestralGuidance_SpellName(Language), //108281
+                AstralShift_SpellName(Language), //108271
+                Bloodlust_SpellName(Language), //2825
+                CapacitorTotem_SpellName(Language), //192058
+                ChainHeal_SpellName(Language), //1064
+                ChainLightning_SpellName(Language), //188443
+                EarthElemental_SpellName(Language), //198103
+                EarthbindTotem_SpellName(Language), //2484
+                FlameShock_SpellName(Language), //188389
+                FlametongueWeapon_SpellName(Language), //318038
+                FrostShock_SpellName(Language), //196840
+                GhostWolf_SpellName(Language), //2645
+                HealingStreamTotem_SpellName(Language), //5394
+                HealingSurge_SpellName(Language), //8004
+                Heroism_SpellName(Language), //32182
+                Hex_SpellName(Language), //51514
+                LightningBolt_SpellName(Language), //188196
+                LightningLasso_SpellName(Language), //305483
+                LightningShield_SpellName(Language), //192106
+                ManaSpringTotem_SpellName(Language), //381930
+                NaturesSwiftness_SpellName(Language), //378081
+                PrimalStrike_SpellName(Language), //73899
+                Purge_SpellName(Language), //370
+                TremorTotem_SpellName(Language), //8143
+
+                //Enhancement
+                Ascendance_SpellName(Language), //114051
+                CleanseSpirit_SpellName(Language), //51886
+                CrashLightning_SpellName(Language), //187874
+                DoomWinds_SpellName(Language), //384352
+                EarthShield_SpellName(Language), //974
+                ElementalBlast_SpellName(Language), //117014
+                FeralLunge_SpellName(Language), //196884
+                FeralSpirit_SpellName(Language), //51533
+                FireNova_SpellName(Language), //333974
+                IceStrike_SpellName(Language), //342240
+                LavaBurst_SpellName(Language), //51505
+                LavaLash_SpellName(Language), //60103
+                SpiritWalk_SpellName(Language), //58875
+                Stormkeeper_SpellName(Language), //320137
+                Stormstrike_SpellName(Language), //17364
+                Sundering_SpellName(Language), //197214
+                Thundercharge_SpellName(Language), //204366
+                WindRushTotem_SpellName(Language), //192077
+                WindfuryTotem_SpellName(Language), //8512
+                WindfuryWeapon_SpellName(Language), //33757
+                Windstrike_SpellName(Language), //115356
+
+            };
             #endregion
 
             Totems.Add(HealingStreamTotem_SpellName(Language));

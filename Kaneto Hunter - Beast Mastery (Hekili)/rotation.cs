@@ -1217,58 +1217,11 @@ namespace AimsharpWow.Modules
         #region Lists
         //Lists
         private List<string> m_IngameCommandsList = new List<string> { "FreezingTrap", "HighExplosiveTrap", "SteelTrap", "TarTrap", "Turtle", "Intimidation", "NoInterrupts", "NoCycle", "WildSpirits", "ResonatingArrow", "BindingShot", "Flare", "FlareCursor", "TarTrapCursor", "Sentinel" };
-        private List<string> m_DebuffsList = new List<string> { HuntersMark_SpellName(Language), };
-        private List<string> m_BuffsList = new List<string> { MendPet_SpellName(Language), FlayersMark_SpellName(Language), };
-        private List<string> m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
-        private List<string> m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
-
-        private List<string> m_SpellBook = new List<string> {
-            //Covenants
-            FlayedShot_SpellName(Language), //324149
-            DeathChakram_SpellName(Language), //375891
-            WildSpirits_SpellName(Language), //328231
-            ResonatingArrow_SpellName(Language), //308491
-
-            SummonSteward_SpellName(Language), Fleshcraft_SpellName(Language),
-
-            //Interrupt
-            CounterShot_SpellName(Language), //147362
-
-            //General
-            AMurderOfCrows_SpellName(Language), //131894
-            ArcaneShot_SpellName(Language), //185358
-            AspectOfTheTurtle_SpellName(Language), //186265
-            AspectOfTheWild_SpellName(Language), //193530
-            BarbedShot_SpellName(Language), //217200
-            Barrage_SpellName(Language), //120360
-            BestialWrath_SpellName(Language), //19574
-            BindingShot_SpellName(Language), //109248
-            Bloodshed_SpellName(Language), //321530
-            CallOfTheWild_SpellName(Language), //359844
-            CobraShot_SpellName(Language), //193455
-            DireBeast_SpellName(Language), //120679
-            Exhilaration_SpellName(Language), //109304
-            ExplosiveShot_SpellName(Language), //212431
-            Flare_SpellName(Language), //1543
-            FortitudeOfTheBear_SpellName(Language), //392956
-            FreezingTrap_SpellName(Language), //187650
-            HighExplosiveTrap_SpellName(Language), //236776
-            HuntersMark_SpellName(Language), //257284
-            Intimidation_SpellName(Language), //19577
-            KillCommand_SpellName(Language), //34026
-            KillShot_SpellName(Language), //320976
-            MendPet_SpellName(Language), //136
-            Multishot_SpellName(Language), //2643
-            SentinelOwl_SpellName(Language), //388045
-            SerpentSting_SpellName(Language), //271788
-            Stampede_SpellName(Language), //201430
-            SteelTrap_SpellName(Language), //162488
-            SteadyShot_SpellName(Language), //56641
-            SurvivalOfTheFittest_SpellName(Language), //264735
-            TarTrap_SpellName(Language), //187698
-            TranquilizingShot_SpellName(Language), //19801
-            WailingArrow_SpellName(Language),//392060
-        };
+        private List<string> m_DebuffsList;
+        private List<string> m_BuffsList;
+        private List<string> m_BloodlustBuffsList;
+        private List<string> m_ItemsList;
+        private List<string> m_SpellBook;
 
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
 
@@ -1947,6 +1900,60 @@ namespace AimsharpWow.Modules
             {
                 Spellbook.Add(Shadowmeld_SpellName(Language)); //58984
             }
+            #endregion
+
+            #region Reinitialize Lists
+            m_DebuffsList = new List<string> { HuntersMark_SpellName(Language), };
+            m_BuffsList = new List<string> { MendPet_SpellName(Language), FlayersMark_SpellName(Language), };
+            m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
+            m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
+            m_SpellBook = new List<string> {
+                //Covenants
+                FlayedShot_SpellName(Language), //324149
+                DeathChakram_SpellName(Language), //375891
+                WildSpirits_SpellName(Language), //328231
+                ResonatingArrow_SpellName(Language), //308491
+
+                SummonSteward_SpellName(Language), Fleshcraft_SpellName(Language),
+
+                //Interrupt
+                CounterShot_SpellName(Language), //147362
+
+                //General
+                AMurderOfCrows_SpellName(Language), //131894
+                ArcaneShot_SpellName(Language), //185358
+                AspectOfTheTurtle_SpellName(Language), //186265
+                AspectOfTheWild_SpellName(Language), //193530
+                BarbedShot_SpellName(Language), //217200
+                Barrage_SpellName(Language), //120360
+                BestialWrath_SpellName(Language), //19574
+                BindingShot_SpellName(Language), //109248
+                Bloodshed_SpellName(Language), //321530
+                CallOfTheWild_SpellName(Language), //359844
+                CobraShot_SpellName(Language), //193455
+                DireBeast_SpellName(Language), //120679
+                Exhilaration_SpellName(Language), //109304
+                ExplosiveShot_SpellName(Language), //212431
+                Flare_SpellName(Language), //1543
+                FortitudeOfTheBear_SpellName(Language), //392956
+                FreezingTrap_SpellName(Language), //187650
+                HighExplosiveTrap_SpellName(Language), //236776
+                HuntersMark_SpellName(Language), //257284
+                Intimidation_SpellName(Language), //19577
+                KillCommand_SpellName(Language), //34026
+                KillShot_SpellName(Language), //320976
+                MendPet_SpellName(Language), //136
+                Multishot_SpellName(Language), //2643
+                SentinelOwl_SpellName(Language), //388045
+                SerpentSting_SpellName(Language), //271788
+                Stampede_SpellName(Language), //201430
+                SteelTrap_SpellName(Language), //162488
+                SteadyShot_SpellName(Language), //56641
+                SurvivalOfTheFittest_SpellName(Language), //264735
+                TarTrap_SpellName(Language), //187698
+                TranquilizingShot_SpellName(Language), //19801
+                WailingArrow_SpellName(Language),//392060
+            };
             #endregion
 
             InitializeMacros();

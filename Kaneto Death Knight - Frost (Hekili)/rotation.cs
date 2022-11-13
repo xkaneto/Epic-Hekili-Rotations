@@ -1235,60 +1235,11 @@ namespace AimsharpWow.Modules
         #region Lists
         //Lists
         private List<string> m_IngameCommandsList = new List<string> { "DoorofShadows", "NoInterrupts", "NoCycle", "Asphyixiate", "RaiseAlly", "DeathandDecay", "DeathsDue", "AntiMagicZone", "BlindingSleet", };
-        private List<string> m_DebuffsList = new List<string> { };
-        private List<string> m_BuffsList = new List<string> { };
-        private List<string> m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
-        private List<string> m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
-
-        private List<string> m_SpellBook_General = new List<string> {
-            //Covenants
-            AbominationLimb_SpellName(Language), //315443
-            DeathsDue_SpellName(Language), //324128
-            ShackleTheUnworthy_SpellName(Language), //312202
-            SwarmingMist_SpellName(Language), //311648
-
-            Fleshcraft_SpellName(Language), DoorOfShadows_SpellName(Language),
-
-            //Interrupt
-            MindFreeze_SpellName(Language), //47528
-
-            //General
-            AntimagicShell_SpellName(Language), //48707
-            AntimagicZone_SpellName(Language), //51052
-            Asphyxiate_SpellName(Language), //221562
-            BlindingSleet_SpellName(Language), //207167
-            BreathOfSindragosa_SpellName(Language), //152279
-            ChainsOfIce_SpellName(Language), //45524
-            ChillStreak_SpellName(Language), //305392
-            ControlUndead_SpellName(Language), //111673
-            DarkCommand_SpellName(Language), //56222
-            DeathAndDecay_SpellName(Language), //43265
-            DeathCoil_SpellName(Language), //47541
-            DeathGrip_SpellName(Language), //49576
-            DeathPact_SpellName(Language), //48743
-            DeathStrike_SpellName(Language), //49998
-            DeathsAdvance_SpellName(Language), //48265
-            Defile_SpellName(Language), //152280
-            EmpowerRuneWeapon_SpellName(Language), //47568
-            FrostStrike_SpellName(Language), //49143
-            Frostscythe_SpellName(Language), //207230
-            FrostwyrmsFury_SpellName(Language), //279302
-            GlacialAdvance_SpellName(Language), //194913
-            HornOfWinter_SpellName(Language), //57330
-            HowlingBlast_SpellName(Language), //49184
-            IceboundFortitude_SpellName(Language), //48792
-            Lichborne_SpellName(Language), //49039
-            Obliterate_SpellName(Language), //49020
-            PillarOfFrost_SpellName(Language), //51271
-            RaiseAlly_SpellName(Language), //61999
-            RaiseDead_SpellName(Language), //46584
-            RemorselessWinter_SpellName(Language), //196770
-            RuneStrike_SpellName(Language), //316239
-            SacrificialPact_SpellName(Language), //327574
-            SoulReaper_SpellName(Language), //343294
-            WraithWalk_SpellName(Language), //212552
-        };
-
+        private List<string> m_DebuffsList;
+        private List<string> m_BuffsList;
+        private List<string> m_BloodlustBuffsList;
+        private List<string> m_ItemsList;
+        private List<string> m_SpellBook_General;
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
         private List<string> m_CastingList = new List<string> { "Manual", "Cursor", "Player" };
 
@@ -1622,6 +1573,62 @@ namespace AimsharpWow.Modules
             {
                 Spellbook.Add(Shadowmeld_SpellName(Language)); //58984
             }
+            #endregion
+
+            #region Reinitialize Lists
+
+            m_DebuffsList = new List<string> { };
+            m_BuffsList = new List<string> { };
+            m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
+            m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
+            m_SpellBook_General = new List<string> {
+                //Covenants
+                AbominationLimb_SpellName(Language), //315443
+                DeathsDue_SpellName(Language), //324128
+                ShackleTheUnworthy_SpellName(Language), //312202
+                SwarmingMist_SpellName(Language), //311648
+
+                Fleshcraft_SpellName(Language), DoorOfShadows_SpellName(Language),
+
+                //Interrupt
+                MindFreeze_SpellName(Language), //47528
+
+                //General
+                AntimagicShell_SpellName(Language), //48707
+                AntimagicZone_SpellName(Language), //51052
+                Asphyxiate_SpellName(Language), //221562
+                BlindingSleet_SpellName(Language), //207167
+                BreathOfSindragosa_SpellName(Language), //152279
+                ChainsOfIce_SpellName(Language), //45524
+                ChillStreak_SpellName(Language), //305392
+                ControlUndead_SpellName(Language), //111673
+                DarkCommand_SpellName(Language), //56222
+                DeathAndDecay_SpellName(Language), //43265
+                DeathCoil_SpellName(Language), //47541
+                DeathGrip_SpellName(Language), //49576
+                DeathPact_SpellName(Language), //48743
+                DeathStrike_SpellName(Language), //49998
+                DeathsAdvance_SpellName(Language), //48265
+                Defile_SpellName(Language), //152280
+                EmpowerRuneWeapon_SpellName(Language), //47568
+                FrostStrike_SpellName(Language), //49143
+                Frostscythe_SpellName(Language), //207230
+                FrostwyrmsFury_SpellName(Language), //279302
+                GlacialAdvance_SpellName(Language), //194913
+                HornOfWinter_SpellName(Language), //57330
+                HowlingBlast_SpellName(Language), //49184
+                IceboundFortitude_SpellName(Language), //48792
+                Lichborne_SpellName(Language), //49039
+                Obliterate_SpellName(Language), //49020
+                PillarOfFrost_SpellName(Language), //51271
+                RaiseAlly_SpellName(Language), //61999
+                RaiseDead_SpellName(Language), //46584
+                RemorselessWinter_SpellName(Language), //196770
+                RuneStrike_SpellName(Language), //316239
+                SacrificialPact_SpellName(Language), //327574
+                SoulReaper_SpellName(Language), //343294
+                WraithWalk_SpellName(Language), //212552
+            };
             #endregion
 
             InitializeMacros();

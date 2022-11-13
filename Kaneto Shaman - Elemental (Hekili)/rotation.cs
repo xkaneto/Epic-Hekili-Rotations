@@ -1360,73 +1360,12 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "NoDecurse", "EarthbindTotem", "WindRushTotem", "CapacitorTotem", "TremorTotem", Hex_SpellName(Language), "EarthElemental", "FireElemental", "VesperTotem", "FaeTransfusion", "LiquidMagmaTotem", Earthquake_SpellName(Language), Thunderstorm_SpellName(Language), "DoorofShadows" };
-        private List<string> m_DebuffsList = new List<string> { };
-        private List<string> m_BuffsList = new List<string> { };
-        private List<string> m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
-        private List<string> m_ItemsList = new List<string> {Healthstone_SpellName(Language) };
-
-        private List<string> m_SpellBook_General = new List<string> {
-            //Covenants
-            VesperTotem_SpellName(Language), //324386
-            FaeTransfusion_SpellName(Language), //328923
-            ChainHarvest_SpellName(Language), //320674
-            PrimordialWave_SpellName(Language), //326059
-
-            Fleshcraft_SpellName(Language), SummonSteward_SpellName(Language), DoorOfShadows_SpellName(Language),
-
-            //Interrupt
-            WindShear_SpellName(Language), //57994
-
-            //General
-            AstralShift_SpellName(Language), //108271
-            Bloodlust_SpellName(Language), //2825
-            CapacitorTotem_SpellName(Language), //192058
-            ChainHeal_SpellName(Language), //1064
-            ChainLightning_SpellName(Language), //188443
-            EarthElemental_SpellName(Language), //198103
-            EarthbindTotem_SpellName(Language), //2484
-            FlameShock_SpellName(Language), //188389
-            FlametongueWeapon_SpellName(Language), //318038
-            FrostShock_SpellName(Language), //196840
-            GhostWolf_SpellName(Language), //2645
-            GreaterPurge_SpellName(Language), //378773
-            HealingStreamTotem_SpellName(Language), //5394
-            HealingSurge_SpellName(Language), //8004
-            Heroism_SpellName(Language), //32182
-            Hex_SpellName(Language), //51514
-            LightningBolt_SpellName(Language), //188196
-            LightningLasso_SpellName(Language),
-            LightningShield_SpellName(Language), //192106
-            NaturesSwiftness_SpellName(Language),
-            PrimalStrike_SpellName(Language), //73899
-            Purge_SpellName(Language), //370
-            TremorTotem_SpellName(Language), //8143
-
-            //Elemental
-            AncestralGuidance_SpellName(Language), //108281
-            Ascendance_SpellName(Language), //114050
-            CleanseSpirit_SpellName(Language), //51886
-            EarthShield_SpellName(Language), //9747
-            EarthShock_SpellName(Language), //8042
-            Earthquake_SpellName(Language), //61882
-            EchoingShock_SpellName(Language), //320125
-            ElementalBlast_SpellName(Language), //117014
-            FireElemental_SpellName(Language), //198067
-            Icefury_SpellName(Language), //210714
-            LavaBeam_SpellName(Language), //114074
-            LavaBurst_SpellName(Language), //51505
-            LiquidMagmaTotem_SpellName(Language), //192222
-            Meteor_SpellName(Language), //117588
-            SpiritwalkersGrace_SpellName(Language), //79206
-            StaticDischarge_SpellName(Language), //342243
-            StormElemental_SpellName(Language), //192249
-            Stormkeeper_SpellName(Language), //191634
-            Tempest_SpellName(Language), //157375
-            Thunderstorm_SpellName(Language), //51490
-            WindRushTotem_SpellName(Language), //192077
-
-        };
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "NoDecurse", "EarthbindTotem", "WindRushTotem", "CapacitorTotem", "TremorTotem", "Hex", "EarthElemental", "FireElemental", "VesperTotem", "FaeTransfusion", "LiquidMagmaTotem", "Earthquake", "Thunderstorm", "DoorofShadows" };
+        private List<string> m_DebuffsList;
+        private List<string> m_BuffsList;
+        private List<string> m_BloodlustBuffsList;
+        private List<string> m_ItemsList;
+        private List<string> m_SpellBook_General;
 
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
         private List<string> m_CastingList = new List<string> { "Manual", "Cursor", "Player" };
@@ -1893,6 +1832,74 @@ namespace AimsharpWow.Modules
             }
             #endregion
 
+            #region Reinitialize Lists
+            m_DebuffsList = new List<string> { };
+            m_BuffsList = new List<string> { };
+            m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
+            m_ItemsList = new List<string> {Healthstone_SpellName(Language) };
+            m_SpellBook_General = new List<string> {
+                //Covenants
+                VesperTotem_SpellName(Language), //324386
+                FaeTransfusion_SpellName(Language), //328923
+                ChainHarvest_SpellName(Language), //320674
+                PrimordialWave_SpellName(Language), //326059
+
+                Fleshcraft_SpellName(Language), SummonSteward_SpellName(Language), DoorOfShadows_SpellName(Language),
+
+                //Interrupt
+                WindShear_SpellName(Language), //57994
+
+                //General
+                AstralShift_SpellName(Language), //108271
+                Bloodlust_SpellName(Language), //2825
+                CapacitorTotem_SpellName(Language), //192058
+                ChainHeal_SpellName(Language), //1064
+                ChainLightning_SpellName(Language), //188443
+                EarthElemental_SpellName(Language), //198103
+                EarthbindTotem_SpellName(Language), //2484
+                FlameShock_SpellName(Language), //188389
+                FlametongueWeapon_SpellName(Language), //318038
+                FrostShock_SpellName(Language), //196840
+                GhostWolf_SpellName(Language), //2645
+                GreaterPurge_SpellName(Language), //378773
+                HealingStreamTotem_SpellName(Language), //5394
+                HealingSurge_SpellName(Language), //8004
+                Heroism_SpellName(Language), //32182
+                Hex_SpellName(Language), //51514
+                LightningBolt_SpellName(Language), //188196
+                LightningLasso_SpellName(Language),
+                LightningShield_SpellName(Language), //192106
+                NaturesSwiftness_SpellName(Language),
+                PrimalStrike_SpellName(Language), //73899
+                Purge_SpellName(Language), //370
+                TremorTotem_SpellName(Language), //8143
+
+                //Elemental
+                AncestralGuidance_SpellName(Language), //108281
+                Ascendance_SpellName(Language), //114050
+                CleanseSpirit_SpellName(Language), //51886
+                EarthShield_SpellName(Language), //9747
+                EarthShock_SpellName(Language), //8042
+                Earthquake_SpellName(Language), //61882
+                EchoingShock_SpellName(Language), //320125
+                ElementalBlast_SpellName(Language), //117014
+                FireElemental_SpellName(Language), //198067
+                Icefury_SpellName(Language), //210714
+                LavaBeam_SpellName(Language), //114074
+                LavaBurst_SpellName(Language), //51505
+                LiquidMagmaTotem_SpellName(Language), //192222
+                Meteor_SpellName(Language), //117588
+                SpiritwalkersGrace_SpellName(Language), //79206
+                StaticDischarge_SpellName(Language), //342243
+                StormElemental_SpellName(Language), //192249
+                Stormkeeper_SpellName(Language), //191634
+                Tempest_SpellName(Language), //157375
+                Thunderstorm_SpellName(Language), //51490
+                WindRushTotem_SpellName(Language), //192077
+
+            };
+            #endregion
+
             InitializeMacros();
 
             InitializeSpells();
@@ -1945,7 +1952,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Checks
-            if (Aimsharp.CastingID("player") == 51514 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Hex_SpellName(Language)))
+            if (Aimsharp.CastingID("player") == 51514 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Hex"))
             {
                 if (Debug)
                 {
@@ -1987,7 +1994,7 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn(Earthquake_SpellName(Language)) && Aimsharp.SpellCooldown(Earthquake_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("Earthquake") && Aimsharp.SpellCooldown(Earthquake_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -2122,7 +2129,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Queues
-            bool Thunderstorm = Aimsharp.IsCustomCodeOn(Thunderstorm_SpellName(Language));
+            bool Thunderstorm = Aimsharp.IsCustomCodeOn("Thunderstorm");
             if (Aimsharp.SpellCooldown(Thunderstorm_SpellName(Language)) - Aimsharp.GCD() > 2000 && Thunderstorm)
             {
                 if (Debug)
@@ -2206,7 +2213,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Hex = Aimsharp.IsCustomCodeOn(Hex_SpellName(Language));
+            bool Hex = Aimsharp.IsCustomCodeOn("Hex");
             if ((Aimsharp.SpellCooldown(Hex_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Hex)
             {
                 if (Debug)
@@ -2464,7 +2471,7 @@ namespace AimsharpWow.Modules
             }
 
             string EarthquakeCast = GetDropDown("Earthquake Cast:");
-            bool Earthquake = Aimsharp.IsCustomCodeOn(Earthquake_SpellName(Language));
+            bool Earthquake = Aimsharp.IsCustomCodeOn("Earthquake");
             if ((Aimsharp.SpellCooldown(Earthquake_SpellName(Language)) - Aimsharp.GCD() > 2000 || Aimsharp.LastCast() == Earthquake_SpellName(Language)) && Earthquake)
             {
                 if (Debug)
@@ -3347,7 +3354,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Checks
-            if (Aimsharp.CastingID("player") == 51514 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Hex_SpellName(Language)))
+            if (Aimsharp.CastingID("player") == 51514 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Hex"))
             {
                 if (Debug)
                 {
@@ -3443,7 +3450,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Hex = Aimsharp.IsCustomCodeOn(Hex_SpellName(Language));
+            bool Hex = Aimsharp.IsCustomCodeOn("Hex");
             if ((Aimsharp.SpellCooldown(Hex_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Hex)
             {
                 if (Debug)

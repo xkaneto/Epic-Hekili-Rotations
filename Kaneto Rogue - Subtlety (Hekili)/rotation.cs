@@ -31,70 +31,12 @@ namespace AimsharpWow.Modules
         #region Lists
         //Lists
         private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "Distract", "Blind", "Sap", "KidneyShot", "NoCycle",};
-        private List<string> m_DebuffsList = new List<string> { "Sap", "Blind", "Garrote", "Rupture", "Serrated Bone Spike", };
-        private List<string> m_BuffsList = new List<string> { "Stealth", "Vanish", "Blindside", "Subterfuge",};
-        private List<string> m_BloodlustBuffsList = new List<string> { "Bloodlust", "Heroism", "Time Warp", "Primal Rage", "Drums of Rage" };
-        private List<string> m_ItemsList = new List<string> { "Healthstone" };
-
-        private List<string> m_SpellBook_General = new List<string> {
-            //Covenants
-            "Echoing Reprimand", //385616,323547
-            "Flagellation", //323654 , 384631
-            "Sepsis", //328305 , 385408
-            "Serrated Bone Spike", //328547 , 385424
-
-            //Interrupt
-            "Kick", //1766
-
-            //General Rogue
-            "Ambush", //8676
-            "Cheap Shot", //1833
-            "Crimson Vial", //185311
-            "Distract", //1725
-            "Eviscerate", //196819
-            "Fleshcraft",
-            "Instant Poison", //315584
-            "Kidney Shot", //408
-            "Slice and Dice", //315496
-            "Sprint", //2983
-            "Stealth", //1784
-            "Vanish", //1856
-
-            //General Talents
-            "Blind", //2094
-            "Cloak of Shadows", //31224
-            "Cold Blood", //382245
-            "Evasion", //5277
-            "Feint", //1966
-            "Gouge", //1776
-            "Marked for Death", //137619
-            "Numbing Poison", //5761
-            "Sap", //6770
-            "Shadow Dance", //185313
-            "Shadowstep", //36554
-            "Shiv", //5938
-            "Thistle Tea", //381623
-            "Tricks of the Trade", //57934
-        };
-
-        private List<string> m_SpellBook_Subtlety = new List<string>
-        {
-            //Subtlety Rogue
-            "Backstab",
-            "Black Powder",
-            "Gloomblade",
-            "Rupture",
-            "Secret Technique",
-            "Shadow Blades",
-            "Shadow Dance",
-            "Shadowstep",
-            "Shadowstrike",
-            "Shuriken Storm",
-            "Shuriken Tornado",
-            "Shuriken Toss",
-            "Symbols of Death",
-        };
-
+        private List<string> m_DebuffsList;
+        private List<string> m_BuffsList;
+        private List<string> m_BloodlustBuffsList;
+        private List<string> m_ItemsList;
+        private List<string> m_SpellBook_General;
+        private List<string> m_SpellBook_Subtlety;
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
         private List<string> m_CastingList = new List<string> { "Manual", "Cursor", "Player" };
 
@@ -719,6 +661,70 @@ namespace AimsharpWow.Modules
             {
                 Spellbook.Add("Shadowmeld"); //58984
             }
+            #endregion
+
+            #region Reinitialize Lists
+            m_DebuffsList = new List<string> { "Sap", "Blind", "Garrote", "Rupture", "Serrated Bone Spike", };
+            m_BuffsList = new List<string> { "Stealth", "Vanish", "Blindside", "Subterfuge",};
+            m_BloodlustBuffsList = new List<string> { "Bloodlust", "Heroism", "Time Warp", "Primal Rage", "Drums of Rage" };
+            m_ItemsList = new List<string> { "Healthstone" };
+            m_SpellBook_General = new List<string> {
+                //Covenants
+                "Echoing Reprimand", //385616,323547
+                "Flagellation", //323654 , 384631
+                "Sepsis", //328305 , 385408
+                "Serrated Bone Spike", //328547 , 385424
+
+                //Interrupt
+                "Kick", //1766
+
+                //General Rogue
+                "Ambush", //8676
+                "Cheap Shot", //1833
+                "Crimson Vial", //185311
+                "Distract", //1725
+                "Eviscerate", //196819
+                "Fleshcraft",
+                "Instant Poison", //315584
+                "Kidney Shot", //408
+                "Slice and Dice", //315496
+                "Sprint", //2983
+                "Stealth", //1784
+                "Vanish", //1856
+
+                //General Talents
+                "Blind", //2094
+                "Cloak of Shadows", //31224
+                "Cold Blood", //382245
+                "Evasion", //5277
+                "Feint", //1966
+                "Gouge", //1776
+                "Marked for Death", //137619
+                "Numbing Poison", //5761
+                "Sap", //6770
+                "Shadow Dance", //185313
+                "Shadowstep", //36554
+                "Shiv", //5938
+                "Thistle Tea", //381623
+                "Tricks of the Trade", //57934
+            };
+            m_SpellBook_Subtlety = new List<string>
+            {
+                //Subtlety Rogue
+                "Backstab",
+                "Black Powder",
+                "Gloomblade",
+                "Rupture",
+                "Secret Technique",
+                "Shadow Blades",
+                "Shadow Dance",
+                "Shadowstep",
+                "Shadowstrike",
+                "Shuriken Storm",
+                "Shuriken Tornado",
+                "Shuriken Toss",
+                "Symbols of Death",
+            };
             #endregion
 
             InitializeMacros();

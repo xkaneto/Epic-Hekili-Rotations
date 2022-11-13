@@ -1270,59 +1270,11 @@ namespace AimsharpWow.Modules
         #region Lists
         //Lists
         private List<string> m_IngameCommandsList = new List<string> { "MightyBash", "MassEntanglement", "NoDecurse", "Maim", "NoInterrupts", "NoCycle", "Rebirth", };
-        private List<string> m_DebuffsList = new List<string> { Rake_SpellName(Language), };
-        private List<string> m_BuffsList = new List<string> { PredatorySwiftness_SpellName(Language), Prowl_SpellName(Language), MarkOfTheWild_SpellName(Language), };
-        private List<string> m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
-        private List<string> m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
-
-        private List<string> m_SpellBook = new List<string> {
-            //Covenants
-            ConvokeTheSpirits_SpellName(Language),
-            AdaptiveSwarm_SpellName(Language),
-            EmpowerBond_SpellName(Language),
-            RavenousFrenzy_SpellName(Language),
-
-            //Interrupt
-            SkullBash_SpellName(Language), //106839
-
-            //General
-            Barkskin_SpellName(Language),
-            Berserk_SpellName(Language), //106951
-            BrutalSlash_SpellName(Language), //202028
-            CatForm_SpellName(Language),
-            FeralFrenzy_SpellName(Language), //274837
-            FerociousBite_SpellName(Language), //22658
-            Fleshcraft_SpellName(Language),
-            HeartOfTheWild_SpellName(Language),
-            Incarnation_AvatarOfAshamane_SpellName(Language), //102543
-            Maim_SpellName(Language), //22570
-            MarkOfTheWild_SpellName(Language),
-            MassEntanglement_SpellName(Language),
-            MightyBash_SpellName(Language), //5211
-            Moonfire_SpellName(Language),
-            MoonkinForm_SpellName(Language),
-            NaturesVigil_SpellName(Language),
-            PrimalWrath_SpellName(Language), //285381
-            Prowl_SpellName(Language), //5215
-            Rake_SpellName(Language), //1822
-            Rebirth_SpellName(Language),
-            Regrowth_SpellName(Language),
-            RemoveCorruption_SpellName(Language),
-            Renewal_SpellName(Language),
-            Rip_SpellName(Language), //1079
-            Shred_SpellName(Language), //5221
-            Soothe_SpellName(Language),
-            Starsurge_SpellName(Language),
-            SummonSteward_SpellName(Language),
-            Sunfire_SpellName(Language),
-            SurvivalInstincts_SpellName(Language), //61336
-            Swipe_SpellName(Language), //106785
-            Thrash_SpellName(Language), //106830
-            TigerDash_SpellName(Language), //252216
-            TigersFury_SpellName(Language), //5217
-            WildCharge_SpellName(Language), //102401
-
-        };
+        private List<string> m_DebuffsList;
+        private List<string> m_BuffsList;
+        private List<string> m_BloodlustBuffsList;
+        private List<string> m_ItemsList;
+        private List<string> m_SpellBook;
 
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
 
@@ -1711,6 +1663,61 @@ namespace AimsharpWow.Modules
             {
                 Spellbook.Add(Shadowmeld_SpellName(Language)); //58984
             }
+            #endregion
+
+            #region Reinitialize Lists
+            m_DebuffsList = new List<string> { Rake_SpellName(Language), };
+            m_BuffsList = new List<string> { PredatorySwiftness_SpellName(Language), Prowl_SpellName(Language), MarkOfTheWild_SpellName(Language), };
+            m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
+            m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
+            m_SpellBook = new List<string> {
+                //Covenants
+                ConvokeTheSpirits_SpellName(Language),
+                AdaptiveSwarm_SpellName(Language),
+                EmpowerBond_SpellName(Language),
+                RavenousFrenzy_SpellName(Language),
+
+                //Interrupt
+                SkullBash_SpellName(Language), //106839
+
+                //General
+                Barkskin_SpellName(Language),
+                Berserk_SpellName(Language), //106951
+                BrutalSlash_SpellName(Language), //202028
+                CatForm_SpellName(Language),
+                FeralFrenzy_SpellName(Language), //274837
+                FerociousBite_SpellName(Language), //22658
+                Fleshcraft_SpellName(Language),
+                HeartOfTheWild_SpellName(Language),
+                Incarnation_AvatarOfAshamane_SpellName(Language), //102543
+                Maim_SpellName(Language), //22570
+                MarkOfTheWild_SpellName(Language),
+                MassEntanglement_SpellName(Language),
+                MightyBash_SpellName(Language), //5211
+                Moonfire_SpellName(Language),
+                MoonkinForm_SpellName(Language),
+                NaturesVigil_SpellName(Language),
+                PrimalWrath_SpellName(Language), //285381
+                Prowl_SpellName(Language), //5215
+                Rake_SpellName(Language), //1822
+                Rebirth_SpellName(Language),
+                Regrowth_SpellName(Language),
+                RemoveCorruption_SpellName(Language),
+                Renewal_SpellName(Language),
+                Rip_SpellName(Language), //1079
+                Shred_SpellName(Language), //5221
+                Soothe_SpellName(Language),
+                Starsurge_SpellName(Language),
+                SummonSteward_SpellName(Language),
+                Sunfire_SpellName(Language),
+                SurvivalInstincts_SpellName(Language), //61336
+                Swipe_SpellName(Language), //106785
+                Thrash_SpellName(Language), //106830
+                TigerDash_SpellName(Language), //252216
+                TigersFury_SpellName(Language), //5217
+                WildCharge_SpellName(Language), //102401
+
+            };
             #endregion
 
             InitializeMacros();

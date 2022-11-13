@@ -1289,64 +1289,11 @@ namespace AimsharpWow.Modules
         #region Lists
         //Lists
         private List<string> m_IngameCommandsList = new List<string> { "NoDecurse", "NoCycle", "DoorofShadows", "SolarBeam", "MightyBash", "MassEntanglement", "ForceofNature", "UrsolsVortex", "Typhoon", "Rebirth", "Innervate", "Hibernate", "Cyclone", "EntanglingRoots", "Regrowth", };
-        private List<string> m_DebuffsList = new List<string> { };
-        private List<string> m_BuffsList = new List<string> { BearForm_SpellName(Language), CatForm_SpellName(Language), MarkOfTheWild_SpellName(Language), MountForm_SpellName(Language), TravelForm_SpellName(Language), TreantForm_SpellName(Language), };
-        private List<string> m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
-        private List<string> m_ItemsList = new List<string> { Healthstone_SpellName(Language), };
-
-        private List<string> m_SpellBook = new List<string> {
-            //Covenants
-            ConvokeTheSpirits_SpellName(Language), //323764
-            AdaptiveSwarm_SpellName(Language), //325727
-            EmpowerBond_SpellName(Language), //326647
-            RavenousFrenzy_SpellName(Language), //323546
-
-            SummonSteward_SpellName(Language), Fleshcraft_SpellName(Language), DoorOfShadows_SpellName(Language),
-
-            //Interrupt
-            SkullBash_SpellName(Language), //106839
-            SolarBeam_SpellName(Language), //78675
-
-            //General
-            Barkskin_SpellName(Language), //22812
-            BearForm_SpellName(Language), //5487
-            CatForm_SpellName(Language), //768
-            Cyclone_SpellName(Language), //33786
-            EntanglingRoots_SpellName(Language), //339
-            HeartOfTheWild_SpellName(Language), //319454
-            Hibernate_SpellName(Language), //2637
-            Innervate_SpellName(Language), //29166
-            MarkOfTheWild_SpellName(Language), //1126
-            MassEntanglement_SpellName(Language), //102359
-            MightyBash_SpellName(Language), //5211
-            Moonfire_SpellName(Language), //8921
-            NaturesVigil_SpellName(Language), //124974
-            Rebirth_SpellName(Language), //20484
-            Regrowth_SpellName(Language), //8936
-            RemoveCorruption_SpellName(Language), //2782
-            Renewal_SpellName(Language), //108238
-            Soothe_SpellName(Language), //2908
-            Starfire_SpellName(Language), //194153
-            Sunfire_SpellName(Language), //93402
-            TreantForm_SpellName(Language), //114282
-            Typhoon_SpellName(Language), //132469
-            Wrath_SpellName(Language), //190984
-            WildGrowth_SpellName(Language), //48438
-
-            //Balance
-            AstralCommunion_SpellName(Language), //202359
-            CelestialAlignment_SpellName(Language), //194223
-            ForceOfNature_SpellName(Language), //205636
-            FuryOfElune_SpellName(Language), //202770
-            Incarnation_ChosenOfElune_SpellName(Language), //102560
-            MoonkinForm_SpellName(Language), //24858
-            Starfall_SpellName(Language), //191034
-            Starsurge_SpellName(Language), //78674
-            StellarFlare_SpellName(Language), //202347
-            UrsolsVortex_SpellName(Language), //102793
-            WarriorOfElune_SpellName(Language), //202425
-            WildMushroom_SpellName(Language), //88747
-        };
+        private List<string> m_DebuffsList;
+        private List<string> m_BuffsList;
+        private List<string> m_BloodlustBuffsList;
+        private List<string> m_ItemsList;
+        private List<string> m_SpellBook;
 
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
 
@@ -1774,6 +1721,66 @@ namespace AimsharpWow.Modules
             {
                 Spellbook.Add(Shadowmeld_SpellName(Language)); //58984
             }
+            #endregion
+
+            #region Reinitialize Lists
+            m_DebuffsList = new List<string> { };
+            m_BuffsList = new List<string> { BearForm_SpellName(Language), CatForm_SpellName(Language), MarkOfTheWild_SpellName(Language), MountForm_SpellName(Language), TravelForm_SpellName(Language), TreantForm_SpellName(Language), };
+            m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
+            m_ItemsList = new List<string> { Healthstone_SpellName(Language), };
+            m_SpellBook = new List<string> {
+                //Covenants
+                ConvokeTheSpirits_SpellName(Language), //323764
+                AdaptiveSwarm_SpellName(Language), //325727
+                EmpowerBond_SpellName(Language), //326647
+                RavenousFrenzy_SpellName(Language), //323546
+
+                SummonSteward_SpellName(Language), Fleshcraft_SpellName(Language), DoorOfShadows_SpellName(Language),
+
+                //Interrupt
+                SkullBash_SpellName(Language), //106839
+                SolarBeam_SpellName(Language), //78675
+
+                //General
+                Barkskin_SpellName(Language), //22812
+                BearForm_SpellName(Language), //5487
+                CatForm_SpellName(Language), //768
+                Cyclone_SpellName(Language), //33786
+                EntanglingRoots_SpellName(Language), //339
+                HeartOfTheWild_SpellName(Language), //319454
+                Hibernate_SpellName(Language), //2637
+                Innervate_SpellName(Language), //29166
+                MarkOfTheWild_SpellName(Language), //1126
+                MassEntanglement_SpellName(Language), //102359
+                MightyBash_SpellName(Language), //5211
+                Moonfire_SpellName(Language), //8921
+                NaturesVigil_SpellName(Language), //124974
+                Rebirth_SpellName(Language), //20484
+                Regrowth_SpellName(Language), //8936
+                RemoveCorruption_SpellName(Language), //2782
+                Renewal_SpellName(Language), //108238
+                Soothe_SpellName(Language), //2908
+                Starfire_SpellName(Language), //194153
+                Sunfire_SpellName(Language), //93402
+                TreantForm_SpellName(Language), //114282
+                Typhoon_SpellName(Language), //132469
+                Wrath_SpellName(Language), //190984
+                WildGrowth_SpellName(Language), //48438
+
+                //Balance
+                AstralCommunion_SpellName(Language), //202359
+                CelestialAlignment_SpellName(Language), //194223
+                ForceOfNature_SpellName(Language), //205636
+                FuryOfElune_SpellName(Language), //202770
+                Incarnation_ChosenOfElune_SpellName(Language), //102560
+                MoonkinForm_SpellName(Language), //24858
+                Starfall_SpellName(Language), //191034
+                Starsurge_SpellName(Language), //78674
+                StellarFlare_SpellName(Language), //202347
+                UrsolsVortex_SpellName(Language), //102793
+                WarriorOfElune_SpellName(Language), //202425
+                WildMushroom_SpellName(Language), //88747
+            };
             #endregion
 
             InitializeMacros();

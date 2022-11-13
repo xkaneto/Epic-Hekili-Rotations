@@ -31,83 +31,14 @@ namespace AimsharpWow.Modules
         #region Lists
         //Lists
         private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", "DoorofShadows", "Banish", "Fear", "Shadowfury", "BilescourgeBombers", "HowlofTerror", "MortalCoil", "BilescourgeBombersCursor", };
-        private List<string> m_DebuffsList = new List<string> { "Banish", "Fear", };
-        private List<string> m_BuffsList = new List<string> {  };
-        private List<string> m_BloodlustBuffsList = new List<string> { "Bloodlust", "Heroism", "Time Warp", "Primal Rage", "Drums of Rage" };
-        private List<string> m_ItemsList = new List<string> { "Healthstone", };
-
-        private List<string> m_SpellBook = new List<string> {
-            //Covenants
-            "Scouring Tithe", //312321
-            "Impending Catastrophe", //321792
-            "Soul Rot", //325640
-            "Decimating Bolt", //325289
-
-            //Interrupt
-            "Spell Lock", //119910
-
-            //General
-            //"Command Demon", //119898
-            "Corruption", //172
-            "Fear", //5782
-            //"Create Healthstone", //6201
-            "Fel Domination", //333889
-            "Curse of Exhaustion", //334275
-            "Health Funnel", //755
-            "Curse of Weakness", //702
-            "Shadow Bolt", //686
-            "Drain Life", //234153
-            //"Subjugate Demon", //1098
-            "Summon Imp", //688
-            "Summon Voidwalker", //697
-            "Summon Felhunter", //691
-            "Summon Succubus", //712
-            "Summon Felguard", //30146
-            "Unending Resolve", //104773
-            "Soulstone", //20707
-            "Curse of Tongues", //1714
-            "Demonic Circle", //48018
-            "Demonic Circle: Teleport", //48020
-            "Banish", //710
-            "Demonic Gateway", //111771
-            "Shadowfury", //30283
-
-            //Pet
-            "Devour Magic", //19505
-            //"Singe Magic", //89808
-            "Seduction", //6358
-            "Axe Toss", //89766
-
-            //Demonology
-            "Implosion", //196277
-            "Call Dreadstalkers", //104316
-            "Demonbolt", //264178
-            "Hand of Gul'dan", //105174
-            "Summon Demonic Tyrant", //265187
-
-            "Bilescourge Bombers", //267211
-            "Demonic Strength", //267171
-            "Power Siphon", //264130
-            "Doom", //603
-            "Burning Rush", //111400
-            "Dark Pact", //108416
-            "Soul Strike", //264057
-            "Summon Vilefiend", //264119
-            "Mortal Coil", //6789
-            "Howl of Terror", //5484
-            "Grimoire: Felguard", //111898
-            "Nether Portal", //267217
-
-            "Summon Steward", "Fleshcraft", "Door of Shadows"
-
-        };
-
+        private List<string> m_DebuffsList;
+        private List<string> m_BuffsList;
+        private List<string> m_BloodlustBuffsList;
+        private List<string> m_ItemsList;
+        private List<string> m_SpellBook;
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
-
         private List<string> m_CastingList = new List<string> { "Manual", "Cursor", "Player" };
-
         private List<int> Torghast_InnerFlame = new List<int> { 258935, 258938, 329422, 329423, };
-
         List<int> InstanceIDList = new List<int>
         {
             2291,
@@ -460,6 +391,78 @@ namespace AimsharpWow.Modules
             {
                 Spellbook.Add("Shadowmeld"); //58984
             }
+            #endregion
+
+            #region Reinitialize Lists
+            m_DebuffsList = new List<string> { "Banish", "Fear", };
+            m_BuffsList = new List<string> {  };
+            m_BloodlustBuffsList = new List<string> { "Bloodlust", "Heroism", "Time Warp", "Primal Rage", "Drums of Rage" };
+            m_ItemsList = new List<string> { "Healthstone", };
+            m_SpellBook = new List<string> {
+                //Covenants
+                "Scouring Tithe", //312321
+                "Impending Catastrophe", //321792
+                "Soul Rot", //325640
+                "Decimating Bolt", //325289
+
+                //Interrupt
+                "Spell Lock", //119910
+
+                //General
+                //"Command Demon", //119898
+                "Corruption", //172
+                "Fear", //5782
+                //"Create Healthstone", //6201
+                "Fel Domination", //333889
+                "Curse of Exhaustion", //334275
+                "Health Funnel", //755
+                "Curse of Weakness", //702
+                "Shadow Bolt", //686
+                "Drain Life", //234153
+                //"Subjugate Demon", //1098
+                "Summon Imp", //688
+                "Summon Voidwalker", //697
+                "Summon Felhunter", //691
+                "Summon Succubus", //712
+                "Summon Felguard", //30146
+                "Unending Resolve", //104773
+                "Soulstone", //20707
+                "Curse of Tongues", //1714
+                "Demonic Circle", //48018
+                "Demonic Circle: Teleport", //48020
+                "Banish", //710
+                "Demonic Gateway", //111771
+                "Shadowfury", //30283
+
+                //Pet
+                "Devour Magic", //19505
+                //"Singe Magic", //89808
+                "Seduction", //6358
+                "Axe Toss", //89766
+
+                //Demonology
+                "Implosion", //196277
+                "Call Dreadstalkers", //104316
+                "Demonbolt", //264178
+                "Hand of Gul'dan", //105174
+                "Summon Demonic Tyrant", //265187
+
+                "Bilescourge Bombers", //267211
+                "Demonic Strength", //267171
+                "Power Siphon", //264130
+                "Doom", //603
+                "Burning Rush", //111400
+                "Dark Pact", //108416
+                "Soul Strike", //264057
+                "Summon Vilefiend", //264119
+                "Mortal Coil", //6789
+                "Howl of Terror", //5484
+                "Grimoire: Felguard", //111898
+                "Nether Portal", //267217
+
+                "Summon Steward", "Fleshcraft", "Door of Shadows"
+
+            };
             #endregion
 
             InitializeMacros();

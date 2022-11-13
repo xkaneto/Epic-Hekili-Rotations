@@ -1396,67 +1396,11 @@ namespace AimsharpWow.Modules
         #region Lists
         //Lists
         private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", "DoorofShadows", "Polymorph", "Evocation", "RingofFrost", "ArcaneExplosion", "NoSpellsteal", };
-        private List<string> m_DebuffsList = new List<string> { Polymorph_SpellName(Language), };
-        private List<string> m_BuffsList = new List<string> { ArcaneIntellect_SpellName(Language), ArcaneSurge_SpellName(Language), Evocation_SpellName(Language), ShiftingPower_SpellName(Language), PresenceOfMind_SpellName(Language), };
-        private List<string> m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
-        private List<string> m_ItemsList = new List<string> { Healthstone_SpellName(Language), ManaGem_SpellName(Language), };
-
-        private List<string> m_SpellBook = new List<string> {
-            //Covenants
-            RadiantSpark_SpellName(Language), //307443
-            Deathborne_SpellName(Language), //324220
-            ShiftingPower_SpellName(Language), //314791
-            MirrorsOfTorment_SpellName(Language), //314793
-
-            //Covenant Signature Abilites
-            SummonSteward_SpellName(Language), Fleshcraft_SpellName(Language), DoorOfShadows_SpellName(Language),
-
-            //Interrupt
-            Counterspell_SpellName(Language), //2139
-
-            //General Mage
-            ArcaneBarrage_SpellName(Language), //44425
-            ArcaneBlast_SpellName(Language), //30451
-            ArcaneExplosion_SpellName(Language), //1449
-            ArcaneFamiliar_SpellName(Language), //205022
-            ArcaneIntellect_SpellName(Language), //1459
-            ArcaneMissiles_SpellName(Language), //5143
-            ArcaneOrb_SpellName(Language), //153626
-            ArcaneSurge_SpellName(Language), //365350
-            AlterTime_SpellName(Language), //342245
-            Blink_SpellName(Language), //1953 or 212653
-            BlastWave_SpellName(Language), //157981
-            ConjureManaGem_SpellName(Language), //759
-            ConjureRefreshment_SpellName(Language), //190336
-            ConeOfCold_SpellName(Language), //120
-            Displacement_SpellName(Language), //389713
-            DragonsBreath_SpellName(Language),//31661
-            Evocation_SpellName(Language), //12051
-            FireBlast_SpellName(Language), //319836
-            Frostbolt_SpellName(Language), //116
-            FrostNova_SpellName(Language), //122
-            GreaterInvisibility_SpellName(Language), //110959
-            IceBlock_SpellName(Language), //45438
-            IceFloes_SpellName(Language), //108839
-            IceNova_SpellName(Language), //257997
-            Invisibility_SpellName(Language), //66
-            MassPolymorph_SpellName(Language), //383121
-            Meteor_SpellName(Language), //153561
-            MirrorImage_SpellName(Language), //55342
-            NetherTempest_SpellName(Language), //114923
-            Polymorph_SpellName(Language), //118
-            PresenceOfMind_SpellName(Language), //205025
-            PrismaticBarrier_SpellName(Language), //235450
-            RemoveCurse_SpellName(Language), //475
-            RingOfFrost_SpellName(Language), //113724
-            RuneOfPower_SpellName(Language), //116011
-            Slow_SpellName(Language), //31589
-            SlowFall_SpellName(Language), //130
-            Spellsteal_SpellName(Language), //30449
-            Supernova_SpellName(Language), //157980
-            TimeWarp_SpellName(Language), //80353
-            TouchOfTheMagi_SpellName(Language), //321507
-        };
+        private List<string> m_DebuffsList;
+        private List<string> m_BuffsList;
+        private List<string> m_BloodlustBuffsList;
+        private List<string> m_ItemsList;
+        private List<string> m_SpellBook;
 
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
 
@@ -1875,6 +1819,69 @@ namespace AimsharpWow.Modules
             {
                 Spellbook.Add(Shadowmeld_SpellName(Language)); //58984
             }
+            #endregion
+
+            #region Reinitialize Lists
+            m_DebuffsList = new List<string> { Polymorph_SpellName(Language), };
+            m_BuffsList = new List<string> { ArcaneIntellect_SpellName(Language), ArcaneSurge_SpellName(Language), Evocation_SpellName(Language), ShiftingPower_SpellName(Language), PresenceOfMind_SpellName(Language), };
+            m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
+            m_ItemsList = new List<string> { Healthstone_SpellName(Language), ManaGem_SpellName(Language), };
+            m_SpellBook = new List<string> {
+                //Covenants
+                RadiantSpark_SpellName(Language), //307443
+                Deathborne_SpellName(Language), //324220
+                ShiftingPower_SpellName(Language), //314791
+                MirrorsOfTorment_SpellName(Language), //314793
+
+                //Covenant Signature Abilites
+                SummonSteward_SpellName(Language), Fleshcraft_SpellName(Language), DoorOfShadows_SpellName(Language),
+
+                //Interrupt
+                Counterspell_SpellName(Language), //2139
+
+                //General Mage
+                ArcaneBarrage_SpellName(Language), //44425
+                ArcaneBlast_SpellName(Language), //30451
+                ArcaneExplosion_SpellName(Language), //1449
+                ArcaneFamiliar_SpellName(Language), //205022
+                ArcaneIntellect_SpellName(Language), //1459
+                ArcaneMissiles_SpellName(Language), //5143
+                ArcaneOrb_SpellName(Language), //153626
+                ArcaneSurge_SpellName(Language), //365350
+                AlterTime_SpellName(Language), //342245
+                Blink_SpellName(Language), //1953 or 212653
+                BlastWave_SpellName(Language), //157981
+                ConjureManaGem_SpellName(Language), //759
+                ConjureRefreshment_SpellName(Language), //190336
+                ConeOfCold_SpellName(Language), //120
+                Displacement_SpellName(Language), //389713
+                DragonsBreath_SpellName(Language),//31661
+                Evocation_SpellName(Language), //12051
+                FireBlast_SpellName(Language), //319836
+                Frostbolt_SpellName(Language), //116
+                FrostNova_SpellName(Language), //122
+                GreaterInvisibility_SpellName(Language), //110959
+                IceBlock_SpellName(Language), //45438
+                IceFloes_SpellName(Language), //108839
+                IceNova_SpellName(Language), //257997
+                Invisibility_SpellName(Language), //66
+                MassPolymorph_SpellName(Language), //383121
+                Meteor_SpellName(Language), //153561
+                MirrorImage_SpellName(Language), //55342
+                NetherTempest_SpellName(Language), //114923
+                Polymorph_SpellName(Language), //118
+                PresenceOfMind_SpellName(Language), //205025
+                PrismaticBarrier_SpellName(Language), //235450
+                RemoveCurse_SpellName(Language), //475
+                RingOfFrost_SpellName(Language), //113724
+                RuneOfPower_SpellName(Language), //116011
+                Slow_SpellName(Language), //31589
+                SlowFall_SpellName(Language), //130
+                Spellsteal_SpellName(Language), //30449
+                Supernova_SpellName(Language), //157980
+                TimeWarp_SpellName(Language), //80353
+                TouchOfTheMagi_SpellName(Language), //321507
+            };
             #endregion
 
             InitializeMacros();

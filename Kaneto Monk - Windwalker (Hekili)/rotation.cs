@@ -1235,58 +1235,11 @@ namespace AimsharpWow.Modules
         #region Lists
         //Lists
         private List<string> m_IngameCommandsList = new List<string> { "RingofPeace", "Paralysis", "LegSweep", "Vivify", "FlyingSerpentKick", "Transcendence", "Transfer", "NoDetox", "BonedustBrew", "NoInterrupts", "NoCycle", "WhiteTigerStatue" };
-        private List<string> m_DebuffsList = new List<string> { Paralysis_SpellName(Language), };
-        private List<string> m_BuffsList = new List<string> { BlackoutKicki_SpellName(Language), WeaponsOfOrder_SpellName(Language), StormEarthAndFire_SpellName(Language), WhirlingDragonPunch_SpellName(Language), Serenity_SpellName(Language), DanceOfChiji_SpellName(Language), };
-        private List<string> m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
-        private List<string> m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
-
-        private List<string> m_SpellBook_General = new List<string> {
-            //Covenants
-            WeaponsOfOrder_SpellName(Language), //310454
-            FallenOrder_SpellName(Language), //326860
-            FaelineStomp_SpellName(Language), //388193
-            BonedustBrew_SpellName(Language), //386276
-            SummonSteward_SpellName(Language),
-            Fleshcraft_SpellName(Language),
-
-            //Interrupt
-            SpearHandStrike_SpellName(Language), //116705
-
-            //General Monk
-            BlackoutKick_SpellName(Language), //100784
-            ChiBurst_SpellName(Language), //123986
-            ChiTorpedo_SpellName(Language), //115008
-            ChiWave_SpellName(Language), //115098
-            CracklingJadeLightning_SpellName(Language), //117952
-            DampenHarm_SpellName(Language), //122278
-            Detox_SpellName(Language), //218164
-            DiffuseMagic_SpellName(Language), //122783
-            ExpelHarm_SpellName(Language), //322101
-            FistsOfFury_SpellName(Language), //113656
-            FlyingSerpentKick_SpellName(Language), //101545
-            FortifyingBrew_SpellName(Language), //388917
-            InvokeXuenTheWhiteTiger_SpellName(Language), //123904
-            LegSweep_SpellName(Language), //119381
-            Paralysis_SpellName(Language), //115078
-            RingOfPeace_SpellName(Language), //116844
-            RisingSunKick_SpellName(Language), //107428
-            RushingJadeWind_SpellName(Language), //116847
-            Serenity_SpellName(Language), //152173
-            SpinningCraneKick_SpellName(Language), //101546
-            StormEarthAndFire_Fixate_SpellName(Language), //221771
-            StormEarthAndFire_SpellName(Language), //137639
-            StrikeOfTheWindlord_SpellName(Language), //392983 -- New
-            SummonWhiteTigerStatue_SpellName(Language), //388686 -- New
-            TigerPalm_SpellName(Language), //100780
-            TigersLust_SpellName(Language), //116841
-            TouchOfDeath_SpellName(Language), //115080
-            TouchOfKarma_SpellName(Language), //122470
-            Transcendence_Transfer_SpellName(Language), //119996
-            Transcendence_SpellName(Language), //101643
-            Vivify_SpellName(Language), //116670
-            WhirlingDragonPunch_SpellName(Language), //152175
-
-        };
+        private List<string> m_DebuffsList;
+        private List<string> m_BuffsList;
+        private List<string> m_BloodlustBuffsList;
+        private List<string> m_ItemsList;
+        private List<string> m_SpellBook_General;
 
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
         private List<string> m_CastingList = new List<string> { "Manual", "Cursor", "Player" };
@@ -1963,6 +1916,59 @@ namespace AimsharpWow.Modules
             }
             #endregion
 
+            #region Reinitialize Lists
+            m_DebuffsList = new List<string> { Paralysis_SpellName(Language), };
+            m_BuffsList = new List<string> { BlackoutKicki_SpellName(Language), WeaponsOfOrder_SpellName(Language), StormEarthAndFire_SpellName(Language), WhirlingDragonPunch_SpellName(Language), Serenity_SpellName(Language), DanceOfChiji_SpellName(Language), };
+            m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
+            m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
+            m_SpellBook_General = new List<string> {
+                //Covenants
+                WeaponsOfOrder_SpellName(Language), //310454
+                FallenOrder_SpellName(Language), //326860
+                FaelineStomp_SpellName(Language), //388193
+                BonedustBrew_SpellName(Language), //386276
+                SummonSteward_SpellName(Language),
+                Fleshcraft_SpellName(Language),
+
+                //Interrupt
+                SpearHandStrike_SpellName(Language), //116705
+
+                //General Monk
+                BlackoutKick_SpellName(Language), //100784
+                ChiBurst_SpellName(Language), //123986
+                ChiTorpedo_SpellName(Language), //115008
+                ChiWave_SpellName(Language), //115098
+                CracklingJadeLightning_SpellName(Language), //117952
+                DampenHarm_SpellName(Language), //122278
+                Detox_SpellName(Language), //218164
+                DiffuseMagic_SpellName(Language), //122783
+                ExpelHarm_SpellName(Language), //322101
+                FistsOfFury_SpellName(Language), //113656
+                FlyingSerpentKick_SpellName(Language), //101545
+                FortifyingBrew_SpellName(Language), //388917
+                InvokeXuenTheWhiteTiger_SpellName(Language), //123904
+                LegSweep_SpellName(Language), //119381
+                Paralysis_SpellName(Language), //115078
+                RingOfPeace_SpellName(Language), //116844
+                RisingSunKick_SpellName(Language), //107428
+                RushingJadeWind_SpellName(Language), //116847
+                Serenity_SpellName(Language), //152173
+                SpinningCraneKick_SpellName(Language), //101546
+                StormEarthAndFire_Fixate_SpellName(Language), //221771
+                StormEarthAndFire_SpellName(Language), //137639
+                StrikeOfTheWindlord_SpellName(Language), //392983 -- New
+                SummonWhiteTigerStatue_SpellName(Language), //388686 -- New
+                TigerPalm_SpellName(Language), //100780
+                TigersLust_SpellName(Language), //116841
+                TouchOfDeath_SpellName(Language), //115080
+                TouchOfKarma_SpellName(Language), //122470
+                Transcendence_Transfer_SpellName(Language), //119996
+                Transcendence_SpellName(Language), //101643
+                Vivify_SpellName(Language), //116670
+                WhirlingDragonPunch_SpellName(Language), //152175
+
+            };
+            #endregion
 
             InitializeMacros();
 

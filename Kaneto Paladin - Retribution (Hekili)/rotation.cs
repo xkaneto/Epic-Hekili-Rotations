@@ -1381,65 +1381,11 @@ namespace AimsharpWow.Modules
         #region Lists
         //Lists
         private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "NoCleanse", "FinalReckoning", "BlessingofFreedom", "BlessingofProtection", "BlessingofSacrifice", "DivineShield", "AshenHallow", "HammerofJustice", "BlindingLight", Repentance_SpellName(Language), "DivineSteed", "WordofGlory", "DoorofShadows", "IntercessionMO" };
-        private List<string> m_DebuffsList = new List<string> { GrippingInfection_SpellName(Language), BarbedShackles_SpellName(Language), BindingsOfMisery_SpellName(Language), };
-        private List<string> m_BuffsList = new List<string> { "Selfless Healer", ShieldOfVengeance_SpellName(Language), DivineSteed_SpellName(Language), };
-        private List<string> m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
-        private List<string> m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
-
-        private List<string> m_SpellBook_General = new List<string> {
-            //Covenants
-            DivineToll_SpellName(Language), //304971, 375576
-            AshenHallow_SpellName(Language), //316958
-            VanquishersHammer_SpellName(Language), //328204
-            BlessingOfSummer_SpellName(Language), //328620
-            BlessingOfAutumn_SpellName(Language), //328622
-            BlessingOfWinter_SpellName(Language), //328281
-            BlessingOfSpring_SpellName(Language), //328282
-
-            Fleshcraft_SpellName(Language), SummonSteward_SpellName(Language), DoorOfShadows_SpellName(Language),
-
-            //Interrupt
-            Rebuke_SpellName(Language), //96231
-
-            //General
-            AvengingWrath_SpellName(Language), //31884, 384376
-            BlessingOfFreedom_SpellName(Language), //1044
-            BlessingOfProtection_SpellName(Language), //1022
-            BlessingOfSacrifice_SpellName(Language), //6940
-            Consecration_SpellName(Language), //26573
-            CrusaderStrike_SpellName(Language), //35395
-            DivineShield_SpellName(Language), //642
-            DivineSteed_SpellName(Language), //190784
-            FlashOfLight_SpellName(Language), //19750
-            HammerOfJustice_SpellName(Language), //853
-            HammerOfWrath_SpellName(Language), //24275
-            Intercession_SpellName(Language), //391054
-            Judgment_SpellName(Language), //20271
-            LayOnHands_SpellName(Language), //633
-            TemplarsVerdict_SpellName(Language), //85256
-            WordOfGlory_SpellName(Language), //85673
-
-            //Retribution
-            BladeOfJustice_SpellName(Language), //184575
-            BlindingLight_SpellName(Language), //115750
-            CleanseToxins_SpellName(Language), //213644
-            Crusade_SpellName(Language), //231895
-            DivineProtection_SpellName(Language), //498
-            DivineStorm_SpellName(Language), //53385
-            ExecutionSentence_SpellName(Language), //343527
-            Exorcism_SpellName(Language), //383185
-            EyeForAnEye_SpellName(Language), //205191
-            FinalReckoning_SpellName(Language), //343721
-            FinalVerdict_SpellName(Language), //336872
-            HolyAvenger_SpellName(Language), //105809
-            JusticarsVengeance_SpellName(Language), //215661
-            RadiantDecree_SpellName(Language), //384052
-            Repentance_SpellName(Language), //20066
-            Seraphim_SpellName(Language), //152262
-            ShieldOfVengeance_SpellName(Language), //184662
-            WakeOfAshes_SpellName(Language), //255937
-
-        };
+        private List<string> m_DebuffsList;
+        private List<string> m_BuffsList;
+        private List<string> m_BloodlustBuffsList;
+        private List<string> m_ItemsList;
+        private List<string> m_SpellBook_General;
 
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
         private List<string> m_CastingList = new List<string> { "Manual", "Cursor", "Player" };
@@ -1934,6 +1880,67 @@ namespace AimsharpWow.Modules
             {
                 Spellbook.Add(Shadowmeld_SpellName(Language)); //58984
             }
+            #endregion
+
+            #region ReinitializeLists
+            m_DebuffsList = new List<string> { GrippingInfection_SpellName(Language), BarbedShackles_SpellName(Language), BindingsOfMisery_SpellName(Language), };
+            m_BuffsList = new List<string> { "Selfless Healer", ShieldOfVengeance_SpellName(Language), DivineSteed_SpellName(Language), };
+            m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
+            m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
+            m_SpellBook_General = new List<string> {
+                //Covenants
+                DivineToll_SpellName(Language), //304971, 375576
+                AshenHallow_SpellName(Language), //316958
+                VanquishersHammer_SpellName(Language), //328204
+                BlessingOfSummer_SpellName(Language), //328620
+                BlessingOfAutumn_SpellName(Language), //328622
+                BlessingOfWinter_SpellName(Language), //328281
+                BlessingOfSpring_SpellName(Language), //328282
+
+                Fleshcraft_SpellName(Language), SummonSteward_SpellName(Language), DoorOfShadows_SpellName(Language),
+
+                //Interrupt
+                Rebuke_SpellName(Language), //96231
+
+                //General
+                AvengingWrath_SpellName(Language), //31884, 384376
+                BlessingOfFreedom_SpellName(Language), //1044
+                BlessingOfProtection_SpellName(Language), //1022
+                BlessingOfSacrifice_SpellName(Language), //6940
+                Consecration_SpellName(Language), //26573
+                CrusaderStrike_SpellName(Language), //35395
+                DivineShield_SpellName(Language), //642
+                DivineSteed_SpellName(Language), //190784
+                FlashOfLight_SpellName(Language), //19750
+                HammerOfJustice_SpellName(Language), //853
+                HammerOfWrath_SpellName(Language), //24275
+                Intercession_SpellName(Language), //391054
+                Judgment_SpellName(Language), //20271
+                LayOnHands_SpellName(Language), //633
+                TemplarsVerdict_SpellName(Language), //85256
+                WordOfGlory_SpellName(Language), //85673
+
+                //Retribution
+                BladeOfJustice_SpellName(Language), //184575
+                BlindingLight_SpellName(Language), //115750
+                CleanseToxins_SpellName(Language), //213644
+                Crusade_SpellName(Language), //231895
+                DivineProtection_SpellName(Language), //498
+                DivineStorm_SpellName(Language), //53385
+                ExecutionSentence_SpellName(Language), //343527
+                Exorcism_SpellName(Language), //383185
+                EyeForAnEye_SpellName(Language), //205191
+                FinalReckoning_SpellName(Language), //343721
+                FinalVerdict_SpellName(Language), //336872
+                HolyAvenger_SpellName(Language), //105809
+                JusticarsVengeance_SpellName(Language), //215661
+                RadiantDecree_SpellName(Language), //384052
+                Repentance_SpellName(Language), //20066
+                Seraphim_SpellName(Language), //152262
+                ShieldOfVengeance_SpellName(Language), //184662
+                WakeOfAshes_SpellName(Language), //255937
+
+            };
             #endregion
 
             InitializeMacros();
