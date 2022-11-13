@@ -6,7 +6,7 @@ All of the Hekili Rotations by Snoogens that are updated by xKaneto.
 - Language Support for all the rotations
 - Randomize Kicks Option added
 
-Updated Rotations:
+### Updated Rotations:
 
 - Death Knight - Frost
 - Death Knight - Unholy
@@ -28,7 +28,7 @@ Updated Rotations:
 - Rogue - Outlaw
 - Warlock - Affliction
 
-To-Do:
+### To-Do:
 
 - Rogue - Subtlety
 - Warlock - Demonology
@@ -36,7 +36,8 @@ To-Do:
 
 - Auto Heal Potion Setting
 
-How to use these files with Aimsharp:
+
+## How to use these files with Aimsharp:
 
 1. Download the files from my github
    ![How to Download the files as a .zip file](https://github.com/xkaneto/Kaneto-Hekili-Rotations/blob/main/Readme-Images/image-1.jpg?raw=true)
