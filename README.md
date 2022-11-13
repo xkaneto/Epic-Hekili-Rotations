@@ -47,4 +47,6 @@ All of the Hekili Rotations by Snoogens that are updated by xKaneto.
    ![... put them into "bin\Rotations" of your Aimsharp install.](https://github.com/xkaneto/Kaneto-Hekili-Rotations/blob/main/Readme-Images/image-3.jpg?raw=true)
 4. Make sure to download Heklili Priority Helper from Curseforge or anything.
 5. When ingame, go to /hekili and unbind all the shortcuts / keybinds from the toggle menu.
-6. If you need any further help, feel free to message me on Discord.
+6. If you have issues with performance (for example: the rotation feels slow) either uncheck these marks here, or check them and play around with the settings.
+   ![Settings for Rotation performance.](https://github.com/xkaneto/Kaneto-Hekili-Rotations/blob/main/Readme-Images/image-4.jpg?raw=true)
+7. If you need any further help, feel free to message me on Discord.
