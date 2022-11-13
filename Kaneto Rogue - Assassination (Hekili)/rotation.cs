@@ -112,6 +112,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=120360</summary>
+        private static string Barrage_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Barrage";
+                case "Deutsch": return "Sperrfeuer";
+                case "Español": return "Tromba";
+                case "Français": return "Barrage";
+                case "Italiano": return "Sbarramento";
+                case "Português Brasileiro": return "Barragem";
+                case "Русский": return "Шквал";
+                case "한국어": return "탄막";
+                case "简体中文": return "弹幕射击";
+                default: return "Barrage";
+            }
+        }
+
         ///<summary>spell=26297</summary>
         private static string Berserking_SpellName(string Language = "English")
         {
@@ -145,6 +163,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "실명";
                 case "简体中文": return "致盲";
                 default: return "Blind";
+            }
+        }
+
+        ///<summary>spell=328085</summary>
+        private static string Blindside_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Blindside";
+                case "Deutsch": return "Wunder Punkt";
+                case "Español": return "Punto ciego";
+                case "Français": return "Angle mort";
+                case "Italiano": return "Lato Cieco";
+                case "Português Brasileiro": return "Ponto Cego";
+                case "Русский": return "Слепая зона";
+                case "한국어": return "사각 지대";
+                case "简体中文": return "侧袭";
+                default: return "Blindside";
             }
         }
 
@@ -670,6 +706,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=20271</summary>
+        private static string Judgment_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Judgment";
+                case "Deutsch": return "Richturteil";
+                case "Español": return "Sentencia";
+                case "Français": return "Jugement";
+                case "Italiano": return "Giudizio";
+                case "Português Brasileiro": return "Julgamento";
+                case "Русский": return "Правосудие";
+                case "한국어": return "심판";
+                case "简体中文": return "审判";
+                default: return "Judgment";
+            }
+        }
+
         ///<summary>spell=1766</summary>
         private static string Kick_SpellName(string Language = "English")
         {
@@ -1066,6 +1120,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=108208</summary>
+        private static string Subterfuge_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Subterfuge";
+                case "Deutsch": return "Trickbetrug";
+                case "Español": return "Subterfugio";
+                case "Français": return "Subterfuge";
+                case "Italiano": return "Sotterfugio";
+                case "Português Brasileiro": return "Subterfúgio";
+                case "Русский": return "Увертка";
+                case "한국어": return "기만";
+                case "简体中文": return "诡诈";
+                default: return "Subterfuge";
+            }
+        }
+
         ///<summary>spell=324739</summary>
         private static string SummonSteward_SpellName(string Language = "English")
         {
@@ -1236,67 +1308,12 @@ namespace AimsharpWow.Modules
         #region Lists
         //Lists
         private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "Distract", "Blind", "Sap", "KidneyShot", "NoCycle", "FunnelAOE", };
-        private List<string> m_DebuffsList = new List<string> { Sap_SpellName(Language), Blind_SpellName(Language), Garrote_SpellName(Language), Rupture_SpellName(Language), SerratedBoneSpike_SpellName(Language), };
-        private List<string> m_BuffsList = new List<string> { Stealth_SpellName(Language), Vanish_SpellName(Language), "Blindside", "Subterfuge", };
-        private List<string> m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
-        private List<string> m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
-
-        private List<string> m_SpellBook_General = new List<string> {
-            //Covenants
-            EchoingReprimand_SpellName(Language), //385616,323547
-            Flagellation_SpellName(Language), //323654 , 384631
-            Sepsis_SpellName(Language), //328305 , 385408
-            SerratedBoneSpike_SpellName(Language), //328547 , 385424
-
-            //Interrupt
-            Kick_SpellName(Language), //1766
-
-            //General Rogue
-            Ambush_SpellName(Language), //8676
-            CheapShot_SpellName(Language), //1833
-            CrimsonVial_SpellName(Language), //185311
-            Distract_SpellName(Language), //1725
-            Eviscerate_SpellName(Language), //196819
-            Fleshcraft_SpellName(Language),
-            InstantPoison_SpellName(Language), //315584
-            KidneyShot_SpellName(Language), //408
-            SliceAndDice_SpellName(Language), //315496
-            Sprint_SpellName(Language), //2983
-            Stealth_SpellName(Language), //1784
-            Vanish_SpellName(Language), //1856
-
-            //General Talents
-            Blind_SpellName(Language), //2094
-            CloakOfShadows_SpellName(Language), //31224
-            ColdBlood_SpellName(Language), //382245
-            Evasion_SpellName(Language), //5277
-            Feint_SpellName(Language), //1966
-            Gouge_SpellName(Language), //1776
-            MarkedForDeath_SpellName(Language), //137619
-            NumbingPoison_SpellName(Language), //5761
-            Sap_SpellName(Language), //6770
-            ShadowDance_SpellName(Language), //185313
-            Shadowstep_SpellName(Language), //36554
-            Shiv_SpellName(Language), //5938
-            ThistleTea_SpellName(Language), //381623
-            TricksOfTheTrade_SpellName(Language), //57934
-        };
-
-        private List<string> m_SpellBook_Assassination = new List<string> {
-            //Assassination Rogue
-            CrimsonTempest_SpellName(Language), //121411
-            Deathmark_SpellName(Language), //360194
-            Envenom_SpellName(Language), //32645
-            Exsanguinate_SpellName(Language), //200806
-            FanOfKnives_SpellName(Language), //51723
-            Garrote_SpellName(Language), //703
-            IndiscriminateCarnage_SpellName(Language), //381802
-            Kingsbane_SpellName(Language), // 385627
-            Mutilate_SpellName(Language), //1329
-            PoisonedKnife_SpellName(Language), //185565
-            Rupture_SpellName(Language), //1943
-        };
-
+        private List<string> m_DebuffsList;
+        private List<string> m_BuffsList;
+        private List<string> m_BloodlustBuffsList;
+        private List<string> m_ItemsList;
+        private List<string> m_SpellBook_General;
+        private List<string> m_SpellBook_Assassination;
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
         private List<string> m_CastingList = new List<string> { "Manual", "Cursor", "Player" };
 
@@ -1430,7 +1447,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastCheapShot(string unit)
         {
-            if (Aimsharp.CanCast(CheapShot_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(CheapShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Power("player") >= 40 && Aimsharp.Range(unit) <= 5 && (Aimsharp.HasBuff(Stealth_SpellName(Language), "player", true) || Aimsharp.HasBuff(ShadowDance_SpellName(Language), "player", true) || Aimsharp.HasBuff(Vanish_SpellName(Language), "player", true) || Aimsharp.HasBuff("Subterfuge", "player", true)) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(CheapShot_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(CheapShot_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Power("player") >= 40 && Aimsharp.Range(unit) <= 5 && (Aimsharp.HasBuff(Stealth_SpellName(Language), "player", true) || Aimsharp.HasBuff(ShadowDance_SpellName(Language), "player", true) || Aimsharp.HasBuff(Vanish_SpellName(Language), "player", true) || Aimsharp.HasBuff(Subterfuge_SpellName(Language), "player", true)) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1454,7 +1471,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastAmbush(string unit)
         {
-            if (Aimsharp.CanCast(Ambush_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(Ambush_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && (Aimsharp.Power("player") >= 40 || Aimsharp.HasBuff("Blindside", "player", true)) && Aimsharp.Range(unit) <= 5 && (Aimsharp.HasBuff(Stealth_SpellName(Language), "player", true) || Aimsharp.HasBuff(ShadowDance_SpellName(Language), "player", true) || Aimsharp.HasBuff(Vanish_SpellName(Language), "player", true) || Aimsharp.HasBuff("Blindside", "player", true) || Aimsharp.HasBuff("Subterfuge", "player", true)) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(Ambush_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(Ambush_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && (Aimsharp.Power("player") >= 40 || Aimsharp.HasBuff(Blindside_SpellName(Language), "player", true)) && Aimsharp.Range(unit) <= 5 && (Aimsharp.HasBuff(Stealth_SpellName(Language), "player", true) || Aimsharp.HasBuff(ShadowDance_SpellName(Language), "player", true) || Aimsharp.HasBuff(Vanish_SpellName(Language), "player", true) || Aimsharp.HasBuff(Blindside_SpellName(Language), "player", true) || Aimsharp.HasBuff(Subterfuge_SpellName(Language), "player", true)) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1478,7 +1495,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastSap(string unit)
         {
-            if (Aimsharp.CanCast(Sap_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(Sap_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Power("player") >= 35 && Aimsharp.Range(unit) <= 10 && (Aimsharp.HasBuff(Stealth_SpellName(Language), "player", true) || Aimsharp.HasBuff(ShadowDance_SpellName(Language), "player", true) || Aimsharp.HasBuff(Vanish_SpellName(Language), "player", true) || Aimsharp.HasBuff("Subterfuge", "player", true)) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
+            if (Aimsharp.CanCast(Sap_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(Sap_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Power("player") >= 35 && Aimsharp.Range(unit) <= 10 && (Aimsharp.HasBuff(Stealth_SpellName(Language), "player", true) || Aimsharp.HasBuff(ShadowDance_SpellName(Language), "player", true) || Aimsharp.HasBuff(Vanish_SpellName(Language), "player", true) || Aimsharp.HasBuff(Subterfuge_SpellName(Language), "player", true)) && TargetAlive() && Aimsharp.GetPlayerLevel() >= 60 && !TorghastList.Contains(Aimsharp.GetMapID())))
                 return true;
 
             return false;
@@ -1928,6 +1945,74 @@ namespace AimsharpWow.Modules
             {
                 Spellbook.Add(Shadowmeld_SpellName(Language)); //58984
             }
+            #endregion
+
+            #region Lists Reinitialize
+
+            m_SpellBook_General = new List<string>
+            {
+                //Covenants
+                EchoingReprimand_SpellName(Language), //385616,323547
+                Flagellation_SpellName(Language), //323654 , 384631
+                Sepsis_SpellName(Language), //328305 , 385408
+                SerratedBoneSpike_SpellName(Language), //328547 , 385424
+
+                //Interrupt
+                Kick_SpellName(Language), //1766
+
+                //General Rogue
+                Ambush_SpellName(Language), //8676
+                CheapShot_SpellName(Language), //1833
+                CrimsonVial_SpellName(Language), //185311
+                Distract_SpellName(Language), //1725
+                Eviscerate_SpellName(Language), //196819
+                Fleshcraft_SpellName(Language),
+                InstantPoison_SpellName(Language), //315584
+                KidneyShot_SpellName(Language), //408
+                SliceAndDice_SpellName(Language), //315496
+                Sprint_SpellName(Language), //2983
+                Stealth_SpellName(Language), //1784
+                Vanish_SpellName(Language), //1856
+
+                //General Talents
+                Blind_SpellName(Language), //2094
+                CloakOfShadows_SpellName(Language), //31224
+                ColdBlood_SpellName(Language), //382245
+                Evasion_SpellName(Language), //5277
+                Feint_SpellName(Language), //1966
+                Gouge_SpellName(Language), //1776
+                MarkedForDeath_SpellName(Language), //137619
+                NumbingPoison_SpellName(Language), //5761
+                Sap_SpellName(Language), //6770
+                ShadowDance_SpellName(Language), //185313
+                Shadowstep_SpellName(Language), //36554
+                Shiv_SpellName(Language), //5938
+                ThistleTea_SpellName(Language), //381623
+                TricksOfTheTrade_SpellName(Language), //57934
+            };
+            m_SpellBook_Assassination = new List<string>
+            {
+                //Assassination Rogue
+                CrimsonTempest_SpellName(Language), //121411
+                Deathmark_SpellName(Language), //360194
+                Envenom_SpellName(Language), //32645
+                Exsanguinate_SpellName(Language), //200806
+                FanOfKnives_SpellName(Language), //51723
+                Garrote_SpellName(Language), //703
+                IndiscriminateCarnage_SpellName(Language), //381802
+                Kingsbane_SpellName(Language), // 385627
+                Mutilate_SpellName(Language), //1329
+                PoisonedKnife_SpellName(Language), //185565
+                Rupture_SpellName(Language), //1943
+            };
+            m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
+
+            m_BloodlustBuffsList = new List<string>
+            { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
+
+            m_BuffsList = new List<string> { Stealth_SpellName(Language), Vanish_SpellName(Language), Blindside_SpellName(Language), Subterfuge_SpellName(Language), };
+
+            m_DebuffsList = new List<string> { Sap_SpellName(Language), Blind_SpellName(Language), Garrote_SpellName(Language), Rupture_SpellName(Language), SerratedBoneSpike_SpellName(Language), };
             #endregion
 
             InitializeMacros();
