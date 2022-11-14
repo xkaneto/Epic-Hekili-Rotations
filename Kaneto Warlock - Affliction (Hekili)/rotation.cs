@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using System.Diagnostics;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using AimsharpWow.API;
 
 namespace AimsharpWow.Modules
@@ -1154,79 +1154,6 @@ namespace AimsharpWow.Modules
                 default: return "Summon Darkglare";
             }
         }
-
-        ///<summary>spell=30146</summary>
-        private static string SummonFelguard_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Summon Felguard";
-                case "Deutsch": return "Teufelswache beschwören";
-                case "Español": return "Invocar guardia vil";
-                case "Français": return "Invocation de gangregarde";
-                case "Italiano": return "Evocazione: Vilguardia";
-                case "Português Brasileiro": return "Evocar Guarda Vil";
-                case "Русский": return "Призыв стража Скверны";
-                case "한국어": return "지옥수호병 소환";
-                case "简体中文": return "召唤恶魔卫士";
-                default: return "Summon Felguard";
-            }
-        }
-
-        ///<summary>spell=691</summary>
-        private static string SummonFelhunter_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Summon Felhunter";
-                case "Deutsch": return "Teufelsjäger beschwören";
-                case "Español": return "Invocar manáfago";
-                case "Français": return "Invocation : chasseur corrompu";
-                case "Italiano": return "Evocazione: Vilsegugio";
-                case "Português Brasileiro": return "Evocar Caçador Vil";
-                case "Русский": return "Призыв охотника Скверны";
-                case "한국어": return "지옥사냥개 소환";
-                case "简体中文": return "召唤地狱猎犬";
-                default: return "Summon Felhunter";
-            }
-        }
-
-        ///<summary>spell=688</summary>
-        private static string SummonImp_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Summon Imp";
-                case "Deutsch": return "Wichtel beschwören";
-                case "Español": return "Invocar diablillo";
-                case "Français": return "Invocation de diablotin";
-                case "Italiano": return "Evocazione: Imp";
-                case "Português Brasileiro": return "Evocar Diabrete";
-                case "Русский": return "Призыв беса";
-                case "한국어": return "임프 소환";
-                case "简体中文": return "召唤小鬼";
-                default: return "Summon Imp";
-            }
-        }
-
-        ///<summary>spell=366222</summary>
-        private static string SummonSayaad_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Summon Sayaad";
-                case "Deutsch": return "Sayaad beschwören";
-                case "Español": return "Invocar sayaad";
-                case "Français": return "Invocation de sayaad";
-                case "Italiano": return "Evocazione: Sayaad";
-                case "Português Brasileiro": return "Evocar Sayaad";
-                case "Русский": return "Призыв сайаада";
-                case "한국어": return "세이야드 소환";
-                case "简体中文": return "召唤萨亚德";
-                default: return "Summon Sayaad";
-            }
-        }
-
         ///<summary>spell=386244</summary>
         private static string SummonSoulkeeper_SpellName(string Language = "English")
         {
@@ -1260,24 +1187,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "청지기 소환";
                 case "简体中文": return "召唤执事者";
                 default: return "Summon Steward";
-            }
-        }
-
-        ///<summary>spell=697</summary>
-        private static string SummonVoidwalker_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Summon Voidwalker";
-                case "Deutsch": return "Leerwandler beschwören";
-                case "Español": return "Invocar abisario";
-                case "Français": return "Invocation : marcheur du Vide";
-                case "Italiano": return "Evocazione: Ombra del Vuoto";
-                case "Português Brasileiro": return "Evocar Emissário do Caos";
-                case "Русский": return "Призыв демона Бездны";
-                case "한국어": return "공허방랑자 소환";
-                case "简体中文": return "召唤虚空行者";
-                default: return "Summon Voidwalker";
             }
         }
 
@@ -1677,7 +1586,7 @@ namespace AimsharpWow.Modules
             Aimsharp.SlowDelay = 150;
 
             Aimsharp.PrintMessage("Kanetos PVE - Warlock Affliction", Color.Yellow);
-             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
+            Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
             Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Brown);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- Talents -", Color.White);
@@ -1786,7 +1695,7 @@ namespace AimsharpWow.Modules
 
             #region Reinitialize Lists
             m_DebuffsList = new List<string> { Banish_SpellName(Language), Fear_SpellName(Language), };
-            m_BuffsList = new List<string> {  };
+            m_BuffsList = new List<string> { };
             m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
             m_ItemsList = new List<string> { Healthstone_SpellName(Language), };
             m_SpellBook = new List<string> {
@@ -1825,12 +1734,7 @@ namespace AimsharpWow.Modules
                 Shadowflame_SpellName(Language), //384069
                 Shadowfury_SpellName(Language), //30283
                 Soulstone_SpellName(Language), //20707
-                SummonFelguard_SpellName(Language), //30146
-                SummonFelhunter_SpellName(Language), //691
-                SummonImp_SpellName(Language), //688
-                SummonSayaad_SpellName(Language), //366222
                 SummonSoulkeeper_SpellName(Language), //386244
-                SummonVoidwalker_SpellName(Language), //697
                 UnendingResolve_SpellName(Language), //104773
                 //"Command Demon", //119898
                 //"Create Healthstone", //6201
@@ -1875,7 +1779,7 @@ namespace AimsharpWow.Modules
             int Enemies = Aimsharp.CustomFunction("HekiliEnemies");
             int TargetingGroup = Aimsharp.CustomFunction("GroupTargets");
 
-            bool NoInterrupts= Aimsharp.IsCustomCodeOn("NoInterrupts");
+            bool NoInterrupts = Aimsharp.IsCustomCodeOn("NoInterrupts");
             bool NoCycle = Aimsharp.IsCustomCodeOn("NoCycle");
 
             bool Debug = GetCheckBox("Debug:") == true;
@@ -2565,6 +2469,15 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast(SpellLock_SpellName(Language), true);
                         return true;
                     }
+                    if (SpellID1 == 386244 && Aimsharp.CanCast(SummonSoulkeeper_SpellName(Language), "target", true, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Summon Soulkeeper - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(SummonSoulkeeper_SpellName(Language), true);
+                        return true;
+                    }
                     #endregion
 
                     #region General Spells - Target GCD
@@ -2744,56 +2657,6 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Casting Fel Domination - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(FelDomination_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 688 && Aimsharp.CanCast(SummonImp_SpellName(Language), "player", false, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Summon Imp - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(SummonImp_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 697 && Aimsharp.CanCast(SummonVoidwalker_SpellName(Language), "player", false, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Summon Voidwalker - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(SummonVoidwalker_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 691 && Aimsharp.CanCast(SummonFelhunter_SpellName(Language), "player", false, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Summon Felhunter - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(SummonFelhunter_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 366222 && Aimsharp.CanCast(SummonSayaad_SpellName(Language), "player", false, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Summon Sayaad - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(SummonSayaad_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 30146 && Aimsharp.CanCast(SummonFelguard_SpellName(Language), "player", false, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Summon Felguard - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(SummonFelguard_SpellName(Language));
                         return true;
                     }
 
@@ -3092,7 +2955,6 @@ namespace AimsharpWow.Modules
             int PhialCount = Aimsharp.CustomFunction("PhialCount");
             bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
             bool Moving = Aimsharp.PlayerIsMoving();
-            bool SummonDemonOOC = GetCheckBox("Summon Demon Out of Combat:");
             #endregion
 
             #region SpellQueueWindow
@@ -3346,45 +3208,6 @@ namespace AimsharpWow.Modules
 
             #region Out of Combat Spells
             //Summon Demon
-            if (SpellID1 == 688 && Aimsharp.CanCast(SummonImp_SpellName(Language), "player", false, true) && SummonDemonOOC && !Moving)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Summon Imp - " + SpellID1, Color.Purple);
-                }
-                Aimsharp.Cast(SummonImp_SpellName(Language));
-                return true;
-            }
-
-            if (SpellID1 == 697 && Aimsharp.CanCast(SummonVoidwalker_SpellName(Language), "player", false, true) && SummonDemonOOC && !Moving)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Summon Voidwalker - " + SpellID1, Color.Purple);
-                }
-                Aimsharp.Cast(SummonVoidwalker_SpellName(Language));
-                return true;
-            }
-
-            if (SpellID1 == 691 && Aimsharp.CanCast(SummonFelhunter_SpellName(Language), "player", false, true) && SummonDemonOOC && !Moving)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Summon Felhunter - " + SpellID1, Color.Purple);
-                }
-                Aimsharp.Cast(SummonFelhunter_SpellName(Language));
-                return true;
-            }
-
-            if (SpellID1 == 712 && Aimsharp.CanCast(SummonSayaad_SpellName(Language), "player", false, true) && SummonDemonOOC && !Moving)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Summon Sayaad - " + SpellID1, Color.Purple);
-                }
-                Aimsharp.Cast(SummonSayaad_SpellName(Language));
-                return true;
-            }
 
             if (SpellID1 == 324631 && Aimsharp.CanCast(Fleshcraft_SpellName(Language), "player", false, true) && !Moving)
             {
