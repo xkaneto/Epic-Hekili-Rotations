@@ -1554,7 +1554,6 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Kick channels after milliseconds", 50, 1500, 500));
             Settings.Add(new Setting("General"));
             Settings.Add(new Setting("Auto Start Combat:", true));
-            Settings.Add(new Setting("Summon Demon Out of Combat:", true));
             Settings.Add(new Setting("Auto Unending Resolve @ HP%", 0, 100, 25));
             Settings.Add(new Setting("Auto Dark Pact @ HP%", 0, 100, 15));
             Settings.Add(new Setting("Auto Drain Life @ HP%", 0, 100, 25));
@@ -3207,8 +3206,6 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Out of Combat Spells
-            //Summon Demon
-
             if (SpellID1 == 324631 && Aimsharp.CanCast(Fleshcraft_SpellName(Language), "player", false, true) && !Moving)
             {
                 if (Debug)
