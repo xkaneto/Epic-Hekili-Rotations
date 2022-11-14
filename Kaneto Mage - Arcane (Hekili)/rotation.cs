@@ -2912,7 +2912,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 257997 && Aimsharp.CanCast(IceNova_SpellName(Language), "player", false, true))
+                    if (SpellID1 == 157997 && Aimsharp.CanCast(IceNova_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
