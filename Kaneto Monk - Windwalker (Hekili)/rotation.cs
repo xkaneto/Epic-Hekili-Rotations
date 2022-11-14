@@ -2807,7 +2807,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 325216 && CanCastBonedustBrew("player") && (BonedustBrewCast == "Player" && Aimsharp.Range("target") <= 5 || BonedustBrewCast != "Player"))
+                    if (SpellID1 == 325216 && CanCastBonedustBrew("player") && ((BonedustBrewCast == "Player" && Aimsharp.Range("target") <= 5) || BonedustBrewCast != "Player"))
                     {
                         switch (BonedustBrewCast)
                         {
@@ -2831,34 +2831,6 @@ namespace AimsharpWow.Modules
                                     Aimsharp.PrintMessage("Casting Bonedust Brew - " + BonedustBrewCast + " - " + SpellID1, Color.Purple);
                                 }
                                 Aimsharp.Cast("BonedustBrewP");
-                                return true;
-                        }
-                    }
-
-                    if (SpellID1 == 388686 && CanCastWhiteTigerStatue("player") && (WhiteTigerStatueCast == "Player" && Aimsharp.Range("target") <= 5 || WhiteTigerStatueCast != "Player"))
-                    {
-                        switch (WhiteTigerStatueCast)
-                        {
-                            case "Manual":
-                                if (Debug)
-                                {
-                                    Aimsharp.PrintMessage("Casting Bonedust Brew - " + WhiteTigerStatueCast + " - " + SpellID1, Color.Purple);
-                                }
-                                Aimsharp.Cast(SummonWhiteTigerStatue_SpellName(Language));
-                                return true;
-                            case "Cursor":
-                                if (Debug)
-                                {
-                                    Aimsharp.PrintMessage("Casting Bonedust Brew - " + WhiteTigerStatueCast + " -" + SpellID1, Color.Purple);
-                                }
-                                Aimsharp.Cast("WhiteTigerStatueC");
-                                return true;
-                            case "Player":
-                                if (Debug)
-                                {
-                                    Aimsharp.PrintMessage("Casting Bonedust Brew - " + WhiteTigerStatueCast + " - " + SpellID1, Color.Purple);
-                                }
-                                Aimsharp.Cast("WhiteTigerStatueP");
                                 return true;
                         }
                     }
@@ -2922,6 +2894,33 @@ namespace AimsharpWow.Modules
                     //General Monk
                     //Instant [GCD]
                     ///Player
+                    if (SpellID1 == 388686 && CanCastWhiteTigerStatue("player") && ((WhiteTigerStatueCast == "Player" && Aimsharp.Range("target") <= 5) || WhiteTigerStatueCast != "Player"))
+                    {
+                        switch (WhiteTigerStatueCast)
+                        {
+                            case "Manual":
+                                if (Debug)
+                                {
+                                    Aimsharp.PrintMessage("Casting Summon White Tiger Statue - " + WhiteTigerStatueCast + " - " + SpellID1, Color.Purple);
+                                }
+                                Aimsharp.Cast(SummonWhiteTigerStatue_SpellName(Language));
+                                return true;
+                            case "Cursor":
+                                if (Debug)
+                                {
+                                    Aimsharp.PrintMessage("Casting Summon White Tiger Statue - " + WhiteTigerStatueCast + " -" + SpellID1, Color.Purple);
+                                }
+                                Aimsharp.Cast("WhiteTigerStatueC");
+                                return true;
+                            case "Player":
+                                if (Debug)
+                                {
+                                    Aimsharp.PrintMessage("Casting Summon White Tiger Statue - " + WhiteTigerStatueCast + " - " + SpellID1, Color.Purple);
+                                }
+                                Aimsharp.Cast("WhiteTigerStatueP");
+                                return true;
+                        }
+                    }
                     if (SpellID1 == 322101 && CanCastExpelHarm("player"))
                     {
                         if (Debug)
