@@ -8,6 +8,7 @@ All of the Hekili Rotations by Snoogens that are updated by xKaneto.
 
 ### Updated Rotations:
 
+- Death Knight - Blood
 - Death Knight - Frost
 - Death Knight - Unholy
 - Demon Hunter - Havoc

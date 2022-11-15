@@ -202,6 +202,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=120360</summary>
+        private static string Barrage_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Barrage";
+                case "Deutsch": return "Sperrfeuer";
+                case "Español": return "Tromba";
+                case "Français": return "Barrage";
+                case "Italiano": return "Sbarramento";
+                case "Português Brasileiro": return "Barragem";
+                case "Русский": return "Шквал";
+                case "한국어": return "탄막";
+                case "简体中文": return "弹幕射击";
+                default: return "Barrage";
+            }
+        }
+
         ///<summary>spell=26297</summary>
         private static string Berserking_SpellName(string Language = "English")
         {
@@ -544,7 +562,7 @@ namespace AimsharpWow.Modules
             }
         }
 
-         ///<summary>spell=47568</summary>
+        ///<summary>spell=47568</summary>
         private static string EmpowerRuneWeapon_SpellName(string Language = "English")
         {
             switch (Language)
@@ -652,6 +670,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=33395</summary>
+        private static string Freeze_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Freeze";
+                case "Deutsch": return "Eiskälte";
+                case "Español": return "Congelar";
+                case "Français": return "Gel";
+                case "Italiano": return "Congelamento";
+                case "Português Brasileiro": return "Congelamento";
+                case "Русский": return "Холод";
+                case "한국어": return "얼리기";
+                case "简体中文": return "冰冻术";
+                default: return "Freeze";
+            }
+        }
+
         ///<summary>spell=28880</summary>
         private static string GiftOfTheNaaru_SpellName(string Language = "English")
         {
@@ -721,6 +757,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "얼음같은 인내력";
                 case "简体中文": return "冰封之韧";
                 default: return "Icebound Fortitude";
+            }
+        }
+
+        ///<summary>spell=20271</summary>
+        private static string Judgment_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Judgment";
+                case "Deutsch": return "Richturteil";
+                case "Español": return "Sentencia";
+                case "Français": return "Jugement";
+                case "Italiano": return "Giudizio";
+                case "Português Brasileiro": return "Julgamento";
+                case "Русский": return "Правосудие";
+                case "한국어": return "심판";
+                case "简体中文": return "审判";
+                default: return "Judgment";
             }
         }
 
@@ -868,6 +922,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=327574</summary>
+        private static string SacrificialPact_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Sacrificial Pact";
+                case "Deutsch": return "Opferpakt";
+                case "Español": return "Sacrificio pactado";
+                case "Français": return "Pacte sacrificiel";
+                case "Italiano": return "Patto Sacrificale";
+                case "Português Brasileiro": return "Pacto Sacrificial";
+                case "Русский": return "Жертвенный договор";
+                case "한국어": return "희생의 서약";
+                case "简体中文": return "牺牲契约";
+                default: return "Sacrificial Pact";
+            }
+        }
+
         ///<summary>spell=55090</summary>
         private static string ScourgeStrike_SpellName(string Language = "English")
         {
@@ -937,6 +1009,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "영혼 수확자";
                 case "简体中文": return "灵魂收割";
                 default: return "Soul Reaper";
+            }
+        }
+
+        ///<summary>spell=1784</summary>
+        private static string Stealth_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Stealth";
+                case "Deutsch": return "Verstohlenheit";
+                case "Español": return "Sigilo";
+                case "Français": return "Camouflage";
+                case "Italiano": return "Furtività";
+                case "Português Brasileiro": return "Furtividade";
+                case "Русский": return "Незаметность";
+                case "한국어": return "은신";
+                case "简体中文": return "潜行";
+                default: return "Stealth";
             }
         }
 
@@ -1368,9 +1458,11 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Kick channels after milliseconds", 50, 1500, 500));
             Settings.Add(new Setting("General"));
             Settings.Add(new Setting("Auto Start Combat:", true));
+            Settings.Add(new Setting("Auto Lichborne @ HP%", 0, 100, 40));
             Settings.Add(new Setting("Auto Death Pact @ HP%", 0, 100, 30));
             Settings.Add(new Setting("Auto Anti-Magic Shell @ HP%", 0, 100, 15));
-            Settings.Add(new Setting("Auto Lichborne @ HP%", 0, 100, 40));
+            Settings.Add(new Setting("Auto Sacrificial Pact @ HP%", 0, 100, 20));
+            Settings.Add(new Setting("Auto Icebound Fortitude @ HP%", 0, 100, 30));
             Settings.Add(new Setting("Death and Decay Cast:", m_CastingList, "Player"));
             Settings.Add(new Setting("Anti-Magic Zone Cast:", m_CastingList, "Player"));
             Settings.Add(new Setting("Death's Due Cast:", m_CastingList, "Player"));
@@ -1546,6 +1638,7 @@ namespace AimsharpWow.Modules
                 Outbreak_SpellName(Language), //77575
                 RaiseAlly_SpellName(Language),
                 RaiseDead_SpellName(Language),
+                SacrificialPact_SpellName(Language),
                 ScourgeStrike_SpellName(Language), //55090
                 SoulReaper_SpellName(Language),
                 SummonGargoyle_SpellName(Language), //49206
@@ -1723,6 +1816,26 @@ namespace AimsharpWow.Modules
                 if (PlayerHP <= GetSlider("Auto Lichborne @ HP%"))
                 {
                     Aimsharp.Cast(Lichborne_SpellName(Language), true);
+                    return true;
+                }
+            }
+
+            //Auto Sacrificial Pact
+            if (Aimsharp.CanCast(SacrificialPact_SpellName(Language), "player", false, true))
+            {
+                if (PlayerHP <= GetSlider("Auto Sacrificial Pact @ HP%"))
+                {
+                    Aimsharp.Cast(SacrificialPact_SpellName(Language), true);
+                    return true;
+                }
+            }
+
+            //Auto Icebound Fortitude
+            if (Aimsharp.CanCast(IceboundFortitude_SpellName(Language), "player", false, true))
+            {
+                if (PlayerHP <= GetSlider("Auto Icebound Fortitude @ HP%"))
+                {
+                    Aimsharp.Cast(IceboundFortitude_SpellName(Language), true);
                     return true;
                 }
             }
@@ -2209,7 +2322,7 @@ namespace AimsharpWow.Modules
                         }
                     }
 
-                    if (SpellID1 == 315443 && Aimsharp.CanCast(AbominationLimb_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if ((SpellID1 == 315443 || SpellID1 == 383269) && Aimsharp.CanCast(AbominationLimb_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
                     {
                         Aimsharp.Cast(AbominationLimb_SpellName(Language));
                         return true;
@@ -2700,7 +2813,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Call Steward
-            if (PhialCount <= 0 && Aimsharp.CanCast(SummonSteward_SpellName(Language), "player") && !Aimsharp.HasBuff("Stealth", "player", true) && Aimsharp.GetMapID() != 2286 && Aimsharp.GetMapID() != 1666 && Aimsharp.GetMapID() != 1667 && Aimsharp.GetMapID() != 1668 && Aimsharp.CastingID("player") == 0)
+            if (PhialCount <= 0 && Aimsharp.CanCast(SummonSteward_SpellName(Language), "player") && !Aimsharp.HasBuff(Stealth_SpellName(Language), "player", true) && Aimsharp.GetMapID() != 2286 && Aimsharp.GetMapID() != 1666 && Aimsharp.GetMapID() != 1667 && Aimsharp.GetMapID() != 1668 && Aimsharp.CastingID("player") == 0)
             {
                 if (Debug)
                 {

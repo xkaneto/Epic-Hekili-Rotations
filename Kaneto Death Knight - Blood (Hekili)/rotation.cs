@@ -165,6 +165,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=120360</summary>
+        private static string Barrage_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Barrage";
+                case "Deutsch": return "Sperrfeuer";
+                case "Español": return "Tromba";
+                case "Français": return "Barrage";
+                case "Italiano": return "Sbarramento";
+                case "Português Brasileiro": return "Barragem";
+                case "Русский": return "Шквал";
+                case "한국어": return "탄막";
+                case "简体中文": return "弹幕射击";
+                default: return "Barrage";
+            }
+        }
+
         ///<summary>spell=26297</summary>
         private static string Berserking_SpellName(string Language = "English")
         {
@@ -201,6 +219,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=50842</summary>
+        private static string BloodBoil_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Blood Boil";
+                case "Deutsch": return "Siedendes Blut";
+                case "Español": return "Hervor de sangre";
+                case "Français": return "Furoncle sanglant";
+                case "Italiano": return "Ebollizione del Sangue";
+                case "Português Brasileiro": return "Sangue Fervente";
+                case "Русский": return "Вскипание крови";
+                case "한국어": return "피의 소용돌이";
+                case "简体中文": return "血液沸腾";
+                default: return "Blood Boil";
+            }
+        }
+
         ///<summary>spell=33697</summary>
         private static string BloodFury_SpellName(string Language = "English")
         {
@@ -216,6 +252,42 @@ namespace AimsharpWow.Modules
                 case "한국어": return "피의 격노";
                 case "简体中文": return "血性狂怒";
                 default: return "Blood Fury";
+            }
+        }
+
+        ///<summary>spell=221699</summary>
+        private static string BloodTap_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Blood Tap";
+                case "Deutsch": return "Blutwandlung";
+                case "Español": return "Transfusión de sangre";
+                case "Français": return "Drain sanglant";
+                case "Italiano": return "Conversione del Sangue";
+                case "Português Brasileiro": return "Transfusão de Sangue";
+                case "Русский": return "Кровоотвод";
+                case "한국어": return "혈기 전환";
+                case "简体中文": return "活力分流";
+                default: return "Blood Tap";
+            }
+        }
+
+        ///<summary>spell=206931</summary>
+        private static string Blooddrinker_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Blooddrinker";
+                case "Deutsch": return "Bluttrinker";
+                case "Español": return "Bebedor de sangre";
+                case "Français": return "Buveur de sang";
+                case "Italiano": return "Succhiasangue";
+                case "Português Brasileiro": return "Sorvessangue";
+                case "Русский": return "Кровопийца";
+                case "한국어": return "피 들이키기";
+                case "简体中文": return "饮血者";
+                default: return "Blooddrinker";
             }
         }
 
@@ -237,21 +309,21 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=152279</summary>
-        private static string BreathOfSindragosa_SpellName(string Language = "English")
+        ///<summary>spell=194844</summary>
+        private static string Bonestorm_SpellName(string Language = "English")
         {
             switch (Language)
             {
-                case "English": return "Breath of Sindragosa";
-                case "Deutsch": return "Sindragosas Hauch";
-                case "Español": return "Aliento de Sindragosa";
-                case "Français": return "Souffle de Sindragosa";
-                case "Italiano": return "Soffio di Sindragosa";
-                case "Português Brasileiro": return "Sopro de Sindragosa";
-                case "Русский": return "Дыхание Синдрагосы";
-                case "한국어": return "신드라고사의 숨결";
-                case "简体中文": return "冰龙吐息";
-                default: return "Breath of Sindragosa";
+                case "English": return "Bonestorm";
+                case "Deutsch": return "Knochensturm";
+                case "Español": return "Tormenta de huesos";
+                case "Français": return "Tempête d’os";
+                case "Italiano": return "Tempesta d'Ossa";
+                case "Português Brasileiro": return "Tempestade Óssea";
+                case "Русский": return "Буря костей";
+                case "한국어": return "뼈폭풍";
+                case "简体中文": return "白骨风暴";
+                default: return "Bonestorm";
             }
         }
 
@@ -291,21 +363,21 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=305392</summary>
-        private static string ChillStreak_SpellName(string Language = "English")
+        ///<summary>spell=274156</summary>
+        private static string Consumption_SpellName(string Language = "English")
         {
             switch (Language)
             {
-                case "English": return "Chill Streak";
-                case "Deutsch": return "Kettenunterkühlung";
-                case "Español": return "Racha helada";
-                case "Français": return "Séquence glaçante";
-                case "Italiano": return "Serie Gelida";
-                case "Português Brasileiro": return "Assalto Gélido";
-                case "Русский": return "Поток холода";
-                case "한국어": return "몰아치는 한기";
-                case "简体中文": return "寒冰联结";
-                default: return "Chill Streak";
+                case "English": return "Consumption";
+                case "Deutsch": return "Schwindsucht";
+                case "Español": return "Consumo";
+                case "Français": return "Consomption";
+                case "Italiano": return "Consunzione";
+                case "Português Brasileiro": return "Consumição";
+                case "Русский": return "Пожирание";
+                case "한국어": return "섭취";
+                case "简体中文": return "吞噬";
+                default: return "Consumption";
             }
         }
 
@@ -324,6 +396,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "언데드 지배";
                 case "简体中文": return "控制亡灵";
                 default: return "Control Undead";
+            }
+        }
+
+        ///<summary>spell=49028</summary>
+        private static string DancingRuneWeapon_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Dancing Rune Weapon";
+                case "Deutsch": return "Tanzende Runenwaffe";
+                case "Español": return "Arma de runa danzante";
+                case "Français": return "Arme runique dansante";
+                case "Italiano": return "Arma Runica Danzante";
+                case "Português Brasileiro": return "Arma Rúnica Dançante";
+                case "Русский": return "Танцующее руническое оружие";
+                case "한국어": return "춤추는 룬 무기";
+                case "简体中文": return "符文刃舞";
+                default: return "Dancing Rune Weapon";
             }
         }
 
@@ -381,6 +471,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=49576</summary>
+        private static string DeathGrip_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Death Grip";
+                case "Deutsch": return "Todesgriff";
+                case "Español": return "Atracción letal";
+                case "Français": return "Poigne de la mort";
+                case "Italiano": return "Presa Mortale";
+                case "Português Brasileiro": return "Garra da Morte";
+                case "Русский": return "Хватка смерти";
+                case "한국어": return "죽음의 손아귀";
+                case "简体中文": return "死亡之握";
+                default: return "Death Grip";
+            }
+        }
+
         ///<summary>spell=48743</summary>
         private static string DeathPact_SpellName(string Language = "English")
         {
@@ -417,6 +525,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=195292</summary>
+        private static string DeathsCaress_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Death's Caress";
+                case "Deutsch": return "Hand des Todes";
+                case "Español": return "Caricia de la Muerte";
+                case "Français": return "Caresse de la mort";
+                case "Italiano": return "Carezza della Morte";
+                case "Português Brasileiro": return "Afago da Morte";
+                case "Русский": return "Прикосновение смерти";
+                case "한국어": return "죽음의 마수";
+                case "简体中文": return "死神的抚摩";
+                default: return "Death's Caress";
+            }
+        }
+
         ///<summary>spell=324128</summary>
         private static string DeathsDue_SpellName(string Language = "English")
         {
@@ -432,24 +558,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "죽음의 대가";
                 case "简体中文": return "消亡之债";
                 default: return "Death's Due";
-            }
-        }
-
-        ///<summary>spell=152280</summary>
-        private static string Defile_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Defile";
-                case "Deutsch": return "Entweihen";
-                case "Español": return "Profanar";
-                case "Français": return "Profanation";
-                case "Italiano": return "Profanazione";
-                case "Português Brasileiro": return "Profanar";
-                case "Русский": return "Осквернение";
-                case "한국어": return "파멸";
-                case "简体中文": return "亵渎";
-                default: return "Defile";
             }
         }
 
@@ -579,60 +687,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=49143</summary>
-        private static string FrostStrike_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Frost Strike";
-                case "Deutsch": return "Froststoß";
-                case "Español": return "Golpe de Escarcha";
-                case "Français": return "Frappe de givre";
-                case "Italiano": return "Assalto del Gelo";
-                case "Português Brasileiro": return "Golpe Gélido";
-                case "Русский": return "Ледяной удар";
-                case "한국어": return "냉기의 일격";
-                case "简体中文": return "冰霜打击";
-                default: return "Frost Strike";
-            }
-        }
-
-        ///<summary>spell=207230</summary>
-        private static string Frostscythe_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Frostscythe";
-                case "Deutsch": return "Frostsichel";
-                case "Español": return "Guadaña de Escarcha";
-                case "Français": return "Faux de givre";
-                case "Italiano": return "Falce del Signore del Gelo";
-                case "Português Brasileiro": return "Foice Gélida";
-                case "Русский": return "Ледяная коса";
-                case "한국어": return "서리낫";
-                case "简体中文": return "冰霜之镰";
-                default: return "Frostscythe";
-            }
-        }
-
-        ///<summary>spell=279302</summary>
-        private static string FrostwyrmsFury_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Frostwyrm's Fury";
-                case "Deutsch": return "Furor des Frostwyrms";
-                case "Español": return "Furia de la vermis de escarcha";
-                case "Français": return "Fureur du wyrm de givre";
-                case "Italiano": return "Furia del Dragone del Gelo";
-                case "Português Brasileiro": return "Fúria da Serpe Gélida";
-                case "Русский": return "Ярость ледяного змея";
-                case "한국어": return "서리고룡의 격노";
-                case "简体中文": return "冰霜巨龙之怒";
-                default: return "Frostwyrm's Fury";
-            }
-        }
-
         ///<summary>spell=28880</summary>
         private static string GiftOfTheNaaru_SpellName(string Language = "English")
         {
@@ -669,6 +723,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=108199</summary>
+        private static string GorefiendsGrasp_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Gorefiend's Grasp";
+                case "Deutsch": return "Blutschattens Griff";
+                case "Español": return "Abrazo de Sanguino";
+                case "Français": return "Emprise de Fielsang";
+                case "Italiano": return "Presa di Malacarne";
+                case "Português Brasileiro": return "Garra de Sanguinávido";
+                case "Русский": return "Хватка Кровожада";
+                case "한국어": return "고어핀드의 손아귀";
+                case "简体中文": return "血魔之握";
+                default: return "Gorefiend's Grasp";
+            }
+        }
+
         ///<summary>item=5512</summary>
         private static string Healthstone_SpellName(string Language = "English")
         {
@@ -687,6 +759,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=206930</summary>
+        private static string HeartStrike_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Heart Strike";
+                case "Deutsch": return "Herzstoß";
+                case "Español": return "Golpe en el corazón";
+                case "Français": return "Frappe au cœur";
+                case "Italiano": return "Assalto al Cuore";
+                case "Português Brasileiro": return "Golpe no Coração";
+                case "Русский": return "Удар в сердце";
+                case "한국어": return "심장 강타";
+                case "简体中文": return "心脏打击";
+                default: return "Heart Strike";
+            }
+        }
+
         ///<summary>spell=32182</summary>
         private static string Heroism_SpellName(string Language = "English")
         {
@@ -702,42 +792,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "영웅심";
                 case "简体中文": return "英勇";
                 default: return "Heroism";
-            }
-        }
-
-        ///<summary>spell=57330</summary>
-        private static string HornOfWinter_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Horn of Winter";
-                case "Deutsch": return "Horn des Winters";
-                case "Español": return "Cuerno de invierno";
-                case "Français": return "Cor de l’hiver";
-                case "Italiano": return "Corno Invernale";
-                case "Português Brasileiro": return "Berrante do Inverno";
-                case "Русский": return "Зимний горн";
-                case "한국어": return "겨울의 뿔피리";
-                case "简体中文": return "寒冬号角";
-                default: return "Horn of Winter";
-            }
-        }
-
-        ///<summary>spell=49184</summary>
-        private static string HowlingBlast_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Howling Blast";
-                case "Deutsch": return "Heulende Böe";
-                case "Español": return "Explosión aullante";
-                case "Français": return "Rafale hurlante";
-                case "Italiano": return "Folata Gelida";
-                case "Português Brasileiro": return "Impacto Uivante";
-                case "Русский": return "Воющий ветер";
-                case "한국어": return "울부짖는 한파";
-                case "简体中文": return "凛风冲击";
-                default: return "Howling Blast";
             }
         }
 
@@ -813,6 +867,42 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=206940</summary>
+        private static string MarkOfBlood_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Mark of Blood";
+                case "Deutsch": return "Mal des Blutes";
+                case "Español": return "Marca de sangre";
+                case "Français": return "Marque de sang";
+                case "Italiano": return "Marchio del Sangue";
+                case "Português Brasileiro": return "Marca de Sangue";
+                case "Русский": return "Кровавая метка";
+                case "한국어": return "피의 징표";
+                case "简体中文": return "鲜血印记";
+                default: return "Mark of Blood";
+            }
+        }
+
+        ///<summary>spell=195182</summary>
+        private static string Marrowrend_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Marrowrend";
+                case "Deutsch": return "Markzerfetzer";
+                case "Español": return "Rasgamédulas";
+                case "Français": return "Déchirure de moelle";
+                case "Italiano": return "Strappo Midollare";
+                case "Português Brasileiro": return "Rasga-medula";
+                case "Русский": return "Дробление хребта";
+                case "한국어": return "골수분쇄";
+                case "简体中文": return "骨髓分裂";
+                default: return "Marrowrend";
+            }
+        }
+
         ///<summary>spell=47528</summary>
         private static string MindFreeze_SpellName(string Language = "English")
         {
@@ -828,42 +918,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "정신 얼리기";
                 case "简体中文": return "心灵冰冻";
                 default: return "Mind Freeze";
-            }
-        }
-
-        ///<summary>spell=49020</summary>
-        private static string Obliterate_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Obliterate";
-                case "Deutsch": return "Auslöschen";
-                case "Español": return "Asolar";
-                case "Français": return "Anéantissement";
-                case "Italiano": return "Disintegrazione";
-                case "Português Brasileiro": return "Obliterar";
-                case "Русский": return "Уничтожение";
-                case "한국어": return "절멸";
-                case "简体中文": return "湮灭";
-                default: return "Obliterate";
-            }
-        }
-
-        ///<summary>spell=51271</summary>
-        private static string PillarOfFrost_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Pillar of Frost";
-                case "Deutsch": return "Säule des Frosts";
-                case "Español": return "Pilar de Escarcha";
-                case "Français": return "Pilier de givre";
-                case "Italiano": return "Pilastro di Ghiaccio";
-                case "Português Brasileiro": return "Pilar de Gelo";
-                case "Русский": return "Ледяной столп";
-                case "한국어": return "얼음 기둥";
-                case "简体中文": return "冰霜之柱";
-                default: return "Pillar of Frost";
             }
         }
 
@@ -921,24 +975,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=196770</summary>
-        private static string RemorselessWinter_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Remorseless Winter";
-                case "Deutsch": return "Unbarmherziger Winter";
-                case "Español": return "Invierno sin remordimientos";
-                case "Français": return "Hiver impitoyable";
-                case "Italiano": return "Inverno Spietato";
-                case "Português Brasileiro": return "Inverno Impiedoso";
-                case "Русский": return "Беспощадность зимы";
-                case "한국어": return "냉혹한 겨울";
-                case "简体中文": return "冷酷严冬";
-                default: return "Remorseless Winter";
-            }
-        }
-
         ///<summary>spell=69041</summary>
         private static string RocketBarrage_SpellName(string Language = "English")
         {
@@ -972,6 +1008,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "룬의 일격";
                 case "简体中文": return "符文打击";
                 default: return "Rune Strike";
+            }
+        }
+
+        ///<summary>spell=194679</summary>
+        private static string RuneTap_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Rune Tap";
+                case "Deutsch": return "Runenwandlung";
+                case "Español": return "Transfusión de runa";
+                case "Français": return "Connexion runique";
+                case "Italiano": return "Conversione Runica";
+                case "Português Brasileiro": return "Transfusão Rúnica";
+                case "Русский": return "Захват рун";
+                case "한국어": return "룬 전환";
+                case "简体中文": return "符文分流";
+                default: return "Rune Tap";
             }
         }
 
@@ -1047,6 +1101,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=1784</summary>
+        private static string Stealth_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Stealth";
+                case "Deutsch": return "Verstohlenheit";
+                case "Español": return "Sigilo";
+                case "Français": return "Camouflage";
+                case "Italiano": return "Furtività";
+                case "Português Brasileiro": return "Furtividade";
+                case "Русский": return "Незаметность";
+                case "한국어": return "은신";
+                case "简体中文": return "潜行";
+                default: return "Stealth";
+            }
+        }
+
         ///<summary>spell=20594</summary>
         private static string Stoneform_SpellName(string Language = "English")
         {
@@ -1116,6 +1188,42 @@ namespace AimsharpWow.Modules
                 case "한국어": return "시간 왜곡";
                 case "简体中文": return "时间扭曲";
                 default: return "Time Warp";
+            }
+        }
+
+        ///<summary>spell=219809</summary>
+        private static string Tombstone_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Tombstone";
+                case "Deutsch": return "Grabstein";
+                case "Español": return "Lápida";
+                case "Français": return "Tombe";
+                case "Italiano": return "Lapide";
+                case "Português Brasileiro": return "Lápide";
+                case "Русский": return "Надгробный камень";
+                case "한국어": return "묘비";
+                case "简体中文": return "墓石";
+                default: return "Tombstone";
+            }
+        }
+
+        ///<summary>spell=55233</summary>
+        private static string VampiricBlood_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Vampiric Blood";
+                case "Deutsch": return "Vampirblut";
+                case "Español": return "Sangre vampírica";
+                case "Français": return "Sang vampirique";
+                case "Italiano": return "Sangue Vampirico";
+                case "Português Brasileiro": return "Sangue Vampírico";
+                case "Русский": return "Кровь вампира";
+                case "한국어": return "흡혈";
+                case "简体中文": return "吸血鬼之血";
+                default: return "Vampiric Blood";
             }
         }
 
@@ -1198,7 +1306,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "DoorofShadows", "NoInterrupts", "NoCycle", "Asphyixiate", "RaiseAlly", "DeathandDecay", "DeathsDue", "AntiMagicZone", "BlindingSleet", };
+        private List<string> m_IngameCommandsList = new List<string> { "DoorofShadows", "NoInterrupts", "NoCycle", "Asphyxiate", "RaiseAlly", "DeathandDecay", "DeathsDue", "AntiMagicZone", "BlindingSleet", };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
         private List<string> m_BloodlustBuffsList;
@@ -1403,9 +1511,15 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Kick channels after milliseconds", 50, 1500, 500));
             Settings.Add(new Setting("General"));
             Settings.Add(new Setting("Auto Start Combat:", true));
-            Settings.Add(new Setting("Auto Death Pact @ HP%", 0, 100, 30));
-            Settings.Add(new Setting("Auto Anti-Magic Shell @ HP%", 0, 100, 15));
+            Settings.Add(new Setting("Auto Rune Tap @ HP%", 0, 100, 30));
             Settings.Add(new Setting("Auto Lichborne @ HP%", 0, 100, 40));
+            Settings.Add(new Setting("Auto Tombstone @ HP%", 0, 100, 35));
+            Settings.Add(new Setting("Auto Death Pact @ HP%", 0, 100, 30));
+            Settings.Add(new Setting("Auto Vampiric Blood @ HP%", 0, 100, 30));
+            Settings.Add(new Setting("Auto Sacrificial Pact @ HP%", 0, 100, 20));
+            Settings.Add(new Setting("Auto Anti-Magic Shell @ HP%", 0, 100, 15));
+            Settings.Add(new Setting("Auto Icebound Fortitude @ HP%", 0, 100, 30));
+            Settings.Add(new Setting("Auto Dancing Rune Weapon @ HP%", 0, 100, 60));
             Settings.Add(new Setting("Death and Decay Cast:", m_CastingList, "Player"));
             Settings.Add(new Setting("Anti-Magic Zone Cast:", m_CastingList, "Player"));
             Settings.Add(new Setting("Death's Due Cast:", m_CastingList, "Player"));
@@ -1547,7 +1661,7 @@ namespace AimsharpWow.Modules
             m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
             m_SpellBook_General = new List<string> {
                 //Covenants
-                AbominationLimb_SpellName(Language), //315443
+                AbominationLimb_SpellName(Language), //315443,383269
                 DeathsDue_SpellName(Language), //324128
                 ShackleTheUnworthy_SpellName(Language), //312202
                 SwarmingMist_SpellName(Language), //311648
@@ -1562,34 +1676,36 @@ namespace AimsharpWow.Modules
                 AntimagicZone_SpellName(Language), //51052
                 Asphyxiate_SpellName(Language), //221562
                 BlindingSleet_SpellName(Language), //207167
-                BreathOfSindragosa_SpellName(Language), //152279
+                BloodBoil_SpellName(Language), //50842
+                BloodTap_SpellName(Language), //221699
+                Blooddrinker_SpellName(Language), //206931
+                Bonestorm_SpellName(Language), // 194844
                 ChainsOfIce_SpellName(Language), //45524
-                ChillStreak_SpellName(Language), //305392
+                Consumption_SpellName(Language), //274156
                 ControlUndead_SpellName(Language), //111673
+                DancingRuneWeapon_SpellName(Language), //49028
                 DarkCommand_SpellName(Language), //56222
                 DeathAndDecay_SpellName(Language), //43265
                 DeathCoil_SpellName(Language), //47541
+                DeathGrip_SpellName(Language), //49576
                 DeathPact_SpellName(Language), //48743
                 DeathStrike_SpellName(Language), //49998
-                Defile_SpellName(Language), //152280
+                DeathsCaress_SpellName(Language), //195292
                 EmpowerRuneWeapon_SpellName(Language), //47568
-                FrostStrike_SpellName(Language), //49143
-                Frostscythe_SpellName(Language), //207230
-                FrostwyrmsFury_SpellName(Language), //279302
-                GlacialAdvance_SpellName(Language), //194913
-                "Heart Strike", //206930
-                HornOfWinter_SpellName(Language), //57330
-                HowlingBlast_SpellName(Language), //49184
+                GorefiendsGrasp_SpellName(Language), //108199
+                HeartStrike_SpellName(Language), //206930
                 IceboundFortitude_SpellName(Language), //48792
                 Lichborne_SpellName(Language), //49039
-                Obliterate_SpellName(Language), //49020
-                PillarOfFrost_SpellName(Language), //51271
+                MarkOfBlood_SpellName(Language), //206940
+                Marrowrend_SpellName(Language), //195182
                 RaiseAlly_SpellName(Language), //61999
-                RaiseDead_SpellName(Language), //46584
-                RemorselessWinter_SpellName(Language), //196770
+                RaiseDead_SpellName(Language), //46585
                 RuneStrike_SpellName(Language), //316239
+                RuneTap_SpellName(Language), //194679
                 SacrificialPact_SpellName(Language), //327574
                 SoulReaper_SpellName(Language), //343294
+                Tombstone_SpellName(Language), //219809
+                VampiricBlood_SpellName(Language), //55233
                 WraithWalk_SpellName(Language), //212552
             };
             #endregion
@@ -1652,11 +1768,6 @@ namespace AimsharpWow.Modules
             }
 
             if (Aimsharp.IsCustomCodeOn("DeathandDecay") && Aimsharp.SpellCooldown(DeathAndDecay_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
-            {
-                return false;
-            }
-
-            if (Aimsharp.IsCustomCodeOn("DeathandDecay") && Aimsharp.SpellCooldown(Defile_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -1761,6 +1872,66 @@ namespace AimsharpWow.Modules
                 if (PlayerHP <= GetSlider("Auto Lichborne @ HP%"))
                 {
                     Aimsharp.Cast(Lichborne_SpellName(Language), true);
+                    return true;
+                }
+            }
+
+            //Auto Dancing Rune Weapon
+            if (Aimsharp.CanCast(DancingRuneWeapon_SpellName(Language), "player", false, true))
+            {
+                if (PlayerHP <= GetSlider("Auto Dancing Rune Weapon @ HP%"))
+                {
+                    Aimsharp.Cast(DancingRuneWeapon_SpellName(Language), true);
+                    return true;
+                }
+            }
+
+            //Auto Rune Tap
+            if (Aimsharp.CanCast(RuneTap_SpellName(Language), "player", false, true))
+            {
+                if (PlayerHP <= GetSlider("Auto Rune Tap @ HP%"))
+                {
+                    Aimsharp.Cast(RuneTap_SpellName(Language), true);
+                    return true;
+                }
+            }
+
+            //Auto Tombstone
+            if (Aimsharp.CanCast(Tombstone_SpellName(Language), "player", false, true))
+            {
+                if (PlayerHP <= GetSlider("Auto Tombstone @ HP%"))
+                {
+                    Aimsharp.Cast(Tombstone_SpellName(Language), true);
+                    return true;
+                }
+            }
+
+            //Auto Vampiric Blood
+            if (Aimsharp.CanCast(VampiricBlood_SpellName(Language), "player", false, true))
+            {
+                if (PlayerHP <= GetSlider("Auto Vampiric Blood @ HP%"))
+                {
+                    Aimsharp.Cast(VampiricBlood_SpellName(Language), true);
+                    return true;
+                }
+            }
+
+            //Auto Sacrificial Pact
+            if (Aimsharp.CanCast(SacrificialPact_SpellName(Language), "player", false, true))
+            {
+                if (PlayerHP <= GetSlider("Auto Sacrificial Pact @ HP%"))
+                {
+                    Aimsharp.Cast(SacrificialPact_SpellName(Language), true);
+                    return true;
+                }
+            }
+
+            //Auto Icebound Fortitude
+            if (Aimsharp.CanCast(IceboundFortitude_SpellName(Language), "player", false, true))
+            {
+                if (PlayerHP <= GetSlider("Auto Icebound Fortitude @ HP%"))
+                {
+                    Aimsharp.Cast(IceboundFortitude_SpellName(Language), true);
                     return true;
                 }
             }
@@ -2247,7 +2418,7 @@ namespace AimsharpWow.Modules
                         }
                     }
 
-                    if (SpellID1 == 315443 && Aimsharp.CanCast(AbominationLimb_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if ((SpellID1 == 315443 || SpellID1 == 383269) && Aimsharp.CanCast(AbominationLimb_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
                     {
                         Aimsharp.Cast(AbominationLimb_SpellName(Language));
                         return true;
@@ -2376,7 +2547,7 @@ namespace AimsharpWow.Modules
                     }
                     #endregion
 
-                    #region Frost Spells - Player GCD
+                    #region Blood Spells - Player GCD
                     ////Player
                     if (SpellID1 == 47568 && Aimsharp.CanCast(EmpowerRuneWeapon_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
                     {
@@ -2384,33 +2555,33 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 305392 && Aimsharp.CanCast(ChillStreak_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 50842 && Aimsharp.CanCast(BloodBoil_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
                     {
-                        Aimsharp.Cast(ChillStreak_SpellName(Language));
+                        Aimsharp.Cast(BloodBoil_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 196770 && Aimsharp.CanCast(RemorselessWinter_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 221699 && Aimsharp.CanCast(BloodTap_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
                     {
-                        Aimsharp.Cast(RemorselessWinter_SpellName(Language));
+                        Aimsharp.Cast(BloodTap_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 279302 && Aimsharp.CanCast(FrostwyrmsFury_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 206931 && Aimsharp.CanCast(Blooddrinker_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
                     {
-                        Aimsharp.Cast(FrostwyrmsFury_SpellName(Language));
+                        Aimsharp.Cast(Blooddrinker_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 51271 && Aimsharp.CanCast(PillarOfFrost_SpellName(Language), "player", true, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 194844 && Aimsharp.CanCast(Bonestorm_SpellName(Language), "player", true, true) && Aimsharp.Range("target") <= 5)
                     {
-                        Aimsharp.Cast(PillarOfFrost_SpellName(Language));
+                        Aimsharp.Cast(Bonestorm_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 57330 && Aimsharp.CanCast(HornOfWinter_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 274156 && Aimsharp.CanCast(Consumption_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
                     {
-                        Aimsharp.Cast(HornOfWinter_SpellName(Language));
+                        Aimsharp.Cast(Consumption_SpellName(Language));
                         return true;
                     }
 
@@ -2420,13 +2591,13 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 207230 && Aimsharp.CanCast(Frostscythe_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 49028 && Aimsharp.CanCast(DancingRuneWeapon_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
                     {
-                        Aimsharp.Cast(Frostscythe_SpellName(Language));
+                        Aimsharp.Cast(DancingRuneWeapon_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 343214 && Aimsharp.CanCast(SoulReaper_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 343294 && Aimsharp.CanCast(SoulReaper_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
                     {
                         Aimsharp.Cast(SoulReaper_SpellName(Language));
                         return true;
@@ -2438,37 +2609,72 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 152279 && Aimsharp.CanCast(BreathOfSindragosa_SpellName(Language), "player", false, true))
+                    if (SpellID1 == 49576 && Aimsharp.CanCast(DeathGrip_SpellName(Language), "player", false, true))
                     {
-                        Aimsharp.Cast(BreathOfSindragosa_SpellName(Language));
+                        Aimsharp.Cast(DeathGrip_SpellName(Language));
                         return true;
                     }
 
+                    if (SpellID1 == 195292 && Aimsharp.CanCast(DeathsCaress_SpellName(Language), "player", false, true))
+                    {
+                        Aimsharp.Cast(DeathsCaress_SpellName(Language));
+                        return true;
+                    }
+
+                    if (SpellID1 == 108199 && Aimsharp.CanCast(GorefiendsGrasp_SpellName(Language), "player", false, true))
+                    {
+                        Aimsharp.Cast(GorefiendsGrasp_SpellName(Language));
+                        return true;
+                    }
+
+                    if (SpellID1 == 194679 && Aimsharp.CanCast(RuneTap_SpellName(Language), "player", false, true))
+                    {
+                        Aimsharp.Cast(RuneTap_SpellName(Language));
+                        return true;
+                    }
+
+                    if (SpellID1 == 219809 && Aimsharp.CanCast(Tombstone_SpellName(Language), "player", false, true))
+                    {
+                        Aimsharp.Cast(Tombstone_SpellName(Language));
+                        return true;
+                    }
+
+                    if (SpellID1 == 55233 && Aimsharp.CanCast(VampiricBlood_SpellName(Language), "player", false, true))
+                    {
+                        Aimsharp.Cast(VampiricBlood_SpellName(Language));
+                        return true;
+                    }
                     #endregion
 
-                    #region Frost Spells - Target GCD
+                    #region Blood Spells - Target GCD
                     ////Target
-                    if (SpellID1 == 49020 && Aimsharp.CanCast(Obliterate_SpellName(Language), "target", true, true))
+                    if (SpellID1 == 206930 && Aimsharp.CanCast(HeartStrike_SpellName(Language), "target", true, true))
                     {
-                        Aimsharp.Cast(Obliterate_SpellName(Language));
+                        Aimsharp.Cast(HeartStrike_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 49143 && Aimsharp.CanCast(FrostStrike_SpellName(Language), "target", true, true))
+                    if (SpellID1 == 108194 && Aimsharp.CanCast(Asphyxiate_SpellName(Language), "target", true, true))
                     {
-                        Aimsharp.Cast(FrostStrike_SpellName(Language));
+                        Aimsharp.Cast(Asphyxiate_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 49184 && Aimsharp.CanCast(HowlingBlast_SpellName(Language), "target", true, true))
+                    if (SpellID1 == 195182 && Aimsharp.CanCast(Marrowrend_SpellName(Language), "target", true, true))
                     {
-                        Aimsharp.Cast(HowlingBlast_SpellName(Language));
+                        Aimsharp.Cast(Marrowrend_SpellName(Language));
                         return true;
                     }
 
                     if (SpellID1 == 316239 && Aimsharp.CanCast(RuneStrike_SpellName(Language), "target", true, true))
                     {
                         Aimsharp.Cast(RuneStrike_SpellName(Language));
+                        return true;
+                    }
+
+                    if (SpellID1 == 206940 && Aimsharp.CanCast(MarkOfBlood_SpellName(Language), "target", false, true))
+                    {
+                        Aimsharp.Cast(MarkOfBlood_SpellName(Language));
                         return true;
                     }
                     #endregion
@@ -2512,11 +2718,6 @@ namespace AimsharpWow.Modules
             }
 
             if (Aimsharp.IsCustomCodeOn("DeathandDecay") && Aimsharp.SpellCooldown(DeathAndDecay_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
-            {
-                return false;
-            }
-
-            if (Aimsharp.IsCustomCodeOn("DeathandDecay") && Aimsharp.SpellCooldown(Defile_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -2745,7 +2946,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Call Steward
-            if (PhialCount <= 0 && Aimsharp.CanCast(SummonSteward_SpellName(Language), "player") && !Aimsharp.HasBuff("Stealth", "player", true) && Aimsharp.GetMapID() != 2286 && Aimsharp.GetMapID() != 1666 && Aimsharp.GetMapID() != 1667 && Aimsharp.GetMapID() != 1668 && Aimsharp.CastingID("player") == 0)
+            if (PhialCount <= 0 && Aimsharp.CanCast(SummonSteward_SpellName(Language), "player") && !Aimsharp.HasBuff(Stealth_SpellName(Language), "player", true) && Aimsharp.GetMapID() != 2286 && Aimsharp.GetMapID() != 1666 && Aimsharp.GetMapID() != 1667 && Aimsharp.GetMapID() != 1668 && Aimsharp.CastingID("player") == 0)
             {
                 if (Debug)
                 {
