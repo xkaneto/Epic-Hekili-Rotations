@@ -3005,7 +3005,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (SpellID1 == 315496 && Aimsharp.BuffRemaining(SliceAndDice_SpellName(Language),"player") > 0 && CanCastSliceandDice("player") && Enemy && TargetAlive() && !Sap && SnDOOC)
+            if (SpellID1 == 315496 && !Aimsharp.HasBuff(SliceAndDice_SpellName(Language),"player") && CanCastSliceandDice("player") && Enemy && TargetAlive() && !Sap && SnDOOC)
             {
                 if (Debug)
                 {
