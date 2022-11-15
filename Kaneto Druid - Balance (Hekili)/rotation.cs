@@ -147,6 +147,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=120360</summary>
+        private static string Barrage_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Barrage";
+                case "Deutsch": return "Sperrfeuer";
+                case "Español": return "Tromba";
+                case "Français": return "Barrage";
+                case "Italiano": return "Sbarramento";
+                case "Português Brasileiro": return "Barragem";
+                case "Русский": return "Шквал";
+                case "한국어": return "탄막";
+                case "简体中文": return "弹幕射击";
+                default: return "Barrage";
+            }
+        }
+
         ///<summary>spell=5487</summary>
         private static string BearForm_SpellName(string Language = "English")
         {
@@ -291,6 +309,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=172</summary>
+        private static string Corruption_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Corruption";
+                case "Deutsch": return "Verderbnis";
+                case "Español": return "Corrupción";
+                case "Français": return "Corruption";
+                case "Italiano": return "Corruzione";
+                case "Português Brasileiro": return "Corrupção";
+                case "Русский": return "Порча";
+                case "한국어": return "부패";
+                case "简体中文": return "腐蚀术";
+                default: return "Corruption";
+            }
+        }
+
         ///<summary>spell=33786</summary>
         private static string Cyclone_SpellName(string Language = "English")
         {
@@ -417,6 +453,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=1543</summary>
+        private static string Flare_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Flare";
+                case "Deutsch": return "Leuchtfeuer";
+                case "Español": return "Bengala";
+                case "Français": return "Fusée éclairante";
+                case "Italiano": return "Bengala";
+                case "Português Brasileiro": return "Sinalizador";
+                case "Русский": return "Осветительная ракета";
+                case "한국어": return "섬광";
+                case "简体中文": return "照明弹";
+                default: return "Flare";
+            }
+        }
+
         ///<summary>spell=350229</summary>
         private static string Fleshcraft_SpellName(string Language = "English")
         {
@@ -453,6 +507,42 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=335077</summary>
+        private static string Frenzy_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Frenzy";
+                case "Deutsch": return "Raserei";
+                case "Español": return "Frenesí";
+                case "Français": return "Frénésie";
+                case "Italiano": return "Frenesia";
+                case "Português Brasileiro": return "Frenesi";
+                case "Русский": return "Бешенство";
+                case "한국어": return "광기";
+                case "简体中文": return "狂乱";
+                default: return "Frenzy";
+            }
+        }
+
+        ///<summary>spell=274283</summary>
+        private static string FullMoon_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Full Moon";
+                case "Deutsch": return "Vollmond";
+                case "Español": return "Luna llena";
+                case "Français": return "Pleine lune";
+                case "Italiano": return "Luna Piena";
+                case "Português Brasileiro": return "Lua Cheia";
+                case "Русский": return "Полная луна";
+                case "한국어": return "보름달";
+                case "简体中文": return "满月";
+                default: return "Full Moon";
+            }
+        }
+
         ///<summary>spell=202770</summary>
         private static string FuryOfElune_SpellName(string Language = "English")
         {
@@ -486,6 +576,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "나루의 선물";
                 case "简体中文": return "纳鲁的赐福";
                 default: return "Gift of the Naaru";
+            }
+        }
+
+        ///<summary>spell=274282</summary>
+        private static string HalfMoon_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Half Moon";
+                case "Deutsch": return "Halbmond";
+                case "Español": return "Medialuna";
+                case "Français": return "Demi-lune";
+                case "Italiano": return "Mezza Luna";
+                case "Português Brasileiro": return "Meia-lua";
+                case "Русский": return "Полумесяц";
+                case "한국어": return "반달";
+                case "简体中文": return "半月";
+                default: return "Half Moon";
             }
         }
 
@@ -594,6 +702,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "정신 자극";
                 case "简体中文": return "激活";
                 default: return "Innervate";
+            }
+        }
+
+        ///<summary>spell=20271</summary>
+        private static string Judgment_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Judgment";
+                case "Deutsch": return "Richturteil";
+                case "Español": return "Sentencia";
+                case "Français": return "Jugement";
+                case "Italiano": return "Giudizio";
+                case "Português Brasileiro": return "Julgamento";
+                case "Русский": return "Правосудие";
+                case "한국어": return "심판";
+                case "简体中文": return "审判";
+                default: return "Judgment";
             }
         }
 
@@ -738,6 +864,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "자연의 경계";
                 case "简体中文": return "自然的守护";
                 default: return "Nature's Vigil";
+            }
+        }
+
+        ///<summary>spell=274281</summary>
+        private static string NewMoon_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "New Moon";
+                case "Deutsch": return "Neumond";
+                case "Español": return "Luna nueva";
+                case "Français": return "Nouvelle lune";
+                case "Italiano": return "Luna Nuova";
+                case "Português Brasileiro": return "Lua Nova";
+                case "Русский": return "Новолуние";
+                case "한국어": return "초승달";
+                case "简体中文": return "新月";
+                default: return "New Moon";
             }
         }
 
@@ -1288,7 +1432,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoDecurse", "NoCycle", "DoorofShadows", "SolarBeam", "MightyBash", "MassEntanglement", "ForceofNature", "UrsolsVortex", "Typhoon", "Rebirth", "Innervate", "Hibernate", "Cyclone", "EntanglingRoots", "Regrowth", };
+        private List<string> m_IngameCommandsList = new List<string> { "NoDecurse", "NoCycle", "DoorofShadows", "SolarBeam", "MightyBash", "MassEntanglement", "ForceofNature", "UrsolsVortex", Typhoon_SpellName(Language), Rebirth_SpellName(Language), Innervate_SpellName(Language), Hibernate_SpellName(Language), Cyclone_SpellName(Language), "EntanglingRoots", Regrowth_SpellName(Language), };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
         private List<string> m_BloodlustBuffsList;
@@ -1780,6 +1924,9 @@ namespace AimsharpWow.Modules
                 UrsolsVortex_SpellName(Language), //102793
                 WarriorOfElune_SpellName(Language), //202425
                 WildMushroom_SpellName(Language), //88747
+                NewMoon_SpellName(Language), //274281
+                HalfMoon_SpellName(Language), //274282
+                FullMoon_SpellName(Language), //274283
             };
             #endregion
 
@@ -1832,7 +1979,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Logic
-            if (Aimsharp.CastingID("player") == 2637 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Hibernate"))
+            if (Aimsharp.CastingID("player") == 2637 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Hibernate_SpellName(Language)))
             {
                 if (Debug)
                 {
@@ -1842,7 +1989,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 33786 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Cyclone"))
+            if (Aimsharp.CastingID("player") == 33786 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Cyclone_SpellName(Language)))
             {
                 if (Debug)
                 {
@@ -1966,7 +2113,7 @@ namespace AimsharpWow.Modules
 
             #region Queues
             //Queue Rebirth
-            bool Rebirth = Aimsharp.IsCustomCodeOn("Rebirth");
+            bool Rebirth = Aimsharp.IsCustomCodeOn(Rebirth_SpellName(Language));
             if (Aimsharp.SpellCooldown(Rebirth_SpellName(Language)) - Aimsharp.GCD() > 2000 && Rebirth)
             {
                 Aimsharp.Cast("RebirthOff");
@@ -1980,7 +2127,7 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Hibernate
-            bool Hibernate = Aimsharp.IsCustomCodeOn("Hibernate");
+            bool Hibernate = Aimsharp.IsCustomCodeOn(Hibernate_SpellName(Language));
             if (Aimsharp.SpellCooldown(Hibernate_SpellName(Language)) - Aimsharp.GCD() > 2000 && Hibernate)
             {
                 Aimsharp.Cast("HibernateOff");
@@ -1994,7 +2141,7 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Cyclone
-            bool Cyclone = Aimsharp.IsCustomCodeOn("Cyclone");
+            bool Cyclone = Aimsharp.IsCustomCodeOn(Cyclone_SpellName(Language));
             if (Aimsharp.SpellCooldown(Cyclone_SpellName(Language)) - Aimsharp.GCD() > 2000 && Cyclone)
             {
                 Aimsharp.Cast("CycloneOff");
@@ -2022,7 +2169,7 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Innervate
-            bool Innervate = Aimsharp.IsCustomCodeOn("Innervate");
+            bool Innervate = Aimsharp.IsCustomCodeOn(Innervate_SpellName(Language));
             if (Aimsharp.SpellCooldown(Innervate_SpellName(Language)) - Aimsharp.GCD() > 2000 && Innervate)
             {
                 Aimsharp.Cast("InnervateOff");
@@ -2035,7 +2182,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Typhoon = Aimsharp.IsCustomCodeOn("Typhoon");
+            bool Typhoon = Aimsharp.IsCustomCodeOn(Typhoon_SpellName(Language));
             //Queue Typhoon
             if (Typhoon && Aimsharp.SpellCooldown(Typhoon_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
@@ -2204,7 +2351,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Regrowth = Aimsharp.IsCustomCodeOn("Regrowth");
+            bool Regrowth = Aimsharp.IsCustomCodeOn(Regrowth_SpellName(Language));
             if (Regrowth && Aimsharp.CanCast(Regrowth_SpellName(Language), "player", false, true))
             {
                 if (Debug)
@@ -2788,6 +2935,36 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
+                    if (SpellID1 == 274281 && Aimsharp.CanCast(NewMoon_SpellName(Language), "target", true, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting New Moon - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(NewMoon_SpellName(Language));
+                        return true;
+                    }
+
+                    if (SpellID1 == 274282 && Aimsharp.CanCast(HalfMoon_SpellName(Language), "target", true, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Half Moon - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(HalfMoon_SpellName(Language));
+                        return true;
+                    }
+
+                    if (SpellID1 == 274283  && Aimsharp.CanCast(FullMoon_SpellName(Language), "target", true, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Full Moon - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(FullMoon_SpellName(Language));
+                        return true;
+                    }
+
                     if (SpellID1 == 88747 && Aimsharp.CanCast(WildMushroom_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
@@ -2897,7 +3074,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Logic
-            if (Aimsharp.CastingID("player") == 2637 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Hibernate"))
+            if (Aimsharp.CastingID("player") == 2637 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Hibernate_SpellName(Language)))
             {
                 if (Debug)
                 {
@@ -2907,7 +3084,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 33786 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Cyclone"))
+            if (Aimsharp.CastingID("player") == 33786 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Cyclone_SpellName(Language)))
             {
                 if (Debug)
                 {
@@ -2957,7 +3134,7 @@ namespace AimsharpWow.Modules
 
             #region Queues
             //Queue Rebirth
-            bool Rebirth = Aimsharp.IsCustomCodeOn("Rebirth");
+            bool Rebirth = Aimsharp.IsCustomCodeOn(Rebirth_SpellName(Language));
             if (Aimsharp.SpellCooldown(Rebirth_SpellName(Language)) - Aimsharp.GCD() > 2000 && Rebirth)
             {
                 Aimsharp.Cast("RebirthOff");
@@ -2971,7 +3148,7 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Hibernate
-            bool Hibernate = Aimsharp.IsCustomCodeOn("Hibernate");
+            bool Hibernate = Aimsharp.IsCustomCodeOn(Hibernate_SpellName(Language));
             if (Aimsharp.SpellCooldown(Hibernate_SpellName(Language)) - Aimsharp.GCD() > 2000 && Hibernate)
             {
                 Aimsharp.Cast("HibernateOff");
@@ -2985,7 +3162,7 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Cyclone
-            bool Cyclone = Aimsharp.IsCustomCodeOn("Cyclone");
+            bool Cyclone = Aimsharp.IsCustomCodeOn(Cyclone_SpellName(Language));
             if (Aimsharp.SpellCooldown(Cyclone_SpellName(Language)) - Aimsharp.GCD() > 2000 && Cyclone)
             {
                 Aimsharp.Cast("CycloneOff");
@@ -3013,7 +3190,7 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Innervate
-            bool Innervate = Aimsharp.IsCustomCodeOn("Innervate");
+            bool Innervate = Aimsharp.IsCustomCodeOn(Innervate_SpellName(Language));
             if (Aimsharp.SpellCooldown(Innervate_SpellName(Language)) - Aimsharp.GCD() > 2000 && Innervate)
             {
                 Aimsharp.Cast("InnervateOff");
@@ -3026,7 +3203,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Typhoon = Aimsharp.IsCustomCodeOn("Typhoon");
+            bool Typhoon = Aimsharp.IsCustomCodeOn(Typhoon_SpellName(Language));
             //Queue Typhoon
             if (Typhoon && Aimsharp.SpellCooldown(Typhoon_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
@@ -3195,7 +3372,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Regrowth = Aimsharp.IsCustomCodeOn("Regrowth");
+            bool Regrowth = Aimsharp.IsCustomCodeOn(Regrowth_SpellName(Language));
             if (Regrowth && Aimsharp.CanCast(Regrowth_SpellName(Language), "player", false, true))
             {
                 if (Debug)
