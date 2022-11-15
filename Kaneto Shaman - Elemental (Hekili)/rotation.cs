@@ -256,24 +256,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=1064</summary>
-        private static string ChainHeal_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Chain Heal";
-                case "Deutsch": return "Kettenheilung";
-                case "Español": return "Sanación en cadena";
-                case "Français": return "Salve de guérison";
-                case "Italiano": return "Catena di Guarigione";
-                case "Português Brasileiro": return "Cura Encadeada";
-                case "Русский": return "Цепное исцеление";
-                case "한국어": return "연쇄 치유";
-                case "简体中文": return "治疗链";
-                default: return "Chain Heal";
-            }
-        }
-
         ///<summary>spell=188443</summary>
         private static string ChainLightning_SpellName(string Language = "English")
         {
@@ -361,24 +343,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "대지의 정령";
                 case "简体中文": return "土元素";
                 default: return "Earth Elemental";
-            }
-        }
-
-        ///<summary>spell=974</summary>
-        private static string EarthShield_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Earth Shield";
-                case "Deutsch": return "Erdschild";
-                case "Español": return "Escudo de tierra";
-                case "Français": return "Bouclier de terre";
-                case "Italiano": return "Scudo di Terra";
-                case "Português Brasileiro": return "Escudo da Terra";
-                case "Русский": return "Щит земли";
-                case "한국어": return "대지의 보호막";
-                case "简体中文": return "大地之盾";
-                default: return "Earth Shield";
             }
         }
 
@@ -685,24 +649,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "치유의 토템";
                 case "简体中文": return "治疗之泉图腾";
                 default: return "Healing Stream Totem";
-            }
-        }
-
-        ///<summary>spell=8004</summary>
-        private static string HealingSurge_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Healing Surge";
-                case "Deutsch": return "Heilende Woge";
-                case "Español": return "Oleada de sanación";
-                case "Français": return "Afflux de soins";
-                case "Italiano": return "Eruzione Benefica";
-                case "Português Brasileiro": return "Maré Curativa";
-                case "Русский": return "Исцеляющий всплеск";
-                case "한국어": return "치유의 파도";
-                case "简体中文": return "治疗之涌";
-                default: return "Healing Surge";
             }
         }
 
@@ -1851,9 +1797,7 @@ namespace AimsharpWow.Modules
 
                 //General
                 AstralShift_SpellName(Language), //108271
-                Bloodlust_SpellName(Language), //2825
                 CapacitorTotem_SpellName(Language), //192058
-                ChainHeal_SpellName(Language), //1064
                 ChainLightning_SpellName(Language), //188443
                 EarthElemental_SpellName(Language), //198103
                 EarthbindTotem_SpellName(Language), //2484
@@ -1863,8 +1807,6 @@ namespace AimsharpWow.Modules
                 GhostWolf_SpellName(Language), //2645
                 GreaterPurge_SpellName(Language), //378773
                 HealingStreamTotem_SpellName(Language), //5394
-                HealingSurge_SpellName(Language), //8004
-                Heroism_SpellName(Language), //32182
                 Hex_SpellName(Language), //51514
                 LightningBolt_SpellName(Language), //188196
                 LightningLasso_SpellName(Language),
@@ -1878,7 +1820,6 @@ namespace AimsharpWow.Modules
                 AncestralGuidance_SpellName(Language), //108281
                 Ascendance_SpellName(Language), //114050
                 CleanseSpirit_SpellName(Language), //51886
-                EarthShield_SpellName(Language), //9747
                 EarthShock_SpellName(Language), //8042
                 Earthquake_SpellName(Language), //61882
                 EchoingShock_SpellName(Language), //320125

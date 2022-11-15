@@ -1210,24 +1210,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=57934</summary>
-        private static string TricksOfTheTrade_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Tricks of the Trade";
-                case "Deutsch": return "Schurkenhandel";
-                case "Español": return "Secretos del oficio";
-                case "Français": return "Ficelles du métier";
-                case "Italiano": return "Trucchi del Mestiere";
-                case "Português Brasileiro": return "Truques do Ofício";
-                case "Русский": return "Маленькие хитрости";
-                case "한국어": return "속임수 거래";
-                case "简体中文": return "嫁祸诀窍";
-                default: return "Tricks of the Trade";
-            }
-        }
-
         ///<summary>spell=1856</summary>
         private static string Vanish_SpellName(string Language = "English")
         {
@@ -1988,7 +1970,6 @@ namespace AimsharpWow.Modules
                 Shadowstep_SpellName(Language), //36554
                 Shiv_SpellName(Language), //5938
                 ThistleTea_SpellName(Language), //381623
-                TricksOfTheTrade_SpellName(Language), //57934
             };
             m_SpellBook_Assassination = new List<string>
             {
@@ -2772,6 +2753,36 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Casting Feint - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(Feint_SpellName(Language));
+                        return true;
+                    }
+
+                    if (SpellID1 == 382245 && Aimsharp.CanCast(ColdBlood_SpellName(Language), "player"))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Cold Blood - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(ColdBlood_SpellName(Language));
+                        return true;
+                    }
+
+                    if (SpellID1 == 381623 && Aimsharp.CanCast(ThistleTea_SpellName(Language), "player"))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Thistle Tea - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(ThistleTea_SpellName(Language));
+                        return true;
+                    }
+
+                    if (SpellID1 == 36554 && CanCastShadowstep("player"))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Shadowstep - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(Shadowstep_SpellName(Language));
                         return true;
                     }
                     #endregion

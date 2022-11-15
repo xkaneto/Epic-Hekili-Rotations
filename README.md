@@ -26,16 +26,14 @@ All of the Hekili Rotations by Snoogens that are updated by xKaneto.
 - Shaman - Enhancement
 - Rogue - Assassination
 - Rogue - Outlaw
+- Rogue - Subtlety
 - Warlock - Affliction
 
 ### To-Do:
 
-- Rogue - Subtlety
 - Warlock - Demonology
 - Warlock - Destruction
-
 - Auto Heal Potion Setting
-
 
 ## How to use these files with Aimsharp:
 
@@ -49,4 +47,6 @@ All of the Hekili Rotations by Snoogens that are updated by xKaneto.
 5. When ingame, go to /hekili and unbind all the shortcuts / keybinds from the toggle menu.
 6. If you have issues with performance (for example: the rotation feels slow) either uncheck these marks here, or check them and play around with the settings.
    ![Settings for Rotation performance.](https://github.com/xkaneto/Kaneto-Hekili-Rotations/blob/main/Readme-Images/image-4.jpg?raw=true)
-7. If you need any further help, feel free to message me on Discord.
+7. For example: Combat Refresh Interval and maximum update time can be set lower to achieve better results with the rotation. Make sure to check "Enhanced Recheck".
+   ![Settings for Rotation performance (an example).](https://github.com/xkaneto/Kaneto-Hekili-Rotations/blob/main/Readme-Images/image-5.jpg?raw=true)
+8. If you need any further help, feel free to message me on Discord.
