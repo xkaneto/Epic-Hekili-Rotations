@@ -1309,7 +1309,6 @@ namespace AimsharpWow.Modules
         private List<string> m_IngameCommandsList = new List<string> { "DoorofShadows", "NoInterrupts", "NoCycle", "Asphyxiate", "RaiseAlly", "DeathandDecay", "DeathsDue", "AntiMagicZone", "BlindingSleet", };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
-        private List<string> m_BloodlustBuffsList;
         private List<string> m_ItemsList;
         private List<string> m_SpellBook_General;
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
@@ -1442,9 +1441,6 @@ namespace AimsharpWow.Modules
                 Spellbook.Add(Spell);
 
             foreach (string Buff in m_BuffsList)
-                Buffs.Add(Buff);
-
-            foreach (string Buff in m_BloodlustBuffsList)
                 Buffs.Add(Buff);
 
             foreach (string Debuff in m_DebuffsList)
@@ -1657,7 +1653,6 @@ namespace AimsharpWow.Modules
 
             m_DebuffsList = new List<string> { };
             m_BuffsList = new List<string> { };
-            m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
             m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
             m_SpellBook_General = new List<string> {
                 //Covenants

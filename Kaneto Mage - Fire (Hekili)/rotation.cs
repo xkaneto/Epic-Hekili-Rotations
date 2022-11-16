@@ -1273,7 +1273,6 @@ namespace AimsharpWow.Modules
         private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", "DoorofShadows", "Polymorph", "RingofFrost", "Flamestrike", "Meteor", "ArcaneExplosion", "FlamestrikeCursor", "NoSpellsteal" };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
-        private List<string> m_BloodlustBuffsList;
         private List<string> m_ItemsList;
         private List<string> m_SpellBook;
 
@@ -1440,9 +1439,6 @@ namespace AimsharpWow.Modules
                 Spellbook.Add(Spell);
 
             foreach (string Buff in m_BuffsList)
-                Buffs.Add(Buff);
-
-            foreach (string Buff in m_BloodlustBuffsList)
                 Buffs.Add(Buff);
 
             foreach (string Debuff in m_DebuffsList)
@@ -1705,7 +1701,6 @@ namespace AimsharpWow.Modules
             #region Reinitialize Lists
             m_DebuffsList = new List<string> { Polymorph_SpellName(Language), };
             m_BuffsList = new List<string> { ArcaneIntellect_SpellName(Language), ShiftingPower_SpellName(Language), Combustion_SpellName(Language) };
-            m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
             m_ItemsList = new List<string> { Healthstone_SpellName(Language), };
             m_SpellBook = new List<string> {
                 //Covenants

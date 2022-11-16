@@ -29,10 +29,9 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", "DoorofShadows", Polymorph_SpellName(Language), "RingofFrost", Flamestrike_SpellName(Language), Meteor_SpellName(Language), "ArcaneExplosion", "FlamestrikeCursor", "NoSpellsteal" };
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
-        private List<string> m_BloodlustBuffsList;
         private List<string> m_ItemsList;
         private List<string> m_SpellBook;
 
@@ -201,9 +200,6 @@ namespace AimsharpWow.Modules
             foreach (string Buff in m_BuffsList)
                 Buffs.Add(Buff);
 
-            foreach (string Buff in m_BloodlustBuffsList)
-                Buffs.Add(Buff);
-
             foreach (string Debuff in m_DebuffsList)
                 Debuffs.Add(Debuff);
 
@@ -361,15 +357,6 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("- General -", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoCycle - Disables Target Cycle", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " NoDecurse - Disables Decurse", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " NoSpellsteal - Disables Spellsteal", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " Polymorph - Casts Polymorph @ Mouseover next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " ArcaneExplosion - Spams Arcane Explosion until turned Off", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " RingofFrost - Casts Ring of Frost @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " Flamestrike - Casts Flamestrike @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " Meteor - Casts Meteor @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " DoorofShadows - Casts Door of Shadows @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " FlamestrikeCursor - Toggles Flamestrike always @ Cursor (same as Option)", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
 
             Language = GetDropDown("Game Client Language");
@@ -462,60 +449,38 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Reinitialize Lists
-            m_DebuffsList = new List<string> { Polymorph_SpellName(Language), };
-            m_BuffsList = new List<string> { ArcaneIntellect_SpellName(Language), ShiftingPower_SpellName(Language), Combustion_SpellName(Language) };
-            m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
+            m_DebuffsList = new List<string> {  };
+            m_BuffsList = new List<string> { };
             m_ItemsList = new List<string> { Healthstone_SpellName(Language), };
             m_SpellBook = new List<string> {
-                //Covenants
-                RadiantSpark_SpellName(Language), //307443
-                Deathborne_SpellName(Language), //324220
-                ShiftingPower_SpellName(Language), //314791, 382440
-                MirrorsOfTorment_SpellName(Language), //314793
+                AzureStrike_SpellName(Language), //362969
+                BlessingoftheBronze_SpellName(Language), //364342
+                CauterizingFlame_SpellName(Language), //374251
+                DeepBreath_SpellName(Language), //357210
+                Disintegrate_SpellName(Language), //356995
+                Dragonrage_SpellName(Language), //375087
+                EmeraldBlossom_SpellName(Language), //355913
+                EternitySurge_SpellName(Language), //382411
+                Expunge_SpellName(Language), //365585
+                FireBreath_SpellName(Language), //382266
+                Firestorm_SpellName(Language), //368847
+                Hover_SpellName(Language), //358267
+                Landslide_SpellName(Language), //358385
+                LivingFlame_SpellName(Language), //361469
+                ObsidianRoar_SpellName(Language), //372048
+                ObsidianScales_SpellName(Language), //363916
+                Pyre_SpellName(Language), //357211
+                Quell_SpellName(Language), //351338
+                RenewingBlaze_SpellName(Language), //374348
+                ShatteringStar_SpellName(Language), //370452
+                SleepWalk_SpellName(Language), //360806
+                TailSwipe_SpellName(Language), //368970
+                TimeSpiral_SpellName(Language), //374968
+                TiptheScales_SpellName(Language), //370553
+                Unravel_SpellName(Language), //368432
+                WingBuffet_SpellName(Language), //357214
+                Zephyr_SpellName(Language), //374227
 
-                SummonSteward_SpellName(Language), Fleshcraft_SpellName(Language), DoorOfShadows_SpellName(Language),
-
-                //Interrupt
-                Counterspell_SpellName(Language), //2139
-
-                //General Mage
-                AlterTime_SpellName(Language), //342245
-                ArcaneExplosion_SpellName(Language), //1449
-                ArcaneIntellect_SpellName(Language), //1459
-                BlazingBarrier_SpellName(Language), //235313
-                BlastWave_SpellName(Language), //157981
-                Blink_SpellName(Language), //1953 or 212653
-                ConeOfCold_SpellName(Language), //120
-                Displacement_SpellName(Language), //389713
-                DragonsBreath_SpellName(Language), //31661
-                Fireball_SpellName(Language), //133
-                FireBlast_SpellName(Language), //108853
-                FrostNova_SpellName(Language), //122
-                Frostbolt_SpellName(Language), //116
-                GreaterInvisibility_SpellName(Language), //110959
-                IceBlock_SpellName(Language), //45438
-                IceFloes_SpellName(Language), //108839
-                IceNova_SpellName(Language), //157997
-                Invisibility_SpellName(Language), //66
-                MassPolymorph_SpellName(Language), //383121
-                Meteor_SpellName(Language), //153561
-                MirrorImage_SpellName(Language), //55342
-                Polymorph_SpellName(Language), //118
-                RemoveCurse_SpellName(Language), //475
-                RingOfFrost_SpellName(Language), //113724
-                RuneOfPower_SpellName(Language), //116011
-                SlowFall_SpellName(Language), //130
-                Spellsteal_SpellName(Language), //30449
-                TimeWarp_SpellName(Language), //80353
-
-                //Fire Mage
-                Combustion_SpellName(Language), //190319
-                Flamestrike_SpellName(Language), //2120
-                FocusMagic_SpellName(Language), //321358
-                LivingBomb_SpellName(Language), //44457
-                PhoenixFlames_SpellName(Language), //257541
-                Pyroblast_SpellName(Language), //11366
-                Scorch_SpellName(Language), //2948
             };
             #endregion
 

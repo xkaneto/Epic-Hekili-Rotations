@@ -1408,9 +1408,6 @@ namespace AimsharpWow.Modules
             foreach (string Buff in m_BuffsList)
                 Buffs.Add(Buff);
 
-            foreach (string Buff in m_BloodlustBuffsList)
-                Buffs.Add(Buff);
-
             foreach (string Debuff in m_DebuffsList)
                 Debuffs.Add(Debuff);
 
@@ -1617,7 +1614,6 @@ namespace AimsharpWow.Modules
 
             m_DebuffsList = new List<string> { };
             m_BuffsList = new List<string> { };
-            m_BloodlustBuffsList = new List<string> { Bloodlust_SpellName(Language), Heroism_SpellName(Language), TimeWarp_SpellName(Language), PrimalRage_SpellName(Language), DrumsOfRage_SpellName(Language) };
             m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
             m_SpellBook_General = new List<string> {
                 //Covenants
