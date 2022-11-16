@@ -7,7 +7,7 @@ using AimsharpWow.API;
 
 namespace AimsharpWow.Modules
 {
-    public class KanetoMageFireHekili : Rotation
+    public class KanetoEvokerDevastationHekili : Rotation
     {
         //Random Number
         private static readonly Random getrandom = new Random();
@@ -21,1247 +21,6 @@ namespace AimsharpWow.Modules
         private static string Language = "English";
 
         #region SpellFunctions
-        ///<summary>spell=342245</summary>
-        private static string AlterTime_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Alter Time";
-                case "Deutsch": return "Zeitverschiebung";
-                case "Español": return "Alterar el tiempo";
-                case "Français": return "Altérer le temps";
-                case "Italiano": return "Alterazione Temporale";
-                case "Português Brasileiro": return "Alterar Tempo";
-                case "Русский": return "Манипуляции со временем";
-                case "한국어": return "시간 돌리기";
-                case "简体中文": return "操控时间";
-                default: return "Alter Time";
-            }
-        }
-
-        ///<summary>spell=274738</summary>
-        private static string AncestralCall_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Ancestral Call";
-                case "Deutsch": return "Ruf der Ahnen";
-                case "Español": return "Llamada ancestral";
-                case "Français": return "Appel ancestral";
-                case "Italiano": return "Richiamo Ancestrale";
-                case "Português Brasileiro": return "Chamado Ancestral";
-                case "Русский": return "Призыв предков";
-                case "한국어": return "고대의 부름";
-                case "简体中文": return "先祖召唤";
-                default: return "Ancestral Call";
-            }
-        }
-
-        ///<summary>spell=1449</summary>
-        private static string ArcaneExplosion_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Arcane Explosion";
-                case "Deutsch": return "Arkane Explosion";
-                case "Español": return "Deflagración Arcana";
-                case "Français": return "Explosion des Arcanes";
-                case "Italiano": return "Esplosione Arcana";
-                case "Português Brasileiro": return "Explosão Arcana";
-                case "Русский": return "Чародейский взрыв";
-                case "한국어": return "신비한 폭발";
-                case "简体中文": return "魔爆术";
-                default: return "Arcane Explosion";
-            }
-        }
-
-        ///<summary>spell=1459</summary>
-        private static string ArcaneIntellect_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Arcane Intellect";
-                case "Deutsch": return "Arkane Intelligenz";
-                case "Español": return "Intelecto Arcano";
-                case "Français": return "Intelligence des Arcanes";
-                case "Italiano": return "Intelletto Arcano";
-                case "Português Brasileiro": return "Intelecto Arcano";
-                case "Русский": return "Чародейский интеллект";
-                case "한국어": return "신비한 지능";
-                case "简体中文": return "奥术智慧";
-                default: return "Arcane Intellect";
-            }
-        }
-
-        ///<summary>spell=260364</summary>
-        private static string ArcanePulse_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Arcane Pulse";
-                case "Deutsch": return "Arkaner Puls";
-                case "Español": return "Pulso Arcano";
-                case "Français": return "Impulsion arcanique";
-                case "Italiano": return "Impulso Arcano";
-                case "Português Brasileiro": return "Pulso Arcano";
-                case "Русский": return "Чародейский импульс";
-                case "한국어": return "비전 파동";
-                case "简体中文": return "奥术脉冲";
-                default: return "Arcane Pulse";
-            }
-        }
-
-        ///<summary>spell=28730</summary>
-        private static string ArcaneTorrent_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Arcane Torrent";
-                case "Deutsch": return "Arkaner Strom";
-                case "Español": return "Torrente Arcano";
-                case "Français": return "Torrent arcanique";
-                case "Italiano": return "Torrente Arcano";
-                case "Português Brasileiro": return "Torrente Arcana";
-                case "Русский": return "Волшебный поток";
-                case "한국어": return "비전 격류";
-                case "简体中文": return "奥术洪流";
-                default: return "Arcane Torrent";
-            }
-        }
-
-        ///<summary>spell=312411</summary>
-        private static string BagOfTricks_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Bag of Tricks";
-                case "Deutsch": return "Trickkiste";
-                case "Español": return "Bolsa de trucos";
-                case "Français": return "Sac à malice";
-                case "Italiano": return "Borsa di Trucchi";
-                case "Português Brasileiro": return "Bolsa de Truques";
-                case "Русский": return "Набор хитростей";
-                case "한국어": return "비장의 묘수";
-                case "简体中文": return "袋里乾坤";
-                default: return "Bag of Tricks";
-            }
-        }
-
-        ///<summary>spell=120360</summary>
-        private static string Barrage_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Barrage";
-                case "Deutsch": return "Sperrfeuer";
-                case "Español": return "Tromba";
-                case "Français": return "Barrage";
-                case "Italiano": return "Sbarramento";
-                case "Português Brasileiro": return "Barragem";
-                case "Русский": return "Шквал";
-                case "한국어": return "탄막";
-                case "简体中文": return "弹幕射击";
-                default: return "Barrage";
-            }
-        }
-
-        ///<summary>spell=26297</summary>
-        private static string Berserking_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Berserking";
-                case "Deutsch": return "Berserker";
-                case "Español": return "Rabiar";
-                case "Français": return "Berserker";
-                case "Italiano": return "Berserker";
-                case "Português Brasileiro": return "Berserk";
-                case "Русский": return "Берсерк";
-                case "한국어": return "광폭화";
-                case "简体中文": return "狂暴";
-                default: return "Berserking";
-            }
-        }
-
-        ///<summary>spell=157981</summary>
-        private static string BlastWave_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Blast Wave";
-                case "Deutsch": return "Druckwelle";
-                case "Español": return "Ola explosiva";
-                case "Français": return "Vague explosive";
-                case "Italiano": return "Ondata di Fuoco";
-                case "Português Brasileiro": return "Onda de Impacto";
-                case "Русский": return "Взрывная волна";
-                case "한국어": return "화염 폭풍";
-                case "简体中文": return "冲击波";
-                default: return "Blast Wave";
-            }
-        }
-
-        ///<summary>spell=235313</summary>
-        private static string BlazingBarrier_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Blazing Barrier";
-                case "Deutsch": return "Lodernde Barriere";
-                case "Español": return "Barrera llameante";
-                case "Français": return "Barrière flamboyante";
-                case "Italiano": return "Barriera Fiammeggiante";
-                case "Português Brasileiro": return "Barreira Fulgurante";
-                case "Русский": return "Пылающая преграда";
-                case "한국어": return "이글거리는 방벽";
-                case "简体中文": return "烈焰护体";
-                default: return "Blazing Barrier";
-            }
-        }
-
-        ///<summary>spell=1953</summary>
-        private static string Blink_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Blink";
-                case "Deutsch": return "Blinzeln";
-                case "Español": return "Traslación";
-                case "Français": return "Transfert";
-                case "Italiano": return "Traslazione";
-                case "Português Brasileiro": return "Lampejo";
-                case "Русский": return "Скачок";
-                case "한국어": return "점멸";
-                case "简体中文": return "闪现术";
-                default: return "Blink";
-            }
-        }
-
-        ///<summary>spell=33697</summary>
-        private static string BloodFury_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Blood Fury";
-                case "Deutsch": return "Kochendes Blut";
-                case "Español": return "Furia sangrienta";
-                case "Français": return "Fureur sanguinaire";
-                case "Italiano": return "Furia Sanguinaria";
-                case "Português Brasileiro": return "Fúria Sangrenta";
-                case "Русский": return "Кровавое неистовство";
-                case "한국어": return "피의 격노";
-                case "简体中文": return "血性狂怒";
-                default: return "Blood Fury";
-            }
-        }
-
-        ///<summary>spell=2825</summary>
-        private static string Bloodlust_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Bloodlust";
-                case "Deutsch": return "Kampfrausch";
-                case "Español": return "Ansia de sangre";
-                case "Français": return "Furie sanguinaire";
-                case "Italiano": return "Brama di Sangue";
-                case "Português Brasileiro": return "Sede de Sangue";
-                case "Русский": return "Жажда крови";
-                case "한국어": return "피의 욕망";
-                case "简体中文": return "嗜血";
-                default: return "Bloodlust";
-            }
-        }
-
-        ///<summary>spell=255654</summary>
-        private static string BullRush_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Bull Rush";
-                case "Deutsch": return "Aufs Geweih nehmen";
-                case "Español": return "Embestida astada";
-                case "Français": return "Charge de taureau";
-                case "Italiano": return "Scatto del Toro";
-                case "Português Brasileiro": return "Investida do Touro";
-                case "Русский": return "Бычий натиск";
-                case "한국어": return "황소 돌진";
-                case "简体中文": return "蛮牛冲撞";
-                default: return "Bull Rush";
-            }
-        }
-
-        ///<summary>spell=190319</summary>
-        private static string Combustion_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Combustion";
-                case "Deutsch": return "Einäschern";
-                case "Español": return "Combustión";
-                case "Français": return "Combustion";
-                case "Italiano": return "Combustione";
-                case "Português Brasileiro": return "Combustão";
-                case "Русский": return "Возгорание";
-                case "한국어": return "발화";
-                case "简体中文": return "燃烧";
-                default: return "Combustion";
-            }
-        }
-
-        ///<summary>spell=120</summary>
-        private static string ConeOfCold_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Cone of Cold";
-                case "Deutsch": return "Kältekegel";
-                case "Español": return "Cono de frío";
-                case "Français": return "Cône de froid";
-                case "Italiano": return "Cono di Freddo";
-                case "Português Brasileiro": return "Cone de Frio";
-                case "Русский": return "Конус холода";
-                case "한국어": return "냉기 돌풍";
-                case "简体中文": return "冰锥术";
-                default: return "Cone of Cold";
-            }
-        }
-
-        ///<summary>spell=2139</summary>
-        private static string Counterspell_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Counterspell";
-                case "Deutsch": return "Gegenzauber";
-                case "Español": return "Contrahechizo";
-                case "Français": return "Contresort";
-                case "Italiano": return "Controincantesimo";
-                case "Português Brasileiro": return "Contrafeitiço";
-                case "Русский": return "Антимагия";
-                case "한국어": return "마법 차단";
-                case "简体中文": return "法术反制";
-                default: return "Counterspell";
-            }
-        }
-
-        ///<summary>spell=324220</summary>
-        private static string Deathborne_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Deathborne";
-                case "Deutsch": return "Todesgeboren";
-                case "Español": return "Llevado por la muerte";
-                case "Français": return "Portemort";
-                case "Italiano": return "Stirpe della Morte";
-                case "Português Brasileiro": return "Mortraz";
-                case "Русский": return "Дитя смерти";
-                case "한국어": return "죽음의 혈통";
-                case "简体中文": return "死神之躯";
-                default: return "Deathborne";
-            }
-        }
-
-        ///<summary>spell=389713</summary>
-        private static string Displacement_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Displacement";
-                case "Deutsch": return "Verzerrung";
-                case "Español": return "Desplazamiento";
-                case "Français": return "Déplacement";
-                case "Italiano": return "Dislocazione";
-                case "Português Brasileiro": return "Deslocamento";
-                case "Русский": return "Перемещение";
-                case "한국어": return "변위";
-                case "简体中文": return "闪回";
-                default: return "Displacement";
-            }
-        }
-
-        ///<summary>spell=300728</summary>
-        private static string DoorOfShadows_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Door of Shadows";
-                case "Deutsch": return "Schattentor";
-                case "Español": return "Puerta de las Sombras";
-                case "Français": return "Porte des ombres";
-                case "Italiano": return "Porta delle Ombre";
-                case "Português Brasileiro": return "Porta das Sombras";
-                case "Русский": return "Врата теней";
-                case "한국어": return "어둠의 문";
-                case "简体中文": return "暗影之门";
-                default: return "Door of Shadows";
-            }
-        }
-
-        ///<summary>spell=31661</summary>
-        private static string DragonsBreath_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Dragon's Breath";
-                case "Deutsch": return "Drachenodem";
-                case "Español": return "Aliento de dragón";
-                case "Français": return "Souffle du dragon";
-                case "Italiano": return "Soffio del Drago";
-                case "Português Brasileiro": return "Sopro do Dragão";
-                case "Русский": return "Дыхание дракона";
-                case "한국어": return "용의 숨결";
-                case "简体中文": return "龙息术";
-                default: return "Dragon's Breath";
-            }
-        }
-
-        ///<summary>item=102351</summary>
-        private static string DrumsOfRage_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Drums of Rage";
-                case "Deutsch": return "Trommeln des Zorns";
-                case "Español": return "Tambores de ira";
-                case "Français": return "Tambours de rage";
-                case "Italiano": return "Tamburi della Rabbia";
-                case "Português Brasileiro": return "Tambores da Raiva";
-                case "Русский": return "Барабаны ярости";
-                case "한국어": return "분노의 북";
-                case "简体中文": return "暴怒之鼓";
-                default: return "Drums of Rage";
-            }
-        }
-
-        ///<summary>spell=20589</summary>
-        private static string EscapeArtist_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Escape Artist";
-                case "Deutsch": return "Entfesselungskünstler";
-                case "Español": return "Artista del escape";
-                case "Français": return "Maître de l’évasion";
-                case "Italiano": return "Artista della Fuga";
-                case "Português Brasileiro": return "Artista da Fuga";
-                case "Русский": return "Мастер побега";
-                case "한국어": return "탈출의 명수";
-                case "简体中文": return "逃命专家";
-                default: return "Escape Artist";
-            }
-        }
-
-        ///<summary>spell=12051</summary>
-        private static string Evocation_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Evocation";
-                case "Deutsch": return "Hervorrufung";
-                case "Español": return "Evocación";
-                case "Français": return "Evocation";
-                case "Italiano": return "Evocazione";
-                case "Português Brasileiro": return "Evocação";
-                case "Русский": return "Прилив сил";
-                case "한국어": return "환기";
-                case "简体中文": return "唤醒";
-                default: return "Evocation";
-            }
-        }
-
-        ///<summary>spell=108853</summary>
-        private static string FireBlast_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Fire Blast";
-                case "Deutsch": return "Feuerschlag";
-                case "Español": return "Explosión de Fuego";
-                case "Français": return "Trait de feu";
-                case "Italiano": return "Detonazione di Fuoco";
-                case "Português Brasileiro": return "Impacto de Fogo";
-                case "Русский": return "Огненный взрыв";
-                case "한국어": return "화염 작렬";
-                case "简体中文": return "火焰冲击";
-                default: return "Fire Blast";
-            }
-        }
-
-        ///<summary>spell=133</summary>
-        private static string Fireball_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Fireball";
-                case "Deutsch": return "Feuerball";
-                case "Español": return "Bola de Fuego";
-                case "Français": return "Boule de feu";
-                case "Italiano": return "Palla di Fuoco";
-                case "Português Brasileiro": return "Bola de Fogo";
-                case "Русский": return "Огненный шар";
-                case "한국어": return "화염구";
-                case "简体中文": return "火球术";
-                default: return "Fireball";
-            }
-        }
-
-        ///<summary>spell=265221</summary>
-        private static string Fireblood_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Fireblood";
-                case "Deutsch": return "Feuerblut";
-                case "Español": return "Sangrardiente";
-                case "Français": return "Sang de feu";
-                case "Italiano": return "Sangue Infuocato";
-                case "Português Brasileiro": return "Sangue de Fogo";
-                case "Русский": return "Огненная кровь";
-                case "한국어": return "불꽃피";
-                case "简体中文": return "烈焰之血";
-                default: return "Fireblood";
-            }
-        }
-
-        ///<summary>spell=2120</summary>
-        private static string Flamestrike_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Flamestrike";
-                case "Deutsch": return "Flammenstoß";
-                case "Español": return "Fogonazo";
-                case "Français": return "Choc de flammes";
-                case "Italiano": return "Colonna di Fuoco";
-                case "Português Brasileiro": return "Golpe Flamejante";
-                case "Русский": return "Огненный столб";
-                case "한국어": return "불기둥";
-                case "简体中文": return "烈焰风暴";
-                default: return "Flamestrike";
-            }
-        }
-
-        ///<summary>spell=350229</summary>
-        private static string Fleshcraft_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Fleshcraft";
-                case "Deutsch": return "Fleischformung";
-                case "Español": return "Modelar carne";
-                case "Français": return "Chair recomposée";
-                case "Italiano": return "Forgiatura della Carne";
-                case "Português Brasileiro": return "Moldacarne";
-                case "Русский": return "Скульптор плоти";
-                case "한국어": return "살덩이창조";
-                case "简体中文": return "血肉铸造";
-                default: return "Fleshcraft";
-            }
-        }
-
-        ///<summary>spell=321358</summary>
-        private static string FocusMagic_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Focus Magic";
-                case "Deutsch": return "Magie fokussieren";
-                case "Español": return "Enfocar magia";
-                case "Français": return "Focalisation magique";
-                case "Italiano": return "Magia Concentrata";
-                case "Português Brasileiro": return "Concentrar Magia";
-                case "Русский": return "Сосредоточение магии";
-                case "한국어": return "마법 집중점";
-                case "简体中文": return "专注魔法";
-                default: return "Focus Magic";
-            }
-        }
-
-        ///<summary>spell=122</summary>
-        private static string FrostNova_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Frost Nova";
-                case "Deutsch": return "Frostnova";
-                case "Español": return "Nova de Escarcha";
-                case "Français": return "Nova de givre";
-                case "Italiano": return "Esplosione Gelida";
-                case "Português Brasileiro": return "Nova Congelante";
-                case "Русский": return "Кольцо льда";
-                case "한국어": return "얼음 회오리";
-                case "简体中文": return "冰霜新星";
-                default: return "Frost Nova";
-            }
-        }
-
-        ///<summary>spell=116</summary>
-        private static string Frostbolt_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Frostbolt";
-                case "Deutsch": return "Frostblitz";
-                case "Español": return "Descarga de Escarcha";
-                case "Français": return "Éclair de givre";
-                case "Italiano": return "Dardo di Gelo";
-                case "Português Brasileiro": return "Seta de Gelo";
-                case "Русский": return "Ледяная стрела";
-                case "한국어": return "얼음 화살";
-                case "简体中文": return "寒冰箭";
-                default: return "Frostbolt";
-            }
-        }
-
-        ///<summary>spell=28880</summary>
-        private static string GiftOfTheNaaru_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Gift of the Naaru";
-                case "Deutsch": return "Gabe der Naaru";
-                case "Español": return "Ofrenda de los naaru";
-                case "Français": return "Don des Naaru";
-                case "Italiano": return "Dono dei Naaru";
-                case "Português Brasileiro": return "Dádiva dos Naarus";
-                case "Русский": return "Дар наару";
-                case "한국어": return "나루의 선물";
-                case "简体中文": return "纳鲁的赐福";
-                default: return "Gift of the Naaru";
-            }
-        }
-
-        ///<summary>spell=110959</summary>
-        private static string GreaterInvisibility_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Greater Invisibility";
-                case "Deutsch": return "Große Unsichtbarkeit";
-                case "Español": return "Invisibilidad superior";
-                case "Français": return "Invisibilité supérieure";
-                case "Italiano": return "Invisibilità Superiore";
-                case "Português Brasileiro": return "Invisibilidade Maior";
-                case "Русский": return "Великая невидимость";
-                case "한국어": return "상급 투명화";
-                case "简体中文": return "强化隐形术";
-                default: return "Greater Invisibility";
-            }
-        }
-
-        ///<summary>item=5512</summary>
-        private static string Healthstone_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Healthstone";
-                case "Deutsch": return "Gesundheitsstein";
-                case "Español": return "Piedra de salud";
-                case "Français": return "Pierre de soins";
-                case "Italiano": return "Pietra della Salute";
-                case "Português Brasileiro": return "Pedra de Vida";
-                case "Русский": return "Камень здоровья";
-                case "한국어": return "생명석";
-                case "简体中文": return "治疗石";
-                default: return "Healthstone";
-            }
-        }
-
-        ///<summary>spell=32182</summary>
-        private static string Heroism_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Heroism";
-                case "Deutsch": return "Heldentum";
-                case "Español": return "Heroísmo";
-                case "Français": return "Héroïsme";
-                case "Italiano": return "Eroismo";
-                case "Português Brasileiro": return "Heroísmo";
-                case "Русский": return "Героизм";
-                case "한국어": return "영웅심";
-                case "简体中文": return "英勇";
-                default: return "Heroism";
-            }
-        }
-
-        ///<summary>spell=45438</summary>
-        private static string IceBlock_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Ice Block";
-                case "Deutsch": return "Eisblock";
-                case "Español": return "Bloque de hielo";
-                case "Français": return "Bloc de glace";
-                case "Italiano": return "Blocco di Ghiaccio";
-                case "Português Brasileiro": return "Bloco de Gelo";
-                case "Русский": return "Ледяная глыба";
-                case "한국어": return "얼음 방패";
-                case "简体中文": return "寒冰屏障";
-                default: return "Ice Block";
-            }
-        }
-
-        ///<summary>spell=108839</summary>
-        private static string IceFloes_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Ice Floes";
-                case "Deutsch": return "Eisschollen";
-                case "Español": return "Témpanos de hielo";
-                case "Français": return "Iceberg";
-                case "Italiano": return "Cuore di Ghiaccio";
-                case "Português Brasileiro": return "Banquisas";
-                case "Русский": return "Плавучая льдина";
-                case "한국어": return "얼음발";
-                case "简体中文": return "浮冰";
-                default: return "Ice Floes";
-            }
-        }
-
-        ///<summary>spell=157997</summary>
-        private static string IceNova_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Ice Nova";
-                case "Deutsch": return "Eisnova";
-                case "Español": return "Nova de hielo";
-                case "Français": return "Nova de glace";
-                case "Italiano": return "Esplosione di Ghiaccio";
-                case "Português Brasileiro": return "Nova de Gelo";
-                case "Русский": return "Кольцо обледенения";
-                case "한국어": return "서리 회오리";
-                case "简体中文": return "寒冰新星";
-                default: return "Ice Nova";
-            }
-        }
-
-        ///<summary>spell=66</summary>
-        private static string Invisibility_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Invisibility";
-                case "Deutsch": return "Unsichtbarkeit";
-                case "Español": return "Invisibilidad";
-                case "Français": return "Invisibilité";
-                case "Italiano": return "Invisibilità";
-                case "Português Brasileiro": return "Invisibilidade";
-                case "Русский": return "Невидимость";
-                case "한국어": return "투명화";
-                case "简体中文": return "隐形术";
-                default: return "Invisibility";
-            }
-        }
-
-        ///<summary>spell=20271</summary>
-        private static string Judgment_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Judgment";
-                case "Deutsch": return "Richturteil";
-                case "Español": return "Sentencia";
-                case "Français": return "Jugement";
-                case "Italiano": return "Giudizio";
-                case "Português Brasileiro": return "Julgamento";
-                case "Русский": return "Правосудие";
-                case "한국어": return "심판";
-                case "简体中文": return "审判";
-                default: return "Judgment";
-            }
-        }
-
-        ///<summary>spell=255647</summary>
-        private static string LightsJudgment_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Light's Judgment";
-                case "Deutsch": return "Urteil des Lichts";
-                case "Español": return "Sentencia de la Luz";
-                case "Français": return "Jugement de la Lumière";
-                case "Italiano": return "Giudizio della Luce";
-                case "Português Brasileiro": return "Julgamento da Luz";
-                case "Русский": return "Правосудие Света";
-                case "한국어": return "빛의 심판";
-                case "简体中文": return "圣光裁决者";
-                default: return "Light's Judgment";
-            }
-        }
-
-        ///<summary>spell=44457</summary>
-        private static string LivingBomb_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Living Bomb";
-                case "Deutsch": return "Lebende Bombe";
-                case "Español": return "Bomba viva";
-                case "Français": return "Bombe vivante";
-                case "Italiano": return "Bomba Vivente";
-                case "Português Brasileiro": return "Bomba Viva";
-                case "Русский": return "Живая бомба";
-                case "한국어": return "살아있는 폭탄";
-                case "简体中文": return "活动炸弹";
-                default: return "Living Bomb";
-            }
-        }
-
-        ///<summary>spell=383121</summary>
-        private static string MassPolymorph_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Mass Polymorph";
-                case "Deutsch": return "Massenverwandlung";
-                case "Español": return "Polimorfia en masa";
-                case "Français": return "Métamorphose de masse";
-                case "Italiano": return "Metamorfosi di Massa";
-                case "Português Brasileiro": return "Polimorfia em Massa";
-                case "Русский": return "Массовое превращение";
-                case "한국어": return "대규모 변이";
-                case "简体中文": return "群体变形";
-                default: return "Mass Polymorph";
-            }
-        }
-
-        ///<summary>spell=153561</summary>
-        private static string Meteor_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Meteor";
-                case "Deutsch": return "Meteor";
-                case "Español": return "Meteoro";
-                case "Français": return "Météore";
-                case "Italiano": return "Meteora";
-                case "Português Brasileiro": return "Meteoro";
-                case "Русский": return "Метеор";
-                case "한국어": return "유성";
-                case "简体中文": return "流星";
-                default: return "Meteor";
-            }
-        }
-
-        ///<summary>spell=55342</summary>
-        private static string MirrorImage_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Mirror Image";
-                case "Deutsch": return "Spiegelbild";
-                case "Español": return "Reflejo exacto";
-                case "Français": return "Image miroir";
-                case "Italiano": return "Immagine Speculare";
-                case "Português Brasileiro": return "Imagem Espelhada";
-                case "Русский": return "Зеркальное изображение";
-                case "한국어": return "환영 복제";
-                case "简体中文": return "镜像";
-                default: return "Mirror Image";
-            }
-        }
-
-        ///<summary>spell=314793</summary>
-        private static string MirrorsOfTorment_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Mirrors of Torment";
-                case "Deutsch": return "Spiegel der Qual";
-                case "Español": return "Espejos de tormento";
-                case "Français": return "Miroirs de tourment";
-                case "Italiano": return "Specchi del Tormento";
-                case "Português Brasileiro": return "Espelhos do Tormento";
-                case "Русский": return "Истязающие зеркала";
-                case "한국어": return "고문의 거울";
-                case "简体中文": return "折磨之镜";
-                default: return "Mirrors of Torment";
-            }
-        }
-
-        ///<summary>spell=257541</summary>
-        private static string PhoenixFlames_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Phoenix Flames";
-                case "Deutsch": return "Phönixflammen";
-                case "Español": return "Llamas de fénix";
-                case "Français": return "Flammes de phénix";
-                case "Italiano": return "Fiamme della Fenice";
-                case "Português Brasileiro": return "Chamas da Fênix";
-                case "Русский": return "Пламя феникса";
-                case "한국어": return "불사조의 불길";
-                case "简体中文": return "不死鸟之焰";
-                default: return "Phoenix Flames";
-            }
-        }
-
-        ///<summary>spell=118</summary>
-        private static string Polymorph_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Polymorph";
-                case "Deutsch": return "Verwandlung";
-                case "Español": return "Polimorfia";
-                case "Français": return "Métamorphose";
-                case "Italiano": return "Metamorfosi";
-                case "Português Brasileiro": return "Polimorfia";
-                case "Русский": return "Превращение";
-                case "한국어": return "변이";
-                case "简体中文": return "变形术";
-                default: return "Polymorph";
-            }
-        }
-
-        ///<summary>spell=264667</summary>
-        private static string PrimalRage_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Primal Rage";
-                case "Deutsch": return "Urtümliche Wut";
-                case "Español": return "Rabia primigenia";
-                case "Français": return "Rage primordiale";
-                case "Italiano": return "Rabbia Primordiale";
-                case "Português Brasileiro": return "Fúria Primata";
-                case "Русский": return "Исступление";
-                case "한국어": return "원초적 분노";
-                case "简体中文": return "原始暴怒";
-                default: return "Primal Rage";
-            }
-        }
-
-        ///<summary>spell=11366</summary>
-        private static string Pyroblast_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Pyroblast";
-                case "Deutsch": return "Pyroschlag";
-                case "Español": return "Piroexplosión";
-                case "Français": return "Explosion pyrotechnique";
-                case "Italiano": return "Pirosfera";
-                case "Português Brasileiro": return "Ignimpacto";
-                case "Русский": return "Огненная глыба";
-                case "한국어": return "불덩이 작렬";
-                case "简体中文": return "炎爆术";
-                default: return "Pyroblast";
-            }
-        }
-
-        ///<summary>spell=307443</summary>
-        private static string RadiantSpark_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Radiant Spark";
-                case "Deutsch": return "Strahlender Funke";
-                case "Español": return "Chispa radiante";
-                case "Français": return "Étincelle radieuse";
-                case "Italiano": return "Scintilla Radiante";
-                case "Português Brasileiro": return "Fagulha Radiante";
-                case "Русский": return "Сияющая искра";
-                case "한국어": return "빛나는 불꽃";
-                case "简体中文": return "璀璨火花";
-                default: return "Radiant Spark";
-            }
-        }
-
-        ///<summary>spell=475</summary>
-        private static string RemoveCurse_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Remove Curse";
-                case "Deutsch": return "Fluch aufheben";
-                case "Español": return "Eliminar maldición";
-                case "Français": return "Délivrance de la malédiction";
-                case "Italiano": return "Rimozione Maledizione";
-                case "Português Brasileiro": return "Remover Maldição";
-                case "Русский": return "Снятие проклятия";
-                case "한국어": return "저주 해제";
-                case "简体中文": return "解除诅咒";
-                default: return "Remove Curse";
-            }
-        }
-
-        ///<summary>spell=113724</summary>
-        private static string RingOfFrost_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Ring of Frost";
-                case "Deutsch": return "Ring des Frosts";
-                case "Español": return "Anillo de Escarcha";
-                case "Français": return "Anneau de givre";
-                case "Italiano": return "Anello di Ghiaccio";
-                case "Português Brasileiro": return "Anel Gélido";
-                case "Русский": return "Кольцо мороза";
-                case "한국어": return "서리 고리";
-                case "简体中文": return "冰霜之环";
-                default: return "Ring of Frost";
-            }
-        }
-
-        ///<summary>spell=69041</summary>
-        private static string RocketBarrage_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Rocket Barrage";
-                case "Deutsch": return "Raketenbeschuss";
-                case "Español": return "Tromba de cohetes";
-                case "Français": return "Barrage de fusées";
-                case "Italiano": return "Raffica di Razzi";
-                case "Português Brasileiro": return "Barragem de Foguetes";
-                case "Русский": return "Ракетный обстрел";
-                case "한국어": return "로켓 연발탄";
-                case "简体中文": return "火箭弹幕";
-                default: return "Rocket Barrage";
-            }
-        }
-
-        ///<summary>spell=116011</summary>
-        private static string RuneOfPower_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Rune of Power";
-                case "Deutsch": return "Rune der Kraft";
-                case "Español": return "Runa de poder";
-                case "Français": return "Rune de puissance";
-                case "Italiano": return "Runa del Potere";
-                case "Português Brasileiro": return "Runa de Poder";
-                case "Русский": return "Руна мощи";
-                case "한국어": return "마력의 룬";
-                case "简体中文": return "能量符文";
-                default: return "Rune of Power";
-            }
-        }
-
-        ///<summary>spell=2948</summary>
-        private static string Scorch_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Scorch";
-                case "Deutsch": return "Versengen";
-                case "Español": return "Agostar";
-                case "Français": return "Brûlure";
-                case "Italiano": return "Bruciatura";
-                case "Português Brasileiro": return "Calcinar";
-                case "Русский": return "Ожог";
-                case "한국어": return "불태우기";
-                case "简体中文": return "灼烧";
-                default: return "Scorch";
-            }
-        }
-
-        ///<summary>spell=58984</summary>
-        private static string Shadowmeld_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Shadowmeld";
-                case "Deutsch": return "Schattenmimik";
-                case "Español": return "Fusión de las sombras";
-                case "Français": return "Camouflage dans l'ombre";
-                case "Italiano": return "Fondersi nelle Ombre";
-                case "Português Brasileiro": return "Fusão Sombria";
-                case "Русский": return "Слиться с тенью";
-                case "한국어": return "그림자 숨기";
-                case "简体中文": return "影遁";
-                default: return "Shadowmeld";
-            }
-        }
-
-        ///<summary>spell=382440</summary>
-        private static string ShiftingPower_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Shifting Power";
-                case "Deutsch": return "Machtverschiebung";
-                case "Español": return "Poder cambiante";
-                case "Français": return "Puissance fluctuante";
-                case "Italiano": return "Potere Mutevole";
-                case "Português Brasileiro": return "Poder Cambiante";
-                case "Русский": return "Переходящая сила";
-                case "한국어": return "힘의 전환";
-                case "简体中文": return "变易幻能";
-                default: return "Shifting Power";
-            }
-        }
-
-        ///<summary>spell=130</summary>
-        private static string SlowFall_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Slow Fall";
-                case "Deutsch": return "Langsamer Fall";
-                case "Español": return "Caída lenta";
-                case "Français": return "Chute lente";
-                case "Italiano": return "Caduta Lenta";
-                case "Português Brasileiro": return "Queda Lenta";
-                case "Русский": return "Замедленное падение";
-                case "한국어": return "저속 낙하";
-                case "简体中文": return "缓落术";
-                default: return "Slow Fall";
-            }
-        }
-
-        ///<summary>spell=30449</summary>
-        private static string Spellsteal_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Spellsteal";
-                case "Deutsch": return "Zauberraub";
-                case "Español": return "Robar hechizo";
-                case "Français": return "Vol de sort";
-                case "Italiano": return "Ruba Incantesimo";
-                case "Português Brasileiro": return "Roubar Feitiço";
-                case "Русский": return "Чарокрад";
-                case "한국어": return "마법 훔치기";
-                case "简体中文": return "法术吸取";
-                default: return "Spellsteal";
-            }
-        }
-
-        ///<summary>spell=20594</summary>
-        private static string Stoneform_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Stoneform";
-                case "Deutsch": return "Steingestalt";
-                case "Español": return "Forma de piedra";
-                case "Français": return "Forme de pierre";
-                case "Italiano": return "Forma di Pietra";
-                case "Português Brasileiro": return "Forma de Pedra";
-                case "Русский": return "Каменная форма";
-                case "한국어": return "석화";
-                case "简体中文": return "石像形态";
-                default: return "Stoneform";
-            }
-        }
-
-        ///<summary>spell=324739</summary>
-        private static string SummonSteward_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Summon Steward";
-                case "Deutsch": return "Provost beschwören";
-                case "Español": return "Invocar al administrador";
-                case "Français": return "Invocation de régisseur";
-                case "Italiano": return "Evocazione: Factotum";
-                case "Português Brasileiro": return "Evocar Comissário";
-                case "Русский": return "Призыв распорядителя";
-                case "한국어": return "청지기 소환";
-                case "简体中文": return "召唤执事者";
-                default: return "Summon Steward";
-            }
-        }
-
-        ///<summary>spell=80353</summary>
-        private static string TimeWarp_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Time Warp";
-                case "Deutsch": return "Zeitkrümmung";
-                case "Español": return "Distorsión temporal";
-                case "Français": return "Distorsion temporelle";
-                case "Italiano": return "Distorsione Temporale";
-                case "Português Brasileiro": return "Distorção Temporal";
-                case "Русский": return "Искажение времени";
-                case "한국어": return "시간 왜곡";
-                case "简体中文": return "时间扭曲";
-                default: return "Time Warp";
-            }
-        }
-
-        ///<summary>spell=185245</summary>
-        private static string Torment_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Torment";
-                case "Deutsch": return "Folter";
-                case "Español": return "Tormento";
-                case "Français": return "Tourment";
-                case "Italiano": return "Tormento";
-                case "Português Brasileiro": return "Tormento";
-                case "Русский": return "Мучение";
-                case "한국어": return "고문";
-                case "简体中文": return "折磨";
-                default: return "Torment";
-            }
-        }
-
-        ///<summary>spell=20549</summary>
-        private static string WarStomp_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "War Stomp";
-                case "Deutsch": return "Kriegsdonner";
-                case "Español": return "Pisotón de guerra";
-                case "Français": return "Choc martial";
-                case "Italiano": return "Zoccolo di Guerra";
-                case "Português Brasileiro": return "Pisada de Guerra";
-                case "Русский": return "Громовая поступь";
-                case "한국어": return "전투 발구르기";
-                case "简体中文": return "战争践踏";
-                default: return "War Stomp";
-            }
-        }
-
-        ///<summary>spell=7744</summary>
-        private static string WillOfTheForsaken_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Will of the Forsaken";
-                case "Deutsch": return "Wille der Verlassenen";
-                case "Español": return "Voluntad de los Renegados";
-                case "Français": return "Volonté des Réprouvés";
-                case "Italiano": return "Volontà dei Reietti";
-                case "Português Brasileiro": return "Determinação dos Renegados";
-                case "Русский": return "Воля Отрекшихся";
-                case "한국어": return "포세이큰의 의지";
-                case "简体中文": return "被遗忘者的意志";
-                default: return "Will of the Forsaken";
-            }
-        }
-
-        ///<summary>spell=59752</summary>
-        private static string WillToSurvive_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Will to Survive";
-                case "Deutsch": return "Überlebenswille";
-                case "Español": return "Lucha por la supervivencia";
-                case "Français": return "Volonté de survie";
-                case "Italiano": return "Volontà di Sopravvivenza";
-                case "Português Brasileiro": return "Desejo de Sobreviver";
-                case "Русский": return "Воля к жизни";
-                case "한국어": return "삶의 의지";
-                case "简体中文": return "生存意志";
-                default: return "Will to Survive";
-            }
-        }
         #endregion
 
         #region Variables
@@ -1270,7 +29,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", "DoorofShadows", "Polymorph", "RingofFrost", "Flamestrike", "Meteor", "ArcaneExplosion", "FlamestrikeCursor", "NoSpellsteal" };
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", "DoorofShadows", Polymorph_SpellName(Language), "RingofFrost", Flamestrike_SpellName(Language), Meteor_SpellName(Language), "ArcaneExplosion", "FlamestrikeCursor", "NoSpellsteal" };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
         private List<string> m_BloodlustBuffsList;
@@ -1592,12 +351,12 @@ namespace AimsharpWow.Modules
             Aimsharp.QuickDelay = 50;
             Aimsharp.SlowDelay = 150;
 
-            Aimsharp.PrintMessage("Kanetos PVE - Mage Fire", Color.Yellow);
+            Aimsharp.PrintMessage("Kanetos PVE - Evoker Devastation", Color.Yellow);
             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
             Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Brown);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- Talents -", Color.White);
-            Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/de/guide/classes/mage/fire/overview-pve-dps", Color.Yellow);
+            Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/guide/classes/evoker/devastation/overview-pve-dps", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- General -", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
@@ -1838,7 +597,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Polymorph"))
+            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language)))
             {
                 if (Debug)
                 {
@@ -1848,7 +607,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 2120 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Flamestrike"))
+            if (Aimsharp.CastingID("player") == 2120 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language)))
             {
                 if (Debug)
                 {
@@ -1880,12 +639,12 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("Flamestrike") && Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language)) && Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("Meteor") && Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn(Meteor_SpellName(Language)) && Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -2035,7 +794,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Queues
-            bool Polymorph = Aimsharp.IsCustomCodeOn("Polymorph");
+            bool Polymorph = Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language));
             if ((Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 || Moving) && Polymorph)
             {
                 if (Debug)
@@ -2131,7 +890,7 @@ namespace AimsharpWow.Modules
 
             //Queue Meteor
             string MeteorCast = GetDropDown("Meteor Cast:");
-            bool Meteor = Aimsharp.IsCustomCodeOn("Meteor");
+            bool Meteor = Aimsharp.IsCustomCodeOn(Meteor_SpellName(Language));
             if ((Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Meteor)
             {
                 if (Debug)
@@ -2172,7 +931,7 @@ namespace AimsharpWow.Modules
 
             //Queue Flamestrike
             string FlamestrikeCast = GetDropDown("Flamestrike Cast:");
-            bool Flamestrike = Aimsharp.IsCustomCodeOn("Flamestrike");
+            bool Flamestrike = Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language));
             if ((Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving || Aimsharp.LastCast() == Flamestrike_SpellName(Language)) && Flamestrike)
             {
                 if (Debug)
@@ -2971,7 +1730,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Logic
-            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Polymorph"))
+            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language)))
             {
                 if (Debug)
                 {
@@ -2981,7 +1740,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 2120 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Flamestrike"))
+            if (Aimsharp.CastingID("player") == 2120 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language)))
             {
                 if (Debug)
                 {
@@ -3013,19 +1772,19 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("Flamestrike") && Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language)) && Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("Meteor") && Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn(Meteor_SpellName(Language)) && Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
             #endregion
 
             #region Queues
-            bool Polymorph = Aimsharp.IsCustomCodeOn("Polymorph");
+            bool Polymorph = Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language));
             if ((Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 || Moving) && Polymorph)
             {
                 if (Debug)
@@ -3121,7 +1880,7 @@ namespace AimsharpWow.Modules
 
             //Queue Meteor
             string MeteorCast = GetDropDown("Meteor Cast:");
-            bool Meteor = Aimsharp.IsCustomCodeOn("Meteor");
+            bool Meteor = Aimsharp.IsCustomCodeOn(Meteor_SpellName(Language));
             if ((Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Meteor)
             {
                 if (Debug)
@@ -3162,7 +1921,7 @@ namespace AimsharpWow.Modules
 
             //Queue Flamestrike
             string FlamestrikeCast = GetDropDown("Flamestrike Cast:");
-            bool Flamestrike = Aimsharp.IsCustomCodeOn("Flamestrike");
+            bool Flamestrike = Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language));
             if ((Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving || Aimsharp.LastCast() == Flamestrike_SpellName(Language)) && Flamestrike)
             {
                 if (Debug)
