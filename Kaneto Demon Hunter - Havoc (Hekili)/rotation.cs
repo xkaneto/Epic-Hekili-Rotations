@@ -1059,7 +1059,7 @@ namespace AimsharpWow.Modules
         private List<string> m_BuffsList;
         private List<string> m_ItemsList;
         private List<string> m_SpellBook_General;
-        private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
+        private List<string> m_RaceList = new List<string> { "nightelf", "bloodelf" };
         private List<string> m_CastingList = new List<string> { "Manual", "Player" };
 
         private List<int> Torghast_InnerFlame = new List<int> { 258935, 258938, 329422, 329423, };
@@ -1240,7 +1240,7 @@ namespace AimsharpWow.Modules
                 "简体中文"
             }, "English"));
             Settings.Add(new Setting(""));
-            Settings.Add(new Setting("Race:", m_RaceList, "orc"));
+            Settings.Add(new Setting("Race:", m_RaceList, "bloodelf"));
             Settings.Add(new Setting("Ingame World Latency:", 1, 200, 50));
             Settings.Add(new Setting(" "));
             Settings.Add(new Setting("Use Trinkets on CD, dont wait for Hekili:", false));
@@ -1300,81 +1300,6 @@ namespace AimsharpWow.Modules
             Language = GetDropDown("Game Client Language");
 
             #region Racial Spells
-            if (GetDropDown("Race:") == "draenei")
-            {
-                Spellbook.Add(GiftOfTheNaaru_SpellName(Language)); //28880
-            }
-
-            if (GetDropDown("Race:") == "dwarf")
-            {
-                Spellbook.Add(Stoneform_SpellName(Language)); //20594
-            }
-
-            if (GetDropDown("Race:") == "gnome")
-            {
-                Spellbook.Add(EscapeArtist_SpellName(Language)); //20589
-            }
-
-            if (GetDropDown("Race:") == "human")
-            {
-                Spellbook.Add(WillToSurvive_SpellName(Language)); //59752
-            }
-
-            if (GetDropDown("Race:") == "lightforgeddraenei")
-            {
-                Spellbook.Add(LightsJudgment_SpellName(Language)); //255647
-            }
-
-            if (GetDropDown("Race:") == "darkirondwarf")
-            {
-                Spellbook.Add(Fireblood_SpellName(Language)); //265221
-            }
-
-            if (GetDropDown("Race:") == "goblin")
-            {
-                Spellbook.Add(RocketBarrage_SpellName(Language)); //69041
-            }
-
-            if (GetDropDown("Race:") == "tauren")
-            {
-                Spellbook.Add(WarStomp_SpellName(Language)); //20549
-            }
-
-            if (GetDropDown("Race:") == "troll")
-            {
-                Spellbook.Add(Berserking_SpellName(Language)); //26297
-            }
-
-            if (GetDropDown("Race:") == "scourge")
-            {
-                Spellbook.Add(WillOfTheForsaken_SpellName(Language)); //7744
-            }
-
-            if (GetDropDown("Race:") == "nightborne")
-            {
-                Spellbook.Add(ArcanePulse_SpellName(Language)); //260364
-            }
-
-            if (GetDropDown("Race:") == "highmountaintauren")
-            {
-                Spellbook.Add(BullRush_SpellName(Language)); //255654
-            }
-
-            if (GetDropDown("Race:") == "magharorc")
-            {
-                Spellbook.Add(AncestralCall_SpellName(Language)); //274738
-            }
-
-            if (GetDropDown("Race:") == "vulpera")
-            {
-                Spellbook.Add(BagOfTricks_SpellName(Language)); //312411
-            }
-
-            if (GetDropDown("Race:") == "orc")
-            {
-                Spellbook.Add(BloodFury_SpellName(Language)); //20572, 33702, 33697
-            }
-
             if (GetDropDown("Race:") == "bloodelf")
             {
                 Spellbook.Add(ArcaneTorrent_SpellName(Language)); //28730, 25046, 50613, 69179, 80483, 129597
@@ -1898,156 +1823,6 @@ namespace AimsharpWow.Modules
 
                     #region Racials
                     //Racials
-                    if (SpellID1 == 28880 && Aimsharp.CanCast(GiftOfTheNaaru_SpellName(Language), "player", true, true) && MeleeRange)
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Gift of the Naaru - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(GiftOfTheNaaru_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 20594 && Aimsharp.CanCast(Stoneform_SpellName(Language), "player", true, true) && MeleeRange)
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Stoneform - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(Stoneform_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 20589 && Aimsharp.CanCast(EscapeArtist_SpellName(Language), "player", true, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Escape Artist - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(EscapeArtist_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 59752 && Aimsharp.CanCast(WillToSurvive_SpellName(Language), "player", true, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Will to Survive - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(WillToSurvive_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 255647 && Aimsharp.CanCast(LightsJudgment_SpellName(Language), "player", true, true) && MeleeRange)
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Light's Judgment - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(LightsJudgment_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 265221 && Aimsharp.CanCast(Fireblood_SpellName(Language), "player", true, true) && MeleeRange)
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Fireblood - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(Fireblood_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 69041 && Aimsharp.CanCast(RocketBarrage_SpellName(Language), "player", true, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Rocket Barrage - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(RocketBarrage_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 20549 && Aimsharp.CanCast(WarStomp_SpellName(Language), "player", true, true) && MeleeRange)
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting War Stomp - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(WarStomp_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 7744 && Aimsharp.CanCast(WillOfTheForsaken_SpellName(Language), "player", true, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Will of the Forsaken - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(WillOfTheForsaken_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 260364 && Aimsharp.CanCast(ArcanePulse_SpellName(Language), "player", true, true) && MeleeRange)
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Arcane Pulse - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(ArcanePulse_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 255654 && Aimsharp.CanCast(BullRush_SpellName(Language), "player", true, true) && MeleeRange)
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Bull Rush - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(BullRush_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 312411 && Aimsharp.CanCast(BagOfTricks_SpellName(Language), "player", true, true) && MeleeRange)
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Bag of Tricks - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(BagOfTricks_SpellName(Language));
-                        return true;
-                    }
-
-                    if ((SpellID1 == 20572 || SpellID1 == 33702 || SpellID1 == 33697) && Aimsharp.CanCast(BloodFury_SpellName(Language), "player", true, true) && MeleeRange)
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Blood Fury - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(BloodFury_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 26297 && Aimsharp.CanCast(Berserking_SpellName(Language), "player", false, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Berserking - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(Berserking_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 274738 && Aimsharp.CanCast(AncestralCall_SpellName(Language), "player", false, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Ancestral Call - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(AncestralCall_SpellName(Language));
-                        return true;
-                    }
-
                     if ((SpellID1 == 28730 || SpellID1 == 25046 || SpellID1 == 50613 || SpellID1 == 69179 || SpellID1 == 80483 || SpellID1 == 129597) && Aimsharp.CanCast(ArcaneTorrent_SpellName(Language), "player", true, false) && MeleeRange)
                     {
                         if (Debug)
