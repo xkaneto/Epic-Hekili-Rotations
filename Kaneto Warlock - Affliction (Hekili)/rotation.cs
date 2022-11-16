@@ -1696,7 +1696,7 @@ namespace AimsharpWow.Modules
                 //Covenants
                 ScouringTithe_SpellName(Language), //312321
                 ImpendingCatastrophe_SpellName(Language), //321792
-                SoulRot_SpellName(Language), //325640, 386991
+                SoulRot_SpellName(Language), //325640, 386997
                 DecimatingBolt_SpellName(Language), //325289
 
                 SummonSteward_SpellName(Language), Fleshcraft_SpellName(Language), DoorOfShadows_SpellName(Language),
@@ -1727,6 +1727,7 @@ namespace AimsharpWow.Modules
                 ShadowBolt_SpellName(Language), //686
                 Shadowflame_SpellName(Language), //384069
                 Shadowfury_SpellName(Language), //30283
+                "Soulburn", //385899
                 Soulstone_SpellName(Language), //20707
                 SummonSoulkeeper_SpellName(Language), //386244
                 UnendingResolve_SpellName(Language), //104773
@@ -2420,7 +2421,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if ((SpellID1 == 325640 || SpellID1 == 386991) && Aimsharp.CanCast(SoulRot_SpellName(Language), "target", true, true))
+                    if ((SpellID1 == 325640 || SpellID1 == 386997) && Aimsharp.CanCast(SoulRot_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
@@ -2644,6 +2645,16 @@ namespace AimsharpWow.Modules
                     }
                     */
 
+                    if (SpellID1 == 385899 && Aimsharp.CanCast("Soulburn", "player", false, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Soulburn - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast("Soulburn");
+                        return true;
+                    }
+
                     if (SpellID1 == 333889 && Aimsharp.CanCast(FelDomination_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
@@ -2749,6 +2760,16 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Casting Singe Magic - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(SingeMagic_SpellName(Language));
+                        return true;
+                    }
+
+                    if (SpellID1 == 386344 && Aimsharp.CanCast(InquisitorsGaze_SpellName(Language), "player", false, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Inquisitor's Gaze - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(InquisitorsGaze_SpellName(Language));
                         return true;
                     }
                     #endregion

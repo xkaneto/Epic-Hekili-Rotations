@@ -33,7 +33,6 @@ namespace AimsharpWow.Modules
         private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", "DoorofShadows", "Banish", "Fear", "Shadowfury", "BilescourgeBombers", "HowlofTerror", "MortalCoil", "BilescourgeBombersCursor", };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
-        private List<string> m_BloodlustBuffsList;
         private List<string> m_ItemsList;
         private List<string> m_SpellBook;
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
@@ -161,9 +160,6 @@ namespace AimsharpWow.Modules
                 Spellbook.Add(Spell);
 
             foreach (string Buff in m_BuffsList)
-                Buffs.Add(Buff);
-
-            foreach (string Buff in m_BloodlustBuffsList)
                 Buffs.Add(Buff);
 
             foreach (string Debuff in m_DebuffsList)
@@ -396,7 +392,6 @@ namespace AimsharpWow.Modules
             #region Reinitialize Lists
             m_DebuffsList = new List<string> { "Banish", "Fear", };
             m_BuffsList = new List<string> {  };
-            m_BloodlustBuffsList = new List<string> { "Bloodlust", "Heroism", "Time Warp", "Primal Rage", "Drums of Rage" };
             m_ItemsList = new List<string> { "Healthstone", };
             m_SpellBook = new List<string> {
                 //Covenants
@@ -405,62 +400,59 @@ namespace AimsharpWow.Modules
                 "Soul Rot", //325640
                 "Decimating Bolt", //325289
 
+                "Summon Steward", "Fleshcraft", "Door of Shadows",
+
                 //Interrupt
                 "Spell Lock", //119910
 
                 //General
-                //"Command Demon", //119898
-                "Corruption", //172
-                "Fear", //5782
-                //"Create Healthstone", //6201
-                "Fel Domination", //333889
-                "Curse of Exhaustion", //334275
-                "Health Funnel", //755
-                "Curse of Weakness", //702
-                "Shadow Bolt", //686
-                "Drain Life", //234153
-                //"Subjugate Demon", //1098
-                "Summon Imp", //688
-                "Summon Voidwalker", //697
-                "Summon Felhunter", //691
-                "Summon Succubus", //712
-                "Summon Felguard", //30146
-                "Unending Resolve", //104773
-                "Soulstone", //20707
-                "Curse of Tongues", //1714
-                "Demonic Circle", //48018
-                "Demonic Circle: Teleport", //48020
+                AmplifyCurse_SpellName(Language), //328774
                 "Banish", //710
+                "Corruption", //172
+                "Curse of Exhaustion", //334275
+                "Curse of Tongues", //1714
+                "Curse of Weakness", //702
+                "Dark Pact", //108416
+                "Demonic Circle: Teleport", //48020
+                "Demonic Circle", //48018
                 "Demonic Gateway", //111771
+                "Drain Life", //234153
+                "Fear", //5782
+                "Fel Domination", //333889
+                "Health Funnel", //755
+                "Howl of Terror", //5484
+                InquisitorsGaze_SpellName(Language), //386344
+                "Mortal Coil", //6789
+                "Shadow Bolt", //686
                 "Shadowfury", //30283
+                "Soulstone", //20707
+                SummonSoulkeeper_SpellName(Language), //386244
+                "Unending Resolve", //104773
+                //"Command Demon", //119898
+                //"Create Healthstone", //6201
+                //"Subjugate Demon", //1098
 
                 //Pet
-                "Devour Magic", //19505
-                //"Singe Magic", //89808
-                "Seduction", //6358
                 "Axe Toss", //89766
+                "Devour Magic", //19505
+                "Seduction", //6358
+                //"Singe Magic", //89808
 
                 //Demonology
-                "Implosion", //196277
+                "Bilescourge Bombers", //267211
+                "Burning Rush", //111400
                 "Call Dreadstalkers", //104316
                 "Demonbolt", //264178
-                "Hand of Gul'dan", //105174
-                "Summon Demonic Tyrant", //265187
-
-                "Bilescourge Bombers", //267211
                 "Demonic Strength", //267171
-                "Power Siphon", //264130
                 "Doom", //603
-                "Burning Rush", //111400
-                "Dark Pact", //108416
-                "Soul Strike", //264057
-                "Summon Vilefiend", //264119
-                "Mortal Coil", //6789
-                "Howl of Terror", //5484
                 "Grimoire: Felguard", //111898
+                "Hand of Gul'dan", //105174
+                "Implosion", //196277
                 "Nether Portal", //267217
-
-                "Summon Steward", "Fleshcraft", "Door of Shadows"
+                "Power Siphon", //264130
+                "Soul Strike", //264057
+                "Summon Demonic Tyrant", //265187
+                "Summon Vilefiend", //264119
 
             };
             #endregion
@@ -1197,6 +1189,16 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast("Spell Lock", true);
                         return true;
                     }
+
+                    if (SpellID1 == 386244 && Aimsharp.CanCast(SummonSoulkeeper_SpellName(Language), "target", true, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Summon Soulkeeper - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(SummonSoulkeeper_SpellName(Language), true);
+                        return true;
+                    }
                     #endregion
 
                     #region General Spells - Target GCD
@@ -1507,6 +1509,37 @@ namespace AimsharpWow.Modules
                         return true;
                     }
                     */
+
+                    if (SpellID1 == 386344 && Aimsharp.CanCast(InquisitorsGaze_SpellName(Language), "player", false, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Inquisitor's Gaze - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(InquisitorsGaze_SpellName(Language));
+                        return true;
+                    }
+
+                    if (SpellID1 == 385899 && Aimsharp.CanCast("Soulburn", "player", false, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Soulburn - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast("Soulburn");
+                        return true;
+                    }
+
+
+                    if (SpellID1 == 328774 && Aimsharp.CanCast(AmplifyCurse_SpellName(Language), "player", true, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Amplify Curse - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(AmplifyCurse_SpellName(Language));
+                        return true;
+                    }
                     #endregion
 
                     #region Demonology Spells - Player GCD
