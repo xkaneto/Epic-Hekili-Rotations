@@ -451,35 +451,35 @@ namespace AimsharpWow.Modules
             #region Reinitialize Lists
             m_DebuffsList = new List<string> {  };
             m_BuffsList = new List<string> { };
-            m_ItemsList = new List<string> { Healthstone_SpellName(Language), };
+            m_ItemsList = new List<string> { "Healthstone", };
             m_SpellBook = new List<string> {
-                AzureStrike_SpellName(Language), //362969
-                BlessingoftheBronze_SpellName(Language), //364342
-                CauterizingFlame_SpellName(Language), //374251
-                DeepBreath_SpellName(Language), //357210
-                Disintegrate_SpellName(Language), //356995
-                Dragonrage_SpellName(Language), //375087
-                EmeraldBlossom_SpellName(Language), //355913
-                EternitySurge_SpellName(Language), //382411
-                Expunge_SpellName(Language), //365585
-                FireBreath_SpellName(Language), //382266
-                Firestorm_SpellName(Language), //368847
-                Hover_SpellName(Language), //358267
-                Landslide_SpellName(Language), //358385
-                LivingFlame_SpellName(Language), //361469
-                ObsidianRoar_SpellName(Language), //372048
-                ObsidianScales_SpellName(Language), //363916
-                Pyre_SpellName(Language), //357211
-                Quell_SpellName(Language), //351338
-                RenewingBlaze_SpellName(Language), //374348
-                ShatteringStar_SpellName(Language), //370452
-                SleepWalk_SpellName(Language), //360806
-                TailSwipe_SpellName(Language), //368970
-                TimeSpiral_SpellName(Language), //374968
-                TiptheScales_SpellName(Language), //370553
-                Unravel_SpellName(Language), //368432
-                WingBuffet_SpellName(Language), //357214
-                Zephyr_SpellName(Language), //374227
+                "Azure Strike", //362969
+                "Blessing of the Bronze", //364342
+                "Cauterizing Flame", //374251
+                "Deep Breath", //357210
+                "Disintegrate", //356995
+                "Dragonrage", //375087
+                "Emerald Blossom", //355913
+                "Eternity Surge", //382411
+                "Expunge", //365585
+                "Fire Breath", //382266
+                "Firestorm", //368847
+                "Hover", //358267
+                "Landslide", //358385
+                "Living Flame", //361469
+                "Obsidian Roar", //372048
+                "Obsidian Scales", //363916
+                "Pyre", //357211
+                "Quell", //351338
+                "Renewing Blaze", //374348
+                "Shattering Star", //370452
+                "Sleep Walk", //360806
+                "Tail Swipe", //368970
+                "Time Spiral", //374968
+                "Tip the Scales", //370553
+                "Unravel", //368432
+                "Wing Buffet", //357214
+                "Zephyr", //374227
 
             };
             #endregion

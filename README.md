@@ -29,11 +29,12 @@ All of the Hekili Rotations by Snoogens that are updated by xKaneto.
 - Rogue - Outlaw
 - Rogue - Subtlety
 - Warlock - Affliction
+- Warlock - Demonology
+- Warlock - Destruction
 
 ### To-Do:
 
-- Warlock - Demonology
-- Warlock - Destruction
+- Evoker - Devastation
 - Auto Heal Potion Setting
 
 ## How to use these files with Aimsharp:
