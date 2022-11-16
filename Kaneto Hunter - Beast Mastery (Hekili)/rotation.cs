@@ -1627,8 +1627,8 @@ namespace AimsharpWow.Modules
             Macros.Add("BindingShotOff", "/" + FiveLetters + " BindingShot");
             Macros.Add("SentinelOff", "/" + FiveLetters + " Sentinel");
 
-            Macros.Add("KillShotSQW", "/cqs\\n/cast Kill Shot");
-            Macros.Add("BarbedShotSQW", "/cqs\\n/cast Barbed Shot");
+            Macros.Add("KillShotSQW", "/cqs\\n/cast " + KillShot_SpellName(Language));
+            Macros.Add("BarbedShotSQW", "/cqs\\n/cast " + BarbedShot_SpellName(Language));
             Macros.Add("TranqMO", "/cast [@mouseover] " + TranquilizingShot_SpellName(Language));
             Macros.Add("FlareC", "/cast [@cursor] " + Flare_SpellName(Language));
             Macros.Add("SentinelC", "/cast [@cursor] " + SentinelOwl_SpellName(Language));
