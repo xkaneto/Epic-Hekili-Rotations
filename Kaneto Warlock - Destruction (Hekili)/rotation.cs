@@ -21,6 +21,1175 @@ namespace AimsharpWow.Modules
         private static string Language = "English";
 
         #region SpellFunctions
+        ///<summary>spell=328774</summary>
+        private static string AmplifyCurse_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Amplify Curse";
+                case "Deutsch": return "Fluch verstärken";
+                case "Español": return "Amplificar maldición";
+                case "Français": return "Malédiction amplifiée";
+                case "Italiano": return "Amplificazione Maledizione";
+                case "Português Brasileiro": return "Amplificar Maldição";
+                case "Русский": return "Усиление проклятия";
+                case "한국어": return "저주 증폭";
+                case "简体中文": return "诅咒增幅";
+                default: return "Amplify Curse";
+            }
+        }
+
+        ///<summary>spell=274738</summary>
+        private static string AncestralCall_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Ancestral Call";
+                case "Deutsch": return "Ruf der Ahnen";
+                case "Español": return "Llamada ancestral";
+                case "Français": return "Appel ancestral";
+                case "Italiano": return "Richiamo Ancestrale";
+                case "Português Brasileiro": return "Chamado Ancestral";
+                case "Русский": return "Призыв предков";
+                case "한국어": return "고대의 부름";
+                case "简体中文": return "先祖召唤";
+                default: return "Ancestral Call";
+            }
+        }
+
+        ///<summary>spell=260364</summary>
+        private static string ArcanePulse_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Arcane Pulse";
+                case "Deutsch": return "Arkaner Puls";
+                case "Español": return "Pulso Arcano";
+                case "Français": return "Impulsion arcanique";
+                case "Italiano": return "Impulso Arcano";
+                case "Português Brasileiro": return "Pulso Arcano";
+                case "Русский": return "Чародейский импульс";
+                case "한국어": return "비전 파동";
+                case "简体中文": return "奥术脉冲";
+                default: return "Arcane Pulse";
+            }
+        }
+
+        ///<summary>spell=28730</summary>
+        private static string ArcaneTorrent_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Arcane Torrent";
+                case "Deutsch": return "Arkaner Strom";
+                case "Español": return "Torrente Arcano";
+                case "Français": return "Torrent arcanique";
+                case "Italiano": return "Torrente Arcano";
+                case "Português Brasileiro": return "Torrente Arcana";
+                case "Русский": return "Волшебный поток";
+                case "한국어": return "비전 격류";
+                case "简体中文": return "奥术洪流";
+                default: return "Arcane Torrent";
+            }
+        }
+
+        ///<summary>spell=312411</summary>
+        private static string BagOfTricks_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Bag of Tricks";
+                case "Deutsch": return "Trickkiste";
+                case "Español": return "Bolsa de trucos";
+                case "Français": return "Sac à malice";
+                case "Italiano": return "Borsa di Trucchi";
+                case "Português Brasileiro": return "Bolsa de Truques";
+                case "Русский": return "Набор хитростей";
+                case "한국어": return "비장의 묘수";
+                case "简体中文": return "袋里乾坤";
+                default: return "Bag of Tricks";
+            }
+        }
+
+        ///<summary>spell=710</summary>
+        private static string Banish_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Banish";
+                case "Deutsch": return "Verbannen";
+                case "Español": return "Desterrar";
+                case "Français": return "Bannir";
+                case "Italiano": return "Esilio";
+                case "Português Brasileiro": return "Banir";
+                case "Русский": return "Изгнание";
+                case "한국어": return "추방";
+                case "简体中文": return "放逐术";
+                default: return "Banish";
+            }
+        }
+
+        ///<summary>spell=26297</summary>
+        private static string Berserking_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Berserking";
+                case "Deutsch": return "Berserker";
+                case "Español": return "Rabiar";
+                case "Français": return "Berserker";
+                case "Italiano": return "Berserker";
+                case "Português Brasileiro": return "Berserk";
+                case "Русский": return "Берсерк";
+                case "한국어": return "광폭화";
+                case "简体中文": return "狂暴";
+                default: return "Berserking";
+            }
+        }
+
+        ///<summary>spell=33697</summary>
+        private static string BloodFury_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Blood Fury";
+                case "Deutsch": return "Kochendes Blut";
+                case "Español": return "Furia sangrienta";
+                case "Français": return "Fureur sanguinaire";
+                case "Italiano": return "Furia Sanguinaria";
+                case "Português Brasileiro": return "Fúria Sangrenta";
+                case "Русский": return "Кровавое неистовство";
+                case "한국어": return "피의 격노";
+                case "简体中文": return "血性狂怒";
+                default: return "Blood Fury";
+            }
+        }
+
+        ///<summary>spell=255654</summary>
+        private static string BullRush_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Bull Rush";
+                case "Deutsch": return "Aufs Geweih nehmen";
+                case "Español": return "Embestida astada";
+                case "Français": return "Charge de taureau";
+                case "Italiano": return "Scatto del Toro";
+                case "Português Brasileiro": return "Investida do Touro";
+                case "Русский": return "Бычий натиск";
+                case "한국어": return "황소 돌진";
+                case "简体中文": return "蛮牛冲撞";
+                default: return "Bull Rush";
+            }
+        }
+
+        ///<summary>spell=152108</summary>
+        private static string Cataclysm_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Cataclysm";
+                case "Deutsch": return "Kataklysmus";
+                case "Español": return "Cataclismo";
+                case "Français": return "Cataclysme";
+                case "Italiano": return "Cataclisma";
+                case "Português Brasileiro": return "Cataclismo";
+                case "Русский": return "Катаклизм";
+                case "한국어": return "대재앙";
+                case "简体中文": return "大灾变";
+                default: return "Cataclysm";
+            }
+        }
+
+        ///<summary>spell=196447</summary>
+        private static string ChannelDemonfire_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Channel Demonfire";
+                case "Deutsch": return "Dämonenfeuer kanalisieren";
+                case "Español": return "Canalizar fuego demoníaco";
+                case "Français": return "Canalisation de feu démoniaque";
+                case "Italiano": return "Canalizzazione Fuoco Demoniaco";
+                case "Português Brasileiro": return "Canalizar Fogo Demoníaco";
+                case "Русский": return "Направленный демонический огонь";
+                case "한국어": return "악마불 집중";
+                case "简体中文": return "引导恶魔之火";
+                default: return "Channel Demonfire";
+            }
+        }
+
+        ///<summary>spell=116858</summary>
+        private static string ChaosBolt_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Chaos Bolt";
+                case "Deutsch": return "Chaosblitz";
+                case "Español": return "Descarga de caos";
+                case "Français": return "Trait du chaos";
+                case "Italiano": return "Dardo del Caos";
+                case "Português Brasileiro": return "Seta do Caos";
+                case "Русский": return "Стрела Хаоса";
+                case "한국어": return "혼돈의 화살";
+                case "简体中文": return "混乱之箭";
+                default: return "Chaos Bolt";
+            }
+        }
+
+        ///<summary>spell=17962</summary>
+        private static string Conflagrate_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Conflagrate";
+                case "Deutsch": return "Feuersbrunst";
+                case "Español": return "Conflagrar";
+                case "Français": return "Conflagration";
+                case "Italiano": return "Conflagrazione";
+                case "Português Brasileiro": return "Conflagrar";
+                case "Русский": return "Поджигание";
+                case "한국어": return "점화";
+                case "简体中文": return "燃烧";
+                default: return "Conflagrate";
+            }
+        }
+
+        ///<summary>spell=172</summary>
+        private static string Corruption_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Corruption";
+                case "Deutsch": return "Verderbnis";
+                case "Español": return "Corrupción";
+                case "Français": return "Corruption";
+                case "Italiano": return "Corruzione";
+                case "Português Brasileiro": return "Corrupção";
+                case "Русский": return "Порча";
+                case "한국어": return "부패";
+                case "简体中文": return "腐蚀术";
+                default: return "Corruption";
+            }
+        }
+
+        ///<summary>spell=334275</summary>
+        private static string CurseOfExhaustion_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Curse of Exhaustion";
+                case "Deutsch": return "Fluch der Erschöpfung";
+                case "Español": return "Maldición de agotamiento";
+                case "Français": return "Malédiction d’épuisement";
+                case "Italiano": return "Maledizione dello Sfinimento";
+                case "Português Brasileiro": return "Maldição da Exaustão";
+                case "Русский": return "Проклятие изнеможения";
+                case "한국어": return "피로의 저주";
+                case "简体中文": return "疲劳诅咒";
+                default: return "Curse of Exhaustion";
+            }
+        }
+
+        ///<summary>spell=199890</summary>
+        private static string CurseOfTongues_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Curse of Tongues";
+                case "Deutsch": return "Fluch der Sprachen";
+                case "Español": return "Maldición de las lenguas";
+                case "Français": return "Malédiction des langages";
+                case "Italiano": return "Maledizione delle Lingue";
+                case "Português Brasileiro": return "Maldição de Línguas";
+                case "Русский": return "Проклятие косноязычия";
+                case "한국어": return "언어의 저주";
+                case "简体中文": return "语言诅咒";
+                default: return "Curse of Tongues";
+            }
+        }
+
+        ///<summary>spell=702</summary>
+        private static string CurseOfWeakness_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Curse of Weakness";
+                case "Deutsch": return "Fluch der Schwäche";
+                case "Español": return "Maldición de debilidad";
+                case "Français": return "Malédiction de faiblesse";
+                case "Italiano": return "Maledizione della Debolezza";
+                case "Português Brasileiro": return "Maldição da Fraqueza";
+                case "Русский": return "Проклятие слабости";
+                case "한국어": return "무력화 저주";
+                case "简体中文": return "虚弱诅咒";
+                default: return "Curse of Weakness";
+            }
+        }
+
+        ///<summary>spell=108416</summary>
+        private static string DarkPact_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Dark Pact";
+                case "Deutsch": return "Dunkler Pakt";
+                case "Español": return "Pacto oscuro";
+                case "Français": return "Sombre pacte";
+                case "Italiano": return "Patto Oscuro";
+                case "Português Brasileiro": return "Pacto Sombrio";
+                case "Русский": return "Темный пакт";
+                case "한국어": return "어둠의 서약";
+                case "简体中文": return "黑暗契约";
+                default: return "Dark Pact";
+            }
+        }
+
+        ///<summary>spell=113858</summary>
+        private static string DarkSoul_Instability_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Dark Soul: Instability";
+                case "Deutsch": return "Finstere Seele: Instabilität";
+                case "Español": return "Alma oscura: Inestabilidad";
+                case "Français": return "Âme sombre : Instabilité";
+                case "Italiano": return "Anima Oscura: Instabilità";
+                case "Português Brasileiro": return "Alma Negra: Instabilidade";
+                case "Русский": return "Черная душа: нестабильность";
+                case "한국어": return "악마의 영혼: 불안정";
+                case "简体中文": return "黑暗灵魂：动荡";
+                default: return "Dark Soul: Instability";
+            }
+        }
+
+        ///<summary>spell=325289</summary>
+        private static string DecimatingBolt_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Decimating Bolt";
+                case "Deutsch": return "Dezimierungsblitz";
+                case "Español": return "Descarga exterminadora";
+                case "Français": return "Trait de décimation";
+                case "Italiano": return "Dardo della Decimazione";
+                case "Português Brasileiro": return "Seta Dizimadora";
+                case "Русский": return "Стрела опустошения";
+                case "한국어": return "학살의 화살";
+                case "简体中文": return "屠戮箭";
+                default: return "Decimating Bolt";
+            }
+        }
+
+        ///<summary>spell=48018</summary>
+        private static string DemonicCircle_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Demonic Circle";
+                case "Deutsch": return "Dämonischer Zirkel";
+                case "Español": return "Círculo demoníaco";
+                case "Français": return "Cercle démoniaque";
+                case "Italiano": return "Circolo Demoniaco";
+                case "Português Brasileiro": return "Círculo Demoníaco";
+                case "Русский": return "Демонический круг";
+                case "한국어": return "악마의 마법진";
+                case "简体中文": return "恶魔法阵";
+                default: return "Demonic Circle";
+            }
+        }
+
+        ///<summary>spell=48020</summary>
+        private static string DemonicCircle_Teleport_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Demonic Circle: Teleport";
+                case "Deutsch": return "Dämonischer Zirkel: Teleportieren";
+                case "Español": return "Círculo demoníaco: Teletransporte";
+                case "Français": return "Cercle démoniaque - Téléportation";
+                case "Italiano": return "Teletrasporto: Circolo Demoniaco";
+                case "Português Brasileiro": return "Círculo Demoníaco: Teleporte";
+                case "Русский": return "Демонический круг: телепортация";
+                case "한국어": return "악마의 마법진: 순간이동";
+                case "简体中文": return "恶魔法阵：传送";
+                default: return "Demonic Circle: Teleport";
+            }
+        }
+
+        ///<summary>spell=111771</summary>
+        private static string DemonicGateway_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Demonic Gateway";
+                case "Deutsch": return "Dämonisches Tor";
+                case "Español": return "Portal demoníaco";
+                case "Français": return "Porte des démons";
+                case "Italiano": return "Varco Demoniaco";
+                case "Português Brasileiro": return "Portal Demoníaco";
+                case "Русский": return "Демонические врата";
+                case "한국어": return "악마의 관문";
+                case "简体中文": return "恶魔传送门";
+                default: return "Demonic Gateway";
+            }
+        }
+
+        ///<summary>spell=19505</summary>
+        private static string DevourMagic_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Devour Magic";
+                case "Deutsch": return "Magie verschlingen";
+                case "Español": return "Devorar magia";
+                case "Français": return "Dévorer la magie";
+                case "Italiano": return "Divora Magie";
+                case "Português Brasileiro": return "Devorar Magia";
+                case "Русский": return "Пожирание магии";
+                case "한국어": return "마법 삼키기";
+                case "简体中文": return "吞噬魔法";
+                default: return "Devour Magic";
+            }
+        }
+
+        ///<summary>spell=387976</summary>
+        private static string DimensionalRift_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Dimensional Rift";
+                case "Deutsch": return "Dimensionsriss";
+                case "Español": return "Falla dimensional";
+                case "Français": return "Faille dimensionnelle";
+                case "Italiano": return "Fenditura Dimensionale";
+                case "Português Brasileiro": return "Fenda Dimensional";
+                case "Русский": return "Пространственный разлом";
+                case "한국어": return "차원의 균열";
+                case "简体中文": return "次元裂隙";
+                default: return "Dimensional Rift";
+            }
+        }
+
+        ///<summary>spell=300728</summary>
+        private static string DoorOfShadows_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Door of Shadows";
+                case "Deutsch": return "Schattentor";
+                case "Español": return "Puerta de las Sombras";
+                case "Français": return "Porte des ombres";
+                case "Italiano": return "Porta delle Ombre";
+                case "Português Brasileiro": return "Porta das Sombras";
+                case "Русский": return "Врата теней";
+                case "한국어": return "어둠의 문";
+                case "简体中文": return "暗影之门";
+                default: return "Door of Shadows";
+            }
+        }
+
+        ///<summary>spell=234153</summary>
+        private static string DrainLife_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Drain Life";
+                case "Deutsch": return "Blutsauger";
+                case "Español": return "Drenar vida";
+                case "Français": return "Drain de vie";
+                case "Italiano": return "Risucchio di Vita";
+                case "Português Brasileiro": return "Drenar Vida";
+                case "Русский": return "Похищение жизни";
+                case "한국어": return "생명력 흡수";
+                case "简体中文": return "吸取生命";
+                default: return "Drain Life";
+            }
+        }
+
+        ///<summary>spell=20589</summary>
+        private static string EscapeArtist_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Escape Artist";
+                case "Deutsch": return "Entfesselungskünstler";
+                case "Español": return "Artista del escape";
+                case "Français": return "Maître de l’évasion";
+                case "Italiano": return "Artista della Fuga";
+                case "Português Brasileiro": return "Artista da Fuga";
+                case "Русский": return "Мастер побега";
+                case "한국어": return "탈출의 명수";
+                case "简体中文": return "逃命专家";
+                default: return "Escape Artist";
+            }
+        }
+
+        ///<summary>spell=5782</summary>
+        private static string Fear_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Fear";
+                case "Deutsch": return "Furcht";
+                case "Español": return "Miedo";
+                case "Français": return "Peur";
+                case "Italiano": return "Paura";
+                case "Português Brasileiro": return "Medo";
+                case "Русский": return "Страх";
+                case "한국어": return "공포";
+                case "简体中文": return "恐惧";
+                default: return "Fear";
+            }
+        }
+
+        ///<summary>spell=333889</summary>
+        private static string FelDomination_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Fel Domination";
+                case "Deutsch": return "Teufelsbeherrschung";
+                case "Español": return "Dominación vil";
+                case "Français": return "Domination gangrenée";
+                case "Italiano": return "Vildominio";
+                case "Português Brasileiro": return "Dominância Vil";
+                case "Русский": return "Власть Скверны";
+                case "한국어": return "지옥 지배";
+                case "简体中文": return "邪能统御";
+                default: return "Fel Domination";
+            }
+        }
+
+        ///<summary>spell=265221</summary>
+        private static string Fireblood_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Fireblood";
+                case "Deutsch": return "Feuerblut";
+                case "Español": return "Sangrardiente";
+                case "Français": return "Sang de feu";
+                case "Italiano": return "Sangue Infuocato";
+                case "Português Brasileiro": return "Sangue de Fogo";
+                case "Русский": return "Огненная кровь";
+                case "한국어": return "불꽃피";
+                case "简体中文": return "烈焰之血";
+                default: return "Fireblood";
+            }
+        }
+
+        ///<summary>spell=350229</summary>
+        private static string Fleshcraft_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Fleshcraft";
+                case "Deutsch": return "Fleischformung";
+                case "Español": return "Modelar carne";
+                case "Français": return "Chair recomposée";
+                case "Italiano": return "Forgiatura della Carne";
+                case "Português Brasileiro": return "Moldacarne";
+                case "Русский": return "Скульптор плоти";
+                case "한국어": return "살덩이창조";
+                case "简体中文": return "血肉铸造";
+                default: return "Fleshcraft";
+            }
+        }
+
+        ///<summary>spell=28880</summary>
+        private static string GiftOfTheNaaru_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Gift of the Naaru";
+                case "Deutsch": return "Gabe der Naaru";
+                case "Español": return "Ofrenda de los naaru";
+                case "Français": return "Don des Naaru";
+                case "Italiano": return "Dono dei Naaru";
+                case "Português Brasileiro": return "Dádiva dos Naarus";
+                case "Русский": return "Дар наару";
+                case "한국어": return "나루의 선물";
+                case "简体中文": return "纳鲁的赐福";
+                default: return "Gift of the Naaru";
+            }
+        }
+
+        ///<summary>spell=108503</summary>
+        private static string GrimoireOfSacrifice_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Grimoire of Sacrifice";
+                case "Deutsch": return "Grimoire der Opferung";
+                case "Español": return "Grimorio de sacrificio";
+                case "Français": return "Grimoire de sacrifice";
+                case "Italiano": return "Rito del Sacrificio";
+                case "Português Brasileiro": return "Grimório de Sacrificar";
+                case "Русский": return "Гримуар жертвоприношения";
+                case "한국어": return "흑마법서: 희생";
+                case "简体中文": return "牺牲魔典";
+                default: return "Grimoire of Sacrifice";
+            }
+        }
+
+        ///<summary>spell=80240</summary>
+        private static string Havoc_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Havoc";
+                case "Deutsch": return "Verwüstung";
+                case "Español": return "Estragos";
+                case "Français": return "Tumulte";
+                case "Italiano": return "Calamità";
+                case "Português Brasileiro": return "Devastação";
+                case "Русский": return "Хаос";
+                case "한국어": return "대혼란";
+                case "简体中文": return "浩劫";
+                default: return "Havoc";
+            }
+        }
+
+        ///<summary>spell=755</summary>
+        private static string HealthFunnel_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Health Funnel";
+                case "Deutsch": return "Lebenslinie";
+                case "Español": return "Cauce de salud";
+                case "Français": return "Captation de vie";
+                case "Italiano": return "Trasfusione Vitale";
+                case "Português Brasileiro": return "Funil de Vida";
+                case "Русский": return "Канал здоровья";
+                case "한국어": return "생명력 집중";
+                case "简体中文": return "生命通道";
+                default: return "Health Funnel";
+            }
+        }
+
+        ///<summary>item=5512</summary>
+        private static string Healthstone_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Healthstone";
+                case "Deutsch": return "Gesundheitsstein";
+                case "Español": return "Piedra de salud";
+                case "Français": return "Pierre de soins";
+                case "Italiano": return "Pietra della Salute";
+                case "Português Brasileiro": return "Pedra de Vida";
+                case "Русский": return "Камень здоровья";
+                case "한국어": return "생명석";
+                case "简体中文": return "治疗石";
+                default: return "Healthstone";
+            }
+        }
+
+        ///<summary>spell=5484</summary>
+        private static string HowlOfTerror_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Howl of Terror";
+                case "Deutsch": return "Schreckensgeheul";
+                case "Español": return "Aullido de terror";
+                case "Français": return "Hurlement de terreur";
+                case "Italiano": return "Grido Terrorizzante";
+                case "Português Brasileiro": return "Uivo do Terror";
+                case "Русский": return "Вой ужаса";
+                case "한국어": return "공포의 울부짖음";
+                case "简体中文": return "恐惧嚎叫";
+                default: return "Howl of Terror";
+            }
+        }
+
+        ///<summary>spell=348</summary>
+        private static string Immolate_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Immolate";
+                case "Deutsch": return "Feuerbrand";
+                case "Español": return "Inmolar";
+                case "Français": return "Immolation";
+                case "Italiano": return "Immolazione";
+                case "Português Brasileiro": return "Imolação";
+                case "Русский": return "Жертвенный огонь";
+                case "한국어": return "제물";
+                case "简体中文": return "献祭";
+                default: return "Immolate";
+            }
+        }
+
+        ///<summary>spell=321792</summary>
+        private static string ImpendingCatastrophe_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Impending Catastrophe";
+                case "Deutsch": return "Drohende Katastrophe";
+                case "Español": return "Catástrofe inminente";
+                case "Français": return "Catastrophe imminente";
+                case "Italiano": return "Catastrofe Imminente";
+                case "Português Brasileiro": return "Catástrofe Iminente";
+                case "Русский": return "Неотвратимая катастрофа";
+                case "한국어": return "다가오는 대재앙";
+                case "简体中文": return "灾祸降临";
+                default: return "Impending Catastrophe";
+            }
+        }
+
+        ///<summary>spell=29722</summary>
+        private static string Incinerate_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Incinerate";
+                case "Deutsch": return "Verbrennen";
+                case "Español": return "Incinerar";
+                case "Français": return "Incinérer";
+                case "Italiano": return "Incenerimento";
+                case "Português Brasileiro": return "Incinerar";
+                case "Русский": return "Испепеление";
+                case "한국어": return "소각";
+                case "简体中文": return "烧尽";
+                default: return "Incinerate";
+            }
+        }
+
+        ///<summary>spell=386344</summary>
+        private static string InquisitorsGaze_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Inquisitor's Gaze";
+                case "Deutsch": return "Blick des Inquisitors";
+                case "Español": return "Mirada del inquisidor";
+                case "Français": return "Regard de l’inquisitrice";
+                case "Italiano": return "Sguardo dell'Inquisitore";
+                case "Português Brasileiro": return "Olhar do Inquisidor";
+                case "Русский": return "Взгляд инквизитора";
+                case "한국어": return "심문관의 시선";
+                case "简体中文": return "审判官的凝视";
+                default: return "Inquisitor's Gaze";
+            }
+        }
+
+        ///<summary>spell=255647</summary>
+        private static string LightsJudgment_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Light's Judgment";
+                case "Deutsch": return "Urteil des Lichts";
+                case "Español": return "Sentencia de la Luz";
+                case "Français": return "Jugement de la Lumière";
+                case "Italiano": return "Giudizio della Luce";
+                case "Português Brasileiro": return "Julgamento da Luz";
+                case "Русский": return "Правосудие Света";
+                case "한국어": return "빛의 심판";
+                case "简体中文": return "圣光裁决者";
+                default: return "Light's Judgment";
+            }
+        }
+
+        ///<summary>spell=6789</summary>
+        private static string MortalCoil_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Mortal Coil";
+                case "Deutsch": return "Weltliche Ängste";
+                case "Español": return "Espiral mortal";
+                case "Français": return "Voile de mort";
+                case "Italiano": return "Spira Letale";
+                case "Português Brasileiro": return "Espiral da Morte";
+                case "Русский": return "Лик тлена";
+                case "한국어": return "필멸의 고리";
+                case "简体中文": return "死亡缠绕";
+                default: return "Mortal Coil";
+            }
+        }
+
+        ///<summary>spell=42223</summary>
+        private static string RainOfFire_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Rain of Fire";
+                case "Deutsch": return "Feuerregen";
+                case "Español": return "Lluvia de Fuego";
+                case "Français": return "Pluie de feu";
+                case "Italiano": return "Pioggia di Fuoco";
+                case "Português Brasileiro": return "Chuva de Fogo";
+                case "Русский": return "Огненный ливень";
+                case "한국어": return "불의 비";
+                case "简体中文": return "火焰之雨";
+                default: return "Rain of Fire";
+            }
+        }
+
+        ///<summary>spell=69041</summary>
+        private static string RocketBarrage_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Rocket Barrage";
+                case "Deutsch": return "Raketenbeschuss";
+                case "Español": return "Tromba de cohetes";
+                case "Français": return "Barrage de fusées";
+                case "Italiano": return "Raffica di Razzi";
+                case "Português Brasileiro": return "Barragem de Foguetes";
+                case "Русский": return "Ракетный обстрел";
+                case "한국어": return "로켓 연발탄";
+                case "简体中文": return "火箭弹幕";
+                default: return "Rocket Barrage";
+            }
+        }
+
+        ///<summary>spell=312321</summary>
+        private static string ScouringTithe_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Scouring Tithe";
+                case "Deutsch": return "Geißelnder Obolus";
+                case "Español": return "Diezmo asolador";
+                case "Français": return "Dîme spoliatrice";
+                case "Italiano": return "Obolo";
+                case "Português Brasileiro": return "Dízimo Expurgante";
+                case "Русский": return "Очищающее пожертвование";
+                case "한국어": return "헌금 갈취";
+                case "简体中文": return "碎魂奉纳";
+                default: return "Scouring Tithe";
+            }
+        }
+
+        ///<summary>spell=6358</summary>
+        private static string Seduction_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Seduction";
+                case "Deutsch": return "Verführung";
+                case "Español": return "Seducción";
+                case "Français": return "Séduction";
+                case "Italiano": return "Seduzione";
+                case "Português Brasileiro": return "Sedução";
+                case "Русский": return "Соблазн";
+                case "한국어": return "유혹";
+                case "简体中文": return "诱惑";
+                default: return "Seduction";
+            }
+        }
+
+        ///<summary>spell=686</summary>
+        private static string ShadowBolt_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Shadow Bolt";
+                case "Deutsch": return "Schattenblitz";
+                case "Español": return "Descarga de las Sombras";
+                case "Français": return "Trait de l'ombre";
+                case "Italiano": return "Dardo d'Ombra";
+                case "Português Brasileiro": return "Seta Sombria";
+                case "Русский": return "Стрела Тьмы";
+                case "한국어": return "어둠의 화살";
+                case "简体中文": return "暗影箭";
+                default: return "Shadow Bolt";
+            }
+        }
+
+        ///<summary>spell=17877</summary>
+        private static string Shadowburn_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Shadowburn";
+                case "Deutsch": return "Schattenbrand";
+                case "Español": return "Quemadura de las Sombras";
+                case "Français": return "Brûlure de l’ombre";
+                case "Italiano": return "Combustione dell'Ombra";
+                case "Português Brasileiro": return "Sombra Ardente";
+                case "Русский": return "Ожог Тьмы";
+                case "한국어": return "어둠의 연소";
+                case "简体中文": return "暗影灼烧";
+                default: return "Shadowburn";
+            }
+        }
+
+        ///<summary>spell=30283</summary>
+        private static string Shadowfury_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Shadowfury";
+                case "Deutsch": return "Schattenfuror";
+                case "Español": return "Furia de las Sombras";
+                case "Français": return "Furie de l’ombre";
+                case "Italiano": return "Furia dell'Ombra";
+                case "Português Brasileiro": return "Fúria Sombria";
+                case "Русский": return "Неистовство Тьмы";
+                case "한국어": return "어둠의 격노";
+                case "简体中文": return "暗影之怒";
+                default: return "Shadowfury";
+            }
+        }
+
+        ///<summary>spell=58984</summary>
+        private static string Shadowmeld_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Shadowmeld";
+                case "Deutsch": return "Schattenmimik";
+                case "Español": return "Fusión de las sombras";
+                case "Français": return "Camouflage dans l'ombre";
+                case "Italiano": return "Fondersi nelle Ombre";
+                case "Português Brasileiro": return "Fusão Sombria";
+                case "Русский": return "Слиться с тенью";
+                case "한국어": return "그림자 숨기";
+                case "简体中文": return "影遁";
+                default: return "Shadowmeld";
+            }
+        }
+
+        ///<summary>spell=89808</summary>
+        private static string SingeMagic_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Singe Magic";
+                case "Deutsch": return "Magie versengen";
+                case "Español": return "Magia de carbonización";
+                case "Français": return "Brûle-magie";
+                case "Italiano": return "Consuma Magie";
+                case "Português Brasileiro": return "Chamusco Mágico";
+                case "Русский": return "Опаляющая магия";
+                case "한국어": return "마법 태우기";
+                case "简体中文": return "烧灼驱魔";
+                default: return "Singe Magic";
+            }
+        }
+
+        ///<summary>spell=6353</summary>
+        private static string SoulFire_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Soul Fire";
+                case "Deutsch": return "Seelenfeuer";
+                case "Español": return "Fuego de alma";
+                case "Français": return "Feu de l’âme";
+                case "Italiano": return "Fuoco dell'Anima";
+                case "Português Brasileiro": return "Fogo d'Alma";
+                case "Русский": return "Ожог души";
+                case "한국어": return "영혼의 불꽃";
+                case "简体中文": return "灵魂之火";
+                default: return "Soul Fire";
+            }
+        }
+
+        ///<summary>spell=325640</summary>
+        private static string SoulRot_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Soul Rot";
+                case "Deutsch": return "Seelenfäule";
+                case "Español": return "Putrefacción de alma";
+                case "Français": return "Pourriture d’âme";
+                case "Italiano": return "Putrefazione d'Anima";
+                case "Português Brasileiro": return "Apodrecimento d'Alma";
+                case "Русский": return "Гниение души";
+                case "한국어": return "영혼 부식";
+                case "简体中文": return "灵魂腐化";
+                default: return "Soul Rot";
+            }
+        }
+
+        ///<summary>spell=385899</summary>
+        private static string Soulburn_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Soulburn";
+                case "Deutsch": return "Seelenbrand";
+                case "Español": return "Quemar alma";
+                case "Français": return "Brûlure d’âme";
+                case "Italiano": return "Consumo d'Anima";
+                case "Português Brasileiro": return "Queimadura Anímica";
+                case "Русский": return "Горящая душа";
+                case "한국어": return "영혼 불사르기";
+                case "简体中文": return "灵魂燃烧";
+                default: return "Soulburn";
+            }
+        }
+
+        ///<summary>spell=119910</summary>
+        private static string SpellLock_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Spell Lock";
+                case "Deutsch": return "Zaubersperre";
+                case "Español": return "Bloqueo de hechizo";
+                case "Français": return "Verrou magique";
+                case "Italiano": return "Blocca Incantesimo";
+                case "Português Brasileiro": return "Bloquear Feitiço";
+                case "Русский": return "Запрет чар";
+                case "한국어": return "주문 잠금";
+                case "简体中文": return "法术封锁";
+                default: return "Spell Lock";
+            }
+        }
+
+        ///<summary>spell=20594</summary>
+        private static string Stoneform_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Stoneform";
+                case "Deutsch": return "Steingestalt";
+                case "Español": return "Forma de piedra";
+                case "Français": return "Forme de pierre";
+                case "Italiano": return "Forma di Pietra";
+                case "Português Brasileiro": return "Forma de Pedra";
+                case "Русский": return "Каменная форма";
+                case "한국어": return "석화";
+                case "简体中文": return "石像形态";
+                default: return "Stoneform";
+            }
+        }
+
+        ///<summary>spell=1122</summary>
+        private static string SummonInfernal_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Summon Infernal";
+                case "Deutsch": return "Höllenbestie beschwören";
+                case "Español": return "Invocar infernal";
+                case "Français": return "Invocation : infernal";
+                case "Italiano": return "Evocazione: Infernale";
+                case "Português Brasileiro": return "Evocar Infernal";
+                case "Русский": return "Призыв инфернала";
+                case "한국어": return "지옥불정령 소환";
+                case "简体中文": return "召唤地狱火";
+                default: return "Summon Infernal";
+            }
+        }
+
+        ///<summary>spell=386244</summary>
+        private static string SummonSoulkeeper_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Summon Soulkeeper";
+                case "Deutsch": return "Seelenbewahrer beschwören";
+                case "Español": return "Invocar guardián de almas";
+                case "Français": return "Invocation de gardien d’âmes";
+                case "Italiano": return "Evocazione: Custode delle Anime";
+                case "Português Brasileiro": return "Evocar Porta-almas";
+                case "Русский": return "Призыв хранителя душ";
+                case "한국어": return "영혼지킴이 소환";
+                case "简体中文": return "召唤护魂者";
+                default: return "Summon Soulkeeper";
+            }
+        }
+
+        ///<summary>spell=324739</summary>
+        private static string SummonSteward_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Summon Steward";
+                case "Deutsch": return "Provost beschwören";
+                case "Español": return "Invocar al administrador";
+                case "Français": return "Invocation de régisseur";
+                case "Italiano": return "Evocazione: Factotum";
+                case "Português Brasileiro": return "Evocar Comissário";
+                case "Русский": return "Призыв распорядителя";
+                case "한국어": return "청지기 소환";
+                case "简体中文": return "召唤执事者";
+                default: return "Summon Steward";
+            }
+        }
+
+        ///<summary>spell=104773</summary>
+        private static string UnendingResolve_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Unending Resolve";
+                case "Deutsch": return "Erbarmungslose Entschlossenheit";
+                case "Español": return "Resolución inagotable";
+                case "Français": return "Résolution interminable";
+                case "Italiano": return "Determinazione Assoluta";
+                case "Português Brasileiro": return "Determinação Interminável";
+                case "Русский": return "Твердая решимость";
+                case "한국어": return "영원한 결의";
+                case "简体中文": return "不灭决心";
+                default: return "Unending Resolve";
+            }
+        }
+
+        ///<summary>spell=20549</summary>
+        private static string WarStomp_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "War Stomp";
+                case "Deutsch": return "Kriegsdonner";
+                case "Español": return "Pisotón de guerra";
+                case "Français": return "Choc martial";
+                case "Italiano": return "Zoccolo di Guerra";
+                case "Português Brasileiro": return "Pisada de Guerra";
+                case "Русский": return "Громовая поступь";
+                case "한국어": return "전투 발구르기";
+                case "简体中文": return "战争践踏";
+                default: return "War Stomp";
+            }
+        }
+
+        ///<summary>spell=7744</summary>
+        private static string WillOfTheForsaken_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Will of the Forsaken";
+                case "Deutsch": return "Wille der Verlassenen";
+                case "Español": return "Voluntad de los Renegados";
+                case "Français": return "Volonté des Réprouvés";
+                case "Italiano": return "Volontà dei Reietti";
+                case "Português Brasileiro": return "Determinação dos Renegados";
+                case "Русский": return "Воля Отрекшихся";
+                case "한국어": return "포세이큰의 의지";
+                case "简体中文": return "被遗忘者的意志";
+                default: return "Will of the Forsaken";
+            }
+        }
+
+        ///<summary>spell=59752</summary>
+        private static string WillToSurvive_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Will to Survive";
+                case "Deutsch": return "Überlebenswille";
+                case "Español": return "Lucha por la supervivencia";
+                case "Français": return "Volonté de survie";
+                case "Italiano": return "Volontà di Sopravvivenza";
+                case "Português Brasileiro": return "Desejo de Sobreviver";
+                case "Русский": return "Воля к жизни";
+                case "한국어": return "삶의 의지";
+                case "简体中文": return "生存意志";
+                default: return "Will to Survive";
+            }
+        }
         #endregion
 
         #region Variables
@@ -138,7 +1307,7 @@ namespace AimsharpWow.Modules
             Macros.Add("BotTrinket", "/use 14");
 
             //Healthstone
-            Macros.Add("UseHealthstone", "/use Healthstone");
+            Macros.Add("UseHealthstone", "/use " + Healthstone_SpellName(Language));
 
             //SpellQueueWindow
             Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + (Aimsharp.Latency + 100));
@@ -152,19 +1321,20 @@ namespace AimsharpWow.Modules
             Macros.Add("MortalCoilOff", "/" + FiveLetters + " MortalCoil");
             Macros.Add("SummonInfernalOff", "/" + FiveLetters + " SummonInfernal");
             Macros.Add("CataclysmOff", "/" + FiveLetters + " Cataclysm");
+            Macros.Add("DoorofShadowsOff", "/" + FiveLetters + " DoorofShadows");
 
-            Macros.Add("BanishMO", "/cast [@mouseover] Banish");
-            Macros.Add("FearMO", "/cast [@mouseover] Fear");
-            Macros.Add("HavocMO", "/cast [@mouseover] Havoc");
-            Macros.Add("ImmolateMO", "/cast [@mouseover] Immolate");
-            Macros.Add("ShadowfuryC", "/cast [@cursor] Shadowfury");
-            Macros.Add("ShadowfuryP", "/cast [@player] Shadowfury");
-            Macros.Add("RainofFireC", "/cast [@cursor] Rain of Fire");
-            Macros.Add("RainofFireP", "/cast [@player] Rain of Fire");
-            Macros.Add("SummonInfernalC", "/cast [@cursor] Summon Infernal");
-            Macros.Add("SummonInfernalP", "/cast [@player] Summon Infernal");
-            Macros.Add("CataclysmC", "/cast [@cursor] Cataclysm");
-            Macros.Add("CataclysmP", "/cast [@player] Cataclysm");
+            Macros.Add("BanishMO", "/cast [@mouseover] " + Banish_SpellName(Language));
+            Macros.Add("FearMO", "/cast [@mouseover] " + Fear_SpellName(Language));
+            Macros.Add("HavocMO", "/cast [@mouseover] " + Havoc_SpellName(Language));
+            Macros.Add("ImmolateMO", "/cast [@mouseover] " + Immolate_SpellName(Language));
+            Macros.Add("ShadowfuryC", "/cast [@cursor] " + Shadowfury_SpellName(Language));
+            Macros.Add("ShadowfuryP", "/cast [@player] " + Shadowfury_SpellName(Language));
+            Macros.Add("RainofFireC", "/cast [@cursor] " + RainOfFire_SpellName(Language));
+            Macros.Add("RainofFireP", "/cast [@player] " + RainOfFire_SpellName(Language));
+            Macros.Add("SummonInfernalC", "/cast [@cursor] " + SummonInfernal_SpellName(Language));
+            Macros.Add("SummonInfernalP", "/cast [@player] " + SummonInfernal_SpellName(Language));
+            Macros.Add("CataclysmC", "/cast [@cursor] " + Cataclysm_SpellName(Language));
+            Macros.Add("CataclysmP", "/cast [@player] " + Cataclysm_SpellName(Language));
         }
 
         private void InitializeSpells()
@@ -265,7 +1435,6 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Kick channels after milliseconds", 50, 1500, 500));
             Settings.Add(new Setting("General"));
             Settings.Add(new Setting("Auto Start Combat:", true));
-            Settings.Add(new Setting("Summon Demon Out of Combat:", true));
             Settings.Add(new Setting("Auto Dark Pact @ HP%", 0, 100, 15));
             Settings.Add(new Setting("Auto Drain Life @ HP%", 0, 100, 25));
             Settings.Add(new Setting("Auto Health Funnel @ HP%", 0, 100, 15));
@@ -305,6 +1474,7 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- Talents -", Color.White);
             Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/guide/classes/warlock/destruction/overview-pve-dps", Color.Yellow);
+            Aimsharp.PrintMessage("You will need to summon your primary Demon yourself!", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- General -", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
@@ -326,153 +1496,150 @@ namespace AimsharpWow.Modules
             #region Racial Spells
             if (GetDropDown("Race:") == "draenei")
             {
-                Spellbook.Add("Gift of the Naaru"); //28880
+                Spellbook.Add(GiftOfTheNaaru_SpellName(Language)); //28880
             }
 
             if (GetDropDown("Race:") == "dwarf")
             {
-                Spellbook.Add("Stoneform"); //20594
+                Spellbook.Add(Stoneform_SpellName(Language)); //20594
             }
 
             if (GetDropDown("Race:") == "gnome")
             {
-                Spellbook.Add("Escape Artist"); //20589
+                Spellbook.Add(EscapeArtist_SpellName(Language)); //20589
             }
 
             if (GetDropDown("Race:") == "human")
             {
-                Spellbook.Add("Will to Survive"); //59752
+                Spellbook.Add(WillToSurvive_SpellName(Language)); //59752
             }
 
             if (GetDropDown("Race:") == "lightforgeddraenei")
             {
-                Spellbook.Add("Light's Judgment"); //255647
+                Spellbook.Add(LightsJudgment_SpellName(Language)); //255647
             }
 
             if (GetDropDown("Race:") == "darkirondwarf")
             {
-                Spellbook.Add("Fireblood"); //265221
+                Spellbook.Add(Fireblood_SpellName(Language)); //265221
             }
 
             if (GetDropDown("Race:") == "goblin")
             {
-                Spellbook.Add("Rocket Barrage"); //69041
+                Spellbook.Add(RocketBarrage_SpellName(Language)); //69041
             }
 
             if (GetDropDown("Race:") == "tauren")
             {
-                Spellbook.Add("War Stomp"); //20549
+                Spellbook.Add(WarStomp_SpellName(Language)); //20549
             }
 
             if (GetDropDown("Race:") == "troll")
             {
-                Spellbook.Add("Berserking"); //26297
+                Spellbook.Add(Berserking_SpellName(Language)); //26297
             }
 
             if (GetDropDown("Race:") == "scourge")
             {
-                Spellbook.Add("Will of the Forsaken"); //7744
+                Spellbook.Add(WillOfTheForsaken_SpellName(Language)); //7744
             }
 
             if (GetDropDown("Race:") == "nightborne")
             {
-                Spellbook.Add("Arcane Pulse"); //260364
+                Spellbook.Add(ArcanePulse_SpellName(Language)); //260364
             }
 
             if (GetDropDown("Race:") == "highmountaintauren")
             {
-                Spellbook.Add("Bull Rush"); //255654
+                Spellbook.Add(BullRush_SpellName(Language)); //255654
             }
 
             if (GetDropDown("Race:") == "magharorc")
             {
-                Spellbook.Add("Ancestral Call"); //274738
+                Spellbook.Add(AncestralCall_SpellName(Language)); //274738
             }
 
             if (GetDropDown("Race:") == "vulpera")
             {
-                Spellbook.Add("Bag of Tricks"); //312411
+                Spellbook.Add(BagOfTricks_SpellName(Language)); //312411
             }
 
             if (GetDropDown("Race:") == "orc")
             {
-                Spellbook.Add("Blood Fury"); //20572, 33702, 33697
+                Spellbook.Add(BloodFury_SpellName(Language)); //20572, 33702, 33697
             }
 
             if (GetDropDown("Race:") == "bloodelf")
             {
-                Spellbook.Add("Arcane Torrent"); //28730, 25046, 50613, 69179, 80483, 129597
+                Spellbook.Add(ArcaneTorrent_SpellName(Language)); //28730, 25046, 50613, 69179, 80483, 129597
             }
 
             if (GetDropDown("Race:") == "nightelf")
             {
-                Spellbook.Add("Shadowmeld"); //58984
+                Spellbook.Add(Shadowmeld_SpellName(Language)); //58984
             }
             #endregion
 
             #region Reinitialize Lists
-            m_DebuffsList = new List<string> { "Banish", "Fear", "Immolate", "Havoc", };
+            m_DebuffsList = new List<string> { Banish_SpellName(Language), Fear_SpellName(Language), Immolate_SpellName(Language), Havoc_SpellName(Language), };
             m_BuffsList = new List<string> {  };
-            m_ItemsList = new List<string> { "Healthstone", };
+            m_ItemsList = new List<string> { Healthstone_SpellName(Language), };
             m_SpellBook = new List<string> {
                 //Covenants
-                "Scouring Tithe", //312321
-                "Impending Catastrophe", //321792
-                "Soul Rot", //325640
-                "Decimating Bolt", //325289
+                ScouringTithe_SpellName(Language), //312321
+                ImpendingCatastrophe_SpellName(Language), //321792
+                SoulRot_SpellName(Language), //325640
+                DecimatingBolt_SpellName(Language), //325289
 
-                "Summon Steward", "Fleshcraft", "Door of Shadows",
+                SummonSteward_SpellName(Language), Fleshcraft_SpellName(Language), DoorOfShadows_SpellName(Language),
 
                 //Interrupt
-                "Spell Lock", //119910
+                SpellLock_SpellName(Language), //119910
 
                 //General
                 AmplifyCurse_SpellName(Language), //328774
-                "Banish", //710
-                "Corruption", //172
-                "Curse of Exhaustion", //334275
-                "Curse of Tongues", //1714
-                "Curse of Weakness", //702
-                "Dark Pact", //108416
-                "Demonic Circle: Teleport", //48020
-                "Demonic Circle", //48018
-                "Demonic Gateway", //111771
-                "Drain Life", //234153
-                "Fear", //5782
-                "Fel Domination", //333889
-                "Health Funnel", //755
-                "Howl of Terror", //5484
+                Banish_SpellName(Language), //710
+                Corruption_SpellName(Language), //172
+                CurseOfExhaustion_SpellName(Language), //334275
+                CurseOfTongues_SpellName(Language), //1714
+                CurseOfWeakness_SpellName(Language), //702
+                DarkPact_SpellName(Language), //108416
+                DemonicCircle_Teleport_SpellName(Language), //48020
+                DemonicCircle_SpellName(Language), //48018
+                DemonicGateway_SpellName(Language), //111771
+                DrainLife_SpellName(Language), //234153
+                Fear_SpellName(Language), //5782
+                FelDomination_SpellName(Language), //333889
+                HealthFunnel_SpellName(Language), //755
+                HowlOfTerror_SpellName(Language), //5484
                 InquisitorsGaze_SpellName(Language), //386344
-                "Mortal Coil", //6789
-                "Shadow Bolt", //686
-                "Shadowfury", //30283
-                "Soulstone", //20707
+                MortalCoil_SpellName(Language), //6789
+                ShadowBolt_SpellName(Language), //686
+                Shadowfury_SpellName(Language), //30283
+                Soulburn_SpellName(Language), //385899
                 SummonSoulkeeper_SpellName(Language), //386244
-                "Unending Resolve", //104773
-                //"Command Demon", //119898
-                //"Create Healthstone", //6201
-                //"Subjugate Demon", //1098
+                UnendingResolve_SpellName(Language), //104773
 
                 //Pet
-                "Devour Magic", //19505
-                "Seduction", //6358
-                "Singe Magic", //89808
+                DevourMagic_SpellName(Language), //19505
+                Seduction_SpellName(Language), //6358
+                SingeMagic_SpellName(Language), //89808
 
                 //Destruction
-                "Burning Rush", //111400
-                "Cataclysm", //152108 - place
-                "Channel Demonfire", //196447
-                "Chaos Bolt", //116858
-                "Conflagrate", //17962
-                "Dark Soul: Instability", //113858
-                "Grimoire of Sacrifice", //108503
-                "Havoc", //80240
-                "Immolate", //348
-                "Incinerate", //29722
-                "Rain of Fire", //5740
-                "Shadowburn", //17877
-                "Soul Fire", //6353
-                "Summon Infernal", //1122 - place
+                Cataclysm_SpellName(Language), //152108 - place
+                ChannelDemonfire_SpellName(Language), //196447
+                ChaosBolt_SpellName(Language), //116858
+                Conflagrate_SpellName(Language), //17962
+                DarkSoul_Instability_SpellName(Language), //113858
+                DimensionalRift_SpellName(Language), //387976
+                GrimoireOfSacrifice_SpellName(Language), //108503
+                Havoc_SpellName(Language), //80240
+                Immolate_SpellName(Language), //348
+                Incinerate_SpellName(Language), //29722
+                RainOfFire_SpellName(Language), //5740,42223
+                Shadowburn_SpellName(Language), //17877
+                SoulFire_SpellName(Language), //6353
+                SummonInfernal_SpellName(Language), //1122 - place
             };
             #endregion
 
@@ -548,13 +1715,13 @@ namespace AimsharpWow.Modules
 
             //Auto Shadowburn (Leveling/Questing)
             bool Leveling = GetCheckBox("Leveling/Questing:");
-            if (Leveling && Aimsharp.CanCast("Shadowburn", "target", true, false) && Aimsharp.Health("target") <= 20 && Aimsharp.TargetIsEnemy() && TargetAlive() && TargetInCombat)
+            if (Leveling && Aimsharp.CanCast(Shadowburn_SpellName(Language), "target", true, false) && Aimsharp.Health("target") <= 20 && Aimsharp.TargetIsEnemy() && TargetAlive() && TargetInCombat)
             {
                 if (Aimsharp.CastingID("player") > 0)
                 {
                     Aimsharp.StopCasting();
                 }
-                Aimsharp.Cast("Shadowburn");
+                Aimsharp.Cast(Shadowburn_SpellName(Language));
                 return true;
             }
             #endregion
@@ -570,27 +1737,27 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("DoorofShadows") && Aimsharp.SpellCooldown("Door of Shadows") - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("DoorofShadows") && Aimsharp.SpellCooldown(DoorOfShadows_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("Shadowfury") && Aimsharp.SpellCooldown("Shadowfury") - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("Shadowfury") && Aimsharp.SpellCooldown(Shadowfury_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("RainofFire") && Aimsharp.SpellCooldown("Rain of Fire") - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("RainofFire") && Aimsharp.SpellCooldown(RainOfFire_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("Cataclysm") && Aimsharp.SpellCooldown("Cataclysm") - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("Cataclysm") && Aimsharp.SpellCooldown(Cataclysm_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("SummonInfernal") && Aimsharp.SpellCooldown("Summon Infernal") - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("SummonInfernal") && Aimsharp.SpellCooldown(SummonInfernal_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -611,7 +1778,7 @@ namespace AimsharpWow.Modules
                     KickValueRandom = KickValue;
                     KickChannelsAfterRandom = KickChannelsAfter;
                 }
-                if (Aimsharp.CanCast("Spell Lock", "target", true, true))
+                if (Aimsharp.CanCast(SpellLock_SpellName(Language), "target", true, true))
                 {
                     if (IsInterruptable && !IsChanneling && CastingRemaining < KickValueRandom)
                     {
@@ -619,12 +1786,12 @@ namespace AimsharpWow.Modules
                         {
                             Aimsharp.PrintMessage("Target Casting ID: " + Aimsharp.CastingID("target") + ", Interrupting", Color.Purple);
                         }
-                        Aimsharp.Cast("Spell Lock", true);
+                        Aimsharp.Cast(SpellLock_SpellName(Language), true);
                         return true;
                     }
                 }
 
-                if (Aimsharp.CanCast("Spell Lock", "target", true, true))
+                if (Aimsharp.CanCast(SpellLock_SpellName(Language), "target", true, true))
                 {
                     if (IsInterruptable && IsChanneling && CastingElapsed > KickChannelsAfterRandom)
                     {
@@ -632,7 +1799,7 @@ namespace AimsharpWow.Modules
                         {
                             Aimsharp.PrintMessage("Target Channeling ID: " + Aimsharp.CastingID("target") + ", Interrupting", Color.Purple);
                         }
-                        Aimsharp.Cast("Spell Lock", true);
+                        Aimsharp.Cast(SpellLock_SpellName(Language), true);
                         return true;
                     }
                 }
@@ -641,7 +1808,7 @@ namespace AimsharpWow.Modules
 
             #region Auto Spells and Items
             //Auto Healthstone
-            if (Aimsharp.CanUseItem("Healthstone", false) && Aimsharp.ItemCooldown("Healthstone") == 0)
+            if (Aimsharp.CanUseItem(Healthstone_SpellName(Language), false) && Aimsharp.ItemCooldown(Healthstone_SpellName(Language)) == 0)
             {
                 if (Aimsharp.Health("player") <= GetSlider("Auto Healthstone @ HP%"))
                 {
@@ -655,11 +1822,11 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Unending Resolve
-            if (Aimsharp.CanCast("Unending Resolve", "player", false, true))
+            if (Aimsharp.CanCast(UnendingResolve_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Unending Resolve @ HP%"))
                 {
-                    Aimsharp.Cast("Unending Resolve");
+                    Aimsharp.Cast(UnendingResolve_SpellName(Language));
                     if (Debug)
                     {
                         Aimsharp.PrintMessage("Casting Unending Resolve - Player HP% " + PlayerHP + " due to setting being on HP% " + GetSlider("Auto Unending Resolve @ HP%"), Color.Purple);
@@ -669,11 +1836,11 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Dark Pact
-            if (Aimsharp.CanCast("Dark Pact", "player", false, true))
+            if (Aimsharp.CanCast(DarkPact_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Dark Pact @ HP%"))
                 {
-                    Aimsharp.Cast("Dark Pact");
+                    Aimsharp.Cast(DarkPact_SpellName(Language));
                     if (Debug)
                     {
                         Aimsharp.PrintMessage("Casting Dark Pact - Player HP% " + PlayerHP + " due to setting being on HP% " + GetSlider("Auto Dark Pact @ HP%"), Color.Purple);
@@ -683,11 +1850,11 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Drain Life
-            if (Aimsharp.CanCast("Drain Life", "target", true, true))
+            if (Aimsharp.CanCast(DrainLife_SpellName(Language), "target", true, true))
             {
                 if (PlayerHP <= GetSlider("Auto Drain Life @ HP%"))
                 {
-                    Aimsharp.Cast("Drain Life");
+                    Aimsharp.Cast(DrainLife_SpellName(Language));
                     if (Debug)
                     {
                         Aimsharp.PrintMessage("Casting Drain Life - Player HP% " + PlayerHP + " due to setting being on HP% " + GetSlider("Auto Drain Life @ HP%"), Color.Purple);
@@ -697,11 +1864,11 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Health Funnel
-            if (Aimsharp.CanCast("Health Funnel", "pet", true, true))
+            if (Aimsharp.CanCast(HealthFunnel_SpellName(Language), "pet", true, true))
             {
                 if (PetHP <= GetSlider("Auto Health Funnel @ HP%") && PetHP > 1)
                 {
-                    Aimsharp.Cast("Health Funnel");
+                    Aimsharp.Cast(HealthFunnel_SpellName(Language));
                     if (Debug)
                     {
                         Aimsharp.PrintMessage("Casting Health Funnel - Pet HP% " + PetHP + " due to setting being on HP% " + GetSlider("Auto Health Funnel @ HP%"), Color.Purple);
@@ -723,7 +1890,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Banish && Aimsharp.CanCast("Banish", "mouseover", true, true) && !Moving)
+            if (Banish && Aimsharp.CanCast(Banish_SpellName(Language), "mouseover", true, true) && !Moving)
             {
                 if (Debug)
                 {
@@ -744,7 +1911,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Fear && Aimsharp.CanCast("Fear", "mouseover", true, true) && !Moving)
+            if (Fear && Aimsharp.CanCast(Fear_SpellName(Language), "mouseover", true, true) && !Moving)
             {
                 if (Debug)
                 {
@@ -755,7 +1922,7 @@ namespace AimsharpWow.Modules
             }
 
             bool MortalCoil = Aimsharp.IsCustomCodeOn("MortalCoil");
-            if (Aimsharp.SpellCooldown("Shadowfury") - Aimsharp.GCD() > 2000 && MortalCoil)
+            if (Aimsharp.SpellCooldown(Shadowfury_SpellName(Language)) - Aimsharp.GCD() > 2000 && MortalCoil)
             {
                 if (Debug)
                 {
@@ -765,18 +1932,18 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (MortalCoil && Aimsharp.CanCast("Mortal Coil", "target", true, true))
+            if (MortalCoil && Aimsharp.CanCast(MortalCoil_SpellName(Language), "target", true, true))
             {
                 if (Debug)
                 {
                     Aimsharp.PrintMessage("Casting Mortal Coil - Queue", Color.Purple);
                 }
-                Aimsharp.Cast("Mortal Coil");
+                Aimsharp.Cast(MortalCoil_SpellName(Language));
                 return true;
             }
 
             bool HowlofTerror = Aimsharp.IsCustomCodeOn("HowlofTerror");
-            if (Aimsharp.SpellCooldown("Shadowfury") - Aimsharp.GCD() > 2000 && HowlofTerror)
+            if (Aimsharp.SpellCooldown(Shadowfury_SpellName(Language)) - Aimsharp.GCD() > 2000 && HowlofTerror)
             {
                 if (Debug)
                 {
@@ -786,18 +1953,18 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (HowlofTerror && Aimsharp.CanCast("Howl of Terror", "player", false, true))
+            if (HowlofTerror && Aimsharp.CanCast(HowlOfTerror_SpellName(Language), "player", false, true))
             {
                 if (Debug)
                 {
                     Aimsharp.PrintMessage("Casting Howl of Terror - Queue", Color.Purple);
                 }
-                Aimsharp.Cast("Howl of Terror");
+                Aimsharp.Cast(HowlOfTerror_SpellName(Language));
                 return true;
             }
 
             bool DoorofShadows = Aimsharp.IsCustomCodeOn("DoorofShadows");
-            if ((Aimsharp.SpellCooldown("Door of Shadows") - Aimsharp.GCD() > 2000 || Moving) && DoorofShadows)
+            if ((Aimsharp.SpellCooldown(DoorOfShadows_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && DoorofShadows)
             {
                 if (Debug)
                 {
@@ -807,20 +1974,20 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (DoorofShadows && Aimsharp.CanCast("Door of Shadows", "player", false, true))
+            if (DoorofShadows && Aimsharp.CanCast(DoorOfShadows_SpellName(Language), "player", false, true))
             {
                 if (Debug)
                 {
                     Aimsharp.PrintMessage("Casting Door of Shadows - Queue", Color.Purple);
                 }
-                Aimsharp.Cast("Door of Shadows");
+                Aimsharp.Cast(DoorOfShadows_SpellName(Language));
                 return true;
             }
 
             //Queue Shadowfury
             string ShadowfuryCast = GetDropDown("Shadowfury Cast:");
             bool Shadowfury = Aimsharp.IsCustomCodeOn("Shadowfury");
-            if ((Aimsharp.SpellCooldown("Shadowfury") - Aimsharp.GCD() > 2000 || Moving) && Shadowfury)
+            if ((Aimsharp.SpellCooldown(Shadowfury_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Shadowfury)
             {
                 if (Debug)
                 {
@@ -830,7 +1997,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Shadowfury && Aimsharp.CanCast("Shadowfury", "player", false, true) && !Moving)
+            if (Shadowfury && Aimsharp.CanCast(Shadowfury_SpellName(Language), "player", false, true) && !Moving)
             {
                 switch (ShadowfuryCast)
                 {
@@ -839,7 +2006,7 @@ namespace AimsharpWow.Modules
                         {
                             Aimsharp.PrintMessage("Casting Shadowfury - " + ShadowfuryCast + " - Queue", Color.Purple);
                         }
-                        Aimsharp.Cast("Shadowfury");
+                        Aimsharp.Cast(Shadowfury_SpellName(Language));
                         return true;
                     case "Player":
                         if (Debug)
@@ -861,7 +2028,7 @@ namespace AimsharpWow.Modules
             //Queue Rain of Fire
             string RainofFireCast = GetDropDown("Rain of Fire Cast:");
             bool RainofFire = Aimsharp.IsCustomCodeOn("RainofFire");
-            if ((Aimsharp.SpellCooldown("Rain of Fire") - Aimsharp.GCD() > 2000 || Moving || Aimsharp.LastCast() == "Rain of Fire") && RainofFire)
+            if ((Aimsharp.SpellCooldown(RainOfFire_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving || Aimsharp.LastCast() == RainOfFire_SpellName(Language)) && RainofFire)
             {
                 if (Debug)
                 {
@@ -871,7 +2038,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (RainofFire && Aimsharp.CanCast("Rain of Fire", "player", false, true) && !Moving)
+            if (RainofFire && Aimsharp.CanCast(RainOfFire_SpellName(Language), "player", false, true) && !Moving)
             {
                 switch (RainofFireCast)
                 {
@@ -880,7 +2047,7 @@ namespace AimsharpWow.Modules
                         {
                             Aimsharp.PrintMessage("Casting Rain of Fire - " + RainofFireCast + " - Queue", Color.Purple);
                         }
-                        Aimsharp.Cast("Rain of Fire");
+                        Aimsharp.Cast(RainOfFire_SpellName(Language));
                         return true;
                     case "Player":
                         if (Debug)
@@ -902,7 +2069,7 @@ namespace AimsharpWow.Modules
             //Queue Summon Infernal
             string SummonInfernalCast = GetDropDown("Summon Infernal Cast:");
             bool SummonInfernal = Aimsharp.IsCustomCodeOn("SummonInfernal");
-            if ((Aimsharp.SpellCooldown("Summon Infernal") - Aimsharp.GCD() > 2000 || Moving) && SummonInfernal)
+            if ((Aimsharp.SpellCooldown(SummonInfernal_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && SummonInfernal)
             {
                 if (Debug)
                 {
@@ -912,7 +2079,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (SummonInfernal && Aimsharp.CanCast("Summon Infernal", "player", false, true) && !Moving)
+            if (SummonInfernal && Aimsharp.CanCast(SummonInfernal_SpellName(Language), "player", false, true) && !Moving)
             {
                 switch (SummonInfernalCast)
                 {
@@ -921,7 +2088,7 @@ namespace AimsharpWow.Modules
                         {
                             Aimsharp.PrintMessage("Casting Summon Infernal - " + SummonInfernalCast + " - Queue", Color.Purple);
                         }
-                        Aimsharp.Cast("Summon Infernal");
+                        Aimsharp.Cast(SummonInfernal_SpellName(Language));
                         return true;
                     case "Player":
                         if (Debug)
@@ -943,7 +2110,7 @@ namespace AimsharpWow.Modules
             //Queue Cataclysm
             string CataclysmCast = GetDropDown("Cataclysm Cast:");
             bool Cataclysm = Aimsharp.IsCustomCodeOn("Cataclysm");
-            if ((Aimsharp.SpellCooldown("Cataclysm") - Aimsharp.GCD() > 2000 || Moving) && Cataclysm)
+            if ((Aimsharp.SpellCooldown(Cataclysm_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Cataclysm)
             {
                 if (Debug)
                 {
@@ -953,7 +2120,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Cataclysm && Aimsharp.CanCast("Cataclysm", "player", false, true) && !Moving)
+            if (Cataclysm && Aimsharp.CanCast(Cataclysm_SpellName(Language), "player", false, true) && !Moving)
             {
                 switch (CataclysmCast)
                 {
@@ -962,7 +2129,7 @@ namespace AimsharpWow.Modules
                         {
                             Aimsharp.PrintMessage("Casting Cataclysm - " + CataclysmCast + " - Queue", Color.Purple);
                         }
-                        Aimsharp.Cast("Cataclysm");
+                        Aimsharp.Cast(Cataclysm_SpellName(Language));
                         return true;
                     case "Player":
                         if (Debug)
@@ -984,7 +2151,7 @@ namespace AimsharpWow.Modules
 
             #region Auto Target
             //Hekili Cycle
-            if (!NoCycle && Aimsharp.CustomFunction("CycleNotEnabled") == 1 && Aimsharp.CustomFunction("HekiliCycle") == 1 && Enemies > 1 && (SpellID1 == 348 && Aimsharp.HasDebuff("Immolate", "target", true) || SpellID1 != 80240))
+            if (!NoCycle && Aimsharp.CustomFunction("CycleNotEnabled") == 1 && Aimsharp.CustomFunction("HekiliCycle") == 1 && Enemies > 1 && (SpellID1 == 348 && Aimsharp.HasDebuff(Immolate_SpellName(Language), "target", true) || SpellID1 != 80240))
             {
                 System.Threading.Thread.Sleep(50);
                 Aimsharp.Cast("TargetEnemy");
@@ -1004,7 +2171,7 @@ namespace AimsharpWow.Modules
 
             if (Aimsharp.TargetIsEnemy() && TargetAlive() && TargetInCombat && Wait <= 200)
             {
-                if (Aimsharp.Range("target") <= 40 && !Aimsharp.HasDebuff("Banish", "target", true) && !Aimsharp.HasDebuff("Fear", "target", true) && !Banish && !Fear)
+                if (Aimsharp.Range("target") <= 40 && !Aimsharp.HasDebuff(Banish_SpellName(Language), "target", true) && !Aimsharp.HasDebuff(Fear_SpellName(Language), "target", true) && !Banish && !Fear)
                 {
                     #region Trinkets
                     if (CooldownsToggle == 1 && UseTrinketsCD && Aimsharp.CanUseTrinket(0))
@@ -1050,226 +2217,226 @@ namespace AimsharpWow.Modules
 
                     #region Racials
                     //Racials
-                    if (SpellID1 == 28880 && Aimsharp.CanCast("Gift of the Naaru", "player", true, true))
+                    if (SpellID1 == 28880 && Aimsharp.CanCast(GiftOfTheNaaru_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Gift of the Naaru - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Gift of the Naaru");
+                        Aimsharp.Cast(GiftOfTheNaaru_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 20594 && Aimsharp.CanCast("Stoneform", "player", true, true))
+                    if (SpellID1 == 20594 && Aimsharp.CanCast(Stoneform_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Stoneform - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Stoneform");
+                        Aimsharp.Cast(Stoneform_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 20589 && Aimsharp.CanCast("Escape Artist", "player", true, true))
+                    if (SpellID1 == 20589 && Aimsharp.CanCast(EscapeArtist_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Escape Artist - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Escape Artist");
+                        Aimsharp.Cast(EscapeArtist_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 59752 && Aimsharp.CanCast("Will to Survive", "player", true, true))
+                    if (SpellID1 == 59752 && Aimsharp.CanCast(WillToSurvive_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Will to Survive - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Will to Survive");
+                        Aimsharp.Cast(WillToSurvive_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 255647 && Aimsharp.CanCast("Light's Judgment", "player", true, true))
+                    if (SpellID1 == 255647 && Aimsharp.CanCast(LightsJudgment_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Light's Judgment - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Light's Judgment");
+                        Aimsharp.Cast(LightsJudgment_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 265221 && Aimsharp.CanCast("Fireblood", "player", true, true))
+                    if (SpellID1 == 265221 && Aimsharp.CanCast(Fireblood_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Fireblood - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Fireblood");
+                        Aimsharp.Cast(Fireblood_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 69041 && Aimsharp.CanCast("Rocket Barrage", "player", true, true))
+                    if (SpellID1 == 69041 && Aimsharp.CanCast(RocketBarrage_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Rocket Barrage - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Rocket Barrage");
+                        Aimsharp.Cast(RocketBarrage_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 20549 && Aimsharp.CanCast("War Stomp", "player", true, true))
+                    if (SpellID1 == 20549 && Aimsharp.CanCast(WarStomp_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting War Stomp - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("War Stomp");
+                        Aimsharp.Cast(WarStomp_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 7744 && Aimsharp.CanCast("Will of the Forsaken", "player", true, true))
+                    if (SpellID1 == 7744 && Aimsharp.CanCast(WillOfTheForsaken_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Will of the Forsaken - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Will of the Forsaken");
+                        Aimsharp.Cast(WillOfTheForsaken_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 260364 && Aimsharp.CanCast("Arcane Pulse", "player", true, true))
+                    if (SpellID1 == 260364 && Aimsharp.CanCast(ArcanePulse_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Arcane Pulse - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Arcane Pulse");
+                        Aimsharp.Cast(ArcanePulse_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 255654 && Aimsharp.CanCast("Bull Rush", "player", true, true))
+                    if (SpellID1 == 255654 && Aimsharp.CanCast(BullRush_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Bull Rush - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Bull Rush");
+                        Aimsharp.Cast(BullRush_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 312411 && Aimsharp.CanCast("Bag of Tricks", "player", true, true))
+                    if (SpellID1 == 312411 && Aimsharp.CanCast(BagOfTricks_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Bag of Tricks - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Bag of Tricks");
+                        Aimsharp.Cast(BagOfTricks_SpellName(Language));
                         return true;
                     }
 
-                    if ((SpellID1 == 20572 || SpellID1 == 33702 || SpellID1 == 33697) && Aimsharp.CanCast("Blood Fury", "player", true, true))
+                    if ((SpellID1 == 20572 || SpellID1 == 33702 || SpellID1 == 33697) && Aimsharp.CanCast(BloodFury_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Blood Fury - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Blood Fury");
+                        Aimsharp.Cast(BloodFury_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 26297 && Aimsharp.CanCast("Berserking", "player", false, true))
+                    if (SpellID1 == 26297 && Aimsharp.CanCast(Berserking_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Berserking - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Berserking");
+                        Aimsharp.Cast(Berserking_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 274738 && Aimsharp.CanCast("Ancestral Call", "player", false, true))
+                    if (SpellID1 == 274738 && Aimsharp.CanCast(AncestralCall_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Ancestral Call - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Ancestral Call");
+                        Aimsharp.Cast(AncestralCall_SpellName(Language));
                         return true;
                     }
 
-                    if ((SpellID1 == 28730 || SpellID1 == 25046 || SpellID1 == 50613 || SpellID1 == 69179 || SpellID1 == 80483 || SpellID1 == 129597) && Aimsharp.CanCast("Arcane Torrent", "player", true, false))
+                    if ((SpellID1 == 28730 || SpellID1 == 25046 || SpellID1 == 50613 || SpellID1 == 69179 || SpellID1 == 80483 || SpellID1 == 129597) && Aimsharp.CanCast(ArcaneTorrent_SpellName(Language), "player", true, false))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Arcane Torrent - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Arcane Torrent");
+                        Aimsharp.Cast(ArcaneTorrent_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 58984 && Aimsharp.CanCast("Shadowmeld", "player", false, true))
+                    if (SpellID1 == 58984 && Aimsharp.CanCast(Shadowmeld_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Shadowmeld - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Shadowmeld");
+                        Aimsharp.Cast(Shadowmeld_SpellName(Language));
                         return true;
                     }
                     #endregion
 
                     #region Covenants
                     ///Covenants
-                    if (SpellID1 == 312321 && Aimsharp.CanCast("Scouring Tithe", "target", true, true))
+                    if (SpellID1 == 312321 && Aimsharp.CanCast(ScouringTithe_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Scouring Tithe - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Scouring Tithe");
+                        Aimsharp.Cast(ScouringTithe_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 321792 && Aimsharp.CanCast("Impending Catastrophe", "target", true, true))
+                    if (SpellID1 == 321792 && Aimsharp.CanCast(ImpendingCatastrophe_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Impending Catastrophe - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Impending Catastrophe");
+                        Aimsharp.Cast(ImpendingCatastrophe_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 325640 && Aimsharp.CanCast("Soul Rot", "target", true, true))
+                    if (SpellID1 == 325640 && Aimsharp.CanCast(SoulRot_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Soul Rot - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Soul Rot");
+                        Aimsharp.Cast(SoulRot_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 325289 && Aimsharp.CanCast("Decimating Bolt", "target", true, true))
+                    if (SpellID1 == 325289 && Aimsharp.CanCast(DecimatingBolt_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Decimating Bolt - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Decimating Bolt");
+                        Aimsharp.Cast(DecimatingBolt_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 324631 && Aimsharp.CanCast("Fleshcraft", "player", false, true) && !Moving)
+                    if (SpellID1 == 324631 && Aimsharp.CanCast(Fleshcraft_SpellName(Language), "player", false, true) && !Moving)
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Fleshcraft - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Fleshcraft");
+                        Aimsharp.Cast(Fleshcraft_SpellName(Language));
                         return true;
                     }
                     #endregion
@@ -1277,13 +2444,13 @@ namespace AimsharpWow.Modules
                     #region General Spells - No GCD
                     ///Class Spells
                     //Target - No GCD
-                    if (SpellID1 == 19647 && Aimsharp.CanCast("Spell Lock", "target", true, true))
+                    if (SpellID1 == 19647 && Aimsharp.CanCast(SpellLock_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Spell Lock - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Spell Lock", true);
+                        Aimsharp.Cast(SpellLock_SpellName(Language), true);
                         return true;
                     }
 
@@ -1300,265 +2467,171 @@ namespace AimsharpWow.Modules
 
                     #region General Spells - Target GCD
                     //Target - GCD
-                    /*
-                    if (SpellID1 == 119898 && Aimsharp.CanCast("Command Demon", "target", true, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Command Demon - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Command Demon");
-                        return true;
-                    }
-                    */
 
-                    if (SpellID1 == 172 && Aimsharp.CanCast("Corruption", "target", true, true))
+                    if (SpellID1 == 172 && Aimsharp.CanCast(Corruption_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Corruption - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Corruption");
+                        Aimsharp.Cast(Corruption_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 5782 && Aimsharp.CanCast("Fear", "target", true, true))
+                    if (SpellID1 == 5782 && Aimsharp.CanCast(Fear_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Fear - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Fear");
+                        Aimsharp.Cast(Fear_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 334275 && Aimsharp.CanCast("Curse of Exhaustion", "target", true, true))
+                    if (SpellID1 == 334275 && Aimsharp.CanCast(CurseOfExhaustion_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Curse of Exhaustion - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Curse of Exhaustion");
+                        Aimsharp.Cast(CurseOfExhaustion_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 755 && Aimsharp.CanCast("Health Funnel", "pet", true, true))
+                    if (SpellID1 == 755 && Aimsharp.CanCast(HealthFunnel_SpellName(Language), "pet", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Health Funnel - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Health Funnel");
+                        Aimsharp.Cast(HealthFunnel_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 702 && Aimsharp.CanCast("Curse of Weakness", "target", true, true))
+                    if (SpellID1 == 702 && Aimsharp.CanCast(CurseOfWeakness_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Curse of Weakness - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Curse of Weakness");
+                        Aimsharp.Cast(CurseOfWeakness_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 686 && Aimsharp.CanCast("Shadow Bolt", "target", true, true))
+                    if (SpellID1 == 686 && Aimsharp.CanCast(ShadowBolt_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Curse of Weakness - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Shadow Bolt");
+                        Aimsharp.Cast(ShadowBolt_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 234153 && Aimsharp.CanCast("Drain Life", "target", true, true))
+                    if (SpellID1 == 234153 && Aimsharp.CanCast(DrainLife_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Drain Life - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Drain Life");
+                        Aimsharp.Cast(DrainLife_SpellName(Language));
                         return true;
                     }
 
-                    /*
-                    if (SpellID1 == 1098 && Aimsharp.CanCast("Subjugate Demon", "target", true, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Subjugate Demon - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Subjugate Demon");
-                        return true;
-                    }
-                    */
-
-                    if (SpellID1 == 1714 && Aimsharp.CanCast("Curse of Tongues", "target", true, true))
+                    if (SpellID1 == 1714 && Aimsharp.CanCast(CurseOfTongues_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Curse of Tongues - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Curse of Tongues");
+                        Aimsharp.Cast(CurseOfTongues_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 710 && Aimsharp.CanCast("Banish", "target", true, true))
+                    if (SpellID1 == 710 && Aimsharp.CanCast(Banish_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Banish - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Banish");
+                        Aimsharp.Cast(Banish_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 19505 && Aimsharp.CanCast("Devour Magic", "target", true, true))
+                    if (SpellID1 == 19505 && Aimsharp.CanCast(DevourMagic_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Devour Magic - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Devour Magic");
+                        Aimsharp.Cast(DevourMagic_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 6358 && Aimsharp.CanCast("Seduction", "target", true, true))
+                    if (SpellID1 == 6358 && Aimsharp.CanCast(Seduction_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Seduction - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Seduction");
+                        Aimsharp.Cast(Seduction_SpellName(Language));
                         return true;
                     }
                     #endregion
 
                     #region General Spells - Player GCD
-                    /*
-                    if (SpellID1 == 6201 && Aimsharp.CanCast("Create Healthstone", "player", false, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Create Healthstone - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Create Healthstone");
-                        return true;
-                    }
-                    */
 
-                    if (SpellID1 == 333889 && Aimsharp.CanCast("Fel Domination", "player", false, true))
+                    if (SpellID1 == 333889 && Aimsharp.CanCast(FelDomination_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Fel Domination - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Fel Domination");
+                        Aimsharp.Cast(FelDomination_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 688 && Aimsharp.CanCast("Summon Imp", "player", false, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Summon Imp - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Summon Imp");
-                        return true;
-                    }
-
-                    if (SpellID1 == 697 && Aimsharp.CanCast("Summon Voidwalker", "player", false, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Summon Voidwalker - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Summon Voidwalker");
-                        return true;
-                    }
-
-                    if (SpellID1 == 691 && Aimsharp.CanCast("Summon Felhunter", "player", false, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Summon Felhunter - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Summon Felhunter");
-                        return true;
-                    }
-
-                    if (SpellID1 == 712 && Aimsharp.CanCast("Summon Succubus", "player", false, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Summon Succubus - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Summon Succubus");
-                        return true;
-                    }
-
-                    if (SpellID1 == 30146 && Aimsharp.CanCast("Summon Felguard", "player", false, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Summon Felguard - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Summon Felguard");
-                        return true;
-                    }
-
-                    if (SpellID1 == 104773 && Aimsharp.CanCast("Unending Resolve", "player", false, true))
+                    if (SpellID1 == 104773 && Aimsharp.CanCast(UnendingResolve_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Unending Resolve - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Unending Resolve");
+                        Aimsharp.Cast(UnendingResolve_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 20707 && Aimsharp.CanCast("Soulstone", "player", false, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Soulstone - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Soulstone");
-                        return true;
-                    }
-
-                    if (SpellID1 == 48018 && Aimsharp.CanCast("Demonic Circle", "player", false, true))
+                    if (SpellID1 == 48018 && Aimsharp.CanCast(DemonicCircle_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Demonic Circle - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Demonic Circle");
+                        Aimsharp.Cast(DemonicCircle_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 48020 && Aimsharp.CanCast("Demonic Circle: Teleport", "player", false, true))
+                    if (SpellID1 == 48020 && Aimsharp.CanCast(DemonicCircle_Teleport_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Demonic Circle: Teleport - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Demonic Circle: Teleport");
+                        Aimsharp.Cast(DemonicCircle_Teleport_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 111771 && Aimsharp.CanCast("Demonic Gateway", "player", false, true))
+                    if (SpellID1 == 111771 && Aimsharp.CanCast(DemonicGateway_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Demonic Gateway - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Demonic Gateway");
+                        Aimsharp.Cast(DemonicGateway_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 30283 && Aimsharp.CanCast("Shadowfury", "player", false, true))
+                    if (SpellID1 == 30283 && Aimsharp.CanCast(Shadowfury_SpellName(Language), "player", false, true))
                     {
                         switch (ShadowfuryCast)
                         {
@@ -1567,7 +2640,7 @@ namespace AimsharpWow.Modules
                                 {
                                     Aimsharp.PrintMessage("Casting Shadowfury - " + ShadowfuryCast + " - Queue", Color.Purple);
                                 }
-                                Aimsharp.Cast("Shadowfury");
+                                Aimsharp.Cast(Shadowfury_SpellName(Language));
                                 return true;
                             case "Player":
                                 if (Debug)
@@ -1586,13 +2659,13 @@ namespace AimsharpWow.Modules
                         }
                     }
 
-                    if (SpellID1 == 89808 && Aimsharp.CanCast("Singe Magic", "player", false, true))
+                    if (SpellID1 == 89808 && Aimsharp.CanCast(SingeMagic_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Singe Magic - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Singe Magic");
+                        Aimsharp.Cast(SingeMagic_SpellName(Language));
                         return true;
                     }
 
@@ -1606,13 +2679,13 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 385899 && Aimsharp.CanCast("Soulburn", "player", false, true))
+                    if (SpellID1 == 385899 && Aimsharp.CanCast(Soulburn_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Soulburn - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Soulburn");
+                        Aimsharp.Cast(Soulburn_SpellName(Language));
                         return true;
                     }
 
@@ -1628,17 +2701,27 @@ namespace AimsharpWow.Modules
                     #endregion
 
                     #region Destruction Spells - Player GCD
-                    if (SpellID1 == 196447 && Aimsharp.CanCast("Channel Demonfire", "player", false, true))
+                    if (SpellID1 == 196447 && Aimsharp.CanCast(ChannelDemonfire_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Channel Demonfire - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Channel Demonfire");
+                        Aimsharp.Cast(ChannelDemonfire_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 1122 && Aimsharp.CanCast("Summon Infernal", "player", false, true))
+                    if (SpellID1 == 387976 && Aimsharp.CanCast(DimensionalRift_SpellName(Language), "player", false, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Dimensional Rift - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(DimensionalRift_SpellName(Language));
+                        return true;
+                    }
+
+                    if (SpellID1 == 1122 && Aimsharp.CanCast(SummonInfernal_SpellName(Language), "player", false, true))
                     {
                         switch (SummonInfernalCast)
                         {
@@ -1647,7 +2730,7 @@ namespace AimsharpWow.Modules
                                 {
                                     Aimsharp.PrintMessage("Casting Summon Infernal - " + SummonInfernalCast + " - " + SpellID1, Color.Purple);
                                 }
-                                Aimsharp.Cast("Summon Infernal");
+                                Aimsharp.Cast(SummonInfernal_SpellName(Language));
                                 return true;
                             case "Player":
                                 if (Debug)
@@ -1666,7 +2749,7 @@ namespace AimsharpWow.Modules
                         }
                     }
 
-                    if (SpellID1 == 5740 && Aimsharp.CanCast("Rain of Fire", "player", false, true) && ((Aimsharp.CustomFunction("RainofFireMouseover") == 1 || !InstanceIDList.Contains(Aimsharp.GetMapID()) && Aimsharp.CustomFunction("RainofFireMouseoverNC") == 1) || GetCheckBox("Always Cast Rain of Fire @ Cursor during Rotation") || Aimsharp.IsCustomCodeOn("RainofFireCursor")))
+                    if ((SpellID1 == 5740 || SpellID1 == 47723) && Aimsharp.CanCast(RainOfFire_SpellName(Language), "player", false, true) && ((Aimsharp.CustomFunction("RainofFireMouseover") == 1 || !InstanceIDList.Contains(Aimsharp.GetMapID()) && Aimsharp.CustomFunction("RainofFireMouseoverNC") == 1) || GetCheckBox("Always Cast Rain of Fire @ Cursor during Rotation") || Aimsharp.IsCustomCodeOn("RainofFireCursor")))
                     {
                         if (Debug)
                         {
@@ -1675,17 +2758,17 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast("RainofFireC");
                         return true;
                     }
-                    else if (SpellID1 == 5740 && Aimsharp.CanCast("Rain of Fire", "player", false, true))
+                    else if ((SpellID1 == 5740 || SpellID1 == 47723) && Aimsharp.CanCast(RainOfFire_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Rain of Fire - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Rain of Fire");
+                        Aimsharp.Cast(RainOfFire_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 152108 && Aimsharp.CanCast("Cataclysm", "player", false, true) && ((Aimsharp.CustomFunction("RainofFireMouseover") == 1 || !InstanceIDList.Contains(Aimsharp.GetMapID()) && Aimsharp.CustomFunction("RainofFireMouseoverNC") == 1) || GetCheckBox("Always Cast Cataclysm @ Cursor during Rotation") || Aimsharp.IsCustomCodeOn("CataclysmCursor")))
+                    if (SpellID1 == 152108 && Aimsharp.CanCast(Cataclysm_SpellName(Language), "player", false, true) && ((Aimsharp.CustomFunction("RainofFireMouseover") == 1 || !InstanceIDList.Contains(Aimsharp.GetMapID()) && Aimsharp.CustomFunction("RainofFireMouseoverNC") == 1) || GetCheckBox("Always Cast Cataclysm @ Cursor during Rotation") || Aimsharp.IsCustomCodeOn("CataclysmCursor")))
                     {
                         if (Debug)
                         {
@@ -1694,109 +2777,99 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast("CataclysmC");
                         return true;
                     }
-                    else if (SpellID1 == 152108 && Aimsharp.CanCast("Cataclysm", "player", false, true))
+                    else if (SpellID1 == 152108 && Aimsharp.CanCast(Cataclysm_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Cataclysm - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Cataclysm");
+                        Aimsharp.Cast(Cataclysm_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 111400 && Aimsharp.CanCast("Burning Rush", "player", false, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Burning Rush - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Burning Rush");
-                        return true;
-                    }
-
-                    if (SpellID1 == 108416 && Aimsharp.CanCast("Dark Pact", "player", false, true))
+                    if (SpellID1 == 108416 && Aimsharp.CanCast(DarkPact_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Dark Pact - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Dark Pact");
+                        Aimsharp.Cast(DarkPact_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 5484 && Aimsharp.CanCast("Howl of Terror", "player", false, true))
+                    if (SpellID1 == 5484 && Aimsharp.CanCast(HowlOfTerror_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Howl of Terror - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Howl of Terror");
+                        Aimsharp.Cast(HowlOfTerror_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 108503 && Aimsharp.CanCast("Grimoire of Sacrifice", "player", false, true))
+                    if (SpellID1 == 108503 && Aimsharp.CanCast(GrimoireOfSacrifice_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Grimoire of Sacrifice - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Grimoire of Sacrifice");
+                        Aimsharp.Cast(GrimoireOfSacrifice_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 113858 && Aimsharp.CanCast("Dark Soul: Instability", "player", false, true))
+                    if (SpellID1 == 113858 && Aimsharp.CanCast(DarkSoul_Instability_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Dark Soul: Instability - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Dark Soul: Instability");
+                        Aimsharp.Cast(DarkSoul_Instability_SpellName(Language));
                         return true;
                     }
                     #endregion
 
                     #region Destruction Spells - Target GCD
-                    if (SpellID1 == 17877 && Aimsharp.CanCast("Shadowburn", "target", true, true))
+                    if (SpellID1 == 17877 && Aimsharp.CanCast(Shadowburn_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Shadowburn - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Shadowburn");
+                        Aimsharp.Cast(Shadowburn_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 6353 && Aimsharp.CanCast("Soul Fire", "target", true, true))
+                    if (SpellID1 == 6353 && Aimsharp.CanCast(SoulFire_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Soul Fire - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Soul Fire");
+                        Aimsharp.Cast(SoulFire_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 29722 && Aimsharp.CanCast("Incinerate", "target", true, true))
+                    if (SpellID1 == 29722 && Aimsharp.CanCast(Incinerate_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Incinerate - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Incinerate");
+                        Aimsharp.Cast(Incinerate_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 348 && Aimsharp.CanCast("Immolate", "target", true, true) && Aimsharp.CustomFunction("HekiliCycle") == 0)
+                    if (SpellID1 == 348 && Aimsharp.CanCast(Immolate_SpellName(Language), "target", true, true) && Aimsharp.CustomFunction("HekiliCycle") == 0)
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Immolate - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Immolate");
+                        Aimsharp.Cast(Immolate_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 348 && Aimsharp.CanCast("Immolate", "mouseover", true, true) && Aimsharp.CustomFunction("HekiliCycle") == 1 && (Aimsharp.CustomFunction("RainofFireMouseover") == 1 || !InstanceIDList.Contains(Aimsharp.GetMapID()) && Aimsharp.CustomFunction("RainofFireMouseoverNC") == 1))
+                    if (SpellID1 == 348 && Aimsharp.CanCast(Immolate_SpellName(Language), "mouseover", true, true) && Aimsharp.CustomFunction("HekiliCycle") == 1 && (Aimsharp.CustomFunction("RainofFireMouseover") == 1 || !InstanceIDList.Contains(Aimsharp.GetMapID()) && Aimsharp.CustomFunction("RainofFireMouseoverNC") == 1))
                     {
                         if (Debug)
                         {
@@ -1805,27 +2878,27 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast("ImmolateMO");
                         return true;
                     }
-                    else if (SpellID1 == 348 && Aimsharp.CanCast("Immolate", "target", true, true) && Aimsharp.CustomFunction("HekiliCycle") == 1 && Aimsharp.CustomFunction("RainofFireMouseover") == 0)
+                    else if (SpellID1 == 348 && Aimsharp.CanCast(Immolate_SpellName(Language), "target", true, true) && Aimsharp.CustomFunction("HekiliCycle") == 1 && Aimsharp.CustomFunction("RainofFireMouseover") == 0)
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Immolate - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Immolate");
+                        Aimsharp.Cast(Immolate_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 80240 && Aimsharp.CanCast("Havoc", "target", true, true) && Aimsharp.CustomFunction("HekiliCycle") == 0)
+                    if (SpellID1 == 80240 && Aimsharp.CanCast(Havoc_SpellName(Language), "target", true, true) && Aimsharp.CustomFunction("HekiliCycle") == 0)
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Havoc - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Havoc");
+                        Aimsharp.Cast(Havoc_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 80240 && Aimsharp.CanCast("Havoc", "mouseover", true, true) && Aimsharp.CustomFunction("HekiliCycle") == 1 && (Aimsharp.CustomFunction("RainofFireMouseover") == 1 || !InstanceIDList.Contains(Aimsharp.GetMapID()) && Aimsharp.CustomFunction("RainofFireMouseoverNC") == 1))
+                    if (SpellID1 == 80240 && Aimsharp.CanCast(Havoc_SpellName(Language), "mouseover", true, true) && Aimsharp.CustomFunction("HekiliCycle") == 1 && (Aimsharp.CustomFunction("RainofFireMouseover") == 1 || !InstanceIDList.Contains(Aimsharp.GetMapID()) && Aimsharp.CustomFunction("RainofFireMouseoverNC") == 1))
                     {
                         if (Debug)
                         {
@@ -1834,43 +2907,43 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast("HavocMO");
                         return true;
                     }
-                    else if (SpellID1 == 80240 && Aimsharp.CanCast("Havoc", "target", true, true) && Aimsharp.CustomFunction("HekiliCycle") == 1 && Aimsharp.CustomFunction("RainofFireMouseover") == 0)
+                    else if (SpellID1 == 80240 && Aimsharp.CanCast(Havoc_SpellName(Language), "target", true, true) && Aimsharp.CustomFunction("HekiliCycle") == 1 && Aimsharp.CustomFunction("RainofFireMouseover") == 0)
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Havoc - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Havoc");
+                        Aimsharp.Cast(Havoc_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 17962 && Aimsharp.CanCast("Conflagrate", "target", true, true))
+                    if (SpellID1 == 17962 && Aimsharp.CanCast(Conflagrate_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Conflagrate - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Conflagrate");
+                        Aimsharp.Cast(Conflagrate_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 116858 && Aimsharp.CanCast("Chaos Bolt", "target", true, true))
+                    if (SpellID1 == 116858 && Aimsharp.CanCast(ChaosBolt_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Chaos Bolt - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Chaos Bolt");
+                        Aimsharp.Cast(ChaosBolt_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 6789 && Aimsharp.CanCast("Mortal Coil", "target", true, true))
+                    if (SpellID1 == 6789 && Aimsharp.CanCast(MortalCoil_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Mortal Coil - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Mortal Coil");
+                        Aimsharp.Cast(MortalCoil_SpellName(Language));
                         return true;
                     }
 
@@ -1889,7 +2962,6 @@ namespace AimsharpWow.Modules
             int PhialCount = Aimsharp.CustomFunction("PhialCount");
             bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
             bool Moving = Aimsharp.PlayerIsMoving();
-            bool SummonDemonOOC = GetCheckBox("Summon Demon Out of Combat:");
             #endregion
 
             #region SpellQueueWindow
@@ -1936,17 +3008,17 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("DoorofShadows") && Aimsharp.SpellCooldown("Door of Shadows") - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("DoorofShadows") && Aimsharp.SpellCooldown(DoorOfShadows_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("Shadowfury") && Aimsharp.SpellCooldown("Shadowfury") - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("Shadowfury") && Aimsharp.SpellCooldown(Shadowfury_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("RainofFire") && Aimsharp.SpellCooldown("Rain of Fire") - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("RainofFire") && Aimsharp.SpellCooldown(RainOfFire_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -1964,7 +3036,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Banish && Aimsharp.CanCast("Banish", "mouseover", true, true) && !Moving)
+            if (Banish && Aimsharp.CanCast(Banish_SpellName(Language), "mouseover", true, true) && !Moving)
             {
                 if (Debug)
                 {
@@ -1985,7 +3057,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Fear && Aimsharp.CanCast("Fear", "mouseover", true, true) && !Moving)
+            if (Fear && Aimsharp.CanCast(Fear_SpellName(Language), "mouseover", true, true) && !Moving)
             {
                 if (Debug)
                 {
@@ -1996,7 +3068,7 @@ namespace AimsharpWow.Modules
             }
 
             bool MortalCoil = Aimsharp.IsCustomCodeOn("MortalCoil");
-            if (Aimsharp.SpellCooldown("Shadowfury") - Aimsharp.GCD() > 2000 && MortalCoil)
+            if (Aimsharp.SpellCooldown(Shadowfury_SpellName(Language)) - Aimsharp.GCD() > 2000 && MortalCoil)
             {
                 if (Debug)
                 {
@@ -2006,18 +3078,18 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (MortalCoil && Aimsharp.CanCast("Mortal Coil", "target", true, true))
+            if (MortalCoil && Aimsharp.CanCast(MortalCoil_SpellName(Language), "target", true, true))
             {
                 if (Debug)
                 {
                     Aimsharp.PrintMessage("Casting Mortal Coil - Queue", Color.Purple);
                 }
-                Aimsharp.Cast("Mortal Coil");
+                Aimsharp.Cast(MortalCoil_SpellName(Language));
                 return true;
             }
 
             bool HowlofTerror = Aimsharp.IsCustomCodeOn("HowlofTerror");
-            if (Aimsharp.SpellCooldown("Shadowfury") - Aimsharp.GCD() > 2000 && HowlofTerror)
+            if (Aimsharp.SpellCooldown(Shadowfury_SpellName(Language)) - Aimsharp.GCD() > 2000 && HowlofTerror)
             {
                 if (Debug)
                 {
@@ -2027,18 +3099,18 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (HowlofTerror && Aimsharp.CanCast("Howl of Terror", "player", false, true))
+            if (HowlofTerror && Aimsharp.CanCast(HowlOfTerror_SpellName(Language), "player", false, true))
             {
                 if (Debug)
                 {
                     Aimsharp.PrintMessage("Casting Howl of Terror - Queue", Color.Purple);
                 }
-                Aimsharp.Cast("Howl of Terror");
+                Aimsharp.Cast(HowlOfTerror_SpellName(Language));
                 return true;
             }
 
             bool DoorofShadows = Aimsharp.IsCustomCodeOn("DoorofShadows");
-            if ((Aimsharp.SpellCooldown("Door of Shadows") - Aimsharp.GCD() > 2000 || Moving) && DoorofShadows)
+            if ((Aimsharp.SpellCooldown(DoorOfShadows_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && DoorofShadows)
             {
                 if (Debug)
                 {
@@ -2048,20 +3120,20 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (DoorofShadows && Aimsharp.CanCast("Door of Shadows", "player", false, true))
+            if (DoorofShadows && Aimsharp.CanCast(DoorOfShadows_SpellName(Language), "player", false, true))
             {
                 if (Debug)
                 {
                     Aimsharp.PrintMessage("Casting Door of Shadows - Queue", Color.Purple);
                 }
-                Aimsharp.Cast("Door of Shadows");
+                Aimsharp.Cast(DoorOfShadows_SpellName(Language));
                 return true;
             }
 
             //Queue Shadowfury
             string ShadowfuryCast = GetDropDown("Shadowfury Cast:");
             bool Shadowfury = Aimsharp.IsCustomCodeOn("Shadowfury");
-            if ((Aimsharp.SpellCooldown("Shadowfury") - Aimsharp.GCD() > 2000 || Moving) && Shadowfury)
+            if ((Aimsharp.SpellCooldown(Shadowfury_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Shadowfury)
             {
                 if (Debug)
                 {
@@ -2071,7 +3143,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Shadowfury && Aimsharp.CanCast("Shadowfury", "player", false, true) && !Moving)
+            if (Shadowfury && Aimsharp.CanCast(Shadowfury_SpellName(Language), "player", false, true) && !Moving)
             {
                 switch (ShadowfuryCast)
                 {
@@ -2080,7 +3152,7 @@ namespace AimsharpWow.Modules
                         {
                             Aimsharp.PrintMessage("Casting Shadowfury - " + ShadowfuryCast + " - Queue", Color.Purple);
                         }
-                        Aimsharp.Cast("Shadowfury");
+                        Aimsharp.Cast(Shadowfury_SpellName(Language));
                         return true;
                     case "Player":
                         if (Debug)
@@ -2102,7 +3174,7 @@ namespace AimsharpWow.Modules
             //Queue Rain of Fire
             string RainofFireCast = GetDropDown("Rain of Fire Cast:");
             bool RainofFire = Aimsharp.IsCustomCodeOn("RainofFire");
-            if ((Aimsharp.SpellCooldown("Rain of Fire") - Aimsharp.GCD() > 2000 || Moving || Aimsharp.LastCast() == "Rain of Fire") && RainofFire)
+            if ((Aimsharp.SpellCooldown(RainOfFire_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving || Aimsharp.LastCast() == RainOfFire_SpellName(Language)) && RainofFire)
             {
                 if (Debug)
                 {
@@ -2112,7 +3184,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (RainofFire && Aimsharp.CanCast("Rain of Fire", "player", false, true) && !Moving)
+            if (RainofFire && Aimsharp.CanCast(RainOfFire_SpellName(Language), "player", false, true) && !Moving)
             {
                 switch (RainofFireCast)
                 {
@@ -2121,7 +3193,7 @@ namespace AimsharpWow.Modules
                         {
                             Aimsharp.PrintMessage("Casting Rain of Fire - " + RainofFireCast + " - Queue", Color.Purple);
                         }
-                        Aimsharp.Cast("Rain of Fire");
+                        Aimsharp.Cast(RainOfFire_SpellName(Language));
                         return true;
                     case "Player":
                         if (Debug)
@@ -2143,7 +3215,7 @@ namespace AimsharpWow.Modules
             //Queue Summon Infernal
             string SummonInfernalCast = GetDropDown("Summon Infernal Cast:");
             bool SummonInfernal = Aimsharp.IsCustomCodeOn("SummonInfernal");
-            if ((Aimsharp.SpellCooldown("Summon Infernal") - Aimsharp.GCD() > 2000 || Moving) && SummonInfernal)
+            if ((Aimsharp.SpellCooldown(SummonInfernal_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && SummonInfernal)
             {
                 if (Debug)
                 {
@@ -2153,7 +3225,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (SummonInfernal && Aimsharp.CanCast("Summon Infernal", "player", false, true) && !Moving)
+            if (SummonInfernal && Aimsharp.CanCast(SummonInfernal_SpellName(Language), "player", false, true) && !Moving)
             {
                 switch (SummonInfernalCast)
                 {
@@ -2162,7 +3234,7 @@ namespace AimsharpWow.Modules
                         {
                             Aimsharp.PrintMessage("Casting Summon Infernal - " + SummonInfernalCast + " - Queue", Color.Purple);
                         }
-                        Aimsharp.Cast("Summon Infernal");
+                        Aimsharp.Cast(SummonInfernal_SpellName(Language));
                         return true;
                     case "Player":
                         if (Debug)
@@ -2184,7 +3256,7 @@ namespace AimsharpWow.Modules
             //Queue Cataclysm
             string CataclysmCast = GetDropDown("Cataclysm Cast:");
             bool Cataclysm = Aimsharp.IsCustomCodeOn("Cataclysm");
-            if ((Aimsharp.SpellCooldown("Cataclysm") - Aimsharp.GCD() > 2000 || Moving) && Cataclysm)
+            if ((Aimsharp.SpellCooldown(Cataclysm_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Cataclysm)
             {
                 if (Debug)
                 {
@@ -2194,7 +3266,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Cataclysm && Aimsharp.CanCast("Cataclysm", "player", false, true) && !Moving)
+            if (Cataclysm && Aimsharp.CanCast(Cataclysm_SpellName(Language), "player", false, true) && !Moving)
             {
                 switch (CataclysmCast)
                 {
@@ -2203,7 +3275,7 @@ namespace AimsharpWow.Modules
                         {
                             Aimsharp.PrintMessage("Casting Cataclysm - " + CataclysmCast + " - Queue", Color.Purple);
                         }
-                        Aimsharp.Cast("Cataclysm");
+                        Aimsharp.Cast(Cataclysm_SpellName(Language));
                         return true;
                     case "Player":
                         if (Debug)
@@ -2224,72 +3296,32 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Out of Combat Spells
-            //Summon Demon
-            if (SpellID1 == 688 && Aimsharp.CanCast("Summon Imp", "player", false, true) && SummonDemonOOC && !Moving)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Summon Imp - " + SpellID1, Color.Purple);
-                }
-                Aimsharp.Cast("Summon Imp");
-                return true;
-            }
 
-            if (SpellID1 == 697 && Aimsharp.CanCast("Summon Voidwalker", "player", false, true) && SummonDemonOOC && !Moving)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Summon Voidwalker - " + SpellID1, Color.Purple);
-                }
-                Aimsharp.Cast("Summon Voidwalker");
-                return true;
-            }
-
-            if (SpellID1 == 691 && Aimsharp.CanCast("Summon Felhunter", "player", false, true) && SummonDemonOOC && !Moving)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Summon Felhunter - " + SpellID1, Color.Purple);
-                }
-                Aimsharp.Cast("Summon Felhunter");
-                return true;
-            }
-
-            if (SpellID1 == 712 && Aimsharp.CanCast("Summon Succubus", "player", false, true) && SummonDemonOOC && !Moving)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Summon Succubus - " + SpellID1, Color.Purple);
-                }
-                Aimsharp.Cast("Summon Succubus");
-                return true;
-            }
-
-            if (SpellID1 == 324631 && Aimsharp.CanCast("Fleshcraft", "player", false, true) && !Moving)
+            if (SpellID1 == 324631 && Aimsharp.CanCast(Fleshcraft_SpellName(Language), "player", false, true) && !Moving)
             {
                 if (Debug)
                 {
                     Aimsharp.PrintMessage("Casting Fleshcraft - " + SpellID1, Color.Purple);
                 }
-                Aimsharp.Cast("Fleshcraft");
+                Aimsharp.Cast(Fleshcraft_SpellName(Language));
                 return true;
             }
 
             //Auto Call Steward
-            if (PhialCount <= 0 && Aimsharp.CanCast("Summon Steward", "player") && Aimsharp.GetMapID() != 2286 && Aimsharp.GetMapID() != 1666 && Aimsharp.GetMapID() != 1667 && Aimsharp.GetMapID() != 1668 && Aimsharp.CastingID("player") == 0)
+            if (PhialCount <= 0 && Aimsharp.CanCast(SummonSteward_SpellName(Language), "player") && Aimsharp.GetMapID() != 2286 && Aimsharp.GetMapID() != 1666 && Aimsharp.GetMapID() != 1667 && Aimsharp.GetMapID() != 1668 && Aimsharp.CastingID("player") == 0)
             {
                 if (Debug)
                 {
                     Aimsharp.PrintMessage("Casting Summon Steward due to Phial Count being: " + PhialCount, Color.Purple);
                 }
-                Aimsharp.Cast("Summon Steward");
+                Aimsharp.Cast(SummonSteward_SpellName(Language));
                 return true;
             }
             #endregion
 
             #region Auto Combat
             //Auto Combat
-            if (GetCheckBox("Auto Start Combat:") == true && Aimsharp.TargetIsEnemy() && TargetAlive() && Aimsharp.Range("target") <= 40 && TargetInCombat && !Aimsharp.HasDebuff("Banish", "target", true) && !Aimsharp.HasDebuff("Fear", "target", true) && !Banish && !Fear)
+            if (GetCheckBox("Auto Start Combat:") == true && Aimsharp.TargetIsEnemy() && TargetAlive() && Aimsharp.Range("target") <= 40 && TargetInCombat && !Aimsharp.HasDebuff(Banish_SpellName(Language), "target", true) && !Aimsharp.HasDebuff(Fear_SpellName(Language), "target", true) && !Banish && !Fear)
             {
                 if (Debug)
                 {

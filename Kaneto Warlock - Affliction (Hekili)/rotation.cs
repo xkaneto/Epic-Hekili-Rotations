@@ -147,6 +147,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=120360</summary>
+        private static string Barrage_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Barrage";
+                case "Deutsch": return "Sperrfeuer";
+                case "Español": return "Tromba";
+                case "Français": return "Barrage";
+                case "Italiano": return "Sbarramento";
+                case "Português Brasileiro": return "Barragem";
+                case "Русский": return "Шквал";
+                case "한국어": return "탄막";
+                case "简体中文": return "弹幕射击";
+                default: return "Barrage";
+            }
+        }
+
         ///<summary>spell=26297</summary>
         private static string Berserking_SpellName(string Language = "English")
         {
@@ -183,24 +201,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=2825</summary>
-        private static string Bloodlust_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Bloodlust";
-                case "Deutsch": return "Kampfrausch";
-                case "Español": return "Ansia de sangre";
-                case "Français": return "Furie sanguinaire";
-                case "Italiano": return "Brama di Sangue";
-                case "Português Brasileiro": return "Sede de Sangue";
-                case "Русский": return "Жажда крови";
-                case "한국어": return "피의 욕망";
-                case "简体中文": return "嗜血";
-                default: return "Bloodlust";
-            }
-        }
-
         ///<summary>spell=255654</summary>
         private static string BullRush_SpellName(string Language = "English")
         {
@@ -216,24 +216,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "황소 돌진";
                 case "简体中文": return "蛮牛冲撞";
                 default: return "Bull Rush";
-            }
-        }
-
-        ///<summary>spell=111400</summary>
-        private static string BurningRush_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Burning Rush";
-                case "Deutsch": return "Brennender Ansturm";
-                case "Español": return "Ímpetu ardiente";
-                case "Français": return "Ruée ardente";
-                case "Italiano": return "Rapidità Bruciante";
-                case "Português Brasileiro": return "Impulso Ardente";
-                case "Русский": return "Стремительный бег";
-                case "한국어": return "불타는 돌진";
-                case "简体中文": return "爆燃冲刺";
-                default: return "Burning Rush";
             }
         }
 
@@ -489,24 +471,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>item=102351</summary>
-        private static string DrumsOfRage_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Drums of Rage";
-                case "Deutsch": return "Trommeln des Zorns";
-                case "Español": return "Tambores de ira";
-                case "Français": return "Tambours de rage";
-                case "Italiano": return "Tamburi della Rabbia";
-                case "Português Brasileiro": return "Tambores da Raiva";
-                case "Русский": return "Барабаны ярости";
-                case "한국어": return "분노의 북";
-                case "简体中文": return "暴怒之鼓";
-                default: return "Drums of Rage";
-            }
-        }
-
         ///<summary>spell=20589</summary>
         private static string EscapeArtist_SpellName(string Language = "English")
         {
@@ -687,24 +651,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=32182</summary>
-        private static string Heroism_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Heroism";
-                case "Deutsch": return "Heldentum";
-                case "Español": return "Heroísmo";
-                case "Français": return "Héroïsme";
-                case "Italiano": return "Eroismo";
-                case "Português Brasileiro": return "Heroísmo";
-                case "Русский": return "Героизм";
-                case "한국어": return "영웅심";
-                case "简体中文": return "英勇";
-                default: return "Heroism";
-            }
-        }
-
         ///<summary>spell=5484</summary>
         private static string HowlOfTerror_SpellName(string Language = "English")
         {
@@ -756,6 +702,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "심문관의 시선";
                 case "简体中文": return "审判官的凝视";
                 default: return "Inquisitor's Gaze";
+            }
+        }
+
+        ///<summary>spell=20271</summary>
+        private static string Judgment_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Judgment";
+                case "Deutsch": return "Richturteil";
+                case "Español": return "Sentencia";
+                case "Français": return "Jugement";
+                case "Italiano": return "Giudizio";
+                case "Português Brasileiro": return "Julgamento";
+                case "Русский": return "Правосудие";
+                case "한국어": return "심판";
+                case "简体中文": return "审判";
+                default: return "Judgment";
             }
         }
 
@@ -828,24 +792,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "유령 특이점";
                 case "简体中文": return "诡异魅影";
                 default: return "Phantom Singularity";
-            }
-        }
-
-        ///<summary>spell=264667</summary>
-        private static string PrimalRage_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Primal Rage";
-                case "Deutsch": return "Urtümliche Wut";
-                case "Español": return "Rabia primigenia";
-                case "Français": return "Rage primordiale";
-                case "Italiano": return "Rabbia Primordiale";
-                case "Português Brasileiro": return "Fúria Primata";
-                case "Русский": return "Исступление";
-                case "한국어": return "원초적 분노";
-                case "简体中文": return "原始暴怒";
-                default: return "Primal Rage";
             }
         }
 
@@ -936,24 +882,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "어둠의 화살";
                 case "简体中文": return "暗影箭";
                 default: return "Shadow Bolt";
-            }
-        }
-
-        ///<summary>spell=384069</summary>
-        private static string Shadowflame_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Shadowflame";
-                case "Deutsch": return "Schattenflamme";
-                case "Español": return "Llama de las Sombras";
-                case "Français": return "Ombreflamme";
-                case "Italiano": return "Fiammata d'Ombra";
-                case "Português Brasileiro": return "Chama Sombria";
-                case "Русский": return "Пламя Тьмы";
-                case "한국어": return "암흑불길";
-                case "简体中文": return "暗影烈焰";
-                default: return "Shadowflame";
             }
         }
 
@@ -1083,21 +1011,21 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=20707</summary>
-        private static string Soulstone_SpellName(string Language = "English")
+        ///<summary>spell=385899</summary>
+        private static string Soulburn_SpellName(string Language = "English")
         {
             switch (Language)
             {
-                case "English": return "Soulstone";
-                case "Deutsch": return "Seelenstein";
-                case "Español": return "Piedra de alma";
-                case "Français": return "Pierre d’âme";
-                case "Italiano": return "Pietra dell'Anima";
-                case "Português Brasileiro": return "Pedra da Alma";
-                case "Русский": return "Камень души";
-                case "한국어": return "영혼석";
-                case "简体中文": return "灵魂石";
-                default: return "Soulstone";
+                case "English": return "Soulburn";
+                case "Deutsch": return "Seelenbrand";
+                case "Español": return "Quemar alma";
+                case "Français": return "Brûlure d’âme";
+                case "Italiano": return "Consumo d'Anima";
+                case "Português Brasileiro": return "Queimadura Anímica";
+                case "Русский": return "Горящая душа";
+                case "한국어": return "영혼 불사르기";
+                case "简体中文": return "灵魂燃烧";
+                default: return "Soulburn";
             }
         }
 
@@ -1154,6 +1082,7 @@ namespace AimsharpWow.Modules
                 default: return "Summon Darkglare";
             }
         }
+
         ///<summary>spell=386244</summary>
         private static string SummonSoulkeeper_SpellName(string Language = "English")
         {
@@ -1187,24 +1116,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "청지기 소환";
                 case "简体中文": return "召唤执事者";
                 default: return "Summon Steward";
-            }
-        }
-
-        ///<summary>spell=80353</summary>
-        private static string TimeWarp_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Time Warp";
-                case "Deutsch": return "Zeitkrümmung";
-                case "Español": return "Distorsión temporal";
-                case "Français": return "Distorsion temporelle";
-                case "Italiano": return "Distorsione Temporale";
-                case "Português Brasileiro": return "Distorção Temporal";
-                case "Русский": return "Искажение времени";
-                case "한국어": return "시간 왜곡";
-                case "简体中文": return "时间扭曲";
-                default: return "Time Warp";
             }
         }
 
@@ -1586,6 +1497,7 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- Talents -", Color.White);
             Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/guide/classes/warlock/affliction/overview-pve-dps", Color.Yellow);
+            Aimsharp.PrintMessage("You will need to summon your primary Demon yourself!", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- General -", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
@@ -1705,10 +1617,8 @@ namespace AimsharpWow.Modules
                 SpellLock_SpellName(Language), //119910
 
                 //General
-                Agony_SpellName(Language), //980
                 AmplifyCurse_SpellName(Language), //328774
                 Banish_SpellName(Language), //710
-                BurningRush_SpellName(Language), //111400
                 Corruption_SpellName(Language), //172
                 CurseOfExhaustion_SpellName(Language), //334275
                 CurseOfTongues_SpellName(Language), //1714, 199890
@@ -1725,15 +1635,10 @@ namespace AimsharpWow.Modules
                 InquisitorsGaze_SpellName(Language), //386344
                 MortalCoil_SpellName(Language), //6789
                 ShadowBolt_SpellName(Language), //686
-                Shadowflame_SpellName(Language), //384069
                 Shadowfury_SpellName(Language), //30283
-                "Soulburn", //385899
-                Soulstone_SpellName(Language), //20707
+                Soulburn_SpellName(Language), //385899
                 SummonSoulkeeper_SpellName(Language), //386244
                 UnendingResolve_SpellName(Language), //104773
-                //"Command Demon", //119898
-                //"Create Healthstone", //6201
-                //"Subjugate Demon", //1098
 
                 //Pet
                 DevourMagic_SpellName(Language), //19505
@@ -1741,6 +1646,7 @@ namespace AimsharpWow.Modules
                 Seduction_SpellName(Language), //6358
 
                 //Affliction
+                Agony_SpellName(Language), //980
                 DarkSoul_Misery_SpellName(Language), //113860
                 DrainSoul_SpellName(Language), //198590
                 GrimoireOfSacrifice_SpellName(Language), //108503
@@ -2477,17 +2383,6 @@ namespace AimsharpWow.Modules
 
                     #region General Spells - Target GCD
                     //Target - GCD
-                    /*
-                    if (SpellID1 == 119898 && Aimsharp.CanCast("Command Demon", "target", true, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Command Demon - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Command Demon");
-                        return true;
-                    }
-                    */
 
                     if (SpellID1 == 172 && Aimsharp.CanCast(Corruption_SpellName(Language), "target", true, true))
                     {
@@ -2579,18 +2474,6 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    /*
-                    if (SpellID1 == 1098 && Aimsharp.CanCast("Subjugate Demon", "target", true, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Subjugate Demon - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Subjugate Demon");
-                        return true;
-                    }
-                    */
-
                     if ((SpellID1 == 1714 || SpellID1 == 199890) && Aimsharp.CanCast(CurseOfTongues_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
@@ -2633,25 +2516,14 @@ namespace AimsharpWow.Modules
                     #endregion
 
                     #region General Spells - Player GCD
-                    /*
-                    if (SpellID1 == 6201 && Aimsharp.CanCast("Create Healthstone", "player", false, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Create Healthstone - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast("Create Healthstone");
-                        return true;
-                    }
-                    */
 
-                    if (SpellID1 == 385899 && Aimsharp.CanCast("Soulburn", "player", false, true))
+                    if (SpellID1 == 385899 && Aimsharp.CanCast(Soulburn_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Casting Soulburn - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("Soulburn");
+                        Aimsharp.Cast(Soulburn_SpellName(Language));
                         return true;
                     }
 
@@ -2672,16 +2544,6 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Casting Unending Resolve - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(UnendingResolve_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 20707 && Aimsharp.CanCast(Soulstone_SpellName(Language), "player", false, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Soulstone - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(Soulstone_SpellName(Language));
                         return true;
                     }
 
@@ -2743,16 +2605,6 @@ namespace AimsharpWow.Modules
                         }
                     }
 
-                    if (SpellID1 == 384069 && Aimsharp.CanCast(Shadowflame_SpellName(Language), "player", false, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Shadowflame - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(Shadowflame_SpellName(Language));
-                        return true;
-                    }
-
                     if (SpellID1 == 89808 && Aimsharp.CanCast(SingeMagic_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
@@ -2801,16 +2653,6 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Casting Malefic Rapture - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(MaleficRapture_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 111400 && Aimsharp.CanCast(BurningRush_SpellName(Language), "player", false, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Burning Rush - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(BurningRush_SpellName(Language));
                         return true;
                     }
 
