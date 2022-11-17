@@ -2158,7 +2158,7 @@ namespace AimsharpWow.Modules
                                 Aimsharp.PrintMessage("Casting Eternity Surge again for Empower Level 3", Color.Purple);
                             }
                         }
-                        if (Enemies >= 7 && Enemies < 9)
+                        if (Enemies >= 7)
                         {
                             System.Threading.Thread.Sleep(EmpowerState * 3100);
                             Aimsharp.Cast(EternitySurge_SpellName(Language));
