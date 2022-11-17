@@ -892,7 +892,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "NoExpunge", "NoCauterizingFlame", "DeepBreath", "DeepBreathCursor", "QueueLandslide" , "SleepWalk" , "QueueFirestorm" , "FirestormCursor"};
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "NoExpunge", "NoCauterizingFlame", "DeepBreath", "DeepBreathCursor", "QueueLandslide", "SleepWalk", "QueueFirestorm", "FirestormCursor" };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
         private List<string> m_ItemsList;
@@ -1076,9 +1076,7 @@ namespace AimsharpWow.Modules
 
             CustomFunctions.Add("GetSpellQueueWindow", "local sqw = GetCVar(\"SpellQueueWindow\"); if sqw ~= nil then return tonumber(sqw); end return 0");
 
-            CustomFunctions.Add("CooldownsToggleCheck", "local loading, finished = IsAddOnLoaded(\"Hekili\") if loading == true and finished == true then local cooldowns = Hekili:GetToggleState(\"cooldowns\") if cooldowns == true then return 1 else if cooldowns == false then return 2 end end end return 0")
-            ;
-            CustomFunctions.Add("EmpowermentStateCheck", "local loading, finished = IsAddOnLoaded(\"Hekili\") if loading == true and finished == true then local cooldowns = Hekili:GetToggleState(\"cooldowns\") if cooldowns == true then return 1 else if cooldowns == false then return 2 end end end return 0");
+            CustomFunctions.Add("CooldownsToggleCheck", "local loading, finished = IsAddOnLoaded(\"Hekili\") if loading == true and finished == true then local cooldowns = Hekili:GetToggleState(\"cooldowns\") if cooldowns == true then return 1 else if cooldowns == false then return 2 end end end return 0");
 
             CustomFunctions.Add("UnitIsDead", "if UnitIsDead(\"target\") ~= nil and UnitIsDead(\"target\") == true then return 1 end; if UnitIsDead(\"target\") ~= nil and UnitIsDead(\"target\") == false then return 2 end; return 0");
 
@@ -1091,6 +1089,8 @@ namespace AimsharpWow.Modules
             CustomFunctions.Add("HekiliCycle", "if HekiliDisplayPrimary.Recommendations[1].indicator ~= nil and HekiliDisplayPrimary.Recommendations[1].indicator == 'cycle' then return 1 end return 0");
 
             CustomFunctions.Add("HekiliEnemies", "if Hekili.State.active_enemies ~= nil and Hekili.State.active_enemies > 0 then return Hekili.State.active_enemies end return 0");
+
+            CustomFunctions.Add("EmpowermentCheck", "if Hekili.slot.empower_to ~= nil and Hekili.slot.empower_to > 0 then return Hekili.slot.empower_to end return 0");
 
             CustomFunctions.Add("PhialCount", "local count = GetItemCount(177278) if count ~= nil then return count end return 0");
 
@@ -1318,7 +1318,10 @@ namespace AimsharpWow.Modules
             int CooldownsToggle = Aimsharp.CustomFunction("CooldownsToggleCheck");
             int Wait = Aimsharp.CustomFunction("HekiliWait");
             int Enemies = Aimsharp.CustomFunction("HekiliEnemies");
+            int EmpowerState = Aimsharp.CustomFunction("EmpowermentCheck");
             int TargetingGroup = Aimsharp.CustomFunction("GroupTargets");
+
+            Aimsharp.PrintMessage("Empowerment Level: " + EmpowerState);
 
             bool NoInterrupts = Aimsharp.IsCustomCodeOn("NoInterrupts");
             bool NoExpunge = Aimsharp.IsCustomCodeOn("NoExpunge");
@@ -1688,7 +1691,7 @@ namespace AimsharpWow.Modules
                 int states = Aimsharp.CustomFunction("PoisonCheck");
                 CleansePlayers target;
 
-                int KickTimer = GetRandomNumber(200,800);
+                int KickTimer = GetRandomNumber(200, 800);
 
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
@@ -1737,7 +1740,7 @@ namespace AimsharpWow.Modules
                 int states = Aimsharp.CustomFunction("CursePoisonBleedDiseaseCheck");
                 CleansePlayers target;
 
-                int KickTimer = GetRandomNumber(200,800);
+                int KickTimer = GetRandomNumber(200, 800);
 
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
@@ -2029,7 +2032,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 382266 && Aimsharp.CanCast(FireBreath_SpellName(Language), "player", false, true))
+                    if ((SpellID1 == 382266 || SpellID1 == 357208 || SpellID1 == 357209) && Aimsharp.CanCast(FireBreath_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
@@ -2109,7 +2112,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 382411 && Aimsharp.CanCast(EternitySurge_SpellName(Language), "target", true, true))
+                    if ((SpellID1 == 382411 || SpellID1 == 359073) && Aimsharp.CanCast(EternitySurge_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
