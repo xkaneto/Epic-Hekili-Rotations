@@ -2585,7 +2585,7 @@ namespace AimsharpWow.Modules
 
                     #region Covenants
                     //Covenants
-                    if (SpellID1 == 323547 && CanCastEchoingReprimand("target"))
+                    if ((SpellID1 == 323547 || SpellID1 == 385616) && CanCastEchoingReprimand("target"))
                     {
                         if (Debug)
                         {
