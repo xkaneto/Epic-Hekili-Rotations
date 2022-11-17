@@ -20,6 +20,7 @@ namespace AimsharpWow.Modules
         }
         private static string Language = "English";
 
+
         #region SpellFunctions
         ///<summary>spell=274738</summary>
         private static string AncestralCall_SpellName(string Language = "English")
@@ -1090,7 +1091,7 @@ namespace AimsharpWow.Modules
 
             CustomFunctions.Add("HekiliEnemies", "if Hekili.State.active_enemies ~= nil and Hekili.State.active_enemies > 0 then return Hekili.State.active_enemies end return 0");
 
-            CustomFunctions.Add("EmpowermentCheck", "if Hekili.slot.empower_to ~= nil and Hekili.slot.empower_to > 0 then return Hekili.slot.empower_to end return 0");
+            CustomFunctions.Add("EmpowermentCheck", "if Hekili.State.empowered_cast_time ~= nil and Hekili.State.empowered_cast_time > 1 then return Hekili.State.empowered_cast_time end return 1");
 
             CustomFunctions.Add("PhialCount", "local count = GetItemCount(177278) if count ~= nil then return count end return 0");
 
@@ -1207,12 +1208,6 @@ namespace AimsharpWow.Modules
             }
             #endregion
 
-            if (GetCheckBox("Debug:") == true)
-            {
-                Aimsharp.DebugMode();
-            }
-
-
             Aimsharp.Latency = GetSlider("Ingame World Latency:");
             Aimsharp.QuickDelay = 50;
             Aimsharp.SlowDelay = 150;
@@ -1320,8 +1315,6 @@ namespace AimsharpWow.Modules
             int Enemies = Aimsharp.CustomFunction("HekiliEnemies");
             int EmpowerState = Aimsharp.CustomFunction("EmpowermentCheck");
             int TargetingGroup = Aimsharp.CustomFunction("GroupTargets");
-
-            Aimsharp.PrintMessage("Empowerment Level: " + EmpowerState);
 
             bool NoInterrupts = Aimsharp.IsCustomCodeOn("NoInterrupts");
             bool NoExpunge = Aimsharp.IsCustomCodeOn("NoExpunge");
@@ -2036,9 +2029,27 @@ namespace AimsharpWow.Modules
                     {
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Fire Breath - " + SpellID1, Color.Purple);
+                            Aimsharp.PrintMessage("Start casting Fire Breath - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(FireBreath_SpellName(Language));
+                        if (EmpowerState == 1)
+                        {
+                            System.Threading.Thread.Sleep(1000);
+                            Aimsharp.Cast(FireBreath_SpellName(Language));
+                            if (Debug)
+                            {
+                                Aimsharp.PrintMessage("Casting Fire Breath again for Empower Time: " + EmpowerState, Color.Purple);
+                            }
+                        }
+                        if (EmpowerState > 1)
+                        {
+                            System.Threading.Thread.Sleep(EmpowerState * 1000);
+                            Aimsharp.Cast(FireBreath_SpellName(Language));
+                            if (Debug)
+                            {
+                                Aimsharp.PrintMessage("Casting Fire Breath again for Empower Time: " + EmpowerState, Color.Purple);
+                            }
+                        }
                         return true;
                     }
 
@@ -2116,9 +2127,46 @@ namespace AimsharpWow.Modules
                     {
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Eternity Surge - " + SpellID1, Color.Purple);
+                            Aimsharp.PrintMessage("Start casting Eternity Surge - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(EternitySurge_SpellName(Language));
+
+                        if (Enemies < 3)
+                        {
+                            System.Threading.Thread.Sleep(1000);
+                            Aimsharp.Cast(EternitySurge_SpellName(Language));
+                            if (Debug)
+                            {
+                                Aimsharp.PrintMessage("Casting Eternity Surge again for Empower Level 1", Color.Purple);
+                            }
+                        }
+                        if (Enemies >= 3 && Enemies < 5)
+                        {
+                            System.Threading.Thread.Sleep(EmpowerState * 1700);
+                            Aimsharp.Cast(EternitySurge_SpellName(Language));
+                            if (Debug)
+                            {
+                                Aimsharp.PrintMessage("Casting Eternity Surge again for Empower Level 2", Color.Purple);
+                            }
+                        }
+                        if (Enemies >= 5 && Enemies < 7)
+                        {
+                            System.Threading.Thread.Sleep(EmpowerState * 2400);
+                            Aimsharp.Cast(EternitySurge_SpellName(Language));
+                            if (Debug)
+                            {
+                                Aimsharp.PrintMessage("Casting Eternity Surge again for Empower Level 3", Color.Purple);
+                            }
+                        }
+                        if (Enemies >= 7 && Enemies < 9)
+                        {
+                            System.Threading.Thread.Sleep(EmpowerState * 3100);
+                            Aimsharp.Cast(EternitySurge_SpellName(Language));
+                            if (Debug)
+                            {
+                                Aimsharp.PrintMessage("Casting Eternity Surge again for Empower Level 4", Color.Purple);
+                            }
+                        }
                         return true;
                     }
 
