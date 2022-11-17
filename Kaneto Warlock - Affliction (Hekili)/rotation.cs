@@ -2788,7 +2788,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if ((SpellID1 == 316099 || SpellID1 == 30108) && Aimsharp.CanCast(UnstableAffliction_SpellName(Language), "target", true, true))
+                    if ((SpellID1 == 316099 || SpellID1 == 30108 || SpellID1 == 233496 || SpellID1 == 342938) && Aimsharp.CanCast(UnstableAffliction_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
