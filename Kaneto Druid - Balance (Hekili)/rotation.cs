@@ -1245,23 +1245,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=114282</summary>
-        private static string TreantForm_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Treant Form";
-                case "Deutsch": return "Treantgestalt";
-                case "Español": return "Forma de antárbol";
-                case "Français": return "Forme de tréant";
-                case "Italiano": return "Forma di Treant";
-                case "Português Brasileiro": return "Forma de Arvoroso";
-                case "Русский": return "Облик древня";
-                case "한국어": return "나무정령 변신";
-                case "简体中文": return "树人形态";
-                default: return "Treant Form";
-            }
-        }
 
         ///<summary>spell=61391</summary>
         private static string Typhoon_SpellName(string Language = "English")
@@ -1332,24 +1315,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "엘룬의 전사";
                 case "简体中文": return "艾露恩的战士";
                 default: return "Warrior of Elune";
-            }
-        }
-
-        ///<summary>spell=48438</summary>
-        private static string WildGrowth_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Wild Growth";
-                case "Deutsch": return "Wildwuchs";
-                case "Español": return "Crecimiento salvaje";
-                case "Français": return "Croissance sauvage";
-                case "Italiano": return "Crescita Rigogliosa";
-                case "Português Brasileiro": return "Crescimento Silvestre";
-                case "Русский": return "Буйный рост";
-                case "한국어": return "급속 성장";
-                case "简体中文": return "野性成长";
-                default: return "Wild Growth";
             }
         }
 
@@ -1865,7 +1830,7 @@ namespace AimsharpWow.Modules
 
             #region Reinitialize Lists
             m_DebuffsList = new List<string> { };
-            m_BuffsList = new List<string> { BearForm_SpellName(Language), CatForm_SpellName(Language), MarkOfTheWild_SpellName(Language), MountForm_SpellName(Language), TravelForm_SpellName(Language), TreantForm_SpellName(Language), };
+            m_BuffsList = new List<string> { BearForm_SpellName(Language), CatForm_SpellName(Language), MarkOfTheWild_SpellName(Language), MountForm_SpellName(Language), TravelForm_SpellName(Language),};
             m_ItemsList = new List<string> { Healthstone_SpellName(Language), };
             m_SpellBook = new List<string> {
                 //Covenants
@@ -1901,10 +1866,8 @@ namespace AimsharpWow.Modules
                 Soothe_SpellName(Language), //2908
                 Starfire_SpellName(Language), //194153
                 Sunfire_SpellName(Language), //93402
-                TreantForm_SpellName(Language), //114282
                 Typhoon_SpellName(Language), //132469
                 Wrath_SpellName(Language), //190984
-                WildGrowth_SpellName(Language), //48438
 
                 //Balance
                 AstralCommunion_SpellName(Language), //202359
@@ -2016,7 +1979,7 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.HasBuff(BearForm_SpellName(Language), "player", true) || Aimsharp.HasBuff(CatForm_SpellName(Language), "player", true) || Aimsharp.HasBuff(MountForm_SpellName(Language), "player", true) || Aimsharp.HasBuff(TravelForm_SpellName(Language), "player", true) || Aimsharp.HasBuff(TreantForm_SpellName(Language), "player", true))
+            if (Aimsharp.HasBuff(BearForm_SpellName(Language), "player", true) || Aimsharp.HasBuff(CatForm_SpellName(Language), "player", true) || Aimsharp.HasBuff(MountForm_SpellName(Language), "player", true) || Aimsharp.HasBuff(TravelForm_SpellName(Language), "player", true))
             {
                 return false;
             }
@@ -2854,16 +2817,6 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Casting Cat Form - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(CatForm_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 114282 && Aimsharp.CanCast(TreantForm_SpellName(Language), "player", false, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Treant Form - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(TreantForm_SpellName(Language));
                         return true;
                     }
 
