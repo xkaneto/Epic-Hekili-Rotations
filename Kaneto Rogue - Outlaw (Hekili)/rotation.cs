@@ -951,7 +951,7 @@ namespace AimsharpWow.Modules
                 case "Français": return "Jet d’osselets";
                 case "Italiano": return "Roulette Assassina";
                 case "Português Brasileiro": return "Golpe de Sorte";
-                case "Русский": return "Игра в кости";
+                case "Русский": return "Бросок костей";
                 case "한국어": return "뼈주사위";
                 case "简体中文": return "命运骨骰";
                 default: return "Roll the Bones";
@@ -2669,7 +2669,27 @@ namespace AimsharpWow.Modules
                         return true;
                     }
                     #endregion
-
+					#region poisions
+					//Auto Poison
+					if (!Moving && Aimsharp.CanCast(InstantPoison_SpellName(Language), "player") && !Aimsharp.HasBuff(InstantPoison_SpellName(Language), "player", true))
+					{
+						if (Debug)
+						{
+							Aimsharp.PrintMessage("Casting Instant Poison - ", Color.Purple);
+						}
+						Aimsharp.Cast(InstantPoison_SpellName(Language));
+						return true;
+					}
+					if (!Moving && Aimsharp.CanCast(NumbingPoison_SpellName(Language), "player") && !Aimsharp.HasBuff(NumbingPoison_SpellName(Language), "player", true))
+					{
+						if (Debug)
+						{
+							Aimsharp.PrintMessage("Casting Numbing - ", Color.Purple);
+						}
+						Aimsharp.Cast(NumbingPoison_SpellName(Language));
+						return true;
+					}
+					#endregion
                     #region General Spells - Player GCD
                     //General Rogue
                     //Instant [GCD]
