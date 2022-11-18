@@ -1921,12 +1921,6 @@ namespace AimsharpWow.Modules
             }
             #endregion
 
-            if (GetCheckBox("Debug:") == true)
-            {
-                Aimsharp.DebugMode();
-            }
-
-
             Aimsharp.Latency = GetSlider("Ingame World Latency:");
             Aimsharp.QuickDelay = 50;
             Aimsharp.SlowDelay = 150;

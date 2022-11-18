@@ -1512,7 +1512,7 @@ namespace AimsharpWow.Modules
 
             foreach (string Buff in m_BuffsList)
                 Buffs.Add(Buff);
-                
+
             foreach (string Debuff in m_DebuffsList)
                 Debuffs.Add(Debuff);
 
@@ -1650,11 +1650,6 @@ namespace AimsharpWow.Modules
                 FiveLetters = Aimsharp.GetAddonName().Substring(0, 5);
             }
             #endregion
-
-            if (GetCheckBox("Debug:") == true)
-            {
-                Aimsharp.DebugMode();
-            }
 
             Aimsharp.Latency = GetSlider("Ingame World Latency:");
             Aimsharp.QuickDelay = 50;

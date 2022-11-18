@@ -1801,11 +1801,6 @@ namespace AimsharpWow.Modules
             }
             #endregion
 
-            if (GetCheckBox("Debug:") == true)
-            {
-                Aimsharp.DebugMode();
-            }
-
             Aimsharp.Latency = GetSlider("Ingame World Latency:");
             Aimsharp.QuickDelay = 50;
             Aimsharp.SlowDelay = 150;
@@ -2925,7 +2920,7 @@ namespace AimsharpWow.Modules
             int SpellID1 = Aimsharp.CustomFunction("HekiliID1");
             Aimsharp.PrintMessage("HekiliID => " + SpellID1, Color.Black);
             int PhialCount = Aimsharp.CustomFunction("PhialCount");
-            bool Debug = GetCheckBox("Debug:") == true;
+            bool Debug = GetCheckBox("Debug:");
             bool Moving = Aimsharp.PlayerIsMoving();
             bool Enemy = Aimsharp.TargetIsEnemy();
             bool SnDOOC = GetCheckBox("Slice and Dice Out of Combat:");
