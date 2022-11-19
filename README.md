@@ -14,6 +14,7 @@ All of the Hekili Rotations by Snoogens that are updated by xKaneto.
 - Demon Hunter - Havoc
 - Druid - Balance
 - Druid - Feral
+- Evoker - Devastation
 - Hunter - Beast Mastery
 - Hunter - Marksmanship
 - Hunter - Survival
@@ -34,7 +35,6 @@ All of the Hekili Rotations by Snoogens that are updated by xKaneto.
 
 ### To-Do:
 
-- Evoker - Devastation
 - Auto Heal Potion Setting
 
 ## How to use these files with Aimsharp:
