@@ -33,10 +33,6 @@ All of the Hekili Rotations by Snoogens that are updated by xKaneto.
 - Warlock - Demonology
 - Warlock - Destruction
 
-### To-Do:
-
-- Auto Heal Potion Setting
-
 ## How to use these files with Aimsharp:
 
 1. Download the files from my github
