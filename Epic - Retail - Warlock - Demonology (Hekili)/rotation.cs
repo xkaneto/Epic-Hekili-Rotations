@@ -1235,7 +1235,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", "DoorofShadows", "Banish", "Fear", "Shadowfury", "BilescourgeBombers", "HowlofTerror", "MortalCoil", "BilescourgeBombersCursor", };
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", "DoorofShadows", "Banish", "Fear", "Shadowfury", "BilescourgeBombers", "HowlofTerror", "MortalCoil", "BilescourgeBombersCursor", "GuillotineCursor" };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
         private List<string> m_ItemsList;
@@ -1356,6 +1356,7 @@ namespace AimsharpWow.Modules
             Macros.Add("FearMO", "/cast [@mouseover] " + Fear_SpellName(Language));
             Macros.Add("ShadowfuryC", "/cast [@cursor] " + Shadowfury_SpellName(Language));
             Macros.Add("ShadowfuryP", "/cast [@player] " + Shadowfury_SpellName(Language));
+            Macros.Add("GuillotineC", "/cast [@cursor] " + Guillotine_SpellName(Language));
             Macros.Add("BilescourgeBombersC", "/cast [@cursor] " + BilescourgeBombers_SpellName(Language));
             Macros.Add("BilescourgeBombersP", "/cast [@player] " + BilescourgeBombers_SpellName(Language));
         }
@@ -1460,8 +1461,10 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Auto Drain Life @ HP%", 0, 100, 25));
             Settings.Add(new Setting("Auto Health Funnel @ HP%", 0, 100, 15));
             Settings.Add(new Setting("Auto Unending Resolve @ HP%", 0, 100, 25));
+            Settings.Add(new Setting("Guillotine Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Shadowfury Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Bilescourge Bombers Cast:", m_CastingList, "Manual"));
+            Settings.Add(new Setting("Always Cast Guillotine @ Cursor during Rotation", false));
             Settings.Add(new Setting("Always Cast Bilescourge Bombers @ Cursor during Rotation", false));
             Settings.Add(new Setting("    "));
 
@@ -1497,6 +1500,7 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("/" + FiveLetters + " MortalCoil - Casts Mortal Coil @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " Shadowfury - Casts Shadowfury @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " BilescourgeBombers - Casts Bilescourge Bombers @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " GuillotineCursor - Toggles Guillotine always @ Cursor (same as Option)", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " BilescourgeBombersCursor - Toggles Bilescourge Bombers always @ Cursor (same as Option)", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
 
@@ -2828,7 +2832,16 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 386833 && Aimsharp.CanCast(Guillotine_SpellName(Language), "target", true, true))
+                    if (SpellID1 == 386833 && Aimsharp.CanCast(Guillotine_SpellName(Language), "player", false, true) && ((Aimsharp.CustomFunction("BilescourgeBombersMouseover") == 1 || !InstanceIDList.Contains(Aimsharp.GetMapID()) && Aimsharp.CustomFunction("BilescourgeBombersMouseoverNC") == 1) || GetCheckBox("Always Cast Guillotine @ Cursor during Rotation") || Aimsharp.IsCustomCodeOn("GuillotineCursor")))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Guillotine @ Cursor due to Mouseover - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast("GuillotineC");
+                        return true;
+                    }
+                    else if (SpellID1 == 386833 && Aimsharp.CanCast(Guillotine_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
