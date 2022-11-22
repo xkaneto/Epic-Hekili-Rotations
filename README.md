@@ -2,7 +2,7 @@
 
 All of the Hekili Rotations by Snoogens that are updated by xKaneto.
 
-- Updating Spells to Dragonflight Standards
+- Updated Spells to Dragonflight Standards
 - Language Support for all the rotations
 - Randomize Kicks Option added
 
