@@ -2380,7 +2380,7 @@ namespace AimsharpWow.Modules
                 int states = Aimsharp.CustomFunction("DiseaseCheck");
                 CleansePlayers target;
 
-                int KickTimer = GetRandomNumber(200,800);
+                int KickTimer = GetRandomNumber(200, 800);
 
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
@@ -2923,6 +2923,26 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast(PurifyDisease_SpellName(Language));
                         return true;
                     }
+
+                    if ((SpellID1 == 122121 || SpellID1 == 110744) && Aimsharp.CanCast(DivineStar_SpellName(Language), "player"))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Divine Star - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(DivineStar_SpellName(Language));
+                        return true;
+                    }
+
+                    if ((SpellID1 == 120644 || SpellID1 == 120517) && Aimsharp.CanCast(Halo_SpellName(Language), "player"))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Halo - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(Halo_SpellName(Language));
+                        return true;
+                    }
                     #endregion
 
                     #region Shadow Spells - Target GCD
@@ -3034,26 +3054,6 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Casting Mind Flay: Insanity - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(MindFlay_Insanity_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 122121 && Aimsharp.CanCast(DivineStar_SpellName(Language), "target", true, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Divine Star - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(DivineStar_SpellName(Language));
-                        return true;
-                    }
-
-                    if ((SpellID1 == 120644 || SpellID1 == 120517) && Aimsharp.CanCast(Halo_SpellName(Language), "target", true, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Halo - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(Halo_SpellName(Language));
                         return true;
                     }
 
