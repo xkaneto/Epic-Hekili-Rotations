@@ -1000,6 +1000,17 @@ namespace AimsharpWow.Modules
 
             return false;
         }
+        public bool UnitBelowThreshold(int check)
+        {
+            if (Aimsharp.Health("player") > 0 && Aimsharp.Health("player") <= check ||
+                Aimsharp.Health("party1") > 0 && Aimsharp.Health("party1") <= check ||
+                Aimsharp.Health("party2") > 0 && Aimsharp.Health("party2") <= check ||
+                Aimsharp.Health("party3") > 0 && Aimsharp.Health("party3") <= check ||
+                Aimsharp.Health("party4") > 0 && Aimsharp.Health("party4") <= check)
+                return true;
+
+            return false;
+        }
         #endregion
 
         #region CanCasts
@@ -1045,6 +1056,7 @@ namespace AimsharpWow.Modules
             Macros.Add("FOC_player", "/focus player");
             Macros.Add("Expunge_FOC", "/cast [@focus] " + Expunge_SpellName(Language));
             Macros.Add("CF_FOC", "/cast [@focus] " + CauterizingFlame_SpellName(Language));
+            Macros.Add("EB_FOC", "/cast [@focus] " + EmeraldBlossom_SpellName(Language));
 
             Macros.Add("SleepWalkMO", "/cast [@mouseover] " + SleepWalk_SpellName(Language));
             Macros.Add("DeepBreathC", "/cast [@cursor] " + DeepBreath_SpellName(Language));
@@ -1661,6 +1673,51 @@ namespace AimsharpWow.Modules
                         }
                         Aimsharp.Cast("FirestormC");
                         return true;
+                }
+            }
+            #endregion
+
+            #region Emerald Blossom
+            if (UnitBelowThreshold(GetSlider("Auto Emerald Blossom @ HP%")) && Aimsharp.CanCast(EmeraldBlossom_SpellName(Language), "player", false, true))
+            {
+                PartyDict.Clear();
+                PartyDict.Add("player", Aimsharp.Health("player"));
+
+                var partysize = Aimsharp.GroupSize();
+                if (partysize <= 5)
+                {
+                    for (int i = 1; i < partysize; i++)
+                    {
+                        var partyunit = ("party" + i);
+                        if (Aimsharp.Health(partyunit) > 0 && Aimsharp.Range(partyunit) <= 40)
+                        {
+                            PartyDict.Add(partyunit, Aimsharp.Health(partyunit));
+                        }
+                    }
+                }
+
+                foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
+                {
+                    if (Aimsharp.CanCast(EmeraldBlossom_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.Range(unit.Key) <= 40) && Aimsharp.Health(unit.Key) <= GetSlider("Auto Emerald Blossom @ HP%"))
+                    {
+                        if (!UnitFocus(unit.Key))
+                        {
+                            Aimsharp.Cast("FOC_" + unit.Key, true);
+                            return true;
+                        }
+                        else
+                        {
+                            if (UnitFocus(unit.Key))
+                            {
+                                Aimsharp.Cast("EB_FOC");
+                                if (Debug)
+                                {
+                                    Aimsharp.PrintMessage("Emerald Blossom @ " + unit.Key + " - " + unit.Value, Color.Purple);
+                                }
+                                return true;
+                            }
+                        }
+                    }
                 }
             }
             #endregion
