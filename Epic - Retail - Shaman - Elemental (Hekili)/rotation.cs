@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using System.Diagnostics;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using AimsharpWow.API;
 
 namespace AimsharpWow.Modules
@@ -1772,7 +1772,7 @@ namespace AimsharpWow.Modules
             #region Reinitialize Lists
             m_DebuffsList = new List<string> { };
             m_BuffsList = new List<string> { };
-            m_ItemsList = new List<string> {Healthstone_SpellName(Language) };
+            m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
             m_SpellBook_General = new List<string> {
                 //Covenants
                 VesperTotem_SpellName(Language), //324386
@@ -2512,7 +2512,7 @@ namespace AimsharpWow.Modules
                 int states = Aimsharp.CustomFunction("CurseCheck");
                 CleansePlayers target;
 
-                int KickTimer = GetRandomNumber(200,800);
+                int KickTimer = GetRandomNumber(200, 800);
 
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {

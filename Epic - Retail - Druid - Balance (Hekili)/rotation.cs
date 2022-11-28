@@ -1919,6 +1919,8 @@ namespace AimsharpWow.Modules
             bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
             #endregion
 
+            if (Aimsharp.IsChanneling("player")) return false;
+
             #region SpellQueueWindow
             if (Aimsharp.CustomFunction("GetSpellQueueWindow") != (Aimsharp.Latency + 100))
             {
@@ -3003,6 +3005,8 @@ namespace AimsharpWow.Modules
             bool Moving = Aimsharp.PlayerIsMoving();
             bool MOTWOOC = GetCheckBox("Mark of the Wild Out of Combat:");
             #endregion
+
+            if (Aimsharp.IsChanneling("player")) return false;
 
             #region SpellQueueWindow
             if (Aimsharp.CustomFunction("GetSpellQueueWindow") != (Aimsharp.Latency + 100))
