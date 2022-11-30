@@ -345,42 +345,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=300728</summary>
-        private static string DoorOfShadows_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Door of Shadows";
-                case "Deutsch": return "Schattentor";
-                case "Español": return "Puerta de las Sombras";
-                case "Français": return "Porte des ombres";
-                case "Italiano": return "Porta delle Ombre";
-                case "Português Brasileiro": return "Porta das Sombras";
-                case "Русский": return "Врата теней";
-                case "한국어": return "어둠의 문";
-                case "简体中文": return "暗影之门";
-                default: return "Door of Shadows";
-            }
-        }
-
-        ///<summary>item=102351</summary>
-        private static string DrumsOfRage_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Drums of Rage";
-                case "Deutsch": return "Trommeln des Zorns";
-                case "Español": return "Tambores de ira";
-                case "Français": return "Tambours de rage";
-                case "Italiano": return "Tamburi della Rabbia";
-                case "Português Brasileiro": return "Tambores da Raiva";
-                case "Русский": return "Барабаны ярости";
-                case "한국어": return "분노의 북";
-                case "简体中文": return "暴怒之鼓";
-                default: return "Drums of Rage";
-            }
-        }
-
         ///<summary>spell=198103</summary>
         private static string EarthElemental_SpellName(string Language = "English")
         {
@@ -594,24 +558,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "불꽃혓바닥 무기";
                 case "简体中文": return "火舌武器";
                 default: return "Flametongue Weapon";
-            }
-        }
-
-        ///<summary>spell=350229</summary>
-        private static string Fleshcraft_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Fleshcraft";
-                case "Deutsch": return "Fleischformung";
-                case "Español": return "Modelar carne";
-                case "Français": return "Chair recomposée";
-                case "Italiano": return "Forgiatura della Carne";
-                case "Português Brasileiro": return "Moldacarne";
-                case "Русский": return "Скульптор плоти";
-                case "한국어": return "살덩이창조";
-                case "简体中文": return "血肉铸造";
-                default: return "Fleshcraft";
             }
         }
 
@@ -903,24 +849,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=381930</summary>
-        private static string ManaSpringTotem_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Mana Spring Totem";
-                case "Deutsch": return "Totem der Manaquelle";
-                case "Español": return "Tótem Fuente de maná";
-                case "Français": return "Totem Fontaine de mana";
-                case "Italiano": return "Totem del Flusso di Mana";
-                case "Português Brasileiro": return "Totem Fonte de Mana";
-                case "Русский": return "Тотем источника маны";
-                case "한국어": return "마나샘 토템";
-                case "简体中文": return "法力之泉图腾";
-                default: return "Mana Spring Totem";
-            }
-        }
-
         ///<summary>spell=378081</summary>
         private static string NaturesSwiftness_SpellName(string Language = "English")
         {
@@ -936,24 +864,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "자연의 신속함";
                 case "简体中文": return "自然迅捷";
                 default: return "Nature's Swiftness";
-            }
-        }
-
-        ///<summary>spell=264667</summary>
-        private static string PrimalRage_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Primal Rage";
-                case "Deutsch": return "Urtümliche Wut";
-                case "Español": return "Rabia primigenia";
-                case "Français": return "Rage primordiale";
-                case "Italiano": return "Rabbia Primordiale";
-                case "Português Brasileiro": return "Fúria Primata";
-                case "Русский": return "Исступление";
-                case "한국어": return "원초적 분노";
-                case "简体中文": return "原始暴怒";
-                default: return "Primal Rage";
             }
         }
 
@@ -1047,24 +957,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=58875</summary>
-        private static string SpiritWalk_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Spirit Walk";
-                case "Deutsch": return "Geisterpfoten";
-                case "Español": return "Camino de espíritu";
-                case "Français": return "Marche de l'esprit";
-                case "Italiano": return "Movimento Spirituale";
-                case "Português Brasileiro": return "Andar Espiritual";
-                case "Русский": return "Поступь духа";
-                case "한국어": return "정령의 걸음";
-                case "简体中文": return "幽魂步";
-                default: return "Spirit Walk";
-            }
-        }
-
         ///<summary>spell=20594</summary>
         private static string Stoneform_SpellName(string Language = "English")
         {
@@ -1116,24 +1008,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "폭풍의 일격";
                 case "简体中文": return "风暴打击";
                 default: return "Stormstrike";
-            }
-        }
-
-        ///<summary>spell=324739</summary>
-        private static string SummonSteward_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Summon Steward";
-                case "Deutsch": return "Provost beschwören";
-                case "Español": return "Invocar al administrador";
-                case "Français": return "Invocation de régisseur";
-                case "Italiano": return "Evocazione: Factotum";
-                case "Português Brasileiro": return "Evocar Comissário";
-                case "Русский": return "Призыв распорядителя";
-                case "한국어": return "청지기 소환";
-                case "简体中文": return "召唤执事者";
-                default: return "Summon Steward";
             }
         }
 
@@ -1378,7 +1252,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "NoDecurse", "EarthbindTotem", "WindRushTotem", "CapacitorTotem", "TremorTotem", "Hex", "EarthElemental", "VesperTotem", "FaeTransfusion", "DoorofShadows" };
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "NoDecurse", "EarthbindTotem", "WindRushTotem", "CapacitorTotem", "TremorTotem", "Hex", "EarthElemental", "VesperTotem", "FaeTransfusion", };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
         private List<string> m_ItemsList;
@@ -1534,7 +1408,6 @@ namespace AimsharpWow.Modules
             Macros.Add("FOC_player", "/focus player");
             Macros.Add("CS_FOC", "/cast [@focus] " + CleanseSpirit_SpellName(Language));
             Macros.Add("HS_FOC", "/cast [@focus] " + HealingSurge_SpellName(Language));
-            Macros.Add("DoorofShadowsOff", "/" + FiveLetters + " DoorofShadows");
 
             //Queues
             Macros.Add("EarthbindTotemOff", "/" + FiveLetters + " EarthbindTotem");
@@ -1710,7 +1583,6 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("/" + FiveLetters + " EarthElemental - Casts Earth Elemental @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " VesperTotem - Casts Vesper Totem @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " FaeTransfusion - Casts Fae Transfusion @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " DoorofShadows - Casts Door of Shadows @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
 
             Language = GetDropDown("Game Client Language");
@@ -1813,8 +1685,6 @@ namespace AimsharpWow.Modules
                 ChainHarvest_SpellName(Language), //320674
                 PrimordialWave_SpellName(Language), //326059
 
-                Fleshcraft_SpellName(Language), SummonSteward_SpellName(Language), DoorOfShadows_SpellName(Language),
-
                 //Interrupt
                 WindShear_SpellName(Language), //57994
 
@@ -1838,7 +1708,6 @@ namespace AimsharpWow.Modules
                 LightningBolt_SpellName(Language), //188196
                 LightningLasso_SpellName(Language), //305483
                 LightningShield_SpellName(Language), //192106
-                ManaSpringTotem_SpellName(Language), //381930
                 NaturesSwiftness_SpellName(Language), //378081
                 PrimalStrike_SpellName(Language), //73899
                 Purge_SpellName(Language), //370
@@ -1857,7 +1726,6 @@ namespace AimsharpWow.Modules
                 IceStrike_SpellName(Language), //342240
                 LavaBurst_SpellName(Language), //51505
                 LavaLash_SpellName(Language), //60103
-                SpiritWalk_SpellName(Language), //58875
                 Stormkeeper_SpellName(Language), //320137
                 Stormstrike_SpellName(Language), //17364
                 Sundering_SpellName(Language), //197214
@@ -1965,11 +1833,6 @@ namespace AimsharpWow.Modules
             }
 
             if (Aimsharp.IsCustomCodeOn("FaeTransfusion") && Aimsharp.SpellCooldown(FaeTransfusion_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
-            {
-                return false;
-            }
-
-            if (Aimsharp.IsCustomCodeOn("DoorofShadows") && Aimsharp.SpellCooldown(DoorOfShadows_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -2423,27 +2286,6 @@ namespace AimsharpWow.Modules
                         return true;
                 }
             }
-
-            bool DoorofShadows = Aimsharp.IsCustomCodeOn("DoorofShadows");
-            if ((Aimsharp.SpellCooldown(DoorOfShadows_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && DoorofShadows)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Turning Off Door of Shadows Queue", Color.Purple);
-                }
-                Aimsharp.Cast("DoorofShadowsOff");
-                return true;
-            }
-
-            if (DoorofShadows && Aimsharp.CanCast(DoorOfShadows_SpellName(Language), "player", false, true))
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Door of Shadows - Queue", Color.Purple);
-                }
-                Aimsharp.Cast(DoorOfShadows_SpellName(Language));
-                return true;
-            }
             #endregion
 
             #region Remove Curse
@@ -2814,16 +2656,6 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Casting Primordial Wave - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(PrimordialWave_SpellName(Language));
-                        return true;
-                    }
-
-                    if (SpellID1 == 324631 && Aimsharp.CanCast(Fleshcraft_SpellName(Language), "player", false, true) && !Moving)
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Fleshcraft - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(Fleshcraft_SpellName(Language));
                         return true;
                     }
                     #endregion
@@ -3245,11 +3077,6 @@ namespace AimsharpWow.Modules
             {
                 return false;
             }
-
-            if (Aimsharp.IsCustomCodeOn("DoorofShadows") && Aimsharp.SpellCooldown(DoorOfShadows_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
-            {
-                return false;
-            }
             #endregion
 
             #region Queues
@@ -3512,27 +3339,6 @@ namespace AimsharpWow.Modules
                         return true;
                 }
             }
-
-            bool DoorofShadows = Aimsharp.IsCustomCodeOn("DoorofShadows");
-            if ((Aimsharp.SpellCooldown(DoorOfShadows_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && DoorofShadows)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Turning Off Door of Shadows Queue", Color.Purple);
-                }
-                Aimsharp.Cast("DoorofShadowsOff");
-                return true;
-            }
-
-            if (DoorofShadows && Aimsharp.CanCast(DoorOfShadows_SpellName(Language), "player", false, true))
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Door of Shadows - Queue", Color.Purple);
-                }
-                Aimsharp.Cast(DoorOfShadows_SpellName(Language));
-                return true;
-            }
             #endregion
 
             #region Out of Combat Spells
@@ -3563,28 +3369,6 @@ namespace AimsharpWow.Modules
                     Aimsharp.PrintMessage("Casting Lightning Shield - " + SpellID1, Color.Purple);
                 }
                 Aimsharp.Cast(LightningShield_SpellName(Language));
-                return true;
-            }
-
-            //Auto Fleshcraft
-            if (SpellID1 == 324631 && Aimsharp.CanCast(Fleshcraft_SpellName(Language), "player", false, true) && !Moving)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Fleshcraft - " + SpellID1, Color.Purple);
-                }
-                Aimsharp.Cast(Fleshcraft_SpellName(Language));
-                return true;
-            }
-
-            //Auto Call Steward
-            if (PhialCount <= 0 && Aimsharp.CanCast(SummonSteward_SpellName(Language), "player") && !Aimsharp.HasBuff("Stealth", "player", true) && Aimsharp.GetMapID() != 2286 && Aimsharp.GetMapID() != 1666 && Aimsharp.GetMapID() != 1667 && Aimsharp.GetMapID() != 1668 && Aimsharp.CastingID("player") == 0)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Summon Steward due to Phial Count being: " + PhialCount, Color.Purple);
-                }
-                Aimsharp.Cast(SummonSteward_SpellName(Language));
                 return true;
             }
             #endregion

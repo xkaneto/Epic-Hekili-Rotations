@@ -524,25 +524,6 @@ namespace AimsharpWow.Modules
                 default: return "Fists of Fury";
             }
         }
-
-        ///<summary>spell=350229</summary>
-        private static string Fleshcraft_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Fleshcraft";
-                case "Deutsch": return "Fleischformung";
-                case "Español": return "Modelar carne";
-                case "Français": return "Chair recomposée";
-                case "Italiano": return "Forgiatura della Carne";
-                case "Português Brasileiro": return "Moldacarne";
-                case "Русский": return "Скульптор плоти";
-                case "한국어": return "살덩이창조";
-                case "简体中文": return "血肉铸造";
-                default: return "Fleshcraft";
-            }
-        }
-
         ///<summary>spell=101545</summary>
         private static string FlyingSerpentKick_SpellName(string Language = "English")
         {
@@ -954,24 +935,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "바람의 군주의 일격";
                 case "简体中文": return "风领主之击";
                 default: return "Strike of the Windlord";
-            }
-        }
-
-        ///<summary>spell=324739</summary>
-        private static string SummonSteward_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Summon Steward";
-                case "Deutsch": return "Provost beschwören";
-                case "Español": return "Invocar al administrador";
-                case "Français": return "Invocation de régisseur";
-                case "Italiano": return "Evocazione: Factotum";
-                case "Português Brasileiro": return "Evocar Comissário";
-                case "Русский": return "Призыв распорядителя";
-                case "한국어": return "청지기 소환";
-                case "简体中文": return "召唤执事者";
-                default: return "Summon Steward";
             }
         }
 
@@ -1917,8 +1880,6 @@ namespace AimsharpWow.Modules
                 FallenOrder_SpellName(Language), //326860
                 FaelineStomp_SpellName(Language), //388193
                 BonedustBrew_SpellName(Language), //386276
-                SummonSteward_SpellName(Language),
-                Fleshcraft_SpellName(Language),
 
                 //Interrupt
                 SpearHandStrike_SpellName(Language), //116705
@@ -2767,7 +2728,7 @@ namespace AimsharpWow.Modules
 
                     #region Covenants
                     //Covenants
-                    if (SpellID1 == 310454 && CanCastWeaponsofOrder("player"))
+                    if ((SpellID1 == 310454 || SpellID1 == 387184) && CanCastWeaponsofOrder("player"))
                     {
                         if (Debug)
                         {
@@ -2787,7 +2748,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 327104 && CanCastFaelineStomp("player"))
+                    if ((SpellID1 == 327104 || SpellID1 == 388193) && CanCastFaelineStomp("player"))
                     {
                         if (Debug)
                         {
@@ -2797,7 +2758,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 325216 && CanCastBonedustBrew("player") && ((BonedustBrewCast == "Player" && Aimsharp.Range("target") <= 5) || BonedustBrewCast != "Player"))
+                    if ((SpellID1 == 325216 || SpellID1 == 386276) && CanCastBonedustBrew("player") && ((BonedustBrewCast == "Player" && Aimsharp.Range("target") <= 5) || BonedustBrewCast != "Player"))
                     {
                         switch (BonedustBrewCast)
                         {
@@ -2823,16 +2784,6 @@ namespace AimsharpWow.Modules
                                 Aimsharp.Cast("BonedustBrewP");
                                 return true;
                         }
-                    }
-
-                    if (SpellID1 == 324631 && Aimsharp.CanCast(Fleshcraft_SpellName(Language), "player", false, true) && !Moving)
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Fleshcraft - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(Fleshcraft_SpellName(Language));
-                        return true;
                     }
                     #endregion
 
@@ -3400,27 +3351,6 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Out of Combat Spells
-            //Auto Fleshcraft
-            if (SpellID1 == 324631 && Aimsharp.CanCast(Fleshcraft_SpellName(Language), "player", false, true) && !Moving)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Fleshcraft - " + SpellID1, Color.Purple);
-                }
-                Aimsharp.Cast(Fleshcraft_SpellName(Language));
-                return true;
-            }
-
-            //Auto Call Steward
-            if (PhialCount <= 0 && Aimsharp.CanCast(SummonSteward_SpellName(Language), "player") && !Aimsharp.HasBuff("Stealth", "player", true) && Aimsharp.GetMapID() != 2286 && Aimsharp.GetMapID() != 1666 && Aimsharp.GetMapID() != 1667 && Aimsharp.GetMapID() != 1668 && Aimsharp.CastingID("player") == 0)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Summon Steward due to Phial Count being: " + PhialCount, Color.Purple);
-                }
-                Aimsharp.Cast(SummonSteward_SpellName(Language));
-                return true;
-            }
             #endregion
 
             #region Auto Combat

@@ -561,25 +561,6 @@ namespace AimsharpWow.Modules
                 default: return "Divine Toll";
             }
         }
-
-        ///<summary>spell=300728</summary>
-        private static string DoorOfShadows_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Door of Shadows";
-                case "Deutsch": return "Schattentor";
-                case "Español": return "Puerta de las Sombras";
-                case "Français": return "Porte des ombres";
-                case "Italiano": return "Porta delle Ombre";
-                case "Português Brasileiro": return "Porta das Sombras";
-                case "Русский": return "Врата теней";
-                case "한국어": return "어둠의 문";
-                case "简体中文": return "暗影之门";
-                default: return "Door of Shadows";
-            }
-        }
-
         ///<summary>item=102351</summary>
         private static string DrumsOfRage_SpellName(string Language = "English")
         {
@@ -759,25 +740,6 @@ namespace AimsharpWow.Modules
                 default: return "Flash of Light";
             }
         }
-
-        ///<summary>spell=350229</summary>
-        private static string Fleshcraft_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Fleshcraft";
-                case "Deutsch": return "Fleischformung";
-                case "Español": return "Modelar carne";
-                case "Français": return "Chair recomposée";
-                case "Italiano": return "Forgiatura della Carne";
-                case "Português Brasileiro": return "Moldacarne";
-                case "Русский": return "Скульптор плоти";
-                case "한국어": return "살덩이창조";
-                case "简体中文": return "血肉铸造";
-                default: return "Fleshcraft";
-            }
-        }
-
         ///<summary>spell=28880</summary>
         private static string GiftOfTheNaaru_SpellName(string Language = "English")
         {
@@ -1193,24 +1155,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=324739</summary>
-        private static string SummonSteward_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Summon Steward";
-                case "Deutsch": return "Provost beschwören";
-                case "Español": return "Invocar al administrador";
-                case "Français": return "Invocation de régisseur";
-                case "Italiano": return "Evocazione: Factotum";
-                case "Português Brasileiro": return "Evocar Comissário";
-                case "Русский": return "Призыв распорядителя";
-                case "한국어": return "청지기 소환";
-                case "简体中文": return "召唤执事者";
-                default: return "Summon Steward";
-            }
-        }
-
         ///<summary>spell=85256</summary>
         private static string TemplarsVerdict_SpellName(string Language = "English")
         {
@@ -1380,7 +1324,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "NoCleanse", "FinalReckoning", "BlessingofFreedom", "BlessingofProtection", "BlessingofSacrifice", "DivineShield", "AshenHallow", "HammerofJustice", "BlindingLight", Repentance_SpellName(Language), "DivineSteed", "WordofGlory", "DoorofShadows", "IntercessionMO" };
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "NoCleanse", "FinalReckoning", "BlessingofFreedom", "BlessingofProtection", "BlessingofSacrifice", "DivineShield", "AshenHallow", "HammerofJustice", "BlindingLight", Repentance_SpellName(Language), "DivineSteed", "WordofGlory", "IntercessionMO" };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
         private List<string> m_ItemsList;
@@ -1620,7 +1564,6 @@ namespace AimsharpWow.Modules
             Macros.Add("HammerofJusticeOff", "/" + FiveLetters + " HammerofJustice");
             Macros.Add("BlindingLightOff", "/" + FiveLetters + " BlindingLight");
             Macros.Add("RepentanceOff", "/" + FiveLetters + " Repentance");
-            Macros.Add("DoorofShadowsOff", "/" + FiveLetters + " DoorofShadows");
 
             Macros.Add("RepentanceMO", "/cast [@mouseover] " + Repentance_SpellName(Language));
 
@@ -1780,7 +1723,6 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("/" + FiveLetters + " BlessingofFreedom - Casts Blessing of Freedom @ Mouseover next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " BlessingofProtection - Casts Blessing of Protection @ Mouseover next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " BlessingofSacrifice - Casts Blessing of Sacrifice @ Mouseover next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " DoorofShadows - Casts Door of Shadows @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("Please apply an Aura yourself!", Color.White);
 
@@ -1886,8 +1828,6 @@ namespace AimsharpWow.Modules
                 BlessingOfAutumn_SpellName(Language), //328622
                 BlessingOfWinter_SpellName(Language), //328281
                 BlessingOfSpring_SpellName(Language), //328282
-
-                Fleshcraft_SpellName(Language), SummonSteward_SpellName(Language), DoorOfShadows_SpellName(Language),
 
                 //Interrupt
                 Rebuke_SpellName(Language), //96231
@@ -2007,11 +1947,6 @@ namespace AimsharpWow.Modules
             }
 
             if (Aimsharp.IsCustomCodeOn("AshenHallow") && Aimsharp.SpellCooldown(AshenHallow_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
-            {
-                return false;
-            }
-
-            if (Aimsharp.IsCustomCodeOn("DoorofShadows") && Aimsharp.SpellCooldown(DoorOfShadows_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -2634,27 +2569,6 @@ namespace AimsharpWow.Modules
                         return true;
                 }
             }
-
-            bool DoorofShadows = Aimsharp.IsCustomCodeOn("DoorofShadows");
-            if ((Aimsharp.SpellCooldown(DoorOfShadows_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && DoorofShadows)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Turning Off Door of Shadows Queue", Color.Purple);
-                }
-                Aimsharp.Cast("DoorofShadowsOff");
-                return true;
-            }
-
-            if (DoorofShadows && Aimsharp.CanCast(DoorOfShadows_SpellName(Language), "player", false, true))
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Door of Shadows - Queue", Color.Purple);
-                }
-                Aimsharp.Cast(DoorOfShadows_SpellName(Language));
-                return true;
-            }
             #endregion
 
             #region Cleanse Toxins
@@ -3049,16 +2963,6 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast(BlessingOfSpring_SpellName(Language));
                         return true;
                     }
-
-                    if (SpellID1 == 324631 && Aimsharp.CanCast(Fleshcraft_SpellName(Language), "player", false, true) && !Moving)
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Fleshcraft - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(Fleshcraft_SpellName(Language));
-                        return true;
-                    }
                     #endregion
 
                     #region General Spells - NoGCD
@@ -3411,11 +3315,6 @@ namespace AimsharpWow.Modules
             {
                 return false;
             }
-
-            if (Aimsharp.IsCustomCodeOn("DoorofShadows") && Aimsharp.SpellCooldown(DoorOfShadows_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
-            {
-                return false;
-            }
             #endregion
 
             #region Queues
@@ -3679,51 +3578,9 @@ namespace AimsharpWow.Modules
                         return true;
                 }
             }
-
-            bool DoorofShadows = Aimsharp.IsCustomCodeOn("DoorofShadows");
-            if ((Aimsharp.SpellCooldown(DoorOfShadows_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && DoorofShadows)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Turning Off Door of Shadows Queue", Color.Purple);
-                }
-                Aimsharp.Cast("DoorofShadowsOff");
-                return true;
-            }
-
-            if (DoorofShadows && Aimsharp.CanCast(DoorOfShadows_SpellName(Language), "player", false, true))
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Door of Shadows - Queue", Color.Purple);
-                }
-                Aimsharp.Cast(DoorOfShadows_SpellName(Language));
-                return true;
-            }
             #endregion
 
             #region Out of Combat Spells
-            //Auto Fleshcraft
-            if (SpellID1 == 324631 && Aimsharp.CanCast(Fleshcraft_SpellName(Language), "player", false, true) && !Moving)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Fleshcraft - " + SpellID1, Color.Purple);
-                }
-                Aimsharp.Cast(Fleshcraft_SpellName(Language));
-                return true;
-            }
-
-            //Auto Call Steward
-            if (PhialCount <= 0 && Aimsharp.CanCast(SummonSteward_SpellName(Language), "player") && !Aimsharp.HasBuff("Stealth", "player", true) && Aimsharp.GetMapID() != 2286 && Aimsharp.GetMapID() != 1666 && Aimsharp.GetMapID() != 1667 && Aimsharp.GetMapID() != 1668 && Aimsharp.CastingID("player") == 0)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Summon Steward due to Phial Count being: " + PhialCount, Color.Purple);
-                }
-                Aimsharp.Cast(SummonSteward_SpellName(Language));
-                return true;
-            }
             #endregion
 
             #region Auto Combat

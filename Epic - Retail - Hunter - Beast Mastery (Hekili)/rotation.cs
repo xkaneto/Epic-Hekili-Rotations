@@ -561,23 +561,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=350229</summary>
-        private static string Fleshcraft_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Fleshcraft";
-                case "Deutsch": return "Fleischformung";
-                case "Español": return "Modelar carne";
-                case "Français": return "Chair recomposée";
-                case "Italiano": return "Forgiatura della Carne";
-                case "Português Brasileiro": return "Moldacarne";
-                case "Русский": return "Скульптор плоти";
-                case "한국어": return "살덩이창조";
-                case "简体中文": return "血肉铸造";
-                default: return "Fleshcraft";
-            }
-        }
 
         ///<summary>spell=392956</summary>
         private static string FortitudeOfTheBear_SpellName(string Language = "English")
@@ -1008,24 +991,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "석화";
                 case "简体中文": return "石像形态";
                 default: return "Stoneform";
-            }
-        }
-
-        ///<summary>spell=324739</summary>
-        private static string SummonSteward_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Summon Steward";
-                case "Deutsch": return "Provost beschwören";
-                case "Español": return "Invocar al administrador";
-                case "Français": return "Invocation de régisseur";
-                case "Italiano": return "Evocazione: Factotum";
-                case "Português Brasileiro": return "Evocar Comissário";
-                case "Русский": return "Призыв распорядителя";
-                case "한국어": return "청지기 소환";
-                case "简体中文": return "召唤执事者";
-                default: return "Summon Steward";
             }
         }
 
@@ -1569,14 +1534,6 @@ namespace AimsharpWow.Modules
             return false;
         }
 
-        private bool CanCastFleshcraft(string unit)
-        {
-            if (Aimsharp.CanCast(Fleshcraft_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(Fleshcraft_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.CovenantID() == 4 && !TorghastList.Contains(Aimsharp.GetMapID())))
-                return true;
-
-            return false;
-        }
-
         private bool CanCastFlare(string unit)
         {
             if (Aimsharp.CanCast(Flare_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(Flare_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && !TorghastList.Contains(Aimsharp.GetMapID())))
@@ -1902,8 +1859,6 @@ namespace AimsharpWow.Modules
                 DeathChakram_SpellName(Language), //375891
                 WildSpirits_SpellName(Language), //328231
                 ResonatingArrow_SpellName(Language), //308491
-
-                SummonSteward_SpellName(Language), Fleshcraft_SpellName(Language),
 
                 //Interrupt
                 CounterShot_SpellName(Language), //147362
@@ -2829,16 +2784,6 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast(DeathChakram_SpellName(Language));
                         return true;
                     }
-
-                    if (SpellID1 == 324631 && CanCastFleshcraft("player") && !Moving)
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Fleshcraft - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(Fleshcraft_SpellName(Language));
-                        return true;
-                    }
                     #endregion
 
                     #region General Spells - No GCD
@@ -3503,26 +3448,6 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Out of Combat Spells
-            if (SpellID1 == 324631 && CanCastFleshcraft("player") && !Moving)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Fleshcraft - " + SpellID1, Color.Purple);
-                }
-                Aimsharp.Cast(Fleshcraft_SpellName(Language));
-                return true;
-            }
-
-            //Auto Call Steward
-            if (PhialCount <= 0 && Aimsharp.CanCast(SummonSteward_SpellName(Language), "player") && Aimsharp.GetMapID() != 2286 && Aimsharp.GetMapID() != 1666 && Aimsharp.GetMapID() != 1667 && Aimsharp.GetMapID() != 1668 && Aimsharp.CastingID("player") == 0)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Summon Steward due to Phial Count being: " + PhialCount, Color.Purple);
-                }
-                Aimsharp.Cast(SummonSteward_SpellName(Language));
-                return true;
-            }
             #endregion
 
             #region Auto Combat
