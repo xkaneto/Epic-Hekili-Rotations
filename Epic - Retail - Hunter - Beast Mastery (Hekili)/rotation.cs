@@ -3006,7 +3006,7 @@ namespace AimsharpWow.Modules
                     #endregion
 
                     #region Beast Mastery Spells - Player GCD
-                    if (SpellID1 == 19574 && CanCastBestialWrath("player"))
+                    if ((SpellID1 == 19574 || SpellID1 == 186254 || SpellID1 == 38371 || SpellID1 == 163257 || SpellID1 == 207033 || SpellID1 == 211183 || SpellID1 == 344572) && CanCastBestialWrath("player"))
                     {
                         if (Debug)
                         {
