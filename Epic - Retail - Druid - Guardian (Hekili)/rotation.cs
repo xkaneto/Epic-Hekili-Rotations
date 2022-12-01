@@ -7,7 +7,7 @@ using AimsharpWow.API;
 
 namespace AimsharpWow.Modules
 {
-    public class EpicDruidBalanceHekili : Rotation
+    public class EpicDruidGuardianHekili : Rotation
     {
         //Random Number
         private static readonly Random getrandom = new Random();
@@ -1655,12 +1655,12 @@ namespace AimsharpWow.Modules
             Aimsharp.QuickDelay = 50;
             Aimsharp.SlowDelay = 150;
 
-            Aimsharp.PrintMessage("Epic PVE - Druid Balance", Color.Yellow);
+            Aimsharp.PrintMessage("Epic PVE - Druid Guardian", Color.Yellow);
             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
             Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Red);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- Talents -", Color.White);
-            Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/beta/guide/classes/druid/balance/overview-pve-dps", Color.Yellow);
+            Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/de/guide/classes/druid/guardian/overview-pve-tank", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- General -", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoCycle - Disables Target Cycle", Color.Yellow);

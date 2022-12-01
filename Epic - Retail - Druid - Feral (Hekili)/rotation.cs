@@ -1718,6 +1718,8 @@ namespace AimsharpWow.Modules
             bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
             #endregion
 
+            if (Aimsharp.IsChanneling("player")) return false;
+
             #region SpellQueueWindow
             if (Aimsharp.CustomFunction("GetSpellQueueWindow") != (Aimsharp.Latency + 100))
             {
@@ -2292,7 +2294,7 @@ namespace AimsharpWow.Modules
 
                     #region Covenants
                     ///Covenants
-                    if (SpellID1 == 323764 && Aimsharp.CanCast(ConvokeTheSpirits_SpellName(Language), "player", false, true))
+                    if ((SpellID1 == 323764 || SpellID1 == 391528) && Aimsharp.CanCast(ConvokeTheSpirits_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
@@ -2302,7 +2304,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 325727 && Aimsharp.CanCast(AdaptiveSwarm_SpellName(Language), "target", true, true))
+                    if ((SpellID1 == 325727 || SpellID1== 391888) && Aimsharp.CanCast(AdaptiveSwarm_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
@@ -2581,7 +2583,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 5215 && Aimsharp.CanCast(Prowl_SpellName(Language), "player", false, true))
+                    if ((SpellID1 == 5215 || SpellID1 == 102547) && Aimsharp.CanCast(Prowl_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
