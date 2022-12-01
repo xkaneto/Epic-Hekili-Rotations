@@ -2619,7 +2619,7 @@ namespace AimsharpWow.Modules
                     }
 
                     string CelestialAlignmentCast = GetDropDown("Celestial Alignment with Orbital Strike cast:");
-                    if (SpellID1 == 194223 && Aimsharp.CanCast(CelestialAlignment_SpellName(Language), "player", false, true))
+                    if ((SpellID1 == 194223 || SpellID1 == 390381 || SpellID1 == 383410) && Aimsharp.CanCast(CelestialAlignment_SpellName(Language), "player", false, true))
                     {
                         switch (CelestialAlignmentCast)
                         {
