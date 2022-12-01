@@ -1752,6 +1752,7 @@ namespace AimsharpWow.Modules
             #region Declarations
             int SpellID1 = Aimsharp.CustomFunction("HekiliID1");
             int Wait = Aimsharp.CustomFunction("HekiliWait");
+            Aimsharp.PrintMessage("Spell ID cast: " + SpellID1);
 
             bool NoInterrupts = Aimsharp.IsCustomCodeOn("NoInterrupts");
             bool NoCycle = Aimsharp.IsCustomCodeOn("NoCycle");
@@ -2307,7 +2308,7 @@ namespace AimsharpWow.Modules
                 int states = Aimsharp.CustomFunction("CurseCheck");
                 CleansePlayers target;
 
-                int KickTimer = GetRandomNumber(200,800);
+                int KickTimer = GetRandomNumber(200, 800);
 
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
@@ -2649,7 +2650,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if ((SpellID1 == 326059 || SpellID1 == 375982 || SpellID1 == 375983 || SpellID1 == 375984 || SpellID1 == 375985 || SpellID1 == 375986) && Aimsharp.CanCast(PrimordialWave_SpellName(Language), "target", true, true))
+                    if ((SpellID1 == 326059 || SpellID1 == 375982 || SpellID1 == 375983 || SpellID1 == 375984 || SpellID1 == 375985 || SpellID1 == 375986) && Aimsharp.CanCast(PrimordialWave_SpellName(Language), "target"))
                     {
                         if (Debug)
                         {
