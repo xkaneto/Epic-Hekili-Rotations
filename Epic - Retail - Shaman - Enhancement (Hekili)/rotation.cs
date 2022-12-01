@@ -2649,7 +2649,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if ((SpellID1 == 326059 || SpellID1 == 375982) && Aimsharp.CanCast(PrimordialWave_SpellName(Language), "target", true, true))
+                    if ((SpellID1 == 326059 || SpellID1 == 375982 || SpellID1 == 375983 || SpellID1 == 375984 || SpellID1 == 375985 || SpellID1 == 375986) && Aimsharp.CanCast(PrimordialWave_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
