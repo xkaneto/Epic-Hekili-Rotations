@@ -705,24 +705,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=5761</summary>
-        private static string NumbingPoison_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Numbing Poison";
-                case "Deutsch": return "Lähmendes Gift";
-                case "Español": return "Veneno entumecedor";
-                case "Français": return "Poison ankylosant";
-                case "Italiano": return "Veleno Anestetizzante";
-                case "Português Brasileiro": return "Veneno Entorpecente";
-                case "Русский": return "Замедляющий яд";
-                case "한국어": return "마취 독";
-                case "简体中文": return "迟钝药膏";
-                default: return "Numbing Poison";
-            }
-        }
-
         ///<summary>spell=264667</summary>
         private static string PrimalRage_SpellName(string Language = "English")
         {
@@ -1812,7 +1794,6 @@ namespace AimsharpWow.Modules
                 Feint_SpellName(Language), //1966
                 Gouge_SpellName(Language), //1776
                 MarkedForDeath_SpellName(Language), //137619
-                NumbingPoison_SpellName(Language), //5761
                 Sap_SpellName(Language), //6770
                 ShadowDance_SpellName(Language), //185313
                 Shadowstep_SpellName(Language), //36554

@@ -670,24 +670,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=315584</summary>
-        private static string InstantPoison_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Instant Poison";
-                case "Deutsch": return "Sofort wirkendes Gift";
-                case "Español": return "Veneno instantáneo";
-                case "Français": return "Poison instantané";
-                case "Italiano": return "Veleno Istantaneo";
-                case "Português Brasileiro": return "Veneno Instantâneo";
-                case "Русский": return "Быстродействующий яд";
-                case "한국어": return "순간 효과 독";
-                case "简体中文": return "速效药膏";
-                default: return "Instant Poison";
-            }
-        }
-
         ///<summary>spell=20271</summary>
         private static string Judgment_SpellName(string Language = "English")
         {
@@ -811,24 +793,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "절단";
                 case "简体中文": return "毁伤";
                 default: return "Mutilate";
-            }
-        }
-
-        ///<summary>spell=5761</summary>
-        private static string NumbingPoison_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Numbing Poison";
-                case "Deutsch": return "Lähmendes Gift";
-                case "Español": return "Veneno entumecedor";
-                case "Français": return "Poison ankylosant";
-                case "Italiano": return "Veleno Anestetizzante";
-                case "Português Brasileiro": return "Veneno Entorpecente";
-                case "Русский": return "Замедляющий яд";
-                case "한국어": return "마취 독";
-                case "简体中文": return "迟钝药膏";
-                default: return "Numbing Poison";
             }
         }
 
@@ -1894,7 +1858,6 @@ namespace AimsharpWow.Modules
                 CrimsonVial_SpellName(Language), //185311
                 Distract_SpellName(Language), //1725
                 Eviscerate_SpellName(Language), //196819
-                InstantPoison_SpellName(Language), //315584
                 KidneyShot_SpellName(Language), //408
                 SliceAndDice_SpellName(Language), //315496
                 Sprint_SpellName(Language), //2983
@@ -1909,7 +1872,6 @@ namespace AimsharpWow.Modules
                 Feint_SpellName(Language), //1966
                 Gouge_SpellName(Language), //1776
                 MarkedForDeath_SpellName(Language), //137619
-                NumbingPoison_SpellName(Language), //5761
                 Sap_SpellName(Language), //6770
                 ShadowDance_SpellName(Language), //185313
                 Shadowstep_SpellName(Language), //36554

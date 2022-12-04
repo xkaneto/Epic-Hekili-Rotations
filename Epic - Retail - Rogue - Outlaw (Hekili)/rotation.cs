@@ -1768,7 +1768,7 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("- Talents -", Color.White);
             Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/guide/classes/rogue/outlaw/overview-pve-dps", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
-            Aimsharp.PrintMessage("Poisons are applied out of Combat!", Color.Green);
+            Aimsharp.PrintMessage("Poisons are Manual - apply them before Combat", Color.Green);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- General -", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
@@ -1870,7 +1870,7 @@ namespace AimsharpWow.Modules
 
             #region Reinitialize Lists
             m_DebuffsList = new List<string> { Sap_SpellName(Language), Blind_SpellName(Language), SerratedBoneSpike_SpellName(Language), };
-            m_BuffsList = new List<string> { Stealth_SpellName(Language), Vanish_SpellName(Language), Blindside_SpellName(Language), Subterfuge_SpellName(Language), InstantPoison_SpellName(Language), NumbingPoison_SpellName(Language), };
+            m_BuffsList = new List<string> { Stealth_SpellName(Language), Vanish_SpellName(Language), Blindside_SpellName(Language), Subterfuge_SpellName(Language), };
             m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
             m_SpellBook_General = new List<string> {
                 //Covenants
@@ -1888,7 +1888,6 @@ namespace AimsharpWow.Modules
                 CrimsonVial_SpellName(Language), //185311
                 Distract_SpellName(Language), //1725
                 Eviscerate_SpellName(Language), //196819
-                InstantPoison_SpellName(Language), //315584
                 KidneyShot_SpellName(Language), //408
                 SliceAndDice_SpellName(Language), //315496
                 Sprint_SpellName(Language), //2983
@@ -1903,7 +1902,6 @@ namespace AimsharpWow.Modules
                 Feint_SpellName(Language), //1966
                 Gouge_SpellName(Language), //1776
                 MarkedForDeath_SpellName(Language), //137619
-                NumbingPoison_SpellName(Language), //5761
                 Sap_SpellName(Language), //6770
                 ShadowDance_SpellName(Language), //185313
                 Shadowstep_SpellName(Language), //36554
@@ -3029,24 +3027,6 @@ namespace AimsharpWow.Modules
 
             #region Out of Combat Spells
             //Auto Poison
-            if (!Moving && Aimsharp.CanCast(InstantPoison_SpellName(Language), "player") && !Aimsharp.HasBuff(InstantPoison_SpellName(Language), "player", true))
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Instant Poison - ", Color.Purple);
-                }
-                Aimsharp.Cast(InstantPoison_SpellName(Language));
-                return true;
-            }
-            if (!Moving && Aimsharp.CanCast(NumbingPoison_SpellName(Language), "player") && !Aimsharp.HasBuff(NumbingPoison_SpellName(Language), "player", true))
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Numbing - ", Color.Purple);
-                }
-                Aimsharp.Cast(NumbingPoison_SpellName(Language));
-                return true;
-            }
 
             //General Rogue
             //Instant [GCD]
