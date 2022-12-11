@@ -60,5 +60,6 @@
 	},
 	"todo.statistics.project.enabled": "global.projects < 100 && project.all > 0",
 	"todo.statistics.statusbar.tooltip": "[pending] Pending - [done] Done - [cancelled] Cancelled",
-	"python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "svn.ignoreMissingSvnWarning": true
 }
