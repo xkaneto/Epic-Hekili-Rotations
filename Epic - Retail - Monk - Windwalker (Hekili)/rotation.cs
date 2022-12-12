@@ -1372,7 +1372,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastWeaponsofOrder(string unit)
         {
-            if (Aimsharp.CanCast(WeaponsOfOrder_SpellName(Language), unit, false, true) && Aimsharp.Range("target") <= 8 || (Aimsharp.SpellCooldown(WeaponsOfOrder_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range("target") <= 8 && Aimsharp.CovenantID() == 1 && TargetAlive()))
+            if (Aimsharp.CanCast(WeaponsOfOrder_SpellName(Language), unit, false, true) && Aimsharp.Range("target") <= 8 || (Aimsharp.SpellCooldown(WeaponsOfOrder_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range("target") <= 8 && TargetAlive()))
                 return true;
 
             return false;
@@ -1380,7 +1380,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastFallenOrder(string unit)
         {
-            if (Aimsharp.CanCast(FallenOrder_SpellName(Language), unit, false, true) && Aimsharp.Range("target") <= 8 || (Aimsharp.SpellCooldown(FallenOrder_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range("target") <= 8 && Aimsharp.CovenantID() == 2 && TargetAlive()))
+            if (Aimsharp.CanCast(FallenOrder_SpellName(Language), unit, false, true) && Aimsharp.Range("target") <= 8 || (Aimsharp.SpellCooldown(FallenOrder_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range("target") <= 8 && TargetAlive()))
                 return true;
 
             return false;
@@ -1515,7 +1515,7 @@ namespace AimsharpWow.Modules
         }
         private bool CanCastFaelineStomp(string unit)
         {
-            if (Aimsharp.CanCast(FaelineStomp_SpellName(Language), unit, false, true) && Aimsharp.Range("target") <= 8 || (Aimsharp.SpellCooldown(FaelineStomp_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range("target") <= 8 && Aimsharp.CovenantID() == 3 && TargetAlive()))
+            if (Aimsharp.CanCast(FaelineStomp_SpellName(Language), unit, false, true) && Aimsharp.Range("target") <= 8 || (Aimsharp.SpellCooldown(FaelineStomp_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Range("target") <= 8 && TargetAlive()))
                 return true;
 
             return false;
@@ -1523,7 +1523,7 @@ namespace AimsharpWow.Modules
 
         private bool CanCastBonedustBrew(string unit)
         {
-            if (Aimsharp.CanCast(BonedustBrew_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(BonedustBrew_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.CovenantID() == 4 && TargetAlive()))
+            if (Aimsharp.CanCast(BonedustBrew_SpellName(Language), unit, false, true) || (Aimsharp.SpellCooldown(BonedustBrew_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && TargetAlive()))
                 return true;
 
             return false;
