@@ -2357,7 +2357,7 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Sentinel
-            if (Aimsharp.IsCustomCodeOn(SentinelOwl_SpellName(Language)) && Aimsharp.SpellCooldown(SentinelOwl_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            if (Aimsharp.IsCustomCodeOn("Sentinel") && Aimsharp.SpellCooldown(SentinelOwl_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
                 if (Debug)
                 {
@@ -2367,7 +2367,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.IsCustomCodeOn(SentinelOwl_SpellName(Language)) && CanCastSentinel("player"))
+            if (Aimsharp.IsCustomCodeOn("Sentinel") && CanCastSentinel("player"))
             {
                 if (Debug)
                 {
@@ -3398,8 +3398,8 @@ namespace AimsharpWow.Modules
                 Aimsharp.Cast(Intimidation_SpellName(Language));
                 return true;
             }
-             //Queue Sentinel
-            if (Aimsharp.IsCustomCodeOn(SentinelOwl_SpellName(Language)) && Aimsharp.SpellCooldown(SentinelOwl_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            //Queue Sentinel
+            if (Aimsharp.IsCustomCodeOn("Sentinel") && Aimsharp.SpellCooldown(SentinelOwl_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
                 if (Debug)
                 {
@@ -3409,7 +3409,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.IsCustomCodeOn(SentinelOwl_SpellName(Language)) && CanCastSentinel("player"))
+            if (Aimsharp.IsCustomCodeOn("Sentinel") && CanCastSentinel("player"))
             {
                 if (Debug)
                 {
