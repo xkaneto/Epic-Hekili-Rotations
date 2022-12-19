@@ -1773,6 +1773,8 @@ namespace AimsharpWow.Modules
             };
             #endregion
 
+            Totems.Add(HealingStreamTotem_SpellName(Language));
+
             InitializeMacros();
 
             InitializeSpells();
