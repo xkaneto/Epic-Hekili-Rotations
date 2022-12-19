@@ -2423,7 +2423,7 @@ namespace AimsharpWow.Modules
 
                     #region Covenants
                     ///Covenants
-                    if (SpellID1 == 307443 && Aimsharp.CanCast(RadiantSpark_SpellName(Language), "target", true, true) && !Moving)
+                    if ((SpellID1 == 307443 || SpellID1 == 376103) && Aimsharp.CanCast(RadiantSpark_SpellName(Language), "target", true, true) && !Moving)
                     {
                         if (Debug)
                         {
