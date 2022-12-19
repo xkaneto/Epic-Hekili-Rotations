@@ -3035,6 +3035,34 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast(Stampede_SpellName(Language));
                         return true;
                     }
+
+                    if (SpellID1 == 162488 && CanCastSteelTrap("player"))
+                    {
+                        switch (SteelTrapCast)
+                        {
+                            case "Manual":
+                                if (Debug)
+                                {
+                                    Aimsharp.PrintMessage("Casting Steel Trap - " + SteelTrapCast + " - Queue", Color.Purple);
+                                }
+                                Aimsharp.Cast(SteelTrap_SpellName(Language));
+                                return true;
+                            case "Player":
+                                if (Debug)
+                                {
+                                    Aimsharp.PrintMessage("Casting Steel Trap - " + SteelTrapCast + " - Queue", Color.Purple);
+                                }
+                                Aimsharp.Cast("SteelTrapP");
+                                return true;
+                            case "Cursor":
+                                if (Debug)
+                                {
+                                    Aimsharp.PrintMessage("Casting Steel Trap - " + SteelTrapCast + " - Queue", Color.Purple);
+                                }
+                                Aimsharp.Cast("SteelTrapC");
+                                return true;
+                        }
+                    }
                     #endregion
 
                 }
