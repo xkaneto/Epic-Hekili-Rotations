@@ -2973,7 +2973,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
                     //Player - No GCD
-                    if (SpellID1 == 266779 && CanCastCoordinatedAssault("player"))
+                    if ((SpellID1 == 266779 || SpellID1 == 360952) && CanCastCoordinatedAssault("player"))
                     {
                         if (Debug)
                         {
