@@ -1761,7 +1761,7 @@ namespace AimsharpWow.Modules
             Aimsharp.QuickDelay = 50;
             Aimsharp.SlowDelay = 150;
 
-            Aimsharp.PrintMessage("Epic PVE - Rogue Outlaw", Color.Yellow);
+            Aimsharp.PrintMessage("Epic PVE - Rogue Outlaw (made by acer1992F)", Color.Yellow);
             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
             Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Brown);
             Aimsharp.PrintMessage("-----", Color.Black);
