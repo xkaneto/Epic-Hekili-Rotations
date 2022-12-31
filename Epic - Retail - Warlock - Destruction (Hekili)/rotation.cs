@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using System.Diagnostics;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using AimsharpWow.API;
 
 namespace AimsharpWow.Modules
@@ -1521,7 +1521,7 @@ namespace AimsharpWow.Modules
 
             #region Reinitialize Lists
             m_DebuffsList = new List<string> { Banish_SpellName(Language), Fear_SpellName(Language), Immolate_SpellName(Language), Havoc_SpellName(Language), };
-            m_BuffsList = new List<string> {  };
+            m_BuffsList = new List<string> { };
             m_ItemsList = new List<string> { Healthstone_SpellName(Language), };
             m_SpellBook = new List<string> {
                 //Covenants
@@ -1596,7 +1596,7 @@ namespace AimsharpWow.Modules
             int Enemies = Aimsharp.CustomFunction("HekiliEnemies");
             int TargetingGroup = Aimsharp.CustomFunction("GroupTargets");
 
-            bool NoInterrupts= Aimsharp.IsCustomCodeOn("NoInterrupts");
+            bool NoInterrupts = Aimsharp.IsCustomCodeOn("NoInterrupts");
             bool NoCycle = Aimsharp.IsCustomCodeOn("NoCycle");
 
             bool Debug = GetCheckBox("Debug:") == true;
@@ -2818,7 +2818,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if ((SpellID1 == 17962 || SpellID1 == 290644) && Aimsharp.CanCast(Conflagrate_SpellName(Language), "target", true, true))
+                    if ((SpellID1 == 17962 || SpellID1 == 290644 || SpellID1 == 265931 || SpellID1 == 205184) && Aimsharp.CanCast(Conflagrate_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
