@@ -2818,7 +2818,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if ((SpellID1 == 17962 || SpellID1 == 290644 || SpellID1 == 265931 || SpellID1 == 205184) && Aimsharp.CanCast(Conflagrate_SpellName(Language), "target", true, true))
+                    if ((SpellID1 == 17962 || SpellID1 == 290644 || SpellID1 == 265931 || SpellID1 == 205184 || SpellID1 == 25736) && Aimsharp.CanCast(Conflagrate_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
