@@ -129,6 +129,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=120360</summary>
+        private static string Barrage_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Barrage";
+                case "Deutsch": return "Sperrfeuer";
+                case "Español": return "Tromba";
+                case "Français": return "Barrage";
+                case "Italiano": return "Sbarramento";
+                case "Português Brasileiro": return "Barragem";
+                case "Русский": return "Шквал";
+                case "한국어": return "탄막";
+                case "简体中文": return "弹幕射击";
+                default: return "Barrage";
+            }
+        }
+
         ///<summary>spell=26297</summary>
         private static string Berserking_SpellName(string Language = "English")
         {
@@ -162,24 +180,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "피의 격노";
                 case "简体中文": return "血性狂怒";
                 default: return "Blood Fury";
-            }
-        }
-
-        ///<summary>spell=2825</summary>
-        private static string Bloodlust_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Bloodlust";
-                case "Deutsch": return "Kampfrausch";
-                case "Español": return "Ansia de sangre";
-                case "Français": return "Furie sanguinaire";
-                case "Italiano": return "Brama di Sangue";
-                case "Português Brasileiro": return "Sede de Sangue";
-                case "Русский": return "Жажда крови";
-                case "한국어": return "피의 욕망";
-                case "简体中文": return "嗜血";
-                default: return "Bloodlust";
             }
         }
 
@@ -380,24 +380,6 @@ namespace AimsharpWow.Modules
                 default: return "Divine Star";
             }
         }
-        
-        ///<summary>item=102351</summary>
-        private static string DrumsOfRage_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Drums of Rage";
-                case "Deutsch": return "Trommeln des Zorns";
-                case "Español": return "Tambores de ira";
-                case "Français": return "Tambours de rage";
-                case "Italiano": return "Tamburi della Rabbia";
-                case "Português Brasileiro": return "Tambores da Raiva";
-                case "Русский": return "Барабаны ярости";
-                case "한국어": return "분노의 북";
-                case "简体中文": return "暴怒之鼓";
-                default: return "Drums of Rage";
-            }
-        }
 
         ///<summary>spell=20589</summary>
         private static string EscapeArtist_SpellName(string Language = "English")
@@ -507,21 +489,21 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=32182</summary>
-        private static string Heroism_SpellName(string Language = "English")
+        ///<summary>spell=20271</summary>
+        private static string Judgment_SpellName(string Language = "English")
         {
             switch (Language)
             {
-                case "English": return "Heroism";
-                case "Deutsch": return "Heldentum";
-                case "Español": return "Heroísmo";
-                case "Français": return "Héroïsme";
-                case "Italiano": return "Eroismo";
-                case "Português Brasileiro": return "Heroísmo";
-                case "Русский": return "Героизм";
-                case "한국어": return "영웅심";
-                case "简体中文": return "英勇";
-                default: return "Heroism";
+                case "English": return "Judgment";
+                case "Deutsch": return "Richturteil";
+                case "Español": return "Sentencia";
+                case "Français": return "Jugement";
+                case "Italiano": return "Giudizio";
+                case "Português Brasileiro": return "Julgamento";
+                case "Русский": return "Правосудие";
+                case "한국어": return "심판";
+                case "简体中文": return "审判";
+                default: return "Judgment";
             }
         }
 
@@ -687,6 +669,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=73510</summary>
+        private static string MindSpike_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Mind Spike";
+                case "Deutsch": return "Gedankenstachel";
+                case "Español": return "Púa mental";
+                case "Français": return "Pointe mentale";
+                case "Italiano": return "Aculeo Mentale";
+                case "Português Brasileiro": return "Aguilhão Mental";
+                case "Русский": return "Пронзание разума";
+                case "한국어": return "정신의 쐐기";
+                case "简体中文": return "心灵尖刺";
+                default: return "Mind Spike";
+            }
+        }
+
         ///<summary>spell=200174</summary>
         private static string Mindbender_SpellName(string Language = "English")
         {
@@ -777,24 +777,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=264667</summary>
-        private static string PrimalRage_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Primal Rage";
-                case "Deutsch": return "Urtümliche Wut";
-                case "Español": return "Rabia primigenia";
-                case "Français": return "Rage primordiale";
-                case "Italiano": return "Rabbia Primordiale";
-                case "Português Brasileiro": return "Fúria Primata";
-                case "Русский": return "Исступление";
-                case "한국어": return "원초적 분노";
-                case "简体中文": return "原始暴怒";
-                default: return "Primal Rage";
-            }
-        }
-
         ///<summary>spell=64044</summary>
         private static string PsychicHorror_SpellName(string Language = "English")
         {
@@ -882,24 +864,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "불타는 악몽";
                 case "简体中文": return "灼烧梦魇";
                 default: return "Searing Nightmare";
-            }
-        }
-
-        ///<summary>spell=152173</summary>
-        private static string Serenity_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Serenity";
-                case "Deutsch": return "Gleichmut";
-                case "Español": return "Serenidad";
-                case "Français": return "Sérénité";
-                case "Italiano": return "Serenità";
-                case "Português Brasileiro": return "Serenidade";
-                case "Русский": return "Безмятежность";
-                case "한국어": return "평안";
-                case "简体中文": return "屏气凝神";
-                default: return "Serenity";
             }
         }
 
@@ -1065,24 +1029,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=2908</summary>
-        private static string Soothe_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Soothe";
-                case "Deutsch": return "Besänftigen";
-                case "Español": return "Calmar";
-                case "Français": return "Apaiser";
-                case "Italiano": return "Pacificazione";
-                case "Português Brasileiro": return "Confortar";
-                case "Русский": return "Умиротворение";
-                case "한국어": return "달래기";
-                case "简体中文": return "安抚";
-                default: return "Soothe";
-            }
-        }
-
         ///<summary>spell=20594</summary>
         private static string Stoneform_SpellName(string Language = "English")
         {
@@ -1098,24 +1044,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "석화";
                 case "简体中文": return "石像形态";
                 default: return "Stoneform";
-            }
-        }
-
-        ///<summary>spell=80353</summary>
-        private static string TimeWarp_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Time Warp";
-                case "Deutsch": return "Zeitkrümmung";
-                case "Español": return "Distorsión temporal";
-                case "Français": return "Distorsion temporelle";
-                case "Italiano": return "Distorsione Temporale";
-                case "Português Brasileiro": return "Distorção Temporal";
-                case "Русский": return "Искажение времени";
-                case "한국어": return "시간 왜곡";
-                case "简体中文": return "时间扭曲";
-                default: return "Time Warp";
             }
         }
 
@@ -1789,6 +1717,7 @@ namespace AimsharpWow.Modules
                 MindFlay_SpellName(Language), //15407
                 MindFlay_Insanity_SpellName(Language), //391403
                 MindSear_SpellName(Language), //48045
+                MindSpike_SpellName(Language), //73510
                 Mindbender_SpellName(Language), //200174
                 PsychicHorror_SpellName(Language), //64044 - queue mo
                 PurifyDisease_SpellName(Language), //213634
@@ -2708,6 +2637,16 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Casting Shadow Word: Death - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(ShadowWord_Death_SpellName(Language));
+                        return true;
+                    }
+
+                    if (SpellID1 == 73510 && Aimsharp.CanCast(MindSpike_SpellName(Language), "target", true, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Mind Spike - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(MindSpike_SpellName(Language));
                         return true;
                     }
 
