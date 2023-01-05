@@ -3265,9 +3265,9 @@ namespace AimsharpWow.Modules
                     {
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Butchery - " + SpellID1, Color.Purple);
+                            Aimsharp.PrintMessage("Casting Fury of the Eagle - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast(Butchery_SpellName(Language));
+                        Aimsharp.Cast(FuryOfTheEagle_SpellName(Language));
                         return true;
                     }
 
