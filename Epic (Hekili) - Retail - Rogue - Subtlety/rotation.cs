@@ -1,8 +1,10 @@
-﻿using System.Linq;
-using System.Diagnostics;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
 using AimsharpWow.API;
 
 namespace AimsharpWow.Modules
@@ -1216,7 +1218,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", Distract_SpellName(Language), Blind_SpellName(Language), Sap_SpellName(Language), "KidneyShot", "NoCycle",};
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", Distract_SpellName(Language), Blind_SpellName(Language), Sap_SpellName(Language), "KidneyShot", "NoCycle", };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
         private List<string> m_ItemsList;
@@ -1284,7 +1286,7 @@ namespace AimsharpWow.Modules
         List<int> TorghastList = new List<int> { 1618 - 1641, 1645, 1705, 1712, 1716, 1720, 1721, 1736, 1749, 1751 - 1754, 1756 - 1812, 1833 - 1911, 1913, 1914, 1920, 1921, 1962 - 1969, 1974 - 1988, 2010 - 2012, 2019 };
 
         List<int> SpecialUnitList = new List<int> { 176581, 176920, 178008, 168326, 168969, 175861, };
-#endregion
+        #endregion
 
         #region Misc Checks
         private bool TargetAlive()
@@ -1654,7 +1656,7 @@ namespace AimsharpWow.Modules
             Aimsharp.SlowDelay = 150;
 
             Aimsharp.PrintMessage("Epic PVE - Rogue Subtlety", Color.Yellow);
-             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
+            Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
             Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Brown);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- Talents -", Color.White);
@@ -1762,7 +1764,7 @@ namespace AimsharpWow.Modules
 
             #region Reinitialize Lists
             m_DebuffsList = new List<string> { Sap_SpellName(Language), Blind_SpellName(Language), Garrote_SpellName(Language), Rupture_SpellName(Language), SerratedBoneSpike_SpellName(Language), };
-            m_BuffsList = new List<string> { Stealth_SpellName(Language), Vanish_SpellName(Language), Blindside_SpellName(Language), Subterfuge_SpellName(Language),};
+            m_BuffsList = new List<string> { Stealth_SpellName(Language), Vanish_SpellName(Language), Blindside_SpellName(Language), Subterfuge_SpellName(Language), };
             m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
             m_SpellBook_General = new List<string> {
                 //Covenants
@@ -1945,7 +1947,7 @@ namespace AimsharpWow.Modules
                 }
             }
             //Auto Evasion
-            if(PlayerHP <= EvasionHP && CanCastEvasion("player"))
+            if (PlayerHP <= EvasionHP && CanCastEvasion("player"))
             {
                 if (Debug)
                 {
@@ -2909,7 +2911,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (SpellID1 == 315496 && !Aimsharp.HasBuff(SliceAndDice_SpellName(Language),"player") && CanCastSliceandDice("player") && Enemy && TargetAlive() && !Sap && SnDOOC)
+            if (SpellID1 == 315496 && !Aimsharp.HasBuff(SliceAndDice_SpellName(Language), "player") && CanCastSliceandDice("player") && Enemy && TargetAlive() && !Sap && SnDOOC)
             {
                 if (Debug)
                 {
