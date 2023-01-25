@@ -20,6 +20,7 @@ namespace AimsharpWow.Modules
         }
         private static string Language = "English";
 
+        private static int EmpowerStateNow = new int();
 
         #region SpellFunctions
         ///<summary>spell=274738</summary>
@@ -905,6 +906,15 @@ namespace AimsharpWow.Modules
 
         private List<int> Torghast_InnerFlame = new List<int> { 258935, 258938, 329422, 329423, };
 
+        List<double> Stages = new List<double>
+        {
+            0,
+            1,
+            1.75,
+            2.5,
+            3.25,
+        };
+
         List<int> InstanceIDList = new List<int>
         {
             2291,
@@ -1085,7 +1095,7 @@ namespace AimsharpWow.Modules
 
         private void InitializeCustomLUAFunctions()
         {
-            CustomFunctions.Add("HekiliID1", "local loading, finished = IsAddOnLoaded(\"Hekili\") \r\nif loading == true and finished == true then \r\n    local id=Hekili_GetRecommendedAbility(\"Primary\",1)\r\n\tif id ~= nil then\r\n\t\r\n    if id<0 then \r\n\t if id == -101 then return 999999 end local spell = Hekili.Class.abilities[id]\r\n\t    if spell ~= nil and spell.item ~= nil then \r\n\t    \tid=spell.item\r\n\t\t    local topTrinketLink = GetInventoryItemLink(\"player\",13)\r\n\t\t    local bottomTrinketLink = GetInventoryItemLink(\"player\",14)\r\n\t\t    if topTrinketLink  ~= nil then\r\n                local trinketid = GetItemInfoInstant(topTrinketLink)\r\n                if trinketid ~= nil then\r\n\t\t\t        if trinketid == id then\r\n\t\t\t\t        return 1\r\n                    end\r\n\t\t\t    end\r\n\t\t    end\r\n\t\t    if bottomTrinketLink ~= nil then\r\n                local trinketid = GetItemInfoInstant(bottomTrinketLink)\r\n                if trinketid ~= nil then\r\n    \t\t\t    if trinketid == id then\r\n\t    \t\t\t    return 2\r\n                    end\r\n\t\t\t    end\r\n\t\t    end\r\n\t    end \r\n    end\r\n    return id\r\nend\r\nend\r\nreturn 0");
+            CustomFunctions.Add("HekiliID1", "local loading, finished = IsAddOnLoaded(\"Hekili\")\nif loading == true and finished == true then\n\tlocal id,_,_=Hekili_GetRecommendedAbility(\"Primary\",1)\n\tif id ~= nil then\n\t\tif id<0 then\n\t\t\tlocal spell = Hekili.Class.abilities[id]\n\t\t\tif spell ~= nil and spell.item ~= nil then\n\t\t\t\tid=spell.item\n\t\t\t\tlocal topTrinketLink = GetInventoryItemLink(\"player\",13)\n\t\t\t\tlocal bottomTrinketLink = GetInventoryItemLink(\"player\",14)\n\t\t\t\tlocal weaponLink = GetInventoryItemLink(\"player\",16)\n\t\t\t\tif topTrinketLink  ~= nil then\n\t\t\t\t\tlocal trinketid = GetItemInfoInstant(topTrinketLink)\n\t\t\t\t\tif trinketid ~= nil then\n\t\t\t\t\t\tif trinketid == id then\n\t\t\t\t\t\t\treturn 1\n\t\t\t\t\t\tend\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\t\tif bottomTrinketLink ~= nil then\n\t\t\t\t\tlocal trinketid = GetItemInfoInstant(bottomTrinketLink)\n\t\t\t\t\tif trinketid ~= nil then\n\t\t\t\t\t\tif trinketid == id then\n\t\t\t\t\t\t\treturn 2\n\t\t\t\t\t\tend\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\t\tif weaponLink ~= nil then\n\t\t\t\t\tlocal weaponid = GetItemInfoInstant(weaponLink)\n\t\t\t\t\tif weaponid ~= nil then\n\t\t\t\t\t\tif weaponid == id then\n\t\t\t\t\t\t\treturn 3\n\t\t\t\t\t\tend\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\tend\n\t\tend\n\t\treturn id\n\tend\nend\nreturn 0");
 
             CustomFunctions.Add("GetSpellQueueWindow", "local sqw = GetCVar(\"SpellQueueWindow\"); if sqw ~= nil then return tonumber(sqw); end return 0");
 
@@ -1103,9 +1113,7 @@ namespace AimsharpWow.Modules
 
             CustomFunctions.Add("HekiliEnemies", "if Hekili.State.active_enemies ~= nil and Hekili.State.active_enemies > 0 then return Hekili.State.active_enemies end return 0");
 
-            CustomFunctions.Add("EmpowermentCheck", "if Hekili.State.empowered_cast_time ~= nil and Hekili.State.empowered_cast_time > 1 then return Hekili.State.empowered_cast_time end return 1");
-
-            CustomFunctions.Add("PhialCount", "local count = GetItemCount(177278) if count ~= nil then return count end return 0");
+            CustomFunctions.Add("EmpowermentCheck", "local loading, finished = IsAddOnLoaded(\"Hekili\")\nif loading == true and finished == true then\n    local id,empowermentStage,_=Hekili_GetRecommendedAbility(\"Primary\",1)\n    if id ~= nil and empowermentStage ~= nil then\n        return empowermentStage\n    end\nend\nreturn 0");
 
             CustomFunctions.Add("DeepBreathMouseover", "if UnitExists('mouseover') and UnitIsDead('mouseover') ~= true and UnitAffectingCombat('mouseover') and IsSpellInRange('Fireball','mouseover') == 1 then return 1 end; return 0");
 
@@ -1166,6 +1174,8 @@ namespace AimsharpWow.Modules
                 "end " +
             "end " +
             "return UnitTargeted");
+
+            CustomFunctions.Add("GetTalentImminentDestruction", "if (IsSpellKnown(370781) or IsPlayerSpell(370781)) then return 1 else return 0 end");
 
         }
         #endregion
@@ -1318,6 +1328,16 @@ namespace AimsharpWow.Modules
             InitializeCustomLUAFunctions();
         }
 
+        private int EmpowerState()
+        {
+            int EmpowerStateNew = Aimsharp.CustomFunction("EmpowermentCheck");
+            if (EmpowerStateNow != EmpowerStateNew && EmpowerStateNew != 0)
+            {
+                EmpowerStateNow = EmpowerStateNew;
+            }
+            return EmpowerStateNow;
+        }
+
         public override bool CombatTick()
         {
             #region Declarations
@@ -1325,8 +1345,23 @@ namespace AimsharpWow.Modules
             int CooldownsToggle = Aimsharp.CustomFunction("CooldownsToggleCheck");
             int Wait = Aimsharp.CustomFunction("HekiliWait");
             int Enemies = Aimsharp.CustomFunction("HekiliEnemies");
-            int EmpowerState = Aimsharp.CustomFunction("EmpowermentCheck");
             int TargetingGroup = Aimsharp.CustomFunction("GroupTargets");
+            int Haste = (int)Aimsharp.Haste();
+
+            EmpowerState();
+
+            // Calculating Empowered Cast Time
+            double EmpowerCastTime;
+            if (Aimsharp.HasBuff(TipTheScales_SpellName(Language), "player"))
+            {
+                EmpowerCastTime = 0;
+            }
+            else
+            {
+                EmpowerCastTime = (double)((1 - (0.2 * Aimsharp.CustomFunction("GetTalentImminentDestruction"))) * Stages[(EmpowerState())] * (1 - (Haste / 100)) * 1000);
+            }
+
+            Aimsharp.PrintMessage("EmpowerCastTime: " + EmpowerCastTime, Color.Black);
 
             bool NoInterrupts = Aimsharp.IsCustomCodeOn("NoInterrupts");
             bool NoExpunge = Aimsharp.IsCustomCodeOn("NoExpunge");
@@ -2089,23 +2124,14 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Start casting Fire Breath - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(FireBreath_SpellName(Language));
-                        if (EmpowerState == 1)
+                        if (EmpowerCastTime != 0)
                         {
-                            System.Threading.Thread.Sleep(1000);
+                            System.Threading.Thread.Sleep((int)EmpowerCastTime);
                             Aimsharp.Cast(FireBreath_SpellName(Language));
-                            if (Debug)
-                            {
-                                Aimsharp.PrintMessage("Casting Fire Breath again for Empower Time: " + EmpowerState, Color.Purple);
-                            }
                         }
-                        if (EmpowerState > 1)
+                        if (Debug)
                         {
-                            System.Threading.Thread.Sleep(EmpowerState * 1000);
-                            Aimsharp.Cast(FireBreath_SpellName(Language));
-                            if (Debug)
-                            {
-                                Aimsharp.PrintMessage("Casting Fire Breath again for Empower Time: " + EmpowerState, Color.Purple);
-                            }
+                            Aimsharp.PrintMessage("Casting Fire Breath again for Empower State: " + EmpowerState(), Color.Purple);
                         }
                         return true;
                     }
@@ -2187,42 +2213,14 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Start casting Eternity Surge - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(EternitySurge_SpellName(Language));
-
-                        if (Enemies < 3)
+                        if (EmpowerCastTime != 0)
                         {
-                            System.Threading.Thread.Sleep(1000);
+                            System.Threading.Thread.Sleep((int)EmpowerCastTime);
                             Aimsharp.Cast(EternitySurge_SpellName(Language));
-                            if (Debug)
-                            {
-                                Aimsharp.PrintMessage("Casting Eternity Surge again for Empower Level 1", Color.Purple);
-                            }
                         }
-                        if (Enemies >= 3 && Enemies < 5)
+                        if (Debug)
                         {
-                            System.Threading.Thread.Sleep(EmpowerState * 1700);
-                            Aimsharp.Cast(EternitySurge_SpellName(Language));
-                            if (Debug)
-                            {
-                                Aimsharp.PrintMessage("Casting Eternity Surge again for Empower Level 2", Color.Purple);
-                            }
-                        }
-                        if (Enemies >= 5 && Enemies < 7)
-                        {
-                            System.Threading.Thread.Sleep(EmpowerState * 2400);
-                            Aimsharp.Cast(EternitySurge_SpellName(Language));
-                            if (Debug)
-                            {
-                                Aimsharp.PrintMessage("Casting Eternity Surge again for Empower Level 3", Color.Purple);
-                            }
-                        }
-                        if (Enemies >= 7)
-                        {
-                            System.Threading.Thread.Sleep(EmpowerState * 3100);
-                            Aimsharp.Cast(EternitySurge_SpellName(Language));
-                            if (Debug)
-                            {
-                                Aimsharp.PrintMessage("Casting Eternity Surge again for Empower Level 4", Color.Purple);
-                            }
+                            Aimsharp.PrintMessage("Casting Eternity Surge again for Empower Level: " + EmpowerState(), Color.Purple);
                         }
                         return true;
                     }
@@ -2248,7 +2246,6 @@ namespace AimsharpWow.Modules
             int SpellID1 = Aimsharp.CustomFunction("HekiliID1");
 
             bool Debug = GetCheckBox("Debug:") == true;
-            int PhialCount = Aimsharp.CustomFunction("PhialCount");
             bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
             bool Moving = Aimsharp.PlayerIsMoving();
             bool BOTBOOC = GetCheckBox("Blessing of the Bronze Out of Combat:");
