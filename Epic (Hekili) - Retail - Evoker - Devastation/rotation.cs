@@ -2124,14 +2124,13 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Start casting Fire Breath - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(FireBreath_SpellName(Language));
-                        if (EmpowerCastTime != 0)
+                        if (EmpowerCastTime != 0 && Aimsharp.CastingElapsed("player") >= EmpowerCastTime)
                         {
-                            System.Threading.Thread.Sleep((int)EmpowerCastTime);
+                            if (Debug)
+                            {
+                                Aimsharp.PrintMessage("Casting Fire Breath again for Empower State: " + EmpowerState(), Color.Purple);
+                            }
                             Aimsharp.Cast(FireBreath_SpellName(Language));
-                        }
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Fire Breath again for Empower State: " + EmpowerState(), Color.Purple);
                         }
                         return true;
                     }
@@ -2213,14 +2212,13 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Start casting Eternity Surge - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(EternitySurge_SpellName(Language));
-                        if (EmpowerCastTime != 0)
+                        if (EmpowerCastTime != 0 && Aimsharp.CastingElapsed("player") >= EmpowerCastTime)
                         {
-                            System.Threading.Thread.Sleep((int)EmpowerCastTime);
+                            if (Debug)
+                            {
+                                Aimsharp.PrintMessage("Casting Fire Breath again for Empower State: " + EmpowerState(), Color.Purple);
+                            }
                             Aimsharp.Cast(EternitySurge_SpellName(Language));
-                        }
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Eternity Surge again for Empower Level: " + EmpowerState(), Color.Purple);
                         }
                         return true;
                     }
