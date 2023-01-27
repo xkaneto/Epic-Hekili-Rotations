@@ -237,24 +237,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=2825</summary>
-        private static string Bloodlust_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Bloodlust";
-                case "Deutsch": return "Kampfrausch";
-                case "Español": return "Ansia de sangre";
-                case "Français": return "Furie sanguinaire";
-                case "Italiano": return "Brama di Sangue";
-                case "Português Brasileiro": return "Sede de Sangue";
-                case "Русский": return "Жажда крови";
-                case "한국어": return "피의 욕망";
-                case "简体中文": return "嗜血";
-                default: return "Bloodlust";
-            }
-        }
-
         ///<summary>spell=255654</summary>
         private static string BullRush_SpellName(string Language = "English")
         {
@@ -378,24 +360,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "연타 공격";
                 case "简体中文": return "二连发";
                 default: return "Double Tap";
-            }
-        }
-
-        ///<summary>item=102351</summary>
-        private static string DrumsOfRage_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Drums of Rage";
-                case "Deutsch": return "Trommeln des Zorns";
-                case "Español": return "Tambores de ira";
-                case "Français": return "Tambours de rage";
-                case "Italiano": return "Tamburi della Rabbia";
-                case "Português Brasileiro": return "Tambores da Raiva";
-                case "Русский": return "Барабаны ярости";
-                case "한국어": return "분노의 북";
-                case "简体中文": return "暴怒之鼓";
-                default: return "Drums of Rage";
             }
         }
 
@@ -525,7 +489,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-
         ///<summary>spell=392956</summary>
         private static string FortitudeOfTheBear_SpellName(string Language = "English")
         {
@@ -598,24 +561,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=32182</summary>
-        private static string Heroism_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Heroism";
-                case "Deutsch": return "Heldentum";
-                case "Español": return "Heroísmo";
-                case "Français": return "Héroïsme";
-                case "Italiano": return "Eroismo";
-                case "Português Brasileiro": return "Heroísmo";
-                case "Русский": return "Героизм";
-                case "한국어": return "영웅심";
-                case "简体中文": return "英勇";
-                default: return "Heroism";
-            }
-        }
-
         ///<summary>spell=236776</summary>
         private static string HighExplosiveTrap_SpellName(string Language = "English")
         {
@@ -667,6 +612,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "위협";
                 case "简体中文": return "胁迫";
                 default: return "Intimidation";
+            }
+        }
+
+        ///<summary>spell=20271</summary>
+        private static string Judgment_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Judgment";
+                case "Deutsch": return "Richturteil";
+                case "Español": return "Sentencia";
+                case "Français": return "Jugement";
+                case "Italiano": return "Giudizio";
+                case "Português Brasileiro": return "Julgamento";
+                case "Русский": return "Правосудие";
+                case "한국어": return "심판";
+                case "简体中文": return "审判";
+                default: return "Judgment";
             }
         }
 
@@ -742,24 +705,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=264667</summary>
-        private static string PrimalRage_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Primal Rage";
-                case "Deutsch": return "Urtümliche Wut";
-                case "Español": return "Rabia primigenia";
-                case "Français": return "Rage primordiale";
-                case "Italiano": return "Rabbia Primordiale";
-                case "Português Brasileiro": return "Fúria Primata";
-                case "Русский": return "Исступление";
-                case "한국어": return "원초적 분노";
-                case "简体中文": return "原始暴怒";
-                default: return "Primal Rage";
-            }
-        }
-
         ///<summary>spell=257044</summary>
         private static string RapidFire_SpellName(string Language = "English")
         {
@@ -811,6 +756,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "로켓 연발탄";
                 case "简体中文": return "火箭弹幕";
                 default: return "Rocket Barrage";
+            }
+        }
+
+        ///<summary>spell=400456</summary>
+        private static string Salvo_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Salvo";
+                case "Deutsch": return "Gekonnter Beschuss";
+                case "Español": return "Gran salva";
+                case "Français": return "Salve";
+                case "Italiano": return "Salva";
+                case "Português Brasileiro": return "Salva";
+                case "Русский": return "Залповый огонь";
+                case "한국어": return "연사";
+                case "简体中文": return "齐射";
+                default: return "Salvo";
             }
         }
 
@@ -976,24 +939,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=80353</summary>
-        private static string TimeWarp_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Time Warp";
-                case "Deutsch": return "Zeitkrümmung";
-                case "Español": return "Distorsión temporal";
-                case "Français": return "Distorsion temporelle";
-                case "Italiano": return "Distorsione Temporale";
-                case "Português Brasileiro": return "Distorção Temporal";
-                case "Русский": return "Искажение времени";
-                case "한국어": return "시간 왜곡";
-                case "简体中文": return "时间扭曲";
-                default: return "Time Warp";
-            }
-        }
-
         ///<summary>spell=19801</summary>
         private static string TranquilizingShot_SpellName(string Language = "English")
         {
@@ -1144,7 +1089,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "FreezingTrap", "TarTrap", "Turtle", "Intimidation", "NoInterrupts", "NoCycle", "WildSpirits", "ResonatingArrow", "BindingShot", "Flare", "FlareCursor", "TarTrapCursor", "VolleyCursor", "SteelTrap", "HighExplosiveTrap", "Sentinel" };
+        private List<string> m_IngameCommandsList = new List<string> { "FreezingTrap", "TarTrap", "Turtle", "QueueIntimidation", "NoInterrupts", "NoCycle", "WildSpirits", "ResonatingArrow", "BindingShot", "QueueFlare", "FlareCursor", "TarTrapCursor", "VolleyCursor", "SteelTrap", "HighExplosiveTrap", "Sentinel" };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
         private List<string> m_ItemsList;
@@ -1545,8 +1490,8 @@ namespace AimsharpWow.Modules
             Macros.Add("WildSpiritsOff", "/" + FiveLetters + " WildSpirits");
             Macros.Add("ResonatingArrowOff", "/" + FiveLetters + " ResonatingArrow");
             Macros.Add("BindingShotOff", "/" + FiveLetters + " BindingShot");
-            Macros.Add("FlareOff", "/" + FiveLetters + " Flare");
-            Macros.Add("IntimidationOff", "/" + FiveLetters + " Intimidation");
+            Macros.Add("FlareOff", "/" + FiveLetters + " QueueFlare");
+            Macros.Add("IntimidationOff", "/" + FiveLetters + " QueueIntimidation");
             Macros.Add("SentinelOff", "/" + FiveLetters + " Sentinel");
             Macros.Add("HighExplosiveTrapOff", "/" + FiveLetters + " HighExplosiveTrap");
             Macros.Add("SteelTrapOff", "/" + FiveLetters + " SteelTrap");
@@ -1715,9 +1660,9 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("/" + FiveLetters + " SteelTrap - Casts Tar Trap @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " FreezingTrap - Casts Freezing Trap @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " HighExplosiveTrap - Casts High Explosive Trap @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " Intimidation - Casts Intimidation @ Target next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " Sentinel - Casts Sentinel @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " Flare - Casts Flare @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " QueueIntimidation - Casts Intimidation @ Target next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " Sentinel - Casts Sentinel Owl @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " QueueFlare - Casts Flare @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " BindingShot - Casts Binding Shot @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " WildSpirits - Casts Wild Spirits @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " ResonatingArrow - Casts Resonating Arrow @ next GCD", Color.Yellow);
@@ -1851,6 +1796,7 @@ namespace AimsharpWow.Modules
                 MendPet_SpellName(Language),
                 Multishot_SpellName(Language),
                 RapidFire_SpellName(Language), //257044
+                Salvo_SpellName(Language), //400456
                 SentinelOwl_SpellName(Language), //388045
                 SerpentSting_SpellName(Language),
                 Stampede_SpellName(Language),
@@ -2336,7 +2282,7 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Flare
-            if (Aimsharp.IsCustomCodeOn("Flare") && Aimsharp.SpellCooldown(Flare_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            if (Aimsharp.IsCustomCodeOn("QueueFlare") && Aimsharp.SpellCooldown(Flare_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
                 if (Debug)
                 {
@@ -2346,7 +2292,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.IsCustomCodeOn("Flare") && CanCastFlare("player"))
+            if (Aimsharp.IsCustomCodeOn("QueueFlare") && CanCastFlare("player"))
             {
                 if (Debug)
                 {
@@ -2398,7 +2344,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
             //Queue Intimidation
-            if (Aimsharp.IsCustomCodeOn("Intimidation") && Aimsharp.SpellCooldown(Intimidation_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            if (Aimsharp.IsCustomCodeOn("QueueIntimidation") && Aimsharp.SpellCooldown(Intimidation_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
                 if (Debug)
                 {
@@ -2408,7 +2354,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.IsCustomCodeOn("Intimidation") && CanCastIntimidation("target") && Aimsharp.TargetIsEnemy() && TargetAlive() && TargetInCombat)
+            if (Aimsharp.IsCustomCodeOn("QueueIntimidation") && CanCastIntimidation("target") && Aimsharp.TargetIsEnemy() && TargetAlive() && TargetInCombat)
             {
                 if (Debug)
                 {
@@ -2771,6 +2717,15 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Casting Trueshot - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(Trueshot_SpellName(Language), true);
+                        return true;
+                    }
+                    if (SpellID1 == 400456 && Aimsharp.CanCast(Salvo_SpellName(Language), "player", false, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Salvo - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(Salvo_SpellName(Language), true);
                         return true;
                     }
                     #endregion
@@ -3366,7 +3321,7 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Flare
-            if (Aimsharp.IsCustomCodeOn("Flare") && Aimsharp.SpellCooldown(Flare_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            if (Aimsharp.IsCustomCodeOn("QueueFlare") && Aimsharp.SpellCooldown(Flare_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
                 if (Debug)
                 {
@@ -3376,7 +3331,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.IsCustomCodeOn("Flare") && CanCastFlare("player"))
+            if (Aimsharp.IsCustomCodeOn("QueueFlare") && CanCastFlare("player"))
             {
                 if (Debug)
                 {
@@ -3407,7 +3362,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
             //Queue Intimidation
-            if (Aimsharp.IsCustomCodeOn("Intimidation") && Aimsharp.SpellCooldown(Intimidation_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            if (Aimsharp.IsCustomCodeOn("QueueIntimidation") && Aimsharp.SpellCooldown(Intimidation_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
                 if (Debug)
                 {
@@ -3417,7 +3372,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.IsCustomCodeOn("Intimidation") && CanCastIntimidation("target") && Aimsharp.TargetIsEnemy() && TargetAlive() && TargetInCombat)
+            if (Aimsharp.IsCustomCodeOn("QueueIntimidation") && CanCastIntimidation("target") && Aimsharp.TargetIsEnemy() && TargetAlive() && TargetInCombat)
             {
                 if (Debug)
                 {
