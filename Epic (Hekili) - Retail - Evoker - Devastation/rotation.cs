@@ -1361,8 +1361,6 @@ namespace AimsharpWow.Modules
                 EmpowerCastTime = (double)((1 - (0.2 * Aimsharp.CustomFunction("GetTalentImminentDestruction"))) * Stages[(EmpowerState())] * (1 - (Haste / 100)) * 1000);
             }
 
-            Aimsharp.PrintMessage("EmpowerCastTime: " + EmpowerCastTime, Color.Black);
-
             bool NoInterrupts = Aimsharp.IsCustomCodeOn("NoInterrupts");
             bool NoExpunge = Aimsharp.IsCustomCodeOn("NoExpunge");
             bool NoCauterizingFlame = Aimsharp.IsCustomCodeOn("NoCauterizingFlame");
@@ -2124,8 +2122,9 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Start casting Fire Breath - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(FireBreath_SpellName(Language));
-                        if (EmpowerCastTime != 0 && Aimsharp.CastingElapsed("player") >= EmpowerCastTime)
+                        if (EmpowerCastTime != 0)
                         {
+                            System.Threading.Thread.Sleep((int)EmpowerCastTime);
                             if (Debug)
                             {
                                 Aimsharp.PrintMessage("Casting Fire Breath again for Empower State: " + EmpowerState(), Color.Purple);
@@ -2212,8 +2211,9 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Start casting Eternity Surge - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(EternitySurge_SpellName(Language));
-                        if (EmpowerCastTime != 0 && Aimsharp.CastingElapsed("player") >= EmpowerCastTime)
+                        if (EmpowerCastTime != 0)
                         {
+                            System.Threading.Thread.Sleep((int)EmpowerCastTime);
                             if (Debug)
                             {
                                 Aimsharp.PrintMessage("Casting Fire Breath again for Empower State: " + EmpowerState(), Color.Purple);
