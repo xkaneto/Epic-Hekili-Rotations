@@ -1448,6 +1448,8 @@ namespace AimsharpWow.Modules
 
             Macros.Add("PurgeMO", "/cast [@mouseover] " + Purge_SpellName(Language));
 
+            Macros.Add("MacroMeteor", "/cast " + Meteor_SpellName(Language));
+            Macros.Add("MacroTempest", "/cast " + Tempest_SpellName(Language));
         }
 
         private void InitializeSpells()
@@ -2830,7 +2832,17 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 378773 && Aimsharp.CanCast(GreaterPurge_SpellName(Language), "player", false, true))
+                    if (SpellID1 == 370 && Aimsharp.CanCast(Purge_SpellName(Language), "target", false, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting  Purge - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(Purge_SpellName(Language));
+                        return true;
+                    }
+
+                    if (SpellID1 == 378773 && Aimsharp.CanCast(GreaterPurge_SpellName(Language), "target", false, true))
                     {
                         if (Debug)
                         {
@@ -3088,7 +3100,7 @@ namespace AimsharpWow.Modules
                         {
                             Aimsharp.PrintMessage("Casting Tempest - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast(Tempest_SpellName(Language));
+                        Aimsharp.Cast("MacroTempest");
                         return true;
                     }
 
@@ -3098,7 +3110,7 @@ namespace AimsharpWow.Modules
                         {
                             Aimsharp.PrintMessage("Casting Meteor - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast(Meteor_SpellName(Language));
+                        Aimsharp.Cast("MacroMeteor");
                         return true;
                     }
 
