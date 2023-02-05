@@ -1288,7 +1288,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "NoDecurse", "EarthbindTotem", "WindRushTotem", "CapacitorTotem", "TremorTotem", Hex_SpellName(Language), "EarthElemental", "VesperTotem", "FaeTransfusion", };
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "NoDecurse", "EarthbindTotem", "WindRushTotem", "CapacitorTotem", "TremorTotem", "HexMO", "EarthElemental", "VesperTotem", "FaeTransfusion", };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
         private List<string> m_ItemsList;
@@ -1466,7 +1466,7 @@ namespace AimsharpWow.Modules
             Macros.Add("FaeTransfusionC", "/cast [@cursor] " + FaeTransfusion_SpellName(Language));
             Macros.Add("FaeTransfusionP", "/cast [@player] " + FaeTransfusion_SpellName(Language));
 
-            Macros.Add("HexOff", "/" + FiveLetters + " Hex");
+            Macros.Add("HexOff", "/" + FiveLetters + " HexMO");
             Macros.Add("HexMO", "/cast [@mouseover] " + Hex_SpellName(Language));
 
             Macros.Add("EarthElementalOff", "/" + FiveLetters + " EarthElemental");
@@ -1611,7 +1611,7 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoCycle - Disables Target Cycle", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoDecurse - Disables Decurse", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " Hex - Casts Hex @ Mouseover next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " HexMO - Casts Hex @ Mouseover next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " EarthbindTotem - Casts Earthbind Totem @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " CapacitorTotem - Casts Capacitor Totem @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " WindRushTotem - Casts Wind Rush Totem @ next GCD", Color.Yellow);
@@ -1828,7 +1828,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Checks
-            if (Aimsharp.CastingID("player") == 51514 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Hex_SpellName(Language)))
+            if (Aimsharp.CastingID("player") == 51514 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("HexMO"))
             {
                 if (Debug)
                 {
@@ -2107,7 +2107,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Hex = Aimsharp.IsCustomCodeOn(Hex_SpellName(Language));
+            bool Hex = Aimsharp.IsCustomCodeOn("HexMO");
             if ((Aimsharp.SpellCooldown(Hex_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Hex)
             {
                 if (Debug)
@@ -3089,7 +3089,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Checks
-            if (Aimsharp.CastingID("player") == 51514 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Hex_SpellName(Language)))
+            if (Aimsharp.CastingID("player") == 51514 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("HexMO"))
             {
                 if (Debug)
                 {
@@ -3180,7 +3180,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Hex = Aimsharp.IsCustomCodeOn(Hex_SpellName(Language));
+            bool Hex = Aimsharp.IsCustomCodeOn("HexMO");
             if ((Aimsharp.SpellCooldown(Hex_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Hex)
             {
                 if (Debug)
