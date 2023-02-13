@@ -1116,6 +1116,8 @@ namespace AimsharpWow.Modules
             Macros.Add("SigilofFlameC", "/cast [@cursor] " + SigilOfFlame_SpellName(Language));
             Macros.Add("SigilofMiseryP", "/cast [@player] " + SigilOfMisery_SpellName(Language));
             Macros.Add("SigilofMiseryC", "/cast [@cursor] " + SigilOfMisery_SpellName(Language));
+            Macros.Add("ElysianDecreeP", "/cast [@player] " + ElysianDecree_SpellName(Language));
+            Macros.Add("ElysianDecreeC", "/cast [@cursor] " + ElysianDecree_SpellName(Language));
 
             Macros.Add("SigilofFlameOff", "/" + FiveLetters + " SigilofFlame");
             Macros.Add("SigilofMiseryOff", "/" + FiveLetters + " SigilofMisery");
@@ -1203,6 +1205,7 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Auto Blur @ HP%", 0, 100, 15));
             Settings.Add(new Setting("Auto Netherwalk @ HP%", 0, 100, 5));
             Settings.Add(new Setting("Sigils Cast:", m_CastingList, "Player"));
+            Settings.Add(new Setting("Elysian Decree Cast:", m_CastingList, "Player"));
             Settings.Add(new Setting("    "));
         }
 
@@ -1590,6 +1593,7 @@ namespace AimsharpWow.Modules
 
             //Queue Sigil
             string SigilsCast = GetDropDown("Sigils Cast:");
+            string ElysianDecreeCast = GetDropDown("Elysian Decree Cast:");
             bool SigilofFlame = Aimsharp.IsCustomCodeOn("SigilofFlame");
             bool SigilofMisery = Aimsharp.IsCustomCodeOn("SigilofMisery");
             if (Aimsharp.SpellCooldown(SigilOfFlame_SpellName(Language)) - Aimsharp.GCD() > 2000 && SigilofFlame)
@@ -1758,14 +1762,32 @@ namespace AimsharpWow.Modules
 
                     #region Covenants
                     //Covenants
-                    if (SpellID1 == 306830 && Aimsharp.CanCast(ElysianDecree_SpellName(Language), "player", false, true))
+                    if ((SpellID1 == 306830 || SpellID1 == 390163) && Aimsharp.CanCast(ElysianDecree_SpellName(Language), "player", false, true))
                     {
-                        if (Debug)
+                        switch (ElysianDecreeCast)
                         {
-                            Aimsharp.PrintMessage("Casting Elysian Decree - " + SpellID1, Color.Purple);
+                            case "Manual":
+                                if (Debug)
+                                {
+                                    Aimsharp.PrintMessage("Casting Elysian Decree - " + ElysianDecreeCast + " - Queue", Color.Purple);
+                                }
+                                Aimsharp.Cast(ElysianDecree_SpellName(Language));
+                                return true;
+                            case "Player":
+                                if (Debug)
+                                {
+                                    Aimsharp.PrintMessage("Casting Elysian Decree - " + ElysianDecreeCast + " - Queue", Color.Purple);
+                                }
+                                Aimsharp.Cast("ElysianDecreeP");
+                                return true;
+                            case "Cursor":
+                                if (Debug)
+                                {
+                                    Aimsharp.PrintMessage("Casting Elysian Decree - " + ElysianDecreeCast + " - Queue", Color.Purple);
+                                }
+                                Aimsharp.Cast("ElysianDecreeC");
+                                return true;
                         }
-                        Aimsharp.Cast(ElysianDecree_SpellName(Language));
-                        return true;
                     }
 
                     if (SpellID1 == 329554 && Aimsharp.CanCast(FodderToTheFlame_SpellName(Language), "player", false, true))
