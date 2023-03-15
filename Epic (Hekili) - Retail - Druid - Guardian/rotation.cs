@@ -1322,21 +1322,8 @@ namespace AimsharpWow.Modules
 
         bool DebugMode;
         bool EnableDefensives;
-        int Counter = 0;
-
-        public enum RCPlayers
-        {
-            player = 1,
-            p1 = 2,
-            p2 = 4,
-            p3 = 8,
-            p4 = 16,
-        }
 
         private static string FiveLetters;
-
-        private static bool RetrievedSkillIDs = false;
-        private static Dictionary<int, string> SpellsMap = new Dictionary<int, string>();
         Stopwatch HSTimer = new Stopwatch();
 
         private static List<string> MacroCommands = new List<string>
