@@ -1341,12 +1341,17 @@ namespace AimsharpWow.Modules
 
         private static List<string> MacroCommands = new List<string>
         {
-            "SaveDefensiveCooldowns", "NoInterrupts","NoCycle","NoDecurse","MassEntanglement","QueueTyphoon","RebirthMO","IncapacitatingRoar","MightyBash","UrsolsVortex","StampedingRoar"
-        };
-
-        private List<string> Potions = new List<string>
-        {
-            "Soulful Healing Potion",SpiritualHealingPotion_SpellName(Language),"Abyssal Healing Potion"
+            "IncapacitatingRoar",
+            "MassEntanglement",
+            "MightyBash",
+            "NoCycle",
+            "NoDecurse",
+            "NoInterrupts",
+            "QueueTyphoon",
+            "RebirthMO",
+            "SaveDefensiveCooldowns",
+            "StampedingRoar",
+            "UrsolsVortex",
         };
 
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
@@ -1822,10 +1827,6 @@ namespace AimsharpWow.Modules
 
             Items.Add(GetString("Potion name:"));
             Items.Add(Healthstone_SpellName(Language));
-            foreach (string s in Potions)
-            {
-                Items.Add(s);
-            }
 
             Macros.Add("MoonFireMO", "/cast [@mouseover,exists,harm,nodead] " + Moonfire_SpellName(Language));
             Macros.Add("RebirthMO", "/cast [@mouseover,help] " + Rebirth_SpellName(Language));
