@@ -1349,6 +1349,14 @@ namespace AimsharpWow.Modules
         private static List<string> DebuffsList = new List<string>();
 
         private static List<string> SpellsList = new List<string>();
+
+        List<int> SpecialUnitList = new List<int> { 176581, 176920, 178008, 168326, 168969, 175861, };
+
+        List<int> InstanceIDList = new List<int>
+        {
+            2291, 2287, 2290, 2289, 2284, 2285, 2286, 2293, 1663, 1664, 1665, 1666, 1667, 1668, 1669, 1674, 1675, 1676, 1677, 1678, 1679, 1680, 1683, 1684, 1685, 1686, 1687, 1692, 1693, 1694, 1695, 1697, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2441, 2450
+        };
+
         public enum CleansePlayers
         {
             player = 1,
@@ -1377,7 +1385,7 @@ namespace AimsharpWow.Modules
 
         public Dictionary<string, int> PartyDict = new Dictionary<string, int>() { };
 
-        private bool SpellCast(int HekiliID, string SpellName, string target, string MacroName  = "")
+        private bool SpellCast(int HekiliID, string SpellName, string target, string MacroName = "")
         {
             if (MacroName == "")
             {
@@ -1611,7 +1619,7 @@ namespace AimsharpWow.Modules
             #region Get Addon Name
             if (Aimsharp.GetAddonName().Length >= 5)
             {
-                FiveLetters = Aimsharp.GetAddonName().Substring(0, 5);
+                FiveLetters = Aimsharp.GetAddonName().Substring(0, 5).ToLower();
             }
             #endregion
 
@@ -1855,7 +1863,7 @@ namespace AimsharpWow.Modules
         public override bool CombatTick()
         {
 
-            int hekiliSpell = Aimsharp.CustomFunction("Hekili");
+            int hekiliSpell = Aimsharp.CustomFunction("HekiliID1");
 
             int PlayerHealth = Aimsharp.Health("player");
             bool Fighting = Aimsharp.Range("target") <= 30 && Aimsharp.TargetIsEnemy();
@@ -1872,7 +1880,7 @@ namespace AimsharpWow.Modules
             int Wait = Aimsharp.CustomFunction("HekiliWait");
 
             bool Enemy = Aimsharp.TargetIsEnemy();
-            bool TargetInCombat = Aimsharp.InCombat("target");
+            bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
 
             bool IsInterruptable = Aimsharp.IsInterruptable("target");
             int CastingRemaining = Aimsharp.CastingRemaining("target");
@@ -1948,32 +1956,32 @@ namespace AimsharpWow.Modules
             if (Aimsharp.CustomFunction("MoonfireDebuffCheck") == 1 && Aimsharp.CanCast(Moonfire_SpellName(Language), "mouseover")) return MoonfireMO();
 
             //Soothe Mouseover
-                if (Aimsharp.CanCast(Soothe_SpellName(Language), "mouseover", true, true))
+            if (Aimsharp.CanCast(Soothe_SpellName(Language), "mouseover", true, true))
+            {
+                if (MOSoothe && EnrageBuffMO == 3)
                 {
-                    if (MOSoothe && EnrageBuffMO == 3)
+                    Aimsharp.Cast("SootheMO");
+                    if (DebugMode)
                     {
-                        Aimsharp.Cast("SootheMO");
-                        if (DebugMode)
-                        {
-                            Aimsharp.PrintMessage("Casting Soothe (Mouseover)", Color.Purple);
-                        }
-                        return true;
+                        Aimsharp.PrintMessage("Casting Soothe (Mouseover)", Color.Purple);
                     }
+                    return true;
                 }
+            }
 
-                //Soothe Target
-                if (Aimsharp.CanCast(Soothe_SpellName(Language), "target", true, true))
+            //Soothe Target
+            if (Aimsharp.CanCast(Soothe_SpellName(Language), "target", true, true))
+            {
+                if (TargetSoothe && EnrageBuffTarget == 3)
                 {
-                    if (TargetSoothe && EnrageBuffTarget == 3)
+                    Aimsharp.Cast(Soothe_SpellName(Language));
+                    if (DebugMode)
                     {
-                        Aimsharp.Cast(Soothe_SpellName(Language));
-                        if (DebugMode)
-                        {
-                            Aimsharp.PrintMessage("Casting Soothe (Target)", Color.Purple);
-                        }
-                        return true;
+                        Aimsharp.PrintMessage("Casting Soothe (Target)", Color.Purple);
                     }
+                    return true;
                 }
+            }
 
             #region Remove Corruption
             if (!NoDecurse && CursePoisonCheck > 0 && Aimsharp.GroupSize() <= 5 && Aimsharp.LastCast() != RemoveCorruption_SpellName(Language))
@@ -1994,7 +2002,7 @@ namespace AimsharpWow.Modules
                 int states = Aimsharp.CustomFunction("CursePoisonCheck");
                 CleansePlayers target;
 
-                int KickTimer = GetRandomNumber(200,800);
+                int KickTimer = GetRandomNumber(200, 800);
 
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
@@ -2561,15 +2569,15 @@ namespace AimsharpWow.Modules
                 //StampedingRoar
                 if (SpellCast(106898, StampedingRoar_SpellName(Language), "player")) return true;
                 //Starfire
-                if (SpellCast(194153, Starfire_SpellName(Language), "target")) return true;
+                if (SpellCast(197628, Starfire_SpellName(Language), "target")) return true;
                 //Starsurge
                 if (SpellCast(78674, Starsurge_SpellName(Language), "target")) return true;
                 //Swiftmend
                 if (SpellCast(18562, Swiftmend_SpellName(Language), "player")) return true;
                 //Swipe
-                if (SpellCast(213764, Swipe_SpellName(Language), "target")) return true;
+                if (SpellCast(213771, Swipe_SpellName(Language), "player")) return true;
                 //Thrash
-                if (SpellCast(106830, Thrash_SpellName(Language), "target")) return true;
+                if (SpellCast(77758, Thrash_SpellName(Language), "player")) return true;
                 //Typhoon
                 if (SpellCast(132469, Typhoon_SpellName(Language), "player")) return true;
                 //UrsolsVortex
@@ -2582,12 +2590,12 @@ namespace AimsharpWow.Modules
                 if (SpellCast(5176, Wrath_SpellName(Language), "target")) return true;
 
                 //Covenant Spells or Not
-                if (SpellCast(326434,KindredSpirits_SpellName(Language),"player")) return true;
-                if (SpellCast(323546,RavenousFrenzy_SpellName(Language),"player")) return true;
-                if (SpellCast(323764,ConvokeTheSpirits_SpellName(Language),"player")) return true;
-                if (SpellCast(391528,ConvokeTheSpirits_SpellName(Language),"player")) return true;
-                if (SpellCast(325727,AdaptiveSwarm_SpellName(Language),"player")) return true;
-                if (SpellCast(391888,AdaptiveSwarm_SpellName(Language),"player")) return true;
+                if (SpellCast(326434, KindredSpirits_SpellName(Language), "player")) return true;
+                if (SpellCast(323546, RavenousFrenzy_SpellName(Language), "player")) return true;
+                if (SpellCast(323764, ConvokeTheSpirits_SpellName(Language), "player")) return true;
+                if (SpellCast(391528, ConvokeTheSpirits_SpellName(Language), "player")) return true;
+                if (SpellCast(325727, AdaptiveSwarm_SpellName(Language), "player")) return true;
+                if (SpellCast(391888, AdaptiveSwarm_SpellName(Language), "player")) return true;
 
                 #endregion
             }

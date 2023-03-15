@@ -1552,7 +1552,7 @@ namespace AimsharpWow.Modules
             #region Get Addon Name
             if (Aimsharp.GetAddonName().Length >= 5)
             {
-                FiveLetters = Aimsharp.GetAddonName().Substring(0, 5);
+                FiveLetters = Aimsharp.GetAddonName().Substring(0, 5).ToLower();
             }
             #endregion
 
