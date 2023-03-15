@@ -113,24 +113,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=197488</summary>
-        private static string BalanceAffinity_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Balance Affinity";
-                case "Deutsch": return "Gleichgewichtsaffinität";
-                case "Español": return "Afinidad con Equilibrio";
-                case "Français": return "Affinité avec l’équilibre";
-                case "Italiano": return "Affinità dell'Equilibrio";
-                case "Português Brasileiro": return "Afinidade com Equilíbrio";
-                case "Русский": return "Родство с балансом";
-                case "한국어": return "조화 친화";
-                case "简体中文": return "平衡亲和";
-                default: return "Balance Affinity";
-            }
-        }
-
         ///<summary>spell=22812</summary>
         private static string Barkskin_SpellName(string Language = "English")
         {
@@ -182,6 +164,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "곰 변신";
                 case "简体中文": return "熊形态";
                 default: return "Bear Form";
+            }
+        }
+
+        ///<summary>spell=106951</summary>
+        private static string Berserk_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Berserk";
+                case "Deutsch": return "Berserker";
+                case "Español": return "Rabia";
+                case "Français": return "Berserk";
+                case "Italiano": return "Berserk";
+                case "Português Brasileiro": return "Berserk";
+                case "Русский": return "Берсерк";
+                case "한국어": return "광폭화";
+                case "简体中文": return "狂暴";
+                default: return "Berserk";
             }
         }
 
@@ -257,6 +257,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=768</summary>
+        private static string CatForm_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Cat Form";
+                case "Deutsch": return "Katzengestalt";
+                case "Español": return "Forma felina";
+                case "Français": return "Forme de félin";
+                case "Italiano": return "Forma Felina";
+                case "Português Brasileiro": return "Forma de Felino";
+                case "Русский": return "Облик кошки";
+                case "한국어": return "표범 변신";
+                case "简体中文": return "猎豹形态";
+                default: return "Cat Form";
+            }
+        }
+
         ///<summary>spell=323764</summary>
         private static string ConvokeTheSpirits_SpellName(string Language = "English")
         {
@@ -329,24 +347,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=202155</summary>
-        private static string FeralAffinity_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Feral Affinity";
-                case "Deutsch": return "Wildheitsaffinität";
-                case "Español": return "Afinidad con Feral";
-                case "Français": return "Affinité farouche";
-                case "Italiano": return "Affinità dell'Aggressore Ferino";
-                case "Português Brasileiro": return "Afinidade Feral";
-                case "Русский": return "Родство с силой зверя";
-                case "한국어": return "야성 친화";
-                case "简体中文": return "野性亲和";
-                default: return "Feral Affinity";
-            }
-        }
-
         ///<summary>spell=265221</summary>
         private static string Fireblood_SpellName(string Language = "English")
         {
@@ -380,6 +380,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "광포한 재생력";
                 case "简体中文": return "狂暴回复";
                 default: return "Frenzied Regeneration";
+            }
+        }
+
+        ///<summary>spell=335077</summary>
+        private static string Frenzy_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Frenzy";
+                case "Deutsch": return "Raserei";
+                case "Español": return "Frenesí";
+                case "Français": return "Frénésie";
+                case "Italiano": return "Frenesia";
+                case "Português Brasileiro": return "Frenesi";
+                case "Русский": return "Бешенство";
+                case "한국어": return "광기";
+                case "简体中文": return "狂乱";
+                default: return "Frenzy";
             }
         }
 
@@ -470,6 +488,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "감금";
                 case "简体中文": return "禁锢";
                 default: return "Imprison";
+            }
+        }
+
+        ///<summary>spell=99</summary>
+        private static string IncapacitatingRoar_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Incapacitating Roar";
+                case "Deutsch": return "Erschütterndes Gebrüll";
+                case "Español": return "Rugido incapacitante";
+                case "Français": return "Rugissement incapacitant";
+                case "Italiano": return "Ruggito Inabilitante";
+                case "Português Brasileiro": return "Rugido Incapacitante";
+                case "Русский": return "Парализующий рык";
+                case "한국어": return "행동 불가의 포효";
+                case "简体中文": return "夺魂咆哮";
+                default: return "Incapacitating Roar";
             }
         }
 
@@ -581,6 +617,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=1126</summary>
+        private static string MarkOfTheWild_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Mark of the Wild";
+                case "Deutsch": return "Mal der Wildnis";
+                case "Español": return "Marca de lo Salvaje";
+                case "Français": return "Marque du fauve";
+                case "Italiano": return "Marchio Selvaggio";
+                case "Português Brasileiro": return "Marca do Indomado";
+                case "Русский": return "Знак дикой природы";
+                case "한국어": return "야생의 징표";
+                case "简体中文": return "野性印记";
+                default: return "Mark of the Wild";
+            }
+        }
+
         ///<summary>spell=102359</summary>
         private static string MassEntanglement_SpellName(string Language = "English")
         {
@@ -671,6 +725,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=124974</summary>
+        private static string NaturesVigil_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Nature's Vigil";
+                case "Deutsch": return "Wache der Natur";
+                case "Español": return "Vigilia de la Naturaleza";
+                case "Français": return "Veille de la nature";
+                case "Italiano": return "Veglia della Natura";
+                case "Português Brasileiro": return "Vigília da Natureza";
+                case "Русский": return "Природная чуткость";
+                case "한국어": return "자연의 경계";
+                case "简体中文": return "自然的守护";
+                default: return "Nature's Vigil";
+            }
+        }
+
         ///<summary>spell=115078</summary>
         private static string Paralysis_SpellName(string Language = "English")
         {
@@ -722,6 +794,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "잠자는 자의 분노";
                 case "简体中文": return "沉睡者之怒";
                 default: return "Rage of the Sleeper";
+            }
+        }
+
+        ///<summary>spell=1822</summary>
+        private static string Rake_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Rake";
+                case "Deutsch": return "Krallenhieb";
+                case "Español": return "Arañazo";
+                case "Français": return "Griffure";
+                case "Italiano": return "Graffio";
+                case "Português Brasileiro": return "Estraçalhar";
+                case "Русский": return "Глубокая рана";
+                case "한국어": return "갈퀴 발톱";
+                case "简体中文": return "斜掠";
+                default: return "Rake";
             }
         }
 
@@ -833,39 +923,21 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=197492</summary>
-        private static string RestorationAffinity_SpellName(string Language = "English")
+        ///<summary>spell=1079</summary>
+        private static string Rip_SpellName(string Language = "English")
         {
             switch (Language)
             {
-                case "English": return "Restoration Affinity";
-                case "Deutsch": return "Wiederherstellungsaffinität";
-                case "Español": return "Afinidad con Restauración";
-                case "Français": return "Affinité avec la restauration";
-                case "Italiano": return "Affinità della Rigenerazione";
-                case "Português Brasileiro": return "Afinidade com Restauração";
-                case "Русский": return "Родство с исцелением";
-                case "한국어": return "회복 친화";
-                case "简体中文": return "恢复亲和";
-                default: return "Restoration Affinity";
-            }
-        }
-
-        ///<summary>spell=50769</summary>
-        private static string Revive_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Revive";
-                case "Deutsch": return "Wiederbeleben";
-                case "Español": return "Revivir";
-                case "Français": return "Ressusciter";
-                case "Italiano": return "Rinascita";
-                case "Português Brasileiro": return "Reviver";
-                case "Русский": return "Оживление";
-                case "한국어": return "되살리기";
-                case "简体中文": return "起死回生";
-                default: return "Revive";
+                case "English": return "Rip";
+                case "Deutsch": return "Zerfetzen";
+                case "Español": return "Destripar";
+                case "Français": return "Déchirure";
+                case "Italiano": return "Squarcio";
+                case "Português Brasileiro": return "Rasgar";
+                case "Русский": return "Разорвать";
+                case "한국어": return "도려내기";
+                case "简体中文": return "割裂";
+                default: return "Rip";
             }
         }
 
@@ -977,6 +1049,42 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=197628</summary>
+        private static string Starfire_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Starfire";
+                case "Deutsch": return "Sternenfeuer";
+                case "Español": return "Fuego estelar";
+                case "Français": return "Feu stellaire";
+                case "Italiano": return "Fuoco Stellare";
+                case "Português Brasileiro": return "Fogo Estelar";
+                case "Русский": return "Звездный огонь";
+                case "한국어": return "별빛섬광";
+                case "简体中文": return "星火术";
+                default: return "Starfire";
+            }
+        }
+
+        ///<summary>spell=78674</summary>
+        private static string Starsurge_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Starsurge";
+                case "Deutsch": return "Sternensog";
+                case "Español": return "Oleada de estrellas";
+                case "Français": return "Éruption stellaire";
+                case "Italiano": return "Cometa Arcana";
+                case "Português Brasileiro": return "Surto Estelar";
+                case "Русский": return "Звездный поток";
+                case "한국어": return "별빛쇄도";
+                case "简体中文": return "星涌术";
+                default: return "Starsurge";
+            }
+        }
+
         ///<summary>spell=20594</summary>
         private static string Stoneform_SpellName(string Language = "English")
         {
@@ -1028,24 +1136,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "생존 본능";
                 case "简体中文": return "生存本能";
                 default: return "Survival Instincts";
-            }
-        }
-
-        ///<summary>spell=264735</summary>
-        private static string SurvivalOfTheFittest_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Survival of the Fittest";
-                case "Deutsch": return "Überleben des Stärkeren";
-                case "Español": return "Supervivencia del más fuerte";
-                case "Français": return "Survie du plus fort";
-                case "Italiano": return "Legge del Più Forte";
-                case "Português Brasileiro": return "Lei da Selva";
-                case "Русский": return "Выживает сильнейший";
-                case "한국어": return "적자생존";
-                case "简体中文": return "优胜劣汰";
-                default: return "Survival of the Fittest";
             }
         }
 
@@ -1103,21 +1193,21 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=252216</summary>
-        private static string TigerDash_SpellName(string Language = "English")
+        ///<summary>spell=61391</summary>
+        private static string Typhoon_SpellName(string Language = "English")
         {
             switch (Language)
             {
-                case "English": return "Tiger Dash";
-                case "Deutsch": return "Tigerspurt";
-                case "Español": return "Acometida de tigre";
-                case "Français": return "Célérité du tigre";
-                case "Italiano": return "Scatto della Tigre";
-                case "Português Brasileiro": return "Arremetida do Tigre";
-                case "Русский": return "Рывок тигра";
-                case "한국어": return "범의 질주";
-                case "简体中文": return "猛虎冲刺";
-                default: return "Tiger Dash";
+                case "English": return "Typhoon";
+                case "Deutsch": return "Taifun";
+                case "Español": return "Tifón";
+                case "Français": return "Typhon";
+                case "Italiano": return "Tifone";
+                case "Português Brasileiro": return "Tufão";
+                case "Русский": return "Тайфун";
+                case "한국어": return "태풍";
+                case "简体中文": return "台风";
+                default: return "Typhoon";
             }
         }
 
@@ -1154,24 +1244,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "전투 발구르기";
                 case "简体中文": return "战争践踏";
                 default: return "War Stomp";
-            }
-        }
-
-        ///<summary>spell=102401</summary>
-        private static string WildCharge_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Wild Charge";
-                case "Deutsch": return "Wilde Attacke";
-                case "Español": return "Carga salvaje";
-                case "Français": return "Charge sauvage";
-                case "Italiano": return "Carica Selvaggia";
-                case "Português Brasileiro": return "Investida Selvagem";
-                case "Русский": return "Стремительный рывок";
-                case "한국어": return "야생의 돌진";
-                case "简体中文": return "野性冲锋";
-                default: return "Wild Charge";
             }
         }
 
@@ -1269,7 +1341,7 @@ namespace AimsharpWow.Modules
 
         private static List<string> MacroCommands = new List<string>
         {
-            "SaveDefensiveCooldowns", "NoInterrupts","NoCycle"
+            "SaveDefensiveCooldowns", "NoInterrupts","NoCycle","NoDecurse","MassEntanglement","QueueTyphoon","RebirthMO","IncapacitatingRoar","MightyBash","UrsolsVortex","StampedingRoar"
         };
 
         private List<string> Potions = new List<string>
@@ -1278,15 +1350,69 @@ namespace AimsharpWow.Modules
         };
 
         private List<string> m_RaceList = new List<string> { "human", "dwarf", "nightelf", "gnome", "draenei", "pandaren", "orc", "scourge", "tauren", "troll", "bloodelf", "goblin", "worgen", "voidelf", "lightforgeddraenei", "highmountaintauren", "nightborne", "zandalaritroll", "magharorc", "kultiran", "darkirondwarf", "vulpera", "mechagnome" };
-
+        private List<string> m_CastingList = new List<string> { "Manual", "Cursor", "Player" };
 
         private static List<string> BuffsList = new List<string>();
 
         private static List<string> DebuffsList = new List<string>();
 
         private static List<string> SpellsList = new List<string>();
+        public enum CleansePlayers
+        {
+            player = 1,
+            party1 = 2,
+            party2 = 4,
+            party3 = 8,
+            party4 = 16,
+        }
 
-        private static List<string> TalentSpellList = new List<string>();
+        private bool isUnitCleansable(CleansePlayers unit, int states)
+        {
+            if ((states & (int)unit) == (int)unit)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool UnitFocus(string unit)
+        {
+            if (Aimsharp.CustomFunction("UnitIsFocus") == 1 && unit == "party1" || Aimsharp.CustomFunction("UnitIsFocus") == 2 && unit == "party2" || Aimsharp.CustomFunction("UnitIsFocus") == 3 && unit == "party3" || Aimsharp.CustomFunction("UnitIsFocus") == 4 && unit == "party4" || Aimsharp.CustomFunction("UnitIsFocus") == 5 && unit == "player")
+                return true;
+
+            return false;
+        }
+
+        public Dictionary<string, int> PartyDict = new Dictionary<string, int>() { };
+
+        private bool SpellCast(int HekiliID, string SpellName, string target, string MacroName  = "")
+        {
+            if (MacroName == "")
+            {
+                if (Aimsharp.CustomFunction("HekiliID1") == HekiliID && Aimsharp.CanCast(SpellName, target))
+                {
+                    if (DebugMode)
+                    {
+                        Aimsharp.PrintMessage("Casting " + SpellName + " - " + HekiliID, Color.Purple);
+                    }
+                    Aimsharp.Cast(SpellName);
+                    return true;
+                }
+            }
+            if (MacroName != "")
+            {
+                if (Aimsharp.CustomFunction("HekiliID1") == HekiliID && Aimsharp.CanCast(SpellName, target))
+                {
+                    if (DebugMode)
+                    {
+                        Aimsharp.PrintMessage("Casting Macro " + MacroName + " - " + HekiliID, Color.Purple);
+                    }
+                    Aimsharp.Cast(MacroName);
+                    return true;
+                }
+            }
+            return false;
+        }
 
         private int UnitDebuffParalysis(string unit)
         {
@@ -1305,7 +1431,6 @@ namespace AimsharpWow.Modules
 
             return false;
         }
-
 
         private void AddCovenantSkills()
         {
@@ -1332,76 +1457,9 @@ namespace AimsharpWow.Modules
             }
         }
 
-        private void initSpells()
-        {
-            if (!RetrievedSkillIDs)
-            {
-                SpellsMap[93402] = Sunfire_SpellName(Language);
-                SpellsMap[24858] = MoonkinForm_SpellName(Language);
-                SpellsMap[22812] = Barkskin_SpellName(Language);
-                SpellsMap[339] = EntanglingRoots_SpellName(Language);
-                SpellsMap[200851] = RageOfTheSleeper_SpellName(Language);
-                SpellsMap[192081] = Ironfur_SpellName(Language);
-                SpellsMap[33917] = Mangle_SpellName(Language);
-                SpellsMap[8921] = Moonfire_SpellName(Language);
-                SpellsMap[20484] = Rebirth_SpellName(Language);
-                SpellsMap[8936] = Regrowth_SpellName(Language);
-                SpellsMap[2908] = Soothe_SpellName(Language);
-                SpellsMap[190984] = Wrath_SpellName(Language);
-                SpellsMap[2637] = Hibernate_SpellName(Language);
-                SpellsMap[106898] = StampedingRoar_SpellName(Language);
-                SpellsMap[50769] = Revive_SpellName(Language);
-                SpellsMap[48438] = WildGrowth_SpellName(Language);
-                SpellsMap[102793] = UrsolsVortex_SpellName(Language);
-                SpellsMap[2782] = RemoveCorruption_SpellName(Language);
-                SpellsMap[18562] = Swiftmend_SpellName(Language);
-                SpellsMap[774] = Rejuvenation_SpellName(Language);
-                SpellsMap[5487] = BearForm_SpellName(Language);
-                SpellsMap[22842] = FrenziedRegeneration_SpellName(Language);
-                SpellsMap[6807] = Maul_SpellName(Language);
-                SpellsMap[106839] = SkullBash_SpellName(Language);
-                SpellsMap[61336] = SurvivalInstincts_SpellName(Language);
-                SpellsMap[213771] = Swipe_SpellName(Language);
-                SpellsMap[77758] = Thrash_SpellName(Language);
-                //Talent spells
-                SpellsMap[155835] = BristlingFur_SpellName(Language);
-                SpellsMap[252216] = TigerDash_SpellName(Language);
-                SpellsMap[108238] = Renewal_SpellName(Language);
-                SpellsMap[102401] = WildCharge_SpellName(Language);
-                SpellsMap[197488] = BalanceAffinity_SpellName(Language);
-                SpellsMap[202155] = FeralAffinity_SpellName(Language);
-                SpellsMap[197492] = RestorationAffinity_SpellName(Language);
-                SpellsMap[5211] = MightyBash_SpellName(Language);
-                SpellsMap[102359] = MassEntanglement_SpellName(Language);
-                SpellsMap[319454] = HeartOfTheWild_SpellName(Language);
-                SpellsMap[102558] = Incarnation_GuardianOfUrsoc_SpellName(Language);
-                SpellsMap[80313] = Pulverize_SpellName(Language);
-                //Covenants SL
-                SpellsMap[323764] = ConvokeTheSpirits_SpellName(Language);
-                SpellsMap[326434] = KindredSpirits_SpellName(Language);
-                SpellsMap[323546] = RavenousFrenzy_SpellName(Language);
-                SpellsMap[325727] = AdaptiveSwarm_SpellName(Language);
-                //Covenants DF
-                SpellsMap[391528] = ConvokeTheSpirits_SpellName(Language);
-                //Racials
-                //SpellsMap[265221] = "Fireblood";
-                //SpellsMap[33697] = "Blood Fury";
-                //SpellsMap[26297] = "Berserking";
-                //SpellsMap[274738] = "Ancestral Call";
-
-                RetrievedSkillIDs = true;
-            }
-        }
-
         private bool Barkskin()
         {
             Aimsharp.Cast(Barkskin_SpellName(Language));
-            return true;
-        }
-
-        private bool EntanglingRoots()
-        {
-            Aimsharp.Cast(EntanglingRoots_SpellName(Language), true);
             return true;
         }
 
@@ -1417,69 +1475,9 @@ namespace AimsharpWow.Modules
             return true;
         }
 
-        private bool Mangle()
-        {
-            Aimsharp.Cast(Mangle_SpellName(Language), true);
-            return true;
-        }
-
-        private bool Moonfire()
-        {
-            Aimsharp.Cast(Moonfire_SpellName(Language), true);
-            return true;
-        }
-
-        private bool Rebirth()
-        {
-            Aimsharp.Cast(Rebirth_SpellName(Language));
-            return true;
-        }
-
         private bool Regrowth()
         {
             Aimsharp.Cast(Regrowth_SpellName(Language));
-            return true;
-        }
-
-        private bool Soothe()
-        {
-            Aimsharp.Cast(Soothe_SpellName(Language), true);
-            return true;
-        }
-
-        private bool Wrath()
-        {
-            Aimsharp.Cast(Wrath_SpellName(Language), true);
-            return true;
-        }
-
-        private bool Hibernate()
-        {
-            Aimsharp.Cast(Hibernate_SpellName(Language), true);
-            return true;
-        }
-
-        private bool StampedingRoar()
-        {
-            Aimsharp.Cast(StampedingRoar_SpellName(Language), true);
-            return true;
-        }
-
-        private bool Revive()
-        {
-            Aimsharp.Cast(Revive_SpellName(Language), true);
-            return true;
-        }
-
-        private bool WildGrowth()
-        {
-            Aimsharp.Cast(WildGrowth_SpellName(Language), true);
-            return true;
-        }
-
-        private bool UrsolsVortex()
-        {
-            Aimsharp.Cast(UrsolsVortex_SpellName(Language), true);
             return true;
         }
 
@@ -1489,141 +1487,15 @@ namespace AimsharpWow.Modules
             return true;
         }
 
-        private bool MoonFireB1()
-        {
-            Aimsharp.Cast("MoonFireB1");
-            return true;
-        }
-
-        private bool MoonFireB2()
-        {
-            Aimsharp.Cast("MoonFireB2");
-            return true;
-        }
-
-        private bool MoonFireB3()
-        {
-            Aimsharp.Cast("MoonFireB3");
-            return true;
-        }
-
-        private bool MoonFireB4()
-        {
-            Aimsharp.Cast("MoonFireB4");
-            return true;
-        }
-
-        private bool RemoveCorruption()
-        {
-            Aimsharp.Cast(RemoveCorruption_SpellName(Language));
-            return true;
-        }
-
-        private bool RemoveCorruptionP1()
-        {
-            Aimsharp.Cast("P1RC");
-            return true;
-        }
-
-        private bool RemoveCorruptionP2()
-        {
-            Aimsharp.Cast("P2RC");
-            return true;
-        }
-
-        private bool RemoveCorruptionP3()
-        {
-            Aimsharp.Cast("P3RC");
-            return true;
-        }
-
-        private bool RemoveCorruptionP4()
-        {
-            Aimsharp.Cast("P4RC");
-            return true;
-        }
-
-        private bool RemoveCorruptionMO()
-        {
-            Aimsharp.Cast("MORC");
-            return true;
-        }
-
-        private bool Swiftmend()
-        {
-            Aimsharp.Cast(Swiftmend_SpellName(Language));
-            return true;
-        }
-
-        private bool Rejuvenation()
-        {
-            Aimsharp.Cast(Rejuvenation_SpellName(Language));
-            return true;
-        }
-
-        private bool RebirthMO()
-        {
-            Aimsharp.Cast("RebirthMO");
-            return true;
-        }
-
-        private bool BearForm()
-        {
-            Aimsharp.Cast(BearForm_SpellName(Language), true);
-            return true;
-        }
-
         private bool FrenziedRegeneration()
         {
             Aimsharp.Cast(FrenziedRegeneration_SpellName(Language));
             return true;
         }
 
-        private bool Maul()
-        {
-            Aimsharp.Cast(Maul_SpellName(Language), true);
-            return true;
-        }
-
-        //private bool SkullBash();
-        //{
-        //    Aimsharp.Cast("Skull Bash", true);
-        //    return true;
-        //}
-
         private bool SurvivalInstincts()
         {
             Aimsharp.Cast(SurvivalInstincts_SpellName(Language), true);
-            return true;
-        }
-
-        private bool Swipe()
-        {
-            Aimsharp.Cast(Swipe_SpellName(Language), true);
-            return true;
-        }
-
-        private bool Thrash()
-        {
-            Aimsharp.Cast(Thrash_SpellName(Language), true);
-            return true;
-        }
-
-        private bool BristlingFur()
-        {
-            Aimsharp.Cast(BristlingFur_SpellName(Language));
-            return true;
-        }
-
-        private bool TigerDash()
-        {
-            Aimsharp.Cast(TigerDash_SpellName(Language), true);
-            return true;
-        }
-
-        private bool Sunfire()
-        {
-            Aimsharp.Cast(Sunfire_SpellName(Language), true);
             return true;
         }
 
@@ -1633,104 +1505,6 @@ namespace AimsharpWow.Modules
             return true;
         }
 
-        private bool WildCharge()
-        {
-            Aimsharp.Cast(WildCharge_SpellName(Language), true);
-            return true;
-        }
-
-        private bool BalanceAffinity()
-        {
-            Aimsharp.Cast(BalanceAffinity_SpellName(Language), true);
-            return true;
-        }
-
-        private bool FeralAffinity()
-        {
-            Aimsharp.Cast(FeralAffinity_SpellName(Language), true);
-            return true;
-        }
-
-        private bool RestorationAffinity()
-        {
-            Aimsharp.Cast(RestorationAffinity_SpellName(Language), true);
-            return true;
-        }
-
-        private bool MightyBash()
-        {
-            Aimsharp.Cast(MightyBash_SpellName(Language), true);
-            return true;
-        }
-
-        private bool MassEntanglement()
-        {
-            Aimsharp.Cast(MassEntanglement_SpellName(Language), true);
-            return true;
-        }
-
-        private bool HeartoftheWild()
-        {
-            Aimsharp.Cast(HeartOfTheWild_SpellName(Language), true);
-            return true;
-        }
-
-        private bool IncarnationGuardianofElune()
-        {
-            Aimsharp.Cast("Incarnation: Guardian of Elune", true);
-            return true;
-        }
-
-        private bool Pulverize()
-        {
-            Aimsharp.Cast(Pulverize_SpellName(Language), true);
-            return true;
-        }
-
-        private bool ConvoketheSpirits()
-        {
-            Aimsharp.Cast(ConvokeTheSpirits_SpellName(Language), true);
-            return true;
-        }
-
-        private bool RavenousFrenzy()
-        {
-            Aimsharp.Cast(RavenousFrenzy_SpellName(Language), true);
-            return true;
-        }
-
-        private bool KindredSpirits()//focus
-        {
-            Aimsharp.Cast("KindredSpiritsF", true);
-            return true;
-        }
-
-        private bool AdaptiveSwarm()
-        {
-            Aimsharp.Cast(AdaptiveSwarm_SpellName(Language), true);
-            return true;
-        }
-
-        private bool IncarnationGuardianofUrsoc()
-        {
-            Aimsharp.Cast(Incarnation_GuardianOfUrsoc_SpellName(Language), true);
-            return true;
-        }
-
-        private bool MoonkinForm()
-        {
-            Aimsharp.Cast(MoonkinForm_SpellName(Language), true);
-            return true;
-        }
-
-        private bool isTargetDispelable(RCPlayers target, int states)
-        {
-            if ((states & (int)target) == (int)target)
-            {
-                return true;
-            }
-            return false;
-        }
 
         private void initCustomFunctions()
         {
@@ -1746,13 +1520,26 @@ namespace AimsharpWow.Modules
 
             CustomFunctions.Add("IsTargeting", "if SpellIsTargeting()\r\n then return 1\r\n end\r\n return 0");
 
-            CustomFunctions.Add("CorruptionCheck", "local y=0 \r\nfor i=1,25 do \r\n    local name,_,_,type=UnitDebuff(\"player\",i,\"RAID\"); \r\n    if type ~= nil and type == \"Poison\" or type == \"Curse\"  then\r\n        y = y + 1; \r\n    end \r\nend \r\nfor i=1,25 do \r\n    local name,_,_,type=UnitDebuff(\"party1\",i,\"RAID\"); \r\n    if type ~= nil and type == \"Poison\" or type == \"Curse\"  then \r\n        y = y + 2^1 \r\n    end \r\nend \r\nfor i=1,25 do \r\n    local name,_,_,type=UnitDebuff(\"party2\",i,\"RAID\"); \r\n    if type ~= nil and type == \"Poison\" or type == \"Curse\"  then\r\n         y = y + 2^2 \r\n    end \r\nend \r\nfor i=1,25 do \r\n    local name,_,_,type=UnitDebuff(\"party3\",i,\"RAID\"); \r\n    if type ~= nil and type == \"Poison\" or type == \"Curse\"  then \r\n        y = y + 2^3 \r\n    end \r\nend \r\nfor i=1,25 do \r\n    local name,_,_,type=UnitDebuff(\"party4\",i,\"RAID\"); \r\n    if type ~= nil and type == \"Poison\" or type == \"Curse\"  then \r\n        y = y + 2^4 \r\n    end \r\nend \r\nreturn y");
+            CustomFunctions.Add("CursePoisonCheck", "local y=0; " +
+                "for i=1,25 do local name,_,_,type=UnitDebuff(\"player\",i,\"RAID\"); " +
+                "if type ~= nil and type == \"Curse\" or type == \"Poison\" then y = y +1; end end " +
+                "for i=1,25 do local name,_,_,type=UnitDebuff(\"party1\",i,\"RAID\"); " +
+                "if type ~= nil and type == \"Curse\" or type == \"Poison\" then y = y +2; end end " +
+                "for i=1,25 do local name,_,_,type=UnitDebuff(\"party2\",i,\"RAID\"); " +
+                "if type ~= nil and type == \"Curse\" or type == \"Poison\" then y = y +4; end end " +
+                "for i=1,25 do local name,_,_,type=UnitDebuff(\"party3\",i,\"RAID\"); " +
+                "if type ~= nil and type == \"Curse\" or type == \"Poison\" then y = y +8; end end " +
+                "for i=1,25 do local name,_,_,type=UnitDebuff(\"party4\",i,\"RAID\"); " +
+                "if type ~= nil and type == \"Curse\" or type == \"Poison\" then y = y +16; end end " +
+                "return y");
 
             CustomFunctions.Add("UnitIsDead", "if UnitIsDead(\"mouseover\") ~= nil and UnitIsDead(\"mouseover\") == true then return 1 end; if UnitIsDead(\"mouseover\") ~= nil and UnitIsDead(\"mouseover\") == false then return 2 end; return 0");
 
             CustomFunctions.Add("MoonfireDebuffCheck", "local moonfirecheck = 0; if UnitExists('mouseover') and UnitIsDead('mouseover') ~= true and IsSpellInRange('Moonfire','mouseover') == 1 then moonfirecheck = moonfirecheck +1  for y = 1, 40 do local name,_,_,_,_,_,source  = UnitDebuff('mouseover', y) if name == 'Moonfire' then moonfirecheck = moonfirecheck + 2 end end return moonfirecheck end return 0");
 
-            CustomFunctions.Add("EnrageCheck", "local y=0 \r\nfor i=1,25 do \r\n    local name,_,_,type=UnitBuff(\"target\",i); \r\n    if type ~= nil and type == \"Enrage\" then\r\n        y = y + 1; \r\n    end \r\n end return y");
+            CustomFunctions.Add("EnrageBuffCheckMouseover", "local markcheck = 0; if UnitExists('mouseover') and UnitIsDead('mouseover') ~= true and UnitAffectingCombat('mouseover') and IsSpellInRange('Soothe','mouseover') == 1 then markcheck = markcheck +1  for y = 1, 40 do local name,_,_,debuffType  = UnitBuff('mouseover', y) if debuffType == '' then markcheck = markcheck + 2 end end return markcheck end return 0");
+
+            CustomFunctions.Add("EnrageBuffCheckTarget", "local markcheck = 0; if UnitExists('target') and UnitIsDead('target') ~= true and UnitAffectingCombat('target') and IsSpellInRange('Soothe','target') == 1 then markcheck = markcheck +1  for y = 1, 40 do local name,_,_,debuffType  = UnitBuff('target', y) if debuffType == '' then markcheck = markcheck + 2 end end return markcheck end return 0");
 
             CustomFunctions.Add("ThreatStatus", "if (UnitDetailedThreatSituation(\"player\", \"target\"))\nthen\nreturn 1;\nend\nreturn 0;");
 
@@ -1778,6 +1565,8 @@ namespace AimsharpWow.Modules
             "end " +
             "return UnitTargeted");
 
+            CustomFunctions.Add("IsRMBDown", "local MBD = 0 local isDown = IsMouseButtonDown(\"RightButton\") if isDown == true then MBD = 1 end return MBD");
+
         }
 
         public override void LoadSettings()
@@ -1802,11 +1591,12 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Use DPS Potion:", false));
             Settings.Add(new Setting("Potion name:", "Potion of Spectral Intellect"));
             Settings.Add(new Setting("Auto Start Combat:", true));
-            Settings.Add(new Setting("Auto Remove Corruption self", true));
-            Settings.Add(new Setting("Auto Remove Corruption party", true));
+            Settings.Add(new Setting("Mark of the Wild Out of Combat:", true));
+            Settings.Add(new Setting("Soothe Target:", true));
+            Settings.Add(new Setting("Soothe Mouseover:", true));
+            Settings.Add(new Setting("Vortex Cast:", m_CastingList, "Cursor"));
             Settings.Add(new Setting("Healing and Mitigation"));
             Settings.Add(new Setting("Healthstone HP %", 0, 100, 25));
-            Settings.Add(new Setting("Healing Potion HP %", 0, 100, 15));
             Settings.Add(new Setting("Enable Below Defensives:", false));
             Settings.Add(new Setting("Barkskin HP %", 0, 100, 85));
             Settings.Add(new Setting("Bristling Fur HP %", 0, 100, 90));
@@ -1814,6 +1604,7 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Ironfur HP %", 0, 100, 10));
             Settings.Add(new Setting("Renewal HP %", 0, 100, 65));
             Settings.Add(new Setting("Regrowth HP %", 0, 100, 10));
+            Settings.Add(new Setting("Regrowth OOC to HP %", 0, 100, 80));
             Settings.Add(new Setting("Survival Instincts HP %", 0, 100, 45));
             Settings.Add(new Setting("Kicks/Interrupts"));
             Settings.Add(new Setting("Randomize Kicks:", false));
@@ -1839,18 +1630,24 @@ namespace AimsharpWow.Modules
             DebugMode = GetCheckBox("Debug Mode: ");
             EnableDefensives = GetCheckBox("Enable Below Defensives:");
 
-            Aimsharp.DebugMode(DebugMode);
-            Aimsharp.PrintMessage("Epic PVE - Druid Guardian (made by LouisMickley)", Color.Yellow);
+            Aimsharp.PrintMessage("Epic PVE - Druid Guardian", Color.Yellow);
             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
             Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Red);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- Talents -", Color.White);
-            Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/de/guide/classes/mage/fire/overview-pve-dps", Color.Yellow);
+            Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/de/guide/classes/druid/guardian/overview-pve-tank", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- General -", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoCycle - Disables Target Cycle", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " SaveDefensiveCooldowns - Saves defensive Cooldowns", Color.Blue);
+            Aimsharp.PrintMessage("/" + FiveLetters + " SaveDefensiveCooldowns - Saves defensive Cooldowns", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " IncapacitatingRoar - Casts Incapacitating Roar @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " MightyBash - Casts Mighty Bash @ Target on the next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " MassEntanglement - Casts Mass Entanglement @ Target on the next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " QueueTyphoon - Casts Typhoon next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " RebirthMO - Casts Rebirth @ Mouseover next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " StampedingRoar - Casts Stampeding Roar next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " UrsolsVortex - Casts Ursol's Vortex on Cursor @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
 
             Language = GetDropDown("Game Client Language");
@@ -1969,14 +1766,26 @@ namespace AimsharpWow.Modules
             SpellsList = new List<string>
             {
                 Barkskin_SpellName(Language),
+                Berserk_SpellName(Language),
                 BearForm_SpellName(Language),
+                BristlingFur_SpellName(Language),
+                CatForm_SpellName(Language),
                 EntanglingRoots_SpellName(Language),
                 FrenziedRegeneration_SpellName(Language),
+                HeartOfTheWild_SpellName(Language),
+                Hibernate_SpellName(Language),
+                IncapacitatingRoar_SpellName(Language),
+                Incarnation_GuardianOfUrsoc_SpellName(Language),
                 Ironfur_SpellName(Language),
                 Mangle_SpellName(Language),
                 Maul_SpellName(Language),
+                MarkOfTheWild_SpellName(Language),
+                MightyBash_SpellName(Language),
                 Moonfire_SpellName(Language),
                 MoonkinForm_SpellName(Language),
+                NaturesVigil_SpellName(Language),
+                Pulverize_SpellName(Language),
+                Rake_SpellName(Language),
                 RavenousFrenzy_SpellName(Language),
                 RageOfTheSleeper_SpellName(Language),
                 Rebirth_SpellName(Language),
@@ -1984,36 +1793,21 @@ namespace AimsharpWow.Modules
                 Rejuvenation_SpellName(Language),
                 RemoveCorruption_SpellName(Language),
                 Renewal_SpellName(Language),
+                Rip_SpellName(Language),
                 SkullBash_SpellName(Language),
                 Soothe_SpellName(Language),
                 Sunfire_SpellName(Language),
                 SurvivalInstincts_SpellName(Language),
+                StampedingRoar_SpellName(Language),
+                Starfire_SpellName(Language),
+                Starsurge_SpellName(Language),
                 Swiftmend_SpellName(Language),
                 Swipe_SpellName(Language),
                 Thrash_SpellName(Language),
+                Typhoon_SpellName(Language),
                 UrsolsVortex_SpellName(Language),
                 WildGrowth_SpellName(Language),
                 Wrath_SpellName(Language),
-            };
-
-            TalentSpellList = new List<string>
-            {
-                BalanceAffinity_SpellName(Language),
-                "Blood Frenzy",
-                "Brambles",
-                BristlingFur_SpellName(Language),
-                "Earthwarden",
-                "Galactic Guardian",
-                HeartOfTheWild_SpellName(Language),
-                Incarnation_GuardianOfUrsoc_SpellName(Language),
-                MassEntanglement_SpellName(Language),
-                Pulverize_SpellName(Language),
-                "Rend and Tear",
-                Renewal_SpellName(Language),
-                "Soul of the Forest",
-                SurvivalOfTheFittest_SpellName(Language),
-                TigerDash_SpellName(Language),
-                WildCharge_SpellName(Language),
             };
             #endregion
 
@@ -2021,7 +1815,6 @@ namespace AimsharpWow.Modules
             AddCovenantSkills();
 
             SpellsList.ForEach(spell => Spellbook.Add(spell));
-            TalentSpellList.ForEach(spell => Spellbook.Add(spell));
             BuffsList.ForEach(buff => Buffs.Add(buff));
             DebuffsList.ForEach(debuff => Debuffs.Add(debuff));
             MacroCommands.ForEach(macroCommand => CustomCommands.Add(macroCommand));
@@ -2034,16 +1827,14 @@ namespace AimsharpWow.Modules
                 Items.Add(s);
             }
 
-            Macros.Add("MoonFireMO", "/cast [@mouseover,exists,harm,nodead] Moonfire; " + Moonfire_SpellName(Language));
-            Macros.Add("MoonFireB1", "/cast [@boss1,exists,harm,nodead] Moonfire; " + Moonfire_SpellName(Language));
-            Macros.Add("MoonFireB2", "/cast [@boss2,exists,harm,nodead] Moonfire; " + Moonfire_SpellName(Language));
-            Macros.Add("MoonFireB3", "/cast [@boss3,exists,harm,nodead] Moonfire; " + Moonfire_SpellName(Language));
-            Macros.Add("MoonFireB4", "/cast [@boss4,exists,harm,nodead] Moonfire; " + Moonfire_SpellName(Language));
-            Macros.Add("RebirthMO", "/cast [@mouseover,help] Rebirth; " + Rebirth_SpellName(Language));
+            Macros.Add("MoonFireMO", "/cast [@mouseover,exists,harm,nodead] " + Moonfire_SpellName(Language));
+            Macros.Add("RebirthMO", "/cast [@mouseover,help] " + Rebirth_SpellName(Language));
+            Macros.Add("SootheMO", "/cast [@mouseover] " + Soothe_SpellName(Language));
+            Macros.Add("VortexP", "/cast [@player] " + UrsolsVortex_SpellName(Language));
+            Macros.Add("VortexC", "/cast [@cursor] " + UrsolsVortex_SpellName(Language));
 
             //potions
             Macros.Add("hstone", "/use " + Healthstone_SpellName(Language));
-            Macros.Add("hppot", "/use Soulful Healing Potion\\n/use Spiritual Healing Potion\\n/use Abyssal Healing Potion");
             Macros.Add("DPSPot", "/use " + GetString("Potion name:"));
 
             //Auto Target
@@ -2053,24 +1844,31 @@ namespace AimsharpWow.Modules
             Macros.Add("TopTrinket", "/use 13");
             Macros.Add("BotTrinket", "/use 14");
 
-            //Add Remove Corruption Macro for party
-            Macros.Add("P1RC", "/cast [@party1] Remove " + Corruption_SpellName(Language));
-            Macros.Add("P2RC", "/cast [@party2] Remove " + Corruption_SpellName(Language));
-            Macros.Add("P3RC", "/cast [@party3] Remove " + Corruption_SpellName(Language));
-            Macros.Add("P4RC", "/cast [@party4] Remove " + Corruption_SpellName(Language));
+            Macros.Add("FOC_party1", "/focus party1");
+            Macros.Add("FOC_party2", "/focus party2");
+            Macros.Add("FOC_party3", "/focus party3");
+            Macros.Add("FOC_party4", "/focus party4");
+            Macros.Add("FOC_player", "/focus player");
+            Macros.Add("RC_FOC", "/cast [@focus] " + RemoveCorruption_SpellName(Language));
 
             //SpellQueueWindow
             Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + (Aimsharp.Latency + 100));
+
+            Macros.Add("MightyBashOff", "/" + FiveLetters + " MightyBash");
+            Macros.Add("MassEntanglementOff", "/" + FiveLetters + " MassEntanglement");
+            Macros.Add("UrsolsVortexOff", "/" + FiveLetters + " UrsolsVortex");
+            Macros.Add("IncapacitatingRoarOff", "/" + FiveLetters + " IncapacitatingRoar");
+            Macros.Add("TyphoonOff", "/" + FiveLetters + " QueueTyphoon");
+            Macros.Add("RebirthOff", "/" + FiveLetters + " Rebirth");
+            Macros.Add("StampedingRoarOff", "/" + FiveLetters + " StampedingRoar");
 
         }
 
         public override bool CombatTick()
         {
-            initSpells();
 
             int hekiliSpell = Aimsharp.CustomFunction("Hekili");
 
-            //bool AutoSoothe = GetCheckBox("Auto Soothe?");
             int PlayerHealth = Aimsharp.Health("player");
             bool Fighting = Aimsharp.Range("target") <= 30 && Aimsharp.TargetIsEnemy();
             string PotionName = GetString("Potion name:");
@@ -2100,20 +1898,17 @@ namespace AimsharpWow.Modules
             int RebirthCDRemaining = Aimsharp.SpellCooldown(Rebirth_SpellName(Language)) - GCD;
             bool RebirthCDReady = RebirthCDRemaining <= 10;
 
-            bool MoonfireDebuffUp = Aimsharp.HasDebuff(Moonfire_SpellName(Language), "target", true);
-            bool MoonfireDebuffUpB1 = Aimsharp.HasDebuff(Moonfire_SpellName(Language), "boss1", true);
-            bool MoonfireDebuffUpB2 = Aimsharp.HasDebuff(Moonfire_SpellName(Language), "boss2", true);
-            bool MoonfireDebuffUpB3 = Aimsharp.HasDebuff(Moonfire_SpellName(Language), "boss3", true);
-            bool MoonfireDebuffUpB4 = Aimsharp.HasDebuff(Moonfire_SpellName(Language), "boss4", true);
-            bool MoonfireinRangeB1 = Aimsharp.SpellInRange(Moonfire_SpellName(Language), "boss1");
-            bool MoonfireinRangeB2 = Aimsharp.SpellInRange(Moonfire_SpellName(Language), "boss2");
-            bool MoonfireinRangeB3 = Aimsharp.SpellInRange(Moonfire_SpellName(Language), "boss3");
-            bool MoonfireinRangeB4 = Aimsharp.SpellInRange(Moonfire_SpellName(Language), "boss4");
-
             // Custom commands
             bool SaveDefensiveCooldowns = Aimsharp.IsCustomCodeOn("SaveDefensiveCooldowns");
             bool NoInterrupts = Aimsharp.IsCustomCodeOn("NoInterrupts");
             bool NoCycle = Aimsharp.IsCustomCodeOn("NoCycle");
+            bool NoDecurse = Aimsharp.IsCustomCodeOn("NoDecurse");
+            bool MOSoothe = GetCheckBox("Soothe Mouseover:");
+            bool TargetSoothe = GetCheckBox("Soothe Target:");
+
+            int CursePoisonCheck = Aimsharp.CustomFunction("CursePoisonCheck");
+            int EnrageBuffMO = Aimsharp.CustomFunction("EnrageBuffCheckMouseover");
+            int EnrageBuffTarget = Aimsharp.CustomFunction("EnrageBuffCheckTarget");
 
             //DefensiveCooldowns
             int CDIronfurRemains = Aimsharp.SpellCooldown(Ironfur_SpellName(Language));
@@ -2125,7 +1920,7 @@ namespace AimsharpWow.Modules
             int FrenziedRegenerationCharges = Aimsharp.SpellCharges(FrenziedRegeneration_SpellName(Language));
             bool FrenziedRegenerationChargesUp = FrenziedRegenerationCharges <= 2;
 
-
+            #region Pause Checks
             if (Aimsharp.CustomFunction("IsTargeting") == 1)
             {
                 return false;
@@ -2135,11 +1930,7 @@ namespace AimsharpWow.Modules
             {
                 return false;
             }
-
-            if (Aimsharp.HasDebuff(Imprison_SpellName(Language), "target", false))
-            {
-                return false;
-            }
+            #endregion
 
             if (Aimsharp.HasDebuff(Hibernate_SpellName(Language), "target", true))
             {
@@ -2163,74 +1954,87 @@ namespace AimsharpWow.Modules
                 }
             }
 
-            if (PlayerHealth < GetSlider("Healing Potion HP %"))
-            {
-                foreach (string s in Potions)
+
+
+            //Mouseovers
+            if (Aimsharp.CustomFunction("MoonfireDebuffCheck") == 1 && Aimsharp.CanCast(Moonfire_SpellName(Language), "mouseover")) return MoonfireMO();
+
+            //Soothe Mouseover
+                if (Aimsharp.CanCast(Soothe_SpellName(Language), "mouseover", true, true))
                 {
-                    if (Aimsharp.CanUseItem(s, false))
+                    if (MOSoothe && EnrageBuffMO == 3)
                     {
-                        Aimsharp.Cast("hppot", true);
+                        Aimsharp.Cast("SootheMO");
+                        if (DebugMode)
+                        {
+                            Aimsharp.PrintMessage("Casting Soothe (Mouseover)", Color.Purple);
+                        }
                         return true;
                     }
                 }
-            }
 
-            //Mouseovers
-            if (Aimsharp.CustomFunction("UnitIsDead") == 1 && Aimsharp.CanCast(Rebirth_SpellName(Language), "mouseover") && RebirthCDReady)
-                return RebirthMO();
+                //Soothe Target
+                if (Aimsharp.CanCast(Soothe_SpellName(Language), "target", true, true))
+                {
+                    if (TargetSoothe && EnrageBuffTarget == 3)
+                    {
+                        Aimsharp.Cast(Soothe_SpellName(Language));
+                        if (DebugMode)
+                        {
+                            Aimsharp.PrintMessage("Casting Soothe (Target)", Color.Purple);
+                        }
+                        return true;
+                    }
+                }
 
-            if (Aimsharp.CustomFunction("MoonfireDebuffCheck") == 1 && Aimsharp.CanCast(Moonfire_SpellName(Language), "mouseover"))
-                return MoonfireMO();
-
-            if (!MoonfireDebuffUpB1 && Aimsharp.CanCast(Moonfire_SpellName(Language), "boss1") && Aimsharp.TargetIsEnemy() && MoonfireinRangeB1)
-                return MoonFireB1();
-
-            if (!MoonfireDebuffUpB2 && Aimsharp.CanCast(Moonfire_SpellName(Language), "boss2") && Aimsharp.TargetIsEnemy() && MoonfireinRangeB2)
-                return MoonFireB2();
-
-            if (!MoonfireDebuffUpB3 && Aimsharp.CanCast(Moonfire_SpellName(Language), "boss3") && Aimsharp.TargetIsEnemy() && MoonfireinRangeB3)
-                return MoonFireB3();
-
-            if (!MoonfireDebuffUpB4 && Aimsharp.CanCast(Moonfire_SpellName(Language), "boss4") && Aimsharp.TargetIsEnemy() && MoonfireinRangeB4)
-                return MoonFireB4();
-
-
-
-            //Remove Corruption
-            if (GetCheckBox("Auto Remove Corruption self"))
+            #region Remove Corruption
+            if (!NoDecurse && CursePoisonCheck > 0 && Aimsharp.GroupSize() <= 5 && Aimsharp.LastCast() != RemoveCorruption_SpellName(Language))
             {
-                int CorruptionCheck = Aimsharp.CustomFunction("CorruptionCheck");
-                if ((Aimsharp.SpellCooldown(RemoveCorruption_SpellName(Language)) - Aimsharp.GCD()) <= 0)
-                {
-                    if (Aimsharp.CanCast(RemoveCorruption_SpellName(Language), "player") == true && isTargetDispelable(RCPlayers.player, CorruptionCheck))
-                        return RemoveCorruption();
-                }
-            }
+                PartyDict.Clear();
+                PartyDict.Add("player", Aimsharp.Health("player"));
 
-            if (GetCheckBox("Auto Remove Corruption party"))
-            {
-                int CorruptionCheck = Aimsharp.CustomFunction("CorruptionCheck");
-                if ((Aimsharp.SpellCooldown(RemoveCorruption_SpellName(Language)) - Aimsharp.GCD()) <= 0)
+                var partysize = Aimsharp.GroupSize();
+                for (int i = 1; i < partysize; i++)
                 {
-                    if (Aimsharp.CanCast(RemoveCorruption_SpellName(Language), "party1") == true && isTargetDispelable(RCPlayers.p1, CorruptionCheck))
-                        return RemoveCorruptionP1();
+                    var partyunit = ("party" + i);
+                    if (Aimsharp.Health(partyunit) > 0 && Aimsharp.Range(partyunit) <= 40)
+                    {
+                        PartyDict.Add(partyunit, Aimsharp.Health(partyunit));
+                    }
                 }
-                if ((Aimsharp.SpellCooldown(RemoveCorruption_SpellName(Language)) - Aimsharp.GCD()) <= 0)
+
+                int states = Aimsharp.CustomFunction("CursePoisonCheck");
+                CleansePlayers target;
+
+                int KickTimer = GetRandomNumber(200,800);
+
+                foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
-                    if (Aimsharp.CanCast(RemoveCorruption_SpellName(Language), "party2") == true && isTargetDispelable(RCPlayers.p2, CorruptionCheck))
-                        return RemoveCorruptionP2();
-                }
-                if ((Aimsharp.SpellCooldown(RemoveCorruption_SpellName(Language)) - Aimsharp.GCD()) <= 0)
-                {
-                    if (Aimsharp.CanCast(RemoveCorruption_SpellName(Language), "party3") == true && isTargetDispelable(RCPlayers.p3, CorruptionCheck))
-                        return RemoveCorruptionP3();
-                }
-                if ((Aimsharp.SpellCooldown(RemoveCorruption_SpellName(Language)) - Aimsharp.GCD()) <= 0)
-                {
-                    if (Aimsharp.CanCast(RemoveCorruption_SpellName(Language), "party4") == true && isTargetDispelable(RCPlayers.p4, CorruptionCheck))
-                        return RemoveCorruptionP4();
+                    Enum.TryParse(unit.Key, out target);
+                    if (Aimsharp.CanCast(RemoveCorruption_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.Range(unit.Key) <= 40) && isUnitCleansable(target, states))
+                    {
+                        if (!UnitFocus(unit.Key))
+                        {
+                            Aimsharp.Cast("FOC_" + unit.Key, true);
+                            return true;
+                        }
+                        else
+                        {
+                            if (UnitFocus(unit.Key))
+                            {
+                                System.Threading.Thread.Sleep(KickTimer);
+                                Aimsharp.Cast("RC_FOC");
+                                if (DebugMode)
+                                {
+                                    Aimsharp.PrintMessage("Remove Corruption @ " + unit.Key + " - " + unit.Value, Color.Purple);
+                                }
+                                return true;
+                            }
+                        }
+                    }
                 }
             }
+            #endregion
 
             //Auto Soothe looks like this might needs the specific ids?
             //if(AutoSoothe && Aimsharp.CanCast("Soothe", "target") && Aimsharp.CustomFunction("EnrageCheck") != 0)
@@ -2243,37 +2047,37 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            // auto taunt target if in a party
+            //Auto taunt target if in a party
             if (Aimsharp.CanCast(RageOfTheSleeper_SpellName(Language), "target") && WeAreinParty && Aimsharp.CustomFunction("ThreatStatus") == 1)
                 return RageoftheSleeper();
 
-            //defensives
+            //Defensives
             if (Aimsharp.CanCast(Regrowth_SpellName(Language), "player") && PlayerHealth < GetSlider("Regrowth HP %") && Fighting)
                 return Regrowth();
 
-            if (EnableDefensives == true && Aimsharp.CustomFunction("ThreatStatus") == 1)
+            if (EnableDefensives == true && Aimsharp.CustomFunction("ThreatStatus") == 1 && Fighting)
             {
-                if (Aimsharp.CanCast(Barkskin_SpellName(Language), "player") && PlayerHealth < GetSlider("Barkskin HP %") && Fighting && CDBarkskinUp)
+                if (Aimsharp.CanCast(Barkskin_SpellName(Language), "player") && PlayerHealth < GetSlider("Barkskin HP %") && CDBarkskinUp)
                 {
                     return Barkskin();
                 }
-                if (Aimsharp.CanCast(Ironfur_SpellName(Language), "player") && PlayerHealth < GetSlider("Ironfur HP %") && !SaveDefensiveCooldowns && Fighting && CDIronfurUp)
+                if (Aimsharp.CanCast(Ironfur_SpellName(Language), "player") && PlayerHealth < GetSlider("Ironfur HP %") && !SaveDefensiveCooldowns && CDIronfurUp)
                 {
                     return Ironfur();
                 }
 
-                if (Aimsharp.CanCast(FrenziedRegeneration_SpellName(Language), "player") && PlayerHealth < GetSlider("Frenzied Regeneration HP %") && !SaveDefensiveCooldowns && Fighting && FrenziedRegenerationChargesUp)
+                if (Aimsharp.CanCast(FrenziedRegeneration_SpellName(Language), "player") && PlayerHealth < GetSlider("Frenzied Regeneration HP %") && !SaveDefensiveCooldowns && FrenziedRegenerationChargesUp)
                 {
                     return FrenziedRegeneration();
                 }
-                if (Aimsharp.CanCast(SurvivalInstincts_SpellName(Language), "player") && PlayerHealth < GetSlider("Survival Instincts HP %") && !SaveDefensiveCooldowns && Fighting)
+                if (Aimsharp.CanCast(SurvivalInstincts_SpellName(Language), "player") && PlayerHealth < GetSlider("Survival Instincts HP %") && !SaveDefensiveCooldowns)
                 {
                     return SurvivalInstincts();
                 }
-                if (Aimsharp.CanCast(Renewal_SpellName(Language), "player") && PlayerHealth < GetSlider("Renewal HP %") && Fighting && CDRenewalUp)
+                if (Aimsharp.CanCast(Renewal_SpellName(Language), "player") && PlayerHealth < GetSlider("Renewal HP %") && CDRenewalUp)
                     return Renewal();
 
-                if (Aimsharp.CanCast(BristlingFur_SpellName(Language), "player") && PlayerHealth < GetSlider("Bristling Fur HP %") && Fighting)
+                if (Aimsharp.CanCast(BristlingFur_SpellName(Language), "player") && PlayerHealth < GetSlider("Bristling Fur HP %"))
                 {
                     return Barkskin();
                 }
@@ -2281,14 +2085,6 @@ namespace AimsharpWow.Modules
                 {
                     EnableDefensives = false;
                 }
-            }
-
-            //Moving
-            if (Moving && Aimsharp.TargetIsEnemy())
-            {
-
-                if (Aimsharp.CanCast(Moonfire_SpellName(Language), "target") && !MoonfireDebuffUp)
-                    return Moonfire();
             }
 
             //Hekili Cycle
@@ -2307,6 +2103,164 @@ namespace AimsharpWow.Modules
                 System.Threading.Thread.Sleep(50);
                 return true;
             }
+
+            #region Queues
+            //Queue Mighty Bash
+            bool MightyBash = Aimsharp.IsCustomCodeOn("MightyBash");
+            if (MightyBash && Aimsharp.SpellCooldown(MightyBash_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            {
+                if (DebugMode)
+                {
+                    Aimsharp.PrintMessage("Turning Off Mighty Bash queue toggle", Color.Purple);
+                }
+                Aimsharp.Cast("MightyBashOff");
+                return true;
+            }
+
+            if (MightyBash && Aimsharp.CanCast(MightyBash_SpellName(Language), "target", true, true))
+            {
+                if (DebugMode)
+                {
+                    Aimsharp.PrintMessage("Casting Mighty Bash through queue toggle", Color.Purple);
+                }
+                Aimsharp.Cast(MightyBash_SpellName(Language));
+                return true;
+            }
+
+            //Queue Mass Entanglement
+            bool MassEntanglement = Aimsharp.IsCustomCodeOn("MassEntanglement");
+            if (MassEntanglement && Aimsharp.SpellCooldown(MassEntanglement_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            {
+                if (DebugMode)
+                {
+                    Aimsharp.PrintMessage("Turning Off Mass Entanglement queue toggle", Color.Purple);
+                }
+                Aimsharp.Cast("MassEntanglementOff");
+                return true;
+            }
+
+            if (MassEntanglement && Aimsharp.CanCast(MassEntanglement_SpellName(Language), "target", true, true))
+            {
+                if (DebugMode)
+                {
+                    Aimsharp.PrintMessage("Casting Mass Entanglement through queue toggle", Color.Purple);
+                }
+                Aimsharp.Cast(MassEntanglement_SpellName(Language));
+                return true;
+            }
+
+            //Queue Typhoon
+            bool Typhoon = Aimsharp.IsCustomCodeOn("QueueTyphoon");
+            if (Typhoon && Aimsharp.SpellCooldown(Typhoon_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            {
+                if (DebugMode)
+                {
+                    Aimsharp.PrintMessage("Turning Off Typhoon queue toggle", Color.Purple);
+                }
+                Aimsharp.Cast("TyphoonOff");
+                return true;
+            }
+
+            if (Typhoon && Aimsharp.CanCast(Typhoon_SpellName(Language), "player", true, true))
+            {
+                if (DebugMode)
+                {
+                    Aimsharp.PrintMessage("Casting Typhoon through queue toggle", Color.Purple);
+                }
+                Aimsharp.Cast(Typhoon_SpellName(Language));
+                return true;
+            }
+
+            //Queue Incapacitating Roar
+            bool IncapacitatingRoar = Aimsharp.IsCustomCodeOn("IncapacitatingRoar");
+            if (IncapacitatingRoar && Aimsharp.SpellCooldown(IncapacitatingRoar_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            {
+                if (DebugMode)
+                {
+                    Aimsharp.PrintMessage("Turning Off Incapacitating Roar queue toggle", Color.Purple);
+                }
+                Aimsharp.Cast("IncapacitatingRoarOff");
+                return true;
+            }
+
+            if (IncapacitatingRoar && Aimsharp.CanCast(IncapacitatingRoar_SpellName(Language), "target", true, true))
+            {
+                if (DebugMode)
+                {
+                    Aimsharp.PrintMessage("Casting Incapacitating Roar through queue toggle", Color.Purple);
+                }
+                Aimsharp.Cast(IncapacitatingRoar_SpellName(Language));
+                return true;
+            }
+
+            //Queue Rebirth
+            bool Rebirth = Aimsharp.IsCustomCodeOn("RebirthMO");
+            if (Aimsharp.SpellCooldown(Rebirth_SpellName(Language)) - Aimsharp.GCD() > 2000 && Rebirth)
+            {
+                Aimsharp.Cast("RebirthOff");
+                return true;
+            }
+
+            if (Rebirth && Aimsharp.CanCast(Rebirth_SpellName(Language), "mouseover", true, true))
+            {
+                Aimsharp.Cast("RebirthMO");
+                return true;
+            }
+
+            //Queue Stampeding Roar
+            bool StampedingRoar = Aimsharp.IsCustomCodeOn("StampedingRoar");
+            if (Aimsharp.SpellCooldown(StampedingRoar_SpellName(Language)) - Aimsharp.GCD() > 2000 && Rebirth)
+            {
+                Aimsharp.Cast("StampedingRoarOff");
+                return true;
+            }
+
+            if (Rebirth && Aimsharp.CanCast(StampedingRoar_SpellName(Language), "player", true, true))
+            {
+                Aimsharp.Cast(StampedingRoar_SpellName(Language));
+                return true;
+            }
+
+            //Queue Vortex
+            string VortexCast = GetDropDown("Vortex Cast:");
+            bool UrsolsVortex = Aimsharp.IsCustomCodeOn("UrsolsVortex");
+            if (Aimsharp.SpellCooldown(UrsolsVortex_SpellName(Language)) - Aimsharp.GCD() > 2000 && UrsolsVortex)
+            {
+                if (DebugMode)
+                {
+                    Aimsharp.PrintMessage("Turning Off Ursol's Vortex Queue", Color.Purple);
+                }
+                Aimsharp.Cast("UrsolsVortexOff");
+                return true;
+            }
+            if (UrsolsVortex && Aimsharp.CanCast(UrsolsVortex_SpellName(Language), "player", false, true))
+            {
+                switch (VortexCast)
+                {
+                    case "Manual":
+                        if (DebugMode)
+                        {
+                            Aimsharp.PrintMessage("Casting Ursol's Vortex - " + VortexCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast(UrsolsVortex_SpellName(Language));
+                        return true;
+                    case "Player":
+                        if (DebugMode)
+                        {
+                            Aimsharp.PrintMessage("Casting Ursol's Vortex - " + VortexCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast("VortexP");
+                        return true;
+                    case "Cursor":
+                        if (DebugMode)
+                        {
+                            Aimsharp.PrintMessage("Casting Ursol's Vortex - " + VortexCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast("VortexC");
+                        return true;
+                }
+            }
+            #endregion
 
             #region Interrupts
             if (!NoInterrupts)
@@ -2376,102 +2330,6 @@ namespace AimsharpWow.Modules
             //hekili
             if (hekiliSpell != 0 && Aimsharp.TargetIsEnemy() && TargetAlive() && TargetInCombat && Wait <= 200)
             {
-                if (SpellsMap.ContainsKey(hekiliSpell))
-                {
-
-                    if ((Aimsharp.CanCast(SpellsMap[hekiliSpell])) && Aimsharp.SpellInRange(SpellsMap[hekiliSpell], "target") && Aimsharp.TargetIsEnemy())
-                    {
-                        Aimsharp.Cast(SpellsMap[hekiliSpell]);
-                        return true;
-                    }
-                    else if (hekiliSpell == 22812)
-                        return Barkskin();
-                    else if (hekiliSpell == 339 && Aimsharp.TargetIsEnemy())
-                        return EntanglingRoots();
-                    else if (hekiliSpell == 200851 && Aimsharp.TargetIsEnemy())
-                        return RageoftheSleeper();
-                    else if (hekiliSpell == 192081)
-                        return Ironfur();
-                    else if (hekiliSpell == 33917 && Aimsharp.TargetIsEnemy())
-                        return Mangle();
-                    else if (hekiliSpell == 8921 && Aimsharp.TargetIsEnemy())
-                        return Moonfire();
-                    else if (hekiliSpell == 5487)
-                        return BearForm();
-                    else if (hekiliSpell == 323546 && Aimsharp.CanCast(RavenousFrenzy_SpellName(Language), "player"))
-                        return RavenousFrenzy();
-                    else if (hekiliSpell == 20484)
-                        return Rebirth();
-                    else if (hekiliSpell == 8936)
-                        return Regrowth();
-                    else if (hekiliSpell == 2908 && Aimsharp.TargetIsEnemy())
-                        return Soothe();
-                    else if (hekiliSpell == 190984 && Aimsharp.TargetIsEnemy())
-                        return Wrath();
-                    else if (hekiliSpell == 22842 && Aimsharp.TargetIsEnemy())
-                        return FrenziedRegeneration();
-                    else if (hekiliSpell == 6807 && Aimsharp.TargetIsEnemy())
-                        return Maul();
-                    else if (hekiliSpell == 774)
-                        return Rejuvenation();
-                    else if (hekiliSpell == 108238)
-                        return Renewal();
-                    //else if(hekiliSpell== 106839 && Aimsharp.TargetIsEnemy())
-                    //    return SkullBash();
-                    else if (hekiliSpell == 61336 && Aimsharp.TargetIsEnemy())
-                        return SurvivalInstincts();
-                    else if (hekiliSpell == 18562)
-                        return Swiftmend();
-                    else if (hekiliSpell == 213771 && Aimsharp.TargetIsEnemy())
-                        return Swipe();
-                    else if (hekiliSpell == 77758 && Aimsharp.TargetIsEnemy())
-                        return Thrash();
-                    else if (hekiliSpell == 102793)
-                        return UrsolsVortex();
-                    else if (hekiliSpell == 48438)
-                        return WildGrowth();
-                    else if (hekiliSpell == 2782)
-                        return RemoveCorruption();
-                    else if (hekiliSpell == 50769)
-                        return Revive();
-                    else if (hekiliSpell == 106898 && Aimsharp.TargetIsEnemy())
-                        return StampedingRoar();
-                    else if (hekiliSpell == 2637 && Aimsharp.TargetIsEnemy())
-                        return Hibernate();
-                    //else if(hekiliSpell== 1850 && Aimsharp.TargetIsEnemy())
-                    //    return Dash();
-                    else if (hekiliSpell == 5211 && Aimsharp.TargetIsEnemy())
-                        return MightyBash();
-                    else if (hekiliSpell == 102359 && Aimsharp.TargetIsEnemy())
-                        return MassEntanglement();
-                    else if (hekiliSpell == 319454)
-                        return HeartoftheWild();
-                    else if (hekiliSpell == 155835)
-                        return BristlingFur();
-                    else if (hekiliSpell == 252216)
-                        return TigerDash();
-                    else if (hekiliSpell == 102401)
-                        return WildCharge();
-                    else if (hekiliSpell == 197488)
-                        return BalanceAffinity();
-                    else if (hekiliSpell == 202155)
-                        return FeralAffinity();
-                    else if (hekiliSpell == 197492)
-                        return RestorationAffinity();
-                    else if (hekiliSpell == 102558)
-                        return IncarnationGuardianofUrsoc();
-                    else if (hekiliSpell == 80313 && Aimsharp.TargetIsEnemy())
-                        return Pulverize();
-                    else
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    Aimsharp.PrintMessage("Could not cast spell from Hekili ID: " + hekiliSpell, Color.Red);
-                }
-
                 #region Racials
                 if (hekiliSpell == 28880 && Aimsharp.CanCast(GiftOfTheNaaru_SpellName(Language), "player", false, true))
                 {
@@ -2644,20 +2502,134 @@ namespace AimsharpWow.Modules
                     return true;
                 }
                 #endregion
+
+                #region Normal Spells
+                //Barkskin
+                if (SpellCast(22812, Barkskin_SpellName(Language), "player")) return true;
+                //Berserk
+                if (SpellCast(50334, Berserk_SpellName(Language), "player")) return true;
+                //BearForm
+                if (SpellCast(5487, BearForm_SpellName(Language), "player")) return true;
+                //BristlingFur
+                if (SpellCast(155835, BristlingFur_SpellName(Language), "player")) return true;
+                //CatForm
+                if (SpellCast(768, CatForm_SpellName(Language), "player")) return true;
+                //EntanglingRoots
+                if (SpellCast(339, EntanglingRoots_SpellName(Language), "target")) return true;
+                //FrenziedRegeneration
+                if (SpellCast(22842, FrenziedRegeneration_SpellName(Language), "player")) return true;
+                //HeartOfTheWild
+                if (SpellCast(319454, HeartOfTheWild_SpellName(Language), "player")) return true;
+                //Hibernate
+                if (SpellCast(2637, Hibernate_SpellName(Language), "target")) return true;
+                //IncapacitatingRoar
+                if (SpellCast(99, IncapacitatingRoar_SpellName(Language), "target")) return true;
+                //Incarnation_GuardianOfUrsoc
+                if (SpellCast(102558, Incarnation_GuardianOfUrsoc_SpellName(Language), "player")) return true;
+                //Ironfur
+                if (SpellCast(192081, Ironfur_SpellName(Language), "player")) return true;
+                //Mangle
+                if (SpellCast(33917, Mangle_SpellName(Language), "target")) return true;
+                //Maul
+                if (SpellCast(6807, Maul_SpellName(Language), "target")) return true;
+                //MarkOfTheWild
+                if (SpellCast(1126, MarkOfTheWild_SpellName(Language), "player")) return true;
+                //MightyBash
+                if (SpellCast(5211, MightyBash_SpellName(Language), "target")) return true;
+                //Moonfire
+                if (SpellCast(8921, Moonfire_SpellName(Language), "target")) return true;
+                //MoonkinForm
+                if (SpellCast(24858, MoonkinForm_SpellName(Language), "player")) return true;
+                //NaturesVigil
+                if (SpellCast(124974, NaturesVigil_SpellName(Language), "player")) return true;
+                //Pulverize
+                if (SpellCast(80313, Pulverize_SpellName(Language), "player")) return true;
+                //Rake
+                if (SpellCast(1822, Rake_SpellName(Language), "target")) return true;
+                //RavenousFrenzy
+                if (SpellCast(323546, RavenousFrenzy_SpellName(Language), "player")) return true;
+                //RageOfTheSleeper
+                if (SpellCast(200851, RageOfTheSleeper_SpellName(Language), "player")) return true;
+                //Rebirth
+                if (SpellCast(20484, Rebirth_SpellName(Language), "target")) return true;
+                //Regrowth
+                if (SpellCast(8936, Regrowth_SpellName(Language), "player")) return true;
+                //Rejuvenation
+                if (SpellCast(774, Rejuvenation_SpellName(Language), "player")) return true;
+                //RemoveCorruption
+                if (SpellCast(2782, RemoveCorruption_SpellName(Language), "player")) return true;
+                //Renewal
+                if (SpellCast(108238, Renewal_SpellName(Language), "player")) return true;
+                //Rip
+                if (SpellCast(1079, Rip_SpellName(Language), "target")) return true;
+                //SkullBash
+                if (SpellCast(106839, SkullBash_SpellName(Language), "target")) return true;
+                //Soothe
+                if (SpellCast(2908, Soothe_SpellName(Language), "target")) return true;
+                //Sunfire
+                if (SpellCast(93402, Sunfire_SpellName(Language), "target")) return true;
+                //SurvivalInstincts
+                if (SpellCast(61336, SurvivalInstincts_SpellName(Language), "player")) return true;
+                //StampedingRoar
+                if (SpellCast(106898, StampedingRoar_SpellName(Language), "player")) return true;
+                //Starfire
+                if (SpellCast(194153, Starfire_SpellName(Language), "target")) return true;
+                //Starsurge
+                if (SpellCast(78674, Starsurge_SpellName(Language), "target")) return true;
+                //Swiftmend
+                if (SpellCast(18562, Swiftmend_SpellName(Language), "player")) return true;
+                //Swipe
+                if (SpellCast(213764, Swipe_SpellName(Language), "target")) return true;
+                //Thrash
+                if (SpellCast(106830, Thrash_SpellName(Language), "target")) return true;
+                //Typhoon
+                if (SpellCast(132469, Typhoon_SpellName(Language), "player")) return true;
+                //UrsolsVortex
+                if (VortexCast == "Manual") if (SpellCast(102793, UrsolsVortex_SpellName(Language), "player")) return true;
+                if (VortexCast == "Player") if (SpellCast(102793, UrsolsVortex_SpellName(Language), "player", "VortexP")) return true;
+                if (VortexCast == "Cursor") if (SpellCast(102793, UrsolsVortex_SpellName(Language), "player", "VortexC")) return true;
+                //WildGrowth
+                if (SpellCast(48438, WildGrowth_SpellName(Language), "player")) return true;
+                //Wrath
+                if (SpellCast(5176, Wrath_SpellName(Language), "target")) return true;
+
+                //Covenant Spells or Not
+                if (SpellCast(326434,KindredSpirits_SpellName(Language),"player")) return true;
+                if (SpellCast(323546,RavenousFrenzy_SpellName(Language),"player")) return true;
+                if (SpellCast(323764,ConvokeTheSpirits_SpellName(Language),"player")) return true;
+                if (SpellCast(391528,ConvokeTheSpirits_SpellName(Language),"player")) return true;
+                if (SpellCast(325727,AdaptiveSwarm_SpellName(Language),"player")) return true;
+                if (SpellCast(391888,AdaptiveSwarm_SpellName(Language),"player")) return true;
+
+                #endregion
             }
             return false;
         }
 
         public override bool OutOfCombatTick()
         {
+            bool MOTWOOC = GetCheckBox("Mark of the Wild Out of Combat:");
+
             #region SpellQueueWindow
-            if (Aimsharp.CustomFunction("GetSpellQueueWindow") != (Aimsharp.Latency + 100))
+            if (Aimsharp.CustomFunction("GetSpellQueueWindow") != (Aimsharp.Latency))
             {
                 if (DebugMode)
                 {
-                    Aimsharp.PrintMessage("Setting SQW to: " + (Aimsharp.Latency + 100), Color.Purple);
+                    Aimsharp.PrintMessage("Setting SQW to: " + (Aimsharp.Latency), Color.Purple);
                 }
                 Aimsharp.Cast("SetSpellQueueCvar");
+            }
+            #endregion
+
+            #region Pause Checks
+            if (Aimsharp.CastingID("player") > 0 || Aimsharp.IsChanneling("player"))
+            {
+                return false;
+            }
+
+            if (Aimsharp.CustomFunction("IsTargeting") == 1)
+            {
+                return false;
             }
             #endregion
 
@@ -2665,6 +2637,170 @@ namespace AimsharpWow.Modules
             {
                 HSTimer.Reset();
             }
+
+            #region Queues
+            //Queue Mighty Bash
+            bool MightyBash = Aimsharp.IsCustomCodeOn("MightyBash");
+            if (MightyBash && Aimsharp.SpellCooldown(MightyBash_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            {
+                if (DebugMode)
+                {
+                    Aimsharp.PrintMessage("Turning Off Mighty Bash queue toggle", Color.Purple);
+                }
+                Aimsharp.Cast("MightyBashOff");
+                return true;
+            }
+
+            if (MightyBash && Aimsharp.CanCast(MightyBash_SpellName(Language), "target", true, true))
+            {
+                if (DebugMode)
+                {
+                    Aimsharp.PrintMessage("Casting Mighty Bash through queue toggle", Color.Purple);
+                }
+                Aimsharp.Cast(MightyBash_SpellName(Language));
+                return true;
+            }
+
+            //Queue Mass Entanglement
+            bool MassEntanglement = Aimsharp.IsCustomCodeOn("MassEntanglement");
+            if (MassEntanglement && Aimsharp.SpellCooldown(MassEntanglement_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            {
+                if (DebugMode)
+                {
+                    Aimsharp.PrintMessage("Turning Off Mass Entanglement queue toggle", Color.Purple);
+                }
+                Aimsharp.Cast("MassEntanglementOff");
+                return true;
+            }
+
+            if (MassEntanglement && Aimsharp.CanCast(MassEntanglement_SpellName(Language), "target", true, true))
+            {
+                if (DebugMode)
+                {
+                    Aimsharp.PrintMessage("Casting Mass Entanglement through queue toggle", Color.Purple);
+                }
+                Aimsharp.Cast(MassEntanglement_SpellName(Language));
+                return true;
+            }
+
+            //Queue Typhoon
+            bool Typhoon = Aimsharp.IsCustomCodeOn("QueueTyphoon");
+            if (Typhoon && Aimsharp.SpellCooldown(Typhoon_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            {
+                if (DebugMode)
+                {
+                    Aimsharp.PrintMessage("Turning Off Typhoon queue toggle", Color.Purple);
+                }
+                Aimsharp.Cast("TyphoonOff");
+                return true;
+            }
+
+            if (Typhoon && Aimsharp.CanCast(Typhoon_SpellName(Language), "player", true, true))
+            {
+                if (DebugMode)
+                {
+                    Aimsharp.PrintMessage("Casting Typhoon through queue toggle", Color.Purple);
+                }
+                Aimsharp.Cast(Typhoon_SpellName(Language));
+                return true;
+            }
+
+            //Queue Incapacitating Roar
+            bool IncapacitatingRoar = Aimsharp.IsCustomCodeOn("IncapacitatingRoar");
+            if (IncapacitatingRoar && Aimsharp.SpellCooldown(IncapacitatingRoar_SpellName(Language)) - Aimsharp.GCD() > 2000)
+            {
+                if (DebugMode)
+                {
+                    Aimsharp.PrintMessage("Turning Off Incapacitating Roar queue toggle", Color.Purple);
+                }
+                Aimsharp.Cast("IncapacitatingRoarOff");
+                return true;
+            }
+
+            if (IncapacitatingRoar && Aimsharp.CanCast(IncapacitatingRoar_SpellName(Language), "target", true, true))
+            {
+                if (DebugMode)
+                {
+                    Aimsharp.PrintMessage("Casting Incapacitating Roar through queue toggle", Color.Purple);
+                }
+                Aimsharp.Cast(IncapacitatingRoar_SpellName(Language));
+                return true;
+            }
+
+            //Queue Rebirth
+            bool Rebirth = Aimsharp.IsCustomCodeOn("RebirthMO");
+            if (Aimsharp.SpellCooldown(Rebirth_SpellName(Language)) - Aimsharp.GCD() > 2000 && Rebirth)
+            {
+                Aimsharp.Cast("RebirthOff");
+                return true;
+            }
+
+            if (Rebirth && Aimsharp.CanCast(Rebirth_SpellName(Language), "mouseover", true, true))
+            {
+                Aimsharp.Cast("RebirthMO");
+                return true;
+            }
+
+            //Queue Stampeding Roar
+            bool StampedingRoar = Aimsharp.IsCustomCodeOn("StampedingRoar");
+            if (Aimsharp.SpellCooldown(StampedingRoar_SpellName(Language)) - Aimsharp.GCD() > 2000 && Rebirth)
+            {
+                Aimsharp.Cast("StampedingRoarOff");
+                return true;
+            }
+
+            if (Rebirth && Aimsharp.CanCast(StampedingRoar_SpellName(Language), "player", true, true))
+            {
+                Aimsharp.Cast(StampedingRoar_SpellName(Language));
+                return true;
+            }
+
+            //Queue Vortex
+            string VortexCast = GetDropDown("Vortex Cast:");
+            bool UrsolsVortex = Aimsharp.IsCustomCodeOn("UrsolsVortex");
+            if (Aimsharp.SpellCooldown(UrsolsVortex_SpellName(Language)) - Aimsharp.GCD() > 2000 && UrsolsVortex)
+            {
+                if (DebugMode)
+                {
+                    Aimsharp.PrintMessage("Turning Off Ursol's Vortex Queue", Color.Purple);
+                }
+                Aimsharp.Cast("UrsolsVortexOff");
+                return true;
+            }
+            if (UrsolsVortex && Aimsharp.CanCast(UrsolsVortex_SpellName(Language), "player", false, true))
+            {
+                switch (VortexCast)
+                {
+                    case "Manual":
+                        if (DebugMode)
+                        {
+                            Aimsharp.PrintMessage("Casting Ursol's Vortex - " + VortexCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast(UrsolsVortex_SpellName(Language));
+                        return true;
+                    case "Player":
+                        if (DebugMode)
+                        {
+                            Aimsharp.PrintMessage("Casting Ursol's Vortex - " + VortexCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast("VortexP");
+                        return true;
+                    case "Cursor":
+                        if (DebugMode)
+                        {
+                            Aimsharp.PrintMessage("Casting Ursol's Vortex - " + VortexCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast("VortexC");
+                        return true;
+                }
+            }
+            #endregion
+
+            //Defensives
+            if (Aimsharp.CanCast(Regrowth_SpellName(Language), "player") && Aimsharp.Health("player") < GetSlider("Regrowth OOC to HP %"))
+                return Regrowth();
+
+            if (MOTWOOC && !Aimsharp.HasBuff(MarkOfTheWild_SpellName(Language), "player", true) && !Aimsharp.HasBuff(MarkOfTheWild_SpellName(Language), "player", false)) if (SpellCast(1126, MarkOfTheWild_SpellName(Language), "player")) return true;
 
             //Auto Combat - Special thanks to Snoogens for this one
             if (GetCheckBox("Auto Start Combat:") == true && Aimsharp.TargetIsEnemy() && TargetAlive() && Aimsharp.Range("target") <= 6 && UnitDebuffParalysis("target") == 0)

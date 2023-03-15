@@ -1008,7 +1008,7 @@ namespace AimsharpWow.Modules
         private List<string> m_ItemsList;
         private List<string> m_SpellBook_General;
         private List<string> m_RaceList = new List<string> { "nightelf", "bloodelf" };
-        private List<string> m_CastingList = new List<string> { "Manual", "Player" };
+        private List<string> m_CastingList = new List<string> { "Manual", "Cursor", "Player" };
 
         private List<int> Torghast_InnerFlame = new List<int> { 258935, 258938, 329422, 329423, };
 

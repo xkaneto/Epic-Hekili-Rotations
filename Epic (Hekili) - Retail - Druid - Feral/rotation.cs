@@ -1233,7 +1233,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "MightyBash", "MassEntanglement", "NoDecurse", "Maim", "NoInterrupts", "NoCycle", "Rebirth", };
+        private List<string> m_IngameCommandsList = new List<string> { "MightyBash", "MassEntanglement", "NoDecurse", "Maim", "NoInterrupts", "NoCycle", "RebirthMO", };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
         private List<string> m_ItemsList;
@@ -1425,8 +1425,6 @@ namespace AimsharpWow.Modules
                 "if type ~= nil and type == \"Curse\" or type == \"Poison\" then y = y +16; end end " +
                 "return y");
 
-            CustomFunctions.Add("PhialCount", "local count = GetItemCount(177278) if count ~= nil then return count end return 0");
-
             CustomFunctions.Add("GetSpellQueueWindow", "local sqw = GetCVar(\"SpellQueueWindow\"); if sqw ~= nil then return tonumber(sqw); end return 0");
 
             CustomFunctions.Add("RakeDebuffCheck", "local markcheck = 0; if UnitExists('mouseover') and UnitIsDead('mouseover') ~= true and UnitAffectingCombat('mouseover') and IsSpellInRange('Rake','mouseover') == 1 then markcheck = markcheck +1  for y = 1, 40 do local name,_,_,_,_,_,source  = UnitDebuff('mouseover', y) if name == 'Rake' then markcheck = markcheck + 2 end end return markcheck end return 0");
@@ -1529,6 +1527,7 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("/" + FiveLetters + " MightyBash - Casts Mighty Bash @ Target on the next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " MassEntanglement - Casts Mass Entanglement @ Target on the next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " Maim - Casts Maim @ Target on the next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " RebirthMO - Casts Rebirth @ Mouseover on the next GCD", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
 
             Language = GetDropDown("Game Client Language");
@@ -1698,11 +1697,11 @@ namespace AimsharpWow.Modules
             bool MightyBash = Aimsharp.IsCustomCodeOn("MightyBash");
             bool MassEntanglement = Aimsharp.IsCustomCodeOn("MassEntanglement");
 
-            bool Debug = GetCheckBox("Debug:") == true;
-            bool MOMark = GetCheckBox("Spread Rake with Mouseover:") == true;
-            bool MOSoothe = GetCheckBox("Soothe Mouseover:") == true;
-            bool TargetSoothe = GetCheckBox("Soothe Target:") == true;
-            bool UseTrinketsCD = GetCheckBox("Use Trinkets on CD, dont wait for Hekili:") == true;
+            bool Debug = GetCheckBox("Debug:");
+            bool MOMark = GetCheckBox("Spread Rake with Mouseover:");
+            bool MOSoothe = GetCheckBox("Soothe Mouseover:");
+            bool TargetSoothe = GetCheckBox("Soothe Target:");
+            bool UseTrinketsCD = GetCheckBox("Use Trinkets on CD, dont wait for Hekili:");
 
             bool IsInterruptable = Aimsharp.IsInterruptable("target");
             int CastingRemaining = Aimsharp.CastingRemaining("target");
@@ -1996,7 +1995,7 @@ namespace AimsharpWow.Modules
                     return true;
                 }
                 //Queue Rebirth
-                bool Rebirth = Aimsharp.IsCustomCodeOn("Rebirth");
+                bool Rebirth = Aimsharp.IsCustomCodeOn("RebirthMO");
                 if (Aimsharp.SpellCooldown(Rebirth_SpellName(Language)) - Aimsharp.GCD() > 2000 && Rebirth)
                 {
                     Aimsharp.Cast("RebirthOff");
@@ -2635,9 +2634,6 @@ namespace AimsharpWow.Modules
             #region Declarations
             int SpellID1 = Aimsharp.CustomFunction("HekiliID1");
             bool Moving = Aimsharp.PlayerIsMoving();
-            int PhialCount = Aimsharp.CustomFunction("PhialCount");
-            bool MightyBash = Aimsharp.IsCustomCodeOn("MightyBash");
-            bool MassEntanglement = Aimsharp.IsCustomCodeOn("MassEntanglement");
 
             bool ProwlOOC = GetCheckBox("Prowl Out of Combat:");
             bool MOTWOOC = GetCheckBox("Mark of the Wild Out of Combat:");
@@ -2669,6 +2665,7 @@ namespace AimsharpWow.Modules
 
             #region Queues
             //Queue Mighty Bash
+            bool MightyBash = Aimsharp.IsCustomCodeOn("MightyBash");
             if (MightyBash && Aimsharp.SpellCooldown(MightyBash_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
                 if (Debug)
@@ -2690,6 +2687,7 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Mass Entanglement
+            bool MassEntanglement = Aimsharp.IsCustomCodeOn("MassEntanglement");
             if (MassEntanglement && Aimsharp.SpellCooldown(MassEntanglement_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
                 if (Debug)
@@ -2710,8 +2708,8 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
+            //Queue Maim
             bool Maim = Aimsharp.IsCustomCodeOn("Maim");
-            //Queue Mighty Bash
             if (Maim && Aimsharp.SpellCooldown(Maim_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
                 if (Debug)
@@ -2731,8 +2729,9 @@ namespace AimsharpWow.Modules
                 Aimsharp.Cast(Maim_SpellName(Language));
                 return true;
             }
+
             //Queue Rebirth
-            bool Rebirth = Aimsharp.IsCustomCodeOn("Rebirth");
+            bool Rebirth = Aimsharp.IsCustomCodeOn("RebirthMO");
             if (Aimsharp.SpellCooldown(Rebirth_SpellName(Language)) - Aimsharp.GCD() > 2000 && Rebirth)
             {
                 Aimsharp.Cast("RebirthOff");
