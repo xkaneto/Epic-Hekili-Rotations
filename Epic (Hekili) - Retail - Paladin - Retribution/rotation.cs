@@ -472,6 +472,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=198034</summary>
+        private static string DivineHammer_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Divine Hammer";
+                case "Deutsch": return "Göttlicher Hammer";
+                case "Español": return "Martillo divino";
+                case "Français": return "Marteau divin";
+                case "Italiano": return "Martello Divino";
+                case "Português Brasileiro": return "Martelo Divino";
+                case "Русский": return "Божественный молот";
+                case "한국어": return "천상의 망치";
+                case "简体中文": return "神圣之锤";
+                default: return "Divine Hammer";
+            }
+        }
+
         ///<summary>spell=498</summary>
         private static string DivineProtection_SpellName(string Language = "English")
         {
@@ -3178,6 +3196,15 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Casting Templar Slash - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(TemplarSlash_SpellName(Language));
+                        return true;
+                    }
+                    if (SpellID1 == 198034 && Aimsharp.CanCast(DivineHammer_SpellName(Language), "player", true, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Divine Hammer - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(DivineHammer_SpellName(Language));
                         return true;
                     }
                     #endregion
