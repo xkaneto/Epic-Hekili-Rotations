@@ -1802,19 +1802,22 @@ namespace AimsharpWow.Modules
                 BlindingLight_SpellName(Language), //115750
                 CleanseToxins_SpellName(Language), //213644
                 Crusade_SpellName(Language), //231895
+                DivineHammer_SpellName(Language), //198034
                 DivineProtection_SpellName(Language), //498
                 DivineStorm_SpellName(Language), //53385
                 ExecutionSentence_SpellName(Language), //343527
                 Exorcism_SpellName(Language), //383185
                 EyeForAnEye_SpellName(Language), //205191
                 FinalReckoning_SpellName(Language), //343721
-                FinalVerdict_SpellName(Language), //336872
+                FinalVerdict_SpellName(Language), //383328
                 HolyAvenger_SpellName(Language), //105809
                 JusticarsVengeance_SpellName(Language), //215661
                 RadiantDecree_SpellName(Language), //384052
                 Repentance_SpellName(Language), //20066
                 Seraphim_SpellName(Language), //152262
                 ShieldOfVengeance_SpellName(Language), //184662
+                TemplarSlash_SpellName(Language), //406647
+                TemplarStrike_SpellName(Language), //407480
                 WakeOfAshes_SpellName(Language), //255937
 
             };
