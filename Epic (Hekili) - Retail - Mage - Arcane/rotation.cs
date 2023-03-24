@@ -1480,7 +1480,7 @@ namespace AimsharpWow.Modules
             Macros.Add("ManaGem", "/use " + ManaGem_SpellName(Language));
 
             //SpellQueueWindow
-            Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + (Aimsharp.Latency + 100));
+            Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + Aimsharp.Latency);
 
             //Queues
             Macros.Add("PolymorphOff", "/" + FiveLetters + " Polymorph");
@@ -1650,8 +1650,8 @@ namespace AimsharpWow.Modules
             Aimsharp.SlowDelay = 150;
 
             Aimsharp.PrintMessage("Epic PVE - Mage Arcane", Color.Yellow);
-            Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
-            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Brown);
+            Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.White);
+            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.White);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- Talents -", Color.White);
             Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/guide/classes/mage/arcane/talent-builds-pve-dps", Color.Yellow);
@@ -1854,11 +1854,11 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region SpellQueueWindow
-            if (Aimsharp.CustomFunction("GetSpellQueueWindow") != (Aimsharp.Latency + 100))
+            if (Aimsharp.CustomFunction("GetSpellQueueWindow") != Aimsharp.Latency)
             {
                 if (Debug)
                 {
-                    Aimsharp.PrintMessage("Setting SQW to: " + (Aimsharp.Latency + 100), Color.Black);
+                    Aimsharp.PrintMessage("Setting SQW to: " + Aimsharp.Latency, Color.Black);
                 }
                 Aimsharp.Cast("SetSpellQueueCvar");
             }
@@ -2923,11 +2923,11 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region SpellQueueWindow
-            if (Aimsharp.CustomFunction("GetSpellQueueWindow") != (Aimsharp.Latency + 100))
+            if (Aimsharp.CustomFunction("GetSpellQueueWindow") != Aimsharp.Latency)
             {
                 if (Debug)
                 {
-                    Aimsharp.PrintMessage("Setting SQW to: " + (Aimsharp.Latency + 100), Color.Black);
+                    Aimsharp.PrintMessage("Setting SQW to: " + Aimsharp.Latency, Color.Black);
                 }
                 Aimsharp.Cast("SetSpellQueueCvar");
             }

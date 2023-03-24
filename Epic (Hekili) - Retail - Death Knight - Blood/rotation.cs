@@ -1265,56 +1265,7 @@ namespace AimsharpWow.Modules
 
         List<int> InstanceIDList = new List<int>
         {
-            2291,
-            2287,
-            2290,
-            2289,
-            2284,
-            2285,
-            2286,
-            2293,
-            1663,
-            1664,
-            1665,
-            1666,
-            1667,
-            1668,
-            1669,
-            1674,
-            1675,
-            1676,
-            1677,
-            1678,
-            1679,
-            1680,
-            1683,
-            1684,
-            1685,
-            1686,
-            1687,
-            1692,
-            1693,
-            1694,
-            1695,
-            1697,
-            1989,
-            1990,
-            1991,
-            1992,
-            1993,
-            1994,
-            1995,
-            1996,
-            1997,
-            1998,
-            1999,
-            2000,
-            2001,
-            2002,
-            2003,
-            2004,
-            2441,
-            2450
+            2291, 2287, 2290, 2289, 2284, 2285, 2286, 2293, 1663, 1664, 1665, 1666, 1667, 1668, 1669, 1674, 1675, 1676, 1677, 1678, 1679, 1680, 1683, 1684, 1685, 1686, 1687, 1692, 1693, 1694, 1695, 1697, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2441, 2450,
         };
 
         List<int> TorghastList = new List<int> { 1618 - 1641, 1645, 1705, 1712, 1716, 1720, 1721, 1736, 1749, 1751 - 1754, 1756 - 1812, 1833 - 1911, 1913, 1914, 1920, 1921, 1962 - 1969, 1974 - 1988, 2010 - 2012, 2019 };
@@ -1361,7 +1312,7 @@ namespace AimsharpWow.Modules
 
 
             //SpellQueueWindow
-            Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + (Aimsharp.Latency + 100));
+            Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + Aimsharp.Latency);
 
             //Queues
             Macros.Add("DeathandDecayOff", "/" + FiveLetters + " DeathandDecay");
@@ -1484,8 +1435,8 @@ namespace AimsharpWow.Modules
             Aimsharp.SlowDelay = 150;
 
             Aimsharp.PrintMessage("Epic PVE - Death Knight Blood", Color.Yellow);
-            Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
-            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Red);
+            Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.White);
+            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.White);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- Talents -", Color.White);
             Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/guide/classes/death-knight/blood/overview-pve-tank", Color.Yellow);
@@ -1680,11 +1631,11 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region SpellQueueWindow
-            if (Aimsharp.CustomFunction("GetSpellQueueWindow") != (Aimsharp.Latency + 100))
+            if (Aimsharp.CustomFunction("GetSpellQueueWindow") != Aimsharp.Latency)
             {
                 if (Debug)
                 {
-                    Aimsharp.PrintMessage("Setting SQW to: " + (Aimsharp.Latency + 100), Color.Purple);
+                    Aimsharp.PrintMessage("Setting SQW to: " + Aimsharp.Latency, Color.Purple);
                 }
                 Aimsharp.Cast("SetSpellQueueCvar");
             }
@@ -2593,11 +2544,11 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region SpellQueueWindow
-            if (Aimsharp.CustomFunction("GetSpellQueueWindow") != (Aimsharp.Latency + 100))
+            if (Aimsharp.CustomFunction("GetSpellQueueWindow") != Aimsharp.Latency)
             {
                 if (Debug)
                 {
-                    Aimsharp.PrintMessage("Setting SQW to: " + (Aimsharp.Latency + 100), Color.Purple);
+                    Aimsharp.PrintMessage("Setting SQW to: " + Aimsharp.Latency, Color.Purple);
                 }
                 Aimsharp.Cast("SetSpellQueueCvar");
             }

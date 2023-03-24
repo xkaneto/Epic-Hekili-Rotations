@@ -1631,8 +1631,8 @@ namespace AimsharpWow.Modules
             EnableDefensives = GetCheckBox("Enable Below Defensives:");
 
             Aimsharp.PrintMessage("Epic PVE - Druid Guardian", Color.Yellow);
-            Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.Red);
-            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.Red);
+            Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.White);
+            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.White);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- Talents -", Color.White);
             Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/de/guide/classes/druid/guardian/overview-pve-tank", Color.Yellow);
@@ -1848,7 +1848,7 @@ namespace AimsharpWow.Modules
             Macros.Add("RC_FOC", "/cast [@focus] " + RemoveCorruption_SpellName(Language));
 
             //SpellQueueWindow
-            Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + (Aimsharp.Latency + 100));
+            Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + Aimsharp.Latency);
 
             Macros.Add("MightyBashOff", "/" + FiveLetters + " MightyBash");
             Macros.Add("MassEntanglementOff", "/" + FiveLetters + " MassEntanglement");
