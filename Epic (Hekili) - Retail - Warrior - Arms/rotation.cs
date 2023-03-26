@@ -2241,21 +2241,21 @@ namespace AimsharpWow.Modules
                     case "Manual":
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Death and Decay - " + SpearOfBastionCast + " - Queue", Color.Purple);
+                            Aimsharp.PrintMessage("Casting Spear Of Bastion - " + SpearOfBastionCast + " - Queue", Color.Purple);
                         }
                         Aimsharp.Cast(SpearOfBastion_SpellName(Language));
                         return true;
                     case "Player":
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Death and Decay - " + SpearOfBastionCast + " - Queue", Color.Purple);
+                            Aimsharp.PrintMessage("Casting Spear Of Bastion - " + SpearOfBastionCast + " - Queue", Color.Purple);
                         }
                         Aimsharp.Cast("SpearOfBastionP");
                         return true;
                     case "Cursor":
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Death and Decay - " + SpearOfBastionCast + " - Queue", Color.Purple);
+                            Aimsharp.PrintMessage("Casting Spear Of Bastion - " + SpearOfBastionCast + " - Queue", Color.Purple);
                         }
                         Aimsharp.Cast("SpearOfBastionC");
                         return true;
