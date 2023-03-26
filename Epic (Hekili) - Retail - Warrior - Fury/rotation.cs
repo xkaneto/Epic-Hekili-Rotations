@@ -7,7 +7,7 @@ using AimsharpWow.API;
 
 namespace AimsharpWow.Modules
 {
-    public class EpicWarriorArmsHekili : Rotation
+    public class EpicWarriorFuryHekili : Rotation
     {
         //Random Number
         private static readonly Random getrandom = new Random();
@@ -165,24 +165,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=386164</summary>
-        private static string BattleStance_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Battle Stance";
-                case "Deutsch": return "Kampfhaltung";
-                case "Español": return "Actitud de batalla";
-                case "Français": return "Posture de combat";
-                case "Italiano": return "Postura da Battaglia";
-                case "Português Brasileiro": return "Postura de Batalha";
-                case "Русский": return "Боевая стойка";
-                case "한국어": return "전투 태세";
-                case "简体中文": return "战斗姿态";
-                default: return "Battle Stance";
-            }
-        }
-
         ///<summary>spell=18499</summary>
         private static string BerserkerRage_SpellName(string Language = "English")
         {
@@ -198,6 +180,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "광전사의 격노";
                 case "简体中文": return "狂暴之怒";
                 default: return "Berserker Rage";
+            }
+        }
+
+        ///<summary>spell=386196</summary>
+        private static string BerserkerStance_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Berserker Stance";
+                case "Deutsch": return "Berserkerhaltung";
+                case "Español": return "Actitud rabiosa";
+                case "Français": return "Posture berserker";
+                case "Italiano": return "Postura da Berserker";
+                case "Português Brasileiro": return "Postura de Berserker";
+                case "Русский": return "Стойка берсерка";
+                case "한국어": return "광폭 태세";
+                case "简体中文": return "狂暴姿态";
+                default: return "Berserker Stance";
             }
         }
 
@@ -237,24 +237,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=46924</summary>
-        private static string Bladestorm_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Bladestorm";
-                case "Deutsch": return "Klingensturm";
-                case "Español": return "Filotormenta";
-                case "Français": return "Tempête de lames";
-                case "Italiano": return "Tempesta di Lame";
-                case "Português Brasileiro": return "Tornado de Aço";
-                case "Русский": return "Вихрь клинков";
-                case "한국어": return "칼날폭풍";
-                case "简体中文": return "剑刃风暴";
-                default: return "Bladestorm";
-            }
-        }
-
         ///<summary>spell=33697</summary>
         private static string BloodFury_SpellName(string Language = "English")
         {
@@ -270,6 +252,42 @@ namespace AimsharpWow.Modules
                 case "한국어": return "피의 격노";
                 case "简体中文": return "血性狂怒";
                 default: return "Blood Fury";
+            }
+        }
+
+        ///<summary>spell=335096</summary>
+        private static string Bloodbath_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Bloodbath";
+                case "Deutsch": return "Blutbad";
+                case "Español": return "Baño de sangre";
+                case "Français": return "Bain de sang";
+                case "Italiano": return "Bagno di Sangue";
+                case "Português Brasileiro": return "Banho de Sangue";
+                case "Русский": return "Кровавая баня";
+                case "한국어": return "피범벅";
+                case "简体中文": return "浴血奋战";
+                default: return "Bloodbath";
+            }
+        }
+
+        ///<summary>spell=23881</summary>
+        private static string Bloodthirst_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Bloodthirst";
+                case "Deutsch": return "Blutdurst";
+                case "Español": return "Sed de sangre";
+                case "Français": return "Sanguinaire";
+                case "Italiano": return "Sete di Sangue";
+                case "Português Brasileiro": return "Sede de Sangue";
+                case "Русский": return "Кровожадность";
+                case "한국어": return "피의 갈증";
+                case "简体中文": return "嗜血";
+                default: return "Bloodthirst";
             }
         }
 
@@ -326,43 +344,6 @@ namespace AimsharpWow.Modules
                 default: return "Charge";
             }
         }
-
-        ///<summary>spell=845</summary>
-        private static string Cleave_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Cleave";
-                case "Deutsch": return "Spalten";
-                case "Español": return "Rajar";
-                case "Français": return "Enchaînement";
-                case "Italiano": return "Fendente";
-                case "Português Brasileiro": return "Cutilada";
-                case "Русский": return "Рассекающий удар";
-                case "한국어": return "회전베기";
-                case "简体中文": return "顺劈斩";
-                default: return "Cleave";
-            }
-        }
-
-        ///<summary>spell=208086</summary>
-        private static string ColossusSmash_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Colossus Smash";
-                case "Deutsch": return "Kolossales Schmettern";
-                case "Español": return "Machaque colosal";
-                case "Français": return "Frappe du colosse";
-                case "Italiano": return "Colpo del Colosso";
-                case "Português Brasileiro": return "Golpe Colossal";
-                case "Русский": return "Удар колосса";
-                case "한국어": return "거인의 강타";
-                case "简体中文": return "巨人打击";
-                default: return "Colossus Smash";
-            }
-        }
-
         ///<summary>spell=324143</summary>
         private static string ConquerorsBanner_SpellName(string Language = "English")
         {
@@ -378,6 +359,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "정복자의 깃발";
                 case "简体中文": return "征服者战旗";
                 default: return "Conqueror's Banner";
+            }
+        }
+
+        ///<summary>spell=335097</summary>
+        private static string CrushingBlow_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Crushing Blow";
+                case "Deutsch": return "Schmetterschlag";
+                case "Español": return "Golpe aplastante";
+                case "Français": return "Coup écrasant";
+                case "Italiano": return "Colpo Devastante";
+                case "Português Brasileiro": return "Golpe Triturante";
+                case "Русский": return "Сокрушающий удар";
+                case "한국어": return "분쇄의 타격";
+                case "简体中文": return "碎甲猛击";
+                default: return "Crushing Blow";
             }
         }
 
@@ -399,21 +398,21 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=118038</summary>
-        private static string DieByTheSword_SpellName(string Language = "English")
+        ///<summary>spell=184364</summary>
+        private static string EnragedRegeneration_SpellName(string Language = "English")
         {
             switch (Language)
             {
-                case "English": return "Die by the Sword";
-                case "Deutsch": return "Durch das Schwert umkommen";
-                case "Español": return "Muerte a espada";
-                case "Français": return "Par le fil de l’épée";
-                case "Italiano": return "Attaccamento alla Vita";
-                case "Português Brasileiro": return "Morte pela Espada";
-                case "Русский": return "Бой насмерть";
-                case "한국어": return "투사의 혼";
-                case "简体中文": return "剑在人在";
-                default: return "Die by the Sword";
+                case "English": return "Enraged Regeneration";
+                case "Deutsch": return "Wütende Regeneration";
+                case "Español": return "Regeneración enfurecida";
+                case "Français": return "Régénération enragée";
+                case "Italiano": return "Rigenerazione Furente";
+                case "Português Brasileiro": return "Regeneração Enfurecida";
+                case "Русский": return "Безудержное восстановление";
+                case "한국어": return "격노의 재생력";
+                case "简体中文": return "狂怒回复";
+                default: return "Enraged Regeneration";
             }
         }
 
@@ -651,39 +650,39 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=12294</summary>
-        private static string MortalStrike_SpellName(string Language = "English")
+        ///<summary>spell=385059</summary>
+        private static string OdynsFury_SpellName(string Language = "English")
         {
             switch (Language)
             {
-                case "English": return "Mortal Strike";
-                case "Deutsch": return "Tödlicher Stoß";
-                case "Español": return "Golpe mortal";
-                case "Français": return "Frappe mortelle";
-                case "Italiano": return "Assalto Mortale";
-                case "Português Brasileiro": return "Golpe Mortal";
-                case "Русский": return "Смертельный удар";
-                case "한국어": return "필사의 일격";
-                case "简体中文": return "致死打击";
-                default: return "Mortal Strike";
+                case "English": return "Odyn's Fury";
+                case "Deutsch": return "Odyns Zorn";
+                case "Español": return "Furia de Odyn";
+                case "Français": return "Fureur d’Odyn";
+                case "Italiano": return "Furia di Odyn";
+                case "Português Brasileiro": return "Fúria de Odyn";
+                case "Русский": return "Ярость Одина";
+                case "한국어": return "오딘의 격노";
+                case "简体中文": return "奥丁之怒";
+                default: return "Odyn's Fury";
             }
         }
 
-        ///<summary>spell=7384</summary>
-        private static string Overpower_SpellName(string Language = "English")
+        ///<summary>spell=315720</summary>
+        private static string Onslaught_SpellName(string Language = "English")
         {
             switch (Language)
             {
-                case "English": return "Overpower";
-                case "Deutsch": return "Überwältigen";
-                case "Español": return "Abrumar";
-                case "Français": return "Fulgurance";
-                case "Italiano": return "Dominazione";
-                case "Português Brasileiro": return "Subjugar";
-                case "Русский": return "Превосходство";
-                case "한국어": return "제압";
-                case "简体中文": return "压制";
-                default: return "Overpower";
+                case "English": return "Onslaught";
+                case "Deutsch": return "Ansturm";
+                case "Español": return "Irrupción";
+                case "Français": return "Assaut";
+                case "Italiano": return "Massacro";
+                case "Português Brasileiro": return "Ofensiva";
+                case "Русский": return "Натиск";
+                case "한국어": return "맹공";
+                case "简体中文": return "强攻";
+                default: return "Onslaught";
             }
         }
 
@@ -723,6 +722,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=85288</summary>
+        private static string RagingBlow_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Raging Blow";
+                case "Deutsch": return "Wütender Schlag";
+                case "Español": return "Arremetida enfurecida";
+                case "Français": return "Coup déchaîné";
+                case "Italiano": return "Colpo Furente";
+                case "Português Brasileiro": return "Golpe Furioso";
+                case "Русский": return "Яростный выпад";
+                case "한국어": return "분노의 강타";
+                case "简体中文": return "怒击";
+                default: return "Raging Blow";
+            }
+        }
+
         ///<summary>spell=97462</summary>
         private static string RallyingCry_SpellName(string Language = "English")
         {
@@ -738,6 +755,60 @@ namespace AimsharpWow.Modules
                 case "한국어": return "재집결의 함성";
                 case "简体中文": return "集结呐喊";
                 default: return "Rallying Cry";
+            }
+        }
+
+        ///<summary>spell=184367</summary>
+        private static string Rampage_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Rampage";
+                case "Deutsch": return "Toben";
+                case "Español": return "Desenfreno";
+                case "Français": return "Saccager";
+                case "Italiano": return "Scatto d'Ira";
+                case "Português Brasileiro": return "Alvoroço";
+                case "Русский": return "Буйство";
+                case "한국어": return "광란";
+                case "简体中文": return "暴怒";
+                default: return "Rampage";
+            }
+        }
+
+        ///<summary>spell=228920</summary>
+        private static string Ravager_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Ravager";
+                case "Deutsch": return "Verheerer";
+                case "Español": return "Devastador";
+                case "Français": return "Ravageur";
+                case "Italiano": return "Impeto Devastatore";
+                case "Português Brasileiro": return "Assolador";
+                case "Русский": return "Опустошитель";
+                case "한국어": return "쇠날발톱";
+                case "简体中文": return "破坏者";
+                default: return "Ravager";
+            }
+        }
+
+        ///<summary>spell=1719</summary>
+        private static string Recklessness_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Recklessness";
+                case "Deutsch": return "Tollkühnheit";
+                case "Español": return "Temeridad";
+                case "Français": return "Témérité";
+                case "Italiano": return "Avventatezza";
+                case "Português Brasileiro": return "Temeridade";
+                case "Русский": return "Безрассудство";
+                case "한국어": return "무모한 희생";
+                case "简体中文": return "鲁莽";
+                default: return "Recklessness";
             }
         }
 
@@ -831,24 +902,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=260643</summary>
-        private static string Skullsplitter_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Skullsplitter";
-                case "Deutsch": return "Schädelspalter";
-                case "Español": return "Machacacráneos";
-                case "Français": return "Casse-crâne";
-                case "Italiano": return "Fendicranio";
-                case "Português Brasileiro": return "Rachacrânio";
-                case "Русский": return "Рассекатель черепов";
-                case "한국어": return "해골 쪼개기";
-                case "简体中文": return "碎颅打击";
-                default: return "Skullsplitter";
-            }
-        }
-
         ///<summary>spell=1464</summary>
         private static string Slam_SpellName(string Language = "English")
         {
@@ -939,24 +992,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=260708</summary>
-        private static string SweepingStrikes_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Sweeping Strikes";
-                case "Deutsch": return "Weitreichende Stöße";
-                case "Español": return "Golpes de barrido";
-                case "Français": return "Attaques circulaires";
-                case "Italiano": return "Assalti Fendenti";
-                case "Português Brasileiro": return "Golpes a Esmo";
-                case "Русский": return "Размашистые удары";
-                case "한국어": return "휩쓸기 일격";
-                case "简体中文": return "横扫攻击";
-                default: return "Sweeping Strikes";
-            }
-        }
-
         ///<summary>spell=6343</summary>
         private static string ThunderClap_SpellName(string Language = "English")
         {
@@ -1026,24 +1061,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "전투 발구르기";
                 case "简体中文": return "战争践踏";
                 default: return "War Stomp";
-            }
-        }
-
-        ///<summary>spell=262161</summary>
-        private static string Warbreaker_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Warbreaker";
-                case "Deutsch": return "Kriegsbrecher";
-                case "Español": return "Belígera";
-                case "Français": return "Brise-guerre";
-                case "Italiano": return "Spezzaguerra";
-                case "Português Brasileiro": return "Senhora da Guerra";
-                case "Русский": return "Миротворец";
-                case "한국어": return "전쟁파괴자";
-                case "简体中文": return "灭战者";
-                default: return "Warbreaker";
             }
         }
 
@@ -1126,7 +1143,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "StormBolt", "SpearOfBastion", "QueueBladestorm", "HeroicLeap" };
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "StormBolt", "SpearOfBastion", "QueueRavager", "HeroicLeap" };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
         private List<string> m_ItemsList;
@@ -1219,13 +1236,15 @@ namespace AimsharpWow.Modules
             //Queues
             Macros.Add("SpearOfBastionOff", "/" + FiveLetters + " SpearOfBastion");
             Macros.Add("StormBoltOff", "/" + FiveLetters + " StormBolt");
-            Macros.Add("QueueBladestormOff", "/" + FiveLetters + " QueueBladestorm");
+            Macros.Add("QueueRavagerOff", "/" + FiveLetters + " QueueRavager");
             Macros.Add("HeroicLeapOff", "/" + FiveLetters + " HeroicLeap");
             Macros.Add("AntiMagicZoneOff", "/" + FiveLetters + " AntiMagicZone");
             Macros.Add("BlindingSleetOff", "/" + FiveLetters + " BlindingSleet");
 
             Macros.Add("SpearOfBastionP", "/cast [@player] " + SpearOfBastion_SpellName(Language));
             Macros.Add("SpearOfBastionC", "/cast [@cursor] " + SpearOfBastion_SpellName(Language));
+            Macros.Add("RavagerP", "/cast [@player] " + Ravager_SpellName(Language));
+            Macros.Add("RavagerC", "/cast [@cursor] " + Ravager_SpellName(Language));
             Macros.Add("HeroicLeapC", "/cast [@cursor] " + HeroicLeap_SpellName(Language));
         }
 
@@ -1300,10 +1319,11 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("General"));
             Settings.Add(new Setting("Auto Start Combat:", true));
             Settings.Add(new Setting("Battle Cry Out of Combat:", true));
-            Settings.Add(new Setting("Auto Die by the Sword @ HP%", 0, 100, 30));
+            Settings.Add(new Setting("Auto Enraged Regeneration @ HP%", 0, 100, 30));
             Settings.Add(new Setting("Auto Ignore Pain @ HP%", 0, 100, 40));
             Settings.Add(new Setting("Auto Victory Rush @ HP%", 0, 100, 70));
             Settings.Add(new Setting("Auto Bitter Immunity @ HP%", 0, 100, 35));
+            Settings.Add(new Setting("Ravager Cast:", m_CastingList, "Player"));
             Settings.Add(new Setting("Spear of Bastion Cast:", m_CastingList, "Player"));
             Settings.Add(new Setting("    "));
 
@@ -1335,7 +1355,7 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("/" + FiveLetters + " NoCycle - Disables Target Cycle", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " StormBolt - Casts Storm Bolt @ Target next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " HeroicLeap - Casts Heroic Leap @ Cursor next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " QueueBladestorm - Casts Bladestorm @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " QueueRavager - Casts Bladestorm @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " SpearOfBastion - Casts Spear of Bastion @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
 
@@ -1439,16 +1459,17 @@ namespace AimsharpWow.Modules
 
                 Avatar_SpellName(Language),
                 BattleShout_SpellName(Language),
-                BattleStance_SpellName(Language),
                 BerserkerRage_SpellName(Language),
+                BerserkerStance_SpellName(Language),
                 BitterImmunity_SpellName(Language),
-                Bladestorm_SpellName(Language),
+                Ravager_SpellName(Language),
+                Bloodbath_SpellName(Language),
+                Bloodthirst_SpellName(Language),
                 ChallengingShout_SpellName(Language),
                 Charge_SpellName(Language),
-                Cleave_SpellName(Language),
-                ColossusSmash_SpellName(Language),
+                CrushingBlow_SpellName(Language),
                 DefensiveStance_SpellName(Language),
-                DieByTheSword_SpellName(Language),
+                EnragedRegeneration_SpellName(Language),
                 Execute_SpellName(Language),
                 HeroicLeap_SpellName(Language),
                 HeroicThrow_SpellName(Language),
@@ -1456,24 +1477,21 @@ namespace AimsharpWow.Modules
                 ImpendingVictory_SpellName(Language),
                 Intervene_SpellName(Language),
                 IntimidatingShout_SpellName(Language),
-                MortalStrike_SpellName(Language),
-                Overpower_SpellName(Language),
+                OdynsFury_SpellName(Language),
+                Onslaught_SpellName(Language),
                 PiercingHowl_SpellName(Language),
                 Pummel_SpellName(Language),
+                RagingBlow_SpellName(Language),
                 RallyingCry_SpellName(Language),
-                Rend_SpellName(Language),
+                Rampage_SpellName(Language),
+                Recklessness_SpellName(Language),
                 ShatteringThrow_SpellName(Language),
-                Shockwave_SpellName(Language),
-                Skullsplitter_SpellName(Language),
                 Slam_SpellName(Language),
                 SpearOfBastion_SpellName(Language),
                 SpellReflection_SpellName(Language),
                 StormBolt_SpellName(Language),
-                SweepingStrikes_SpellName(Language),
-                ThunderClap_SpellName(Language),
                 ThunderousRoar_SpellName(Language),
                 VictoryRush_SpellName(Language),
-                Warbreaker_SpellName(Language),
                 Whirlwind_SpellName(Language),
                 WreckingThrow_SpellName(Language),
             };
@@ -1545,6 +1563,11 @@ namespace AimsharpWow.Modules
             {
                 return false;
             }
+
+            if (Aimsharp.IsCustomCodeOn("QueueRavager") && Aimsharp.SpellCooldown(Ravager_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            {
+                return false;
+            }
             #endregion
 
             #region Interrupts
@@ -1605,12 +1628,12 @@ namespace AimsharpWow.Modules
                 }
             }
 
-            //Auto Die by the Sword
-            if (Aimsharp.CanCast(DieByTheSword_SpellName(Language), "player", false, true))
+            //Auto Enraged Regeneration
+            if (Aimsharp.CanCast(EnragedRegeneration_SpellName(Language), "player", false, true))
             {
-                if (PlayerHP <= GetSlider("Auto Die by the Sword @ HP%"))
+                if (PlayerHP <= GetSlider("Auto Enraged Regeneration @ HP%"))
                 {
-                    Aimsharp.Cast(DieByTheSword_SpellName(Language));
+                    Aimsharp.Cast(EnragedRegeneration_SpellName(Language));
                     return true;
                 }
             }
@@ -1662,18 +1685,41 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            //Queue Bladestorm
-            bool Bladestorm = Aimsharp.IsCustomCodeOn("QueueBladestorm");
-            if (Aimsharp.SpellCooldown(Bladestorm_SpellName(Language)) - Aimsharp.GCD() > 2000 && Bladestorm)
+            //Queue Ravager
+            bool Ravager = Aimsharp.IsCustomCodeOn("QueueRavager");
+            string RavagerCast = GetDropDown("Ravager Cast:");
+            if (Aimsharp.SpellCooldown(Ravager_SpellName(Language)) - Aimsharp.GCD() > 2000 && Ravager)
             {
-                Aimsharp.Cast("QueueBladestormOff");
+                Aimsharp.Cast("QueueRavagerOff");
                 return true;
             }
 
-            if (Bladestorm && Aimsharp.CanCast(Bladestorm_SpellName(Language), "player", false, true))
+            if (Ravager && Aimsharp.CanCast(Ravager_SpellName(Language), "player", false, true))
             {
-                Aimsharp.Cast(Bladestorm_SpellName(Language));
-                return true;
+                switch (RavagerCast)
+                {
+                    case "Manual":
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Ravager - " + RavagerCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast(Ravager_SpellName(Language));
+                        return true;
+                    case "Player":
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Ravager - " + RavagerCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast("RavagerP");
+                        return true;
+                    case "Cursor":
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Ravager - " + RavagerCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast("RavagerC");
+                        return true;
+                }
             }
 
             //Queue Heroic Leap
@@ -2031,9 +2077,9 @@ namespace AimsharpWow.Modules
                     #region General Spells - NoGCD
                     //Class Spells
                     //Instant [GCD FREE]
-                    if (SpellID1 == 118038 && Aimsharp.CanCast(DieByTheSword_SpellName(Language), "player", false, true))
+                    if (SpellID1 == 184364 && Aimsharp.CanCast(EnragedRegeneration_SpellName(Language), "player", false, true))
                     {
-                        Aimsharp.Cast(DieByTheSword_SpellName(Language), true);
+                        Aimsharp.Cast(EnragedRegeneration_SpellName(Language), true);
                         return true;
                     }
 
@@ -2055,15 +2101,21 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
+                    if (SpellID1 == 1719 && Aimsharp.CanCast(Recklessness_SpellName(Language), "player", false, true))
+                    {
+                        Aimsharp.Cast(Recklessness_SpellName(Language), true);
+                        return true;
+                    }
+
                     if (SpellID1 == 23920 && Aimsharp.CanCast(SpellReflection_SpellName(Language), "player", false, true))
                     {
                         Aimsharp.Cast(SpellReflection_SpellName(Language), true);
                         return true;
                     }
 
-                    if (SpellID1 == 386164 && Aimsharp.CanCast(BattleStance_SpellName(Language), "player", false, true))
+                    if (SpellID1 == 386196 && Aimsharp.CanCast(BerserkerStance_SpellName(Language), "player", false, true))
                     {
-                        Aimsharp.Cast(BattleStance_SpellName(Language), true);
+                        Aimsharp.Cast(BerserkerStance_SpellName(Language), true);
                         return true;
                     }
 
@@ -2080,44 +2132,56 @@ namespace AimsharpWow.Modules
                     }
                     #endregion
 
+                    Aimsharp.PrintMessage("SpellID" + SpellID1 + " not found", Color.Red);
+
                     #region Player GCD
                     //Instant [GCD]
                     ///Player
 
                     if (SpellCast(6673, BattleShout_SpellName(Language), "player")) return true;
-                    if (SpellCast(46924, Bladestorm_SpellName(Language), "player")) return true;
-                    if (SpellCast(227847, Bladestorm_SpellName(Language), "player")) return true;
-                    if (SpellCast(389774, Bladestorm_SpellName(Language), "player")) return true;
+                    if (SpellID1 == 228920 && Aimsharp.CanCast(Ravager_SpellName(Language), "player", false, true))
+                    {
+                        switch (RavagerCast)
+                        {
+                            case "Manual":
+                                return SpellCast(228920, Ravager_SpellName(Language), "player");
+                            case "Player":
+                                return SpellCast(228920, Ravager_SpellName(Language), "player", "RavagerP");
+                            case "Cursor":
+                                return SpellCast(228920, Ravager_SpellName(Language), "player", "RavagerC");
+                        }
+                    }
                     if (SpellCast(1161, ChallengingShout_SpellName(Language), "player")) return true;
-                    if (SpellCast(845, Cleave_SpellName(Language), "player")) return true;
-                    if (SpellCast(7384, Overpower_SpellName(Language), "player")) return true;
+                    if (SpellCast(385059, OdynsFury_SpellName(Language), "player")) return true;
                     if (SpellCast(12323, PiercingHowl_SpellName(Language), "player")) return true;
                     if (SpellCast(97462, RallyingCry_SpellName(Language), "player")) return true;
                     if (SpellCast(46968, Shockwave_SpellName(Language), "player")) return true;
-                    if (SpellCast(260708, SweepingStrikes_SpellName(Language), "player")) return true;
                     if (SpellCast(6343, ThunderClap_SpellName(Language), "player")) return true;
                     if (SpellCast(396719, ThunderClap_SpellName(Language), "player")) return true;
                     if (SpellCast(384318, ThunderousRoar_SpellName(Language), "player")) return true;
-                    if (SpellCast(262161, Warbreaker_SpellName(Language), "player")) return true;
                     if (SpellCast(1680, Whirlwind_SpellName(Language), "player")) return true;
+                    if (SpellCast(190411, Whirlwind_SpellName(Language), "player")) return true;
 
                     #endregion
 
                     #region Target GCD
                     ///Target
+                    if (SpellCast(335096, Bloodbath_SpellName(Language), "target")) return true;
+                    if (SpellCast(23881, Bloodthirst_SpellName(Language), "target")) return true;
                     if (SpellCast(100, Charge_SpellName(Language), "target")) return true;
-                    if (SpellCast(208086, ColossusSmash_SpellName(Language), "player")) return true;
-                    if (SpellCast(167105, ColossusSmash_SpellName(Language), "player")) return true;
-                    if (SpellCast(163201, Execute_SpellName(Language), "target")) return true;
+                    if (SpellCast(335097, CrushingBlow_SpellName(Language), "target")) return true;
                     if (SpellCast(5308, Execute_SpellName(Language), "target")) return true;
+                    if (SpellCast(163201, Execute_SpellName(Language), "target")) return true;
+                    if (SpellCast(280735, Execute_SpellName(Language), "target")) return true;
                     if (SpellCast(281000, Execute_SpellName(Language), "target")) return true;
                     if (SpellCast(57755, HeroicThrow_SpellName(Language), "target")) return true;
                     if (SpellCast(202168, ImpendingVictory_SpellName(Language), "target")) return true;
                     if (SpellCast(5246, IntimidatingShout_SpellName(Language), "target")) return true;
-                    if (SpellCast(12294, MortalStrike_SpellName(Language), "target")) return true;
+                    if (SpellCast(315720, Onslaught_SpellName(Language), "target")) return true;
+                    if (SpellCast(85288, RagingBlow_SpellName(Language), "target")) return true;
+                    if (SpellCast(184367, Rampage_SpellName(Language), "target")) return true;
                     if (SpellCast(772, Rend_SpellName(Language), "target")) return true;
                     if (SpellCast(64382, ShatteringThrow_SpellName(Language), "target")) return true;
-                    if (SpellCast(260643, Skullsplitter_SpellName(Language), "target")) return true;
                     if (SpellCast(1464, Slam_SpellName(Language), "target")) return true;
                     if (SpellCast(107570, StormBolt_SpellName(Language), "target")) return true;
                     if (SpellCast(34428, VictoryRush_SpellName(Language), "target")) return true;
@@ -2172,6 +2236,11 @@ namespace AimsharpWow.Modules
             {
                 return false;
             }
+
+            if (Aimsharp.IsCustomCodeOn("QueueRavager") && Aimsharp.SpellCooldown(Ravager_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            {
+                return false;
+            }
             #endregion
 
             #region Queues
@@ -2190,18 +2259,41 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            //Queue Bladestorm
-            bool Bladestorm = Aimsharp.IsCustomCodeOn("QueueBladestorm");
-            if (Aimsharp.SpellCooldown(Bladestorm_SpellName(Language)) - Aimsharp.GCD() > 2000 && Bladestorm)
+            //Queue Ravager
+            bool Ravager = Aimsharp.IsCustomCodeOn("QueueRavager");
+            string RavagerCast = GetDropDown("Ravager Cast:");
+            if (Aimsharp.SpellCooldown(Ravager_SpellName(Language)) - Aimsharp.GCD() > 2000 && Ravager)
             {
-                Aimsharp.Cast("QueueBladestormOff");
+                Aimsharp.Cast("QueueRavagerOff");
                 return true;
             }
 
-            if (Bladestorm && Aimsharp.CanCast(Bladestorm_SpellName(Language), "player", false, true))
+            if (Ravager && Aimsharp.CanCast(Ravager_SpellName(Language), "player", false, true))
             {
-                Aimsharp.Cast(Bladestorm_SpellName(Language));
-                return true;
+                switch (RavagerCast)
+                {
+                    case "Manual":
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Ravager - " + RavagerCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast(Ravager_SpellName(Language));
+                        return true;
+                    case "Player":
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Ravager - " + RavagerCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast("RavagerP");
+                        return true;
+                    case "Cursor":
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Ravager - " + RavagerCast + " - Queue", Color.Purple);
+                        }
+                        Aimsharp.Cast("RavagerC");
+                        return true;
+                }
             }
 
             //Queue Heroic Leap
