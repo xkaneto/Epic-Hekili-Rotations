@@ -2075,7 +2075,8 @@ namespace AimsharpWow.Modules
 
                 if (Aimsharp.CanCast(BristlingFur_SpellName(Language), "player") && PlayerHealth < GetSlider("Bristling Fur HP %"))
                 {
-                    return Barkskin();
+                    Aimsharp.Cast(BristlingFur_SpellName(Language),true);
+                    return true;
                 }
                 else if (Aimsharp.CustomFunction("ThreatStatus") == 0)
                 {
