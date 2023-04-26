@@ -1836,7 +1836,7 @@ namespace AimsharpWow.Modules
                     //Instant [GCD]
                     ///Player
 
-                    if (SpellID1 == 204596 && Aimsharp.CanCast(SigilOfFlame_SpellName(Language), "player", false, true))
+                    if ((SpellID1 == 204596 || SpellID1 == 389810) && Aimsharp.CanCast(SigilOfFlame_SpellName(Language), "player", false, true))
                     {
                         switch (SigilsCast)
                         {
@@ -1864,7 +1864,7 @@ namespace AimsharpWow.Modules
                         }
                     }
 
-                    if (SpellID1 == 207684 && Aimsharp.CanCast(SigilOfMisery_SpellName(Language), "player", false, true))
+                    if ((SpellID1 == 207684 || SpellID1 == 389813) && Aimsharp.CanCast(SigilOfMisery_SpellName(Language), "player", false, true))
                     {
                         switch (SigilsCast)
                         {
