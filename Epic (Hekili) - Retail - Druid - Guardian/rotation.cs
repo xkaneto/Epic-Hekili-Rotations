@@ -833,6 +833,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=400254</summary>
+        private static string Raze_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Raze";
+                case "Deutsch": return "Plätten";
+                case "Español": return "Arremetida arrasadora";
+                case "Français": return "Destruction massive";
+                case "Italiano": return "Razzia";
+                case "Português Brasileiro": return "Arrasar";
+                case "Русский": return "Смести";
+                case "한국어": return "말살";
+                case "简体中文": return "摧折";
+                default: return "Raze";
+            }
+        }
+
         ///<summary>spell=20484</summary>
         private static string Rebirth_SpellName(string Language = "English")
         {
@@ -1010,24 +1028,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "달래기";
                 case "简体中文": return "安抚";
                 default: return "Soothe";
-            }
-        }
-
-        ///<summary>item=171267</summary>
-        private static string SpiritualHealingPotion_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Spiritual Healing Potion";
-                case "Deutsch": return "Spiritueller Heiltrank";
-                case "Español": return "Poción de sanación espiritual";
-                case "Français": return "Potion de soins spirituels";
-                case "Italiano": return "Pozione di Cura Spirituale";
-                case "Português Brasileiro": return "Poção de Cura Espiritual";
-                case "Русский": return "Духовное зелье исцеления";
-                case "한국어": return "영적인 치유 물약";
-                case "简体中文": return "灵魂治疗药水";
-                default: return "Spiritual Healing Potion";
             }
         }
 
@@ -1788,6 +1788,7 @@ namespace AimsharpWow.Modules
                 Rake_SpellName(Language),
                 RavenousFrenzy_SpellName(Language),
                 RageOfTheSleeper_SpellName(Language),
+                Raze_SpellName(Language),
                 Rebirth_SpellName(Language),
                 Regrowth_SpellName(Language),
                 Rejuvenation_SpellName(Language),
@@ -2547,6 +2548,8 @@ namespace AimsharpWow.Modules
                 if (SpellCast(323546, RavenousFrenzy_SpellName(Language), "player")) return true;
                 //RageOfTheSleeper
                 if (SpellCast(200851, RageOfTheSleeper_SpellName(Language), "player")) return true;
+                //Raze
+                if (SpellCast(400254, Raze_SpellName(Language), "player")) return true;
                 //Rebirth
                 if (SpellCast(20484, Rebirth_SpellName(Language), "target")) return true;
                 //Regrowth
