@@ -687,6 +687,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=407466</summary>
+        private static string MindSpike_Insanity_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Mind Spike: Insanity";
+                case "Deutsch": return "Gedankenstachel: Wahnsinn";
+                case "Español": return "Púa mental: demencia";
+                case "Français": return "Pointe mentale : insanité";
+                case "Italiano": return "Aculeo Mentale: Pazzia";
+                case "Português Brasileiro": return "Aguilhão Mental: Insanidade";
+                case "Русский": return "Пронзание разума: безумие";
+                case "한국어": return "정신의 쐐기: 광기";
+                case "简体中文": return "心灵尖刺：狂";
+                default: return "Mind Spike: Insanity";
+            }
+        }
+
         ///<summary>spell=200174</summary>
         private static string Mindbender_SpellName(string Language = "English")
         {
@@ -2647,6 +2665,16 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Casting Mind Spike - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(MindSpike_SpellName(Language));
+                        return true;
+                    }
+
+                    if (SpellID1 == 407466 && Aimsharp.CanCast(MindSpike_Insanity_SpellName(Language), "target", true, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Mind Spike: Insanity - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(MindSpike_Insanity_SpellName(Language));
                         return true;
                     }
 
