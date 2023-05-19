@@ -1736,6 +1736,7 @@ namespace AimsharpWow.Modules
                 MindFlay_Insanity_SpellName(Language), //391403
                 MindSear_SpellName(Language), //48045
                 MindSpike_SpellName(Language), //73510
+                MindSpike_Insanity_SpellName(Language), //407466
                 Mindbender_SpellName(Language), //200174
                 PsychicHorror_SpellName(Language), //64044 - queue mo
                 PurifyDisease_SpellName(Language), //213634
