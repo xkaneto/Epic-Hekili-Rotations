@@ -2122,7 +2122,7 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Start casting Fire Breath - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(FireBreath_SpellName(Language));
-                        if (EmpowerCastTime != 0)
+                        if (EmpowerCastTime > 0)
                         {
                             System.Threading.Thread.Sleep((int)EmpowerCastTime);
                             if (Debug)
@@ -2211,7 +2211,7 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Start casting Eternity Surge - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(EternitySurge_SpellName(Language));
-                        if (EmpowerCastTime != 0)
+                        if (EmpowerCastTime > 0)
                         {
                             System.Threading.Thread.Sleep((int)EmpowerCastTime);
                             if (Debug)
