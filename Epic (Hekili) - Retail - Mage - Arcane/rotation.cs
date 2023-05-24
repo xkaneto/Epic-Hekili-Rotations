@@ -2607,7 +2607,7 @@ namespace AimsharpWow.Modules
                     #endregion
 
                     #region General Spells - Player GCD
-                    if (SpellID1 == 999999 && Aimsharp.CanUseItem(ManaGem_SpellName(Language), false))
+                    if (SpellID1 == 36799 && Aimsharp.CanUseItem(ManaGem_SpellName(Language), false))
                     {
                         if (Debug)
                         {
