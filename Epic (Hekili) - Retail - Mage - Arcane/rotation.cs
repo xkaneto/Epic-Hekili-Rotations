@@ -1475,6 +1475,8 @@ namespace AimsharpWow.Modules
             //Healthstone
             Macros.Add("UseHealthstone", "/use " + Healthstone_SpellName(Language));
 
+            //Cancel PoM
+            Macros.Add("MacroCancelPoM", "/cancelaura " + PresenceOfMind_SpellName(Language));
 
             //Mana Gem
             Macros.Add("ManaGem", "/use " + ManaGem_SpellName(Language));
@@ -2249,6 +2251,18 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Using Bot Trinket", Color.Black);
                         }
                         Aimsharp.Cast("BotTrinket");
+                        return true;
+                    }
+                    #endregion
+
+                    #region Cancel Auras
+                    if (SpellID1 == 0 && Aimsharp.HasBuff(PresenceOfMind_SpellName(Language), "player"))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Canceling Presence of Mind - " + SpellID1, Color.Black);
+                        }
+                        Aimsharp.Cast("MacroCancelPoM", true);
                         return true;
                     }
                     #endregion
