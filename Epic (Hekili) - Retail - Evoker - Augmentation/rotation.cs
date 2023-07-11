@@ -7,7 +7,7 @@ using AimsharpWow.API;
 
 namespace AimsharpWow.Modules
 {
-    public class EpicEvokerDevastationHekili : Rotation
+    public class EpicEvokerAugmentationHekili : Rotation
     {
         //Random Number
         private static readonly Random getrandom = new Random();
@@ -23,60 +23,6 @@ namespace AimsharpWow.Modules
         private static int EmpowerStateNow = new int();
 
         #region SpellFunctions
-        ///<summary>spell=274738</summary>
-        private static string AncestralCall_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Ancestral Call";
-                case "Deutsch": return "Ruf der Ahnen";
-                case "Español": return "Llamada ancestral";
-                case "Français": return "Appel ancestral";
-                case "Italiano": return "Richiamo Ancestrale";
-                case "Português Brasileiro": return "Chamado Ancestral";
-                case "Русский": return "Призыв предков";
-                case "한국어": return "고대의 부름";
-                case "简体中文": return "先祖召唤";
-                default: return "Ancestral Call";
-            }
-        }
-
-        ///<summary>spell=260364</summary>
-        private static string ArcanePulse_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Arcane Pulse";
-                case "Deutsch": return "Arkaner Puls";
-                case "Español": return "Pulso Arcano";
-                case "Français": return "Impulsion arcanique";
-                case "Italiano": return "Impulso Arcano";
-                case "Português Brasileiro": return "Pulso Arcano";
-                case "Русский": return "Чародейский импульс";
-                case "한국어": return "비전 파동";
-                case "简体中文": return "奥术脉冲";
-                default: return "Arcane Pulse";
-            }
-        }
-
-        ///<summary>spell=28730</summary>
-        private static string ArcaneTorrent_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Arcane Torrent";
-                case "Deutsch": return "Arkaner Strom";
-                case "Español": return "Torrente Arcano";
-                case "Français": return "Torrent arcanique";
-                case "Italiano": return "Torrente Arcano";
-                case "Português Brasileiro": return "Torrente Arcana";
-                case "Русский": return "Волшебный поток";
-                case "한국어": return "비전 격류";
-                case "简体中文": return "奥术洪流";
-                default: return "Arcane Torrent";
-            }
-        }
-
         ///<summary>spell=362969</summary>
         private static string AzureStrike_SpellName(string Language = "English")
         {
@@ -92,60 +38,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "하늘빛 일격";
                 case "简体中文": return "碧蓝打击";
                 default: return "Azure Strike";
-            }
-        }
-
-        ///<summary>spell=312411</summary>
-        private static string BagOfTricks_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Bag of Tricks";
-                case "Deutsch": return "Trickkiste";
-                case "Español": return "Bolsa de trucos";
-                case "Français": return "Sac à malice";
-                case "Italiano": return "Borsa di Trucchi";
-                case "Português Brasileiro": return "Bolsa de Truques";
-                case "Русский": return "Набор хитростей";
-                case "한국어": return "비장의 묘수";
-                case "简体中文": return "袋里乾坤";
-                default: return "Bag of Tricks";
-            }
-        }
-
-        ///<summary>spell=120360</summary>
-        private static string Barrage_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Barrage";
-                case "Deutsch": return "Sperrfeuer";
-                case "Español": return "Tromba";
-                case "Français": return "Barrage";
-                case "Italiano": return "Sbarramento";
-                case "Português Brasileiro": return "Barragem";
-                case "Русский": return "Шквал";
-                case "한국어": return "탄막";
-                case "简体中文": return "弹幕射击";
-                default: return "Barrage";
-            }
-        }
-
-        ///<summary>spell=26297</summary>
-        private static string Berserking_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Berserking";
-                case "Deutsch": return "Berserker";
-                case "Español": return "Rabiar";
-                case "Français": return "Berserker";
-                case "Italiano": return "Berserker";
-                case "Português Brasileiro": return "Berserk";
-                case "Русский": return "Берсерк";
-                case "한국어": return "광폭화";
-                case "简体中文": return "狂暴";
-                default: return "Berserking";
             }
         }
 
@@ -167,21 +59,21 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=33697</summary>
-        private static string BloodFury_SpellName(string Language = "English")
+        ///<summary>spell=360827</summary>
+        private static string BlisteringScales_SpellName(string Language = "English")
         {
             switch (Language)
             {
-                case "English": return "Blood Fury";
-                case "Deutsch": return "Kochendes Blut";
-                case "Español": return "Furia sangrienta";
-                case "Français": return "Fureur sanguinaire";
-                case "Italiano": return "Furia Sanguinaria";
-                case "Português Brasileiro": return "Fúria Sangrenta";
-                case "Русский": return "Кровавое неистовство";
-                case "한국어": return "피의 격노";
-                case "简体中文": return "血性狂怒";
-                default: return "Blood Fury";
+                case "English": return "Blistering Scales";
+                case "Deutsch": return "Sengende Schuppen";
+                case "Español": return "Escamas virulentas";
+                case "Français": return "Écailles torrides";
+                case "Italiano": return "Scaglie Roventi";
+                case "Português Brasileiro": return "Escamas Virulentas";
+                case "Русский": return "Вздувшаяся чешуя";
+                case "한국어": return "끓어오르는 비늘";
+                case "简体中文": return "炽火龙鳞";
+                default: return "Blistering Scales";
             }
         }
 
@@ -203,21 +95,21 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=255654</summary>
-        private static string BullRush_SpellName(string Language = "English")
+        ///<summary>spell=403631</summary>
+        private static string BreathOfEons_SpellName(string Language = "English")
         {
             switch (Language)
             {
-                case "English": return "Bull Rush";
-                case "Deutsch": return "Aufs Geweih nehmen";
-                case "Español": return "Embestida astada";
-                case "Français": return "Charge de taureau";
-                case "Italiano": return "Scatto del Toro";
-                case "Português Brasileiro": return "Investida do Touro";
-                case "Русский": return "Бычий натиск";
-                case "한국어": return "황소 돌진";
-                case "简体中文": return "蛮牛冲撞";
-                default: return "Bull Rush";
+                case "English": return "Breath of Eons";
+                case "Deutsch": return "Atem der Äonen";
+                case "Español": return "Aliento de los eones";
+                case "Français": return "Souffle des présages";
+                case "Italiano": return "Soffio degli Eoni";
+                case "Português Brasileiro": return "Sopro Eônico";
+                case "Русский": return "Дыхание эпох";
+                case "한국어": return "영겁의 숨결";
+                case "简体中文": return "亘古吐息";
+                default: return "Breath of Eons";
             }
         }
 
@@ -275,21 +167,21 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=375087</summary>
-        private static string Dragonrage_SpellName(string Language = "English")
+        ///<summary>spell=395152</summary>
+        private static string EbonMight_SpellName(string Language = "English")
         {
             switch (Language)
             {
-                case "English": return "Dragonrage";
-                case "Deutsch": return "Drachenwut";
-                case "Español": return "Ira de dragón";
-                case "Français": return "Rage draconique";
-                case "Italiano": return "Rabbia del Drago";
-                case "Português Brasileiro": return "Raiva Dragônica";
-                case "Русский": return "Ярость дракона";
-                case "한국어": return "용의 분노";
-                case "简体中文": return "狂龙之怒";
-                default: return "Dragonrage";
+                case "English": return "Ebon Might";
+                case "Deutsch": return "Schwarzmacht";
+                case "Español": return "Poderío de ébano";
+                case "Français": return "Puissance d’ébène";
+                case "Italiano": return "Vigore d'Ebano";
+                case "Português Brasileiro": return "Poder de Ébano";
+                case "Русский": return "Черная мощь";
+                case "한국어": return "칠흑의 힘";
+                case "简体中文": return "黑檀之力";
+                default: return "Ebon Might";
             }
         }
 
@@ -311,39 +203,21 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=20589</summary>
-        private static string EscapeArtist_SpellName(string Language = "English")
+        ///<summary>spell=395160</summary>
+        private static string Eruption_SpellName(string Language = "English")
         {
             switch (Language)
             {
-                case "English": return "Escape Artist";
-                case "Deutsch": return "Entfesselungskünstler";
-                case "Español": return "Artista del escape";
-                case "Français": return "Maître de l’évasion";
-                case "Italiano": return "Artista della Fuga";
-                case "Português Brasileiro": return "Artista da Fuga";
-                case "Русский": return "Мастер побега";
-                case "한국어": return "탈출의 명수";
-                case "简体中文": return "逃命专家";
-                default: return "Escape Artist";
-            }
-        }
-
-        ///<summary>spell=382411</summary>
-        private static string EternitySurge_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Eternity Surge";
-                case "Deutsch": return "Ewigkeitswoge";
-                case "Español": return "Oleada de eternidad";
-                case "Français": return "Afflux d’éternité";
-                case "Italiano": return "Impeto dell'Eternità";
-                case "Português Brasileiro": return "Surto da Eternidade";
-                case "Русский": return "Всплеск вечности";
-                case "한국어": return "영원의 쇄도";
-                case "简体中文": return "永恒之涌";
-                default: return "Eternity Surge";
+                case "English": return "Eruption";
+                case "Deutsch": return "Eruption";
+                case "Español": return "Erupción";
+                case "Français": return "Eruption";
+                case "Italiano": return "Eruzione";
+                case "Português Brasileiro": return "Erupção";
+                case "Русский": return "Извержение";
+                case "한국어": return "분출";
+                case "简体中文": return "喷发";
+                default: return "Eruption";
             }
         }
 
@@ -383,60 +257,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=265221</summary>
-        private static string Fireblood_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Fireblood";
-                case "Deutsch": return "Feuerblut";
-                case "Español": return "Sangrardiente";
-                case "Français": return "Sang de feu";
-                case "Italiano": return "Sangue Infuocato";
-                case "Português Brasileiro": return "Sangue de Fogo";
-                case "Русский": return "Огненная кровь";
-                case "한국어": return "불꽃피";
-                case "简体中文": return "烈焰之血";
-                default: return "Fireblood";
-            }
-        }
-
-        ///<summary>spell=368847</summary>
-        private static string Firestorm_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Firestorm";
-                case "Deutsch": return "Feuersturm";
-                case "Español": return "Tormenta de Fuego";
-                case "Français": return "Tempête-de-feu";
-                case "Italiano": return "Tempesta di Fuoco";
-                case "Português Brasileiro": return "Tempestade de Fogo";
-                case "Русский": return "Огненная буря";
-                case "한국어": return "화염폭풍";
-                case "简体中文": return "火焰风暴";
-                default: return "Firestorm";
-            }
-        }
-
-        ///<summary>spell=28880</summary>
-        private static string GiftOfTheNaaru_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Gift of the Naaru";
-                case "Deutsch": return "Gabe der Naaru";
-                case "Español": return "Ofrenda de los naaru";
-                case "Français": return "Don des Naaru";
-                case "Italiano": return "Dono dei Naaru";
-                case "Português Brasileiro": return "Dádiva dos Naarus";
-                case "Русский": return "Дар наару";
-                case "한국어": return "나루의 선물";
-                case "简体中文": return "纳鲁的赐福";
-                default: return "Gift of the Naaru";
-            }
-        }
-
         ///<summary>item=5512</summary>
         private static string Healthstone_SpellName(string Language = "English")
         {
@@ -473,24 +293,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=20271</summary>
-        private static string Judgment_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Judgment";
-                case "Deutsch": return "Richturteil";
-                case "Español": return "Sentencia";
-                case "Français": return "Jugement";
-                case "Italiano": return "Giudizio";
-                case "Português Brasileiro": return "Julgamento";
-                case "Русский": return "Правосудие";
-                case "한국어": return "심판";
-                case "简体中文": return "审判";
-                default: return "Judgment";
-            }
-        }
-
         ///<summary>spell=358385</summary>
         private static string Landslide_SpellName(string Language = "English")
         {
@@ -506,24 +308,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "산사태";
                 case "简体中文": return "山崩";
                 default: return "Landslide";
-            }
-        }
-
-        ///<summary>spell=255647</summary>
-        private static string LightsJudgment_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Light's Judgment";
-                case "Deutsch": return "Urteil des Lichts";
-                case "Español": return "Sentencia de la Luz";
-                case "Français": return "Jugement de la Lumière";
-                case "Italiano": return "Giudizio della Luce";
-                case "Português Brasileiro": return "Julgamento da Luz";
-                case "Русский": return "Правосудие Света";
-                case "한국어": return "빛의 심판";
-                case "简体中文": return "圣光裁决者";
-                default: return "Light's Judgment";
             }
         }
 
@@ -581,6 +365,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=409311</summary>
+        private static string Prescience_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Prescience";
+                case "Deutsch": return "Voraussicht";
+                case "Español": return "Presciencia";
+                case "Français": return "Prescience";
+                case "Italiano": return "Prescienza";
+                case "Português Brasileiro": return "Presciência";
+                case "Русский": return "Предвидение";
+                case "한국어": return "예지";
+                case "简体中文": return "先知先觉";
+                default: return "Prescience";
+            }
+        }
+
         ///<summary>spell=357211</summary>
         private static string Pyre_SpellName(string Language = "English")
         {
@@ -635,60 +437,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=69041</summary>
-        private static string RocketBarrage_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Rocket Barrage";
-                case "Deutsch": return "Raketenbeschuss";
-                case "Español": return "Tromba de cohetes";
-                case "Français": return "Barrage de fusées";
-                case "Italiano": return "Raffica di Razzi";
-                case "Português Brasileiro": return "Barragem de Foguetes";
-                case "Русский": return "Ракетный обстрел";
-                case "한국어": return "로켓 연발탄";
-                case "简体中文": return "火箭弹幕";
-                default: return "Rocket Barrage";
-            }
-        }
-
-        ///<summary>spell=58984</summary>
-        private static string Shadowmeld_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Shadowmeld";
-                case "Deutsch": return "Schattenmimik";
-                case "Español": return "Fusión de las sombras";
-                case "Français": return "Camouflage dans l'ombre";
-                case "Italiano": return "Fondersi nelle Ombre";
-                case "Português Brasileiro": return "Fusão Sombria";
-                case "Русский": return "Слиться с тенью";
-                case "한국어": return "그림자 숨기";
-                case "简体中文": return "影遁";
-                default: return "Shadowmeld";
-            }
-        }
-
-        ///<summary>spell=370452</summary>
-        private static string ShatteringStar_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Shattering Star";
-                case "Deutsch": return "Zerschmetternder Stern";
-                case "Español": return "Estrella devastadora";
-                case "Français": return "Étoile fracassante";
-                case "Italiano": return "Stella Frantumante";
-                case "Português Brasileiro": return "Estrela Estilhaçante";
-                case "Русский": return "Сокрушающая звезда";
-                case "한국어": return "산산이 부서지는 별";
-                case "简体中文": return "碎裂星辰";
-                default: return "Shattering Star";
-            }
-        }
-
         ///<summary>spell=360806</summary>
         private static string SleepWalk_SpellName(string Language = "English")
         {
@@ -707,21 +455,21 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=20594</summary>
-        private static string Stoneform_SpellName(string Language = "English")
+        ///<summary>spell=213771</summary>
+        private static string Swipe_SpellName(string Language = "English")
         {
             switch (Language)
             {
-                case "English": return "Stoneform";
-                case "Deutsch": return "Steingestalt";
-                case "Español": return "Forma de piedra";
-                case "Français": return "Forme de pierre";
-                case "Italiano": return "Forma di Pietra";
-                case "Português Brasileiro": return "Forma de Pedra";
-                case "Русский": return "Каменная форма";
-                case "한국어": return "석화";
-                case "简体中文": return "石像形态";
-                default: return "Stoneform";
+                case "English": return "Swipe";
+                case "Deutsch": return "Prankenhieb";
+                case "Español": return "Flagelo";
+                case "Français": return "Balayage";
+                case "Italiano": return "Spazzata";
+                case "Português Brasileiro": return "Patada";
+                case "Русский": return "Размах";
+                case "한국어": return "휘둘러치기";
+                case "简体中文": return "横扫";
+                default: return "Swipe";
             }
         }
 
@@ -740,6 +488,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "꼬리 휘둘러치기";
                 case "简体中文": return "扫尾";
                 default: return "Tail Swipe";
+            }
+        }
+
+        ///<summary>spell=404977</summary>
+        private static string TimeSkip_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Time Skip";
+                case "Deutsch": return "Zeitsprung";
+                case "Español": return "Salto temporal";
+                case "Français": return "Bond temporel";
+                case "Italiano": return "Salto Temporale";
+                case "Português Brasileiro": return "Salto temporal";
+                case "Русский": return "Пропустить время";
+                case "한국어": return "시간 건너뛰기";
+                case "简体中文": return "时间跳跃";
+                default: return "Time Skip";
             }
         }
 
@@ -797,57 +563,21 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=20549</summary>
-        private static string WarStomp_SpellName(string Language = "English")
+        ///<summary>spell=408092</summary>
+        private static string Upheaval_SpellName(string Language = "English")
         {
             switch (Language)
             {
-                case "English": return "War Stomp";
-                case "Deutsch": return "Kriegsdonner";
-                case "Español": return "Pisotón de guerra";
-                case "Français": return "Choc martial";
-                case "Italiano": return "Zoccolo di Guerra";
-                case "Português Brasileiro": return "Pisada de Guerra";
-                case "Русский": return "Громовая поступь";
-                case "한국어": return "전투 발구르기";
-                case "简体中文": return "战争践踏";
-                default: return "War Stomp";
-            }
-        }
-
-        ///<summary>spell=7744</summary>
-        private static string WillOfTheForsaken_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Will of the Forsaken";
-                case "Deutsch": return "Wille der Verlassenen";
-                case "Español": return "Voluntad de los Renegados";
-                case "Français": return "Volonté des Réprouvés";
-                case "Italiano": return "Volontà dei Reietti";
-                case "Português Brasileiro": return "Determinação dos Renegados";
-                case "Русский": return "Воля Отрекшихся";
-                case "한국어": return "포세이큰의 의지";
-                case "简体中文": return "被遗忘者的意志";
-                default: return "Will of the Forsaken";
-            }
-        }
-
-        ///<summary>spell=59752</summary>
-        private static string WillToSurvive_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Will to Survive";
-                case "Deutsch": return "Überlebenswille";
-                case "Español": return "Lucha por la supervivencia";
-                case "Français": return "Volonté de survie";
-                case "Italiano": return "Volontà di Sopravvivenza";
-                case "Português Brasileiro": return "Desejo de Sobreviver";
-                case "Русский": return "Воля к жизни";
-                case "한국어": return "삶의 의지";
-                case "简体中文": return "生存意志";
-                default: return "Will to Survive";
+                case "English": return "Upheaval";
+                case "Deutsch": return "Emporstoßen";
+                case "Español": return "Agitación";
+                case "Français": return "Soulèvement";
+                case "Italiano": return "Sollevazione Terrestre";
+                case "Português Brasileiro": return "Revolta";
+                case "Русский": return "Дрожь земли";
+                case "한국어": return "지각 변동";
+                case "简体中文": return "地壳激变";
+                default: return "Upheaval";
             }
         }
 
@@ -894,7 +624,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "NoExpunge", "NoCauterizingFlame", "DeepBreath", "DeepBreathCursor", "QueueLandslide", "SleepWalk", "QueueFirestorm", "FirestormCursor" };
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "NoExpunge", "NoCauterizingFlame", "DeepBreath", "DeepBreathCursor", "QueueLandslide", "SleepWalk", "QueueBreathofEons", "BreathofEonsCursor" };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
         private List<string> m_ItemsList;
@@ -1057,21 +787,22 @@ namespace AimsharpWow.Modules
             Macros.Add("LandslideOff", "/" + FiveLetters + " QueueLandslide");
             Macros.Add("SleepWalkOff", "/" + FiveLetters + " SleepWalk");
             Macros.Add("DeepBreathOff", "/" + FiveLetters + " DeepBreath");
-            Macros.Add("FirestormOff", "/" + FiveLetters + " QueueFirestorm");
+            Macros.Add("BreathofEonsOff", "/" + FiveLetters + " QueueBreathofEons");
 
             Macros.Add("FOC_party1", "/focus party1");
             Macros.Add("FOC_party2", "/focus party2");
             Macros.Add("FOC_party3", "/focus party3");
             Macros.Add("FOC_party4", "/focus party4");
             Macros.Add("FOC_player", "/focus player");
+
             Macros.Add("Expunge_FOC", "/cast [@focus] " + Expunge_SpellName(Language));
             Macros.Add("CF_FOC", "/cast [@focus] " + CauterizingFlame_SpellName(Language));
             Macros.Add("EB_FOC", "/cast [@focus] " + EmeraldBlossom_SpellName(Language));
 
             Macros.Add("SleepWalkMO", "/cast [@mouseover] " + SleepWalk_SpellName(Language));
             Macros.Add("DeepBreathC", "/cast [@cursor] " + DeepBreath_SpellName(Language));
-            Macros.Add("FirestormC", "/cast [@cursor] " + Firestorm_SpellName(Language));
-            Macros.Add("FirestormP", "/cast [@player] " + Firestorm_SpellName(Language));
+            Macros.Add("BreathofEonsC", "/cast [@cursor] " + "" + BreathOfEons_SpellName(Language));
+            Macros.Add("BreathofEonsP", "/cast [@player] " + "" + BreathOfEons_SpellName(Language));
         }
 
         private void InitializeSpells()
@@ -1116,7 +847,7 @@ namespace AimsharpWow.Modules
 
             CustomFunctions.Add("DeepBreathMouseover", "if UnitExists('mouseover') and UnitIsDead('mouseover') ~= true and UnitAffectingCombat('mouseover') and IsSpellInRange('Fireball','mouseover') == 1 then return 1 end; return 0");
 
-            CustomFunctions.Add("FirestormMouseover", "if UnitExists('mouseover') and UnitIsDead('mouseover') ~= true and UnitAffectingCombat('mouseover') and IsSpellInRange('Fireball','mouseover') == 1 then return 1 end; return 0");
+            CustomFunctions.Add("BoEMouseover", "if UnitExists('mouseover') and UnitIsDead('mouseover') ~= true and UnitAffectingCombat('mouseover') and IsSpellInRange('Fireball','mouseover') == 1 then return 1 end; return 0");
 
             CustomFunctions.Add("UnitIsFocus", "local foc=0; " +
             "\nif UnitExists('focus') and UnitIsUnit('party1','focus') then foc = 1; end" +
@@ -1214,8 +945,8 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Auto Emerald Blossom @ HP%", 0, 100, 50));
             Settings.Add(new Setting("Deep Breath Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Always Cast Deep Breath @ Cursor during Rotation", false));
-            Settings.Add(new Setting("Firestorm Cast:", m_CastingList, "Manual"));
-            Settings.Add(new Setting("Always Cast Firestorm @ Cursor during Rotation", false));
+            Settings.Add(new Setting("Breath of Eons Cast:", m_CastingList, "Manual"));
+            Settings.Add(new Setting("Always Cast Breath of Eons @ Cursor during Rotation", false));
             Settings.Add(new Setting("    "));
 
         }
@@ -1249,8 +980,8 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("/" + FiveLetters + " QueueLandslide - Queue Landslide on the next GCD.", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " DeepBreath - Queue Deep Breath on the next GCD.", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " DeepBreathCursor - Always cast Deep Breath on Cursor during the Rotation.", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " QueueFirestorm - Queue Firestorm on the next GCD.", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " FirestormCursor - Always cast Firestorm on Cursor during the Rotation.", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " QueueBreathofEons - Queue Breath of Eons on the next GCD.", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " BreathofEonsCursor - Always cast Breath of Eons on Cursor during the Rotation.", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
 
             Language = GetDropDown("Game Client Language");
@@ -1268,6 +999,12 @@ namespace AimsharpWow.Modules
             m_BuffsList = new List<string> { BlessingOfTheBronze_SpellName(Language), };
             m_ItemsList = new List<string> { Healthstone_SpellName(Language), };
             m_SpellBook = new List<string> {
+                //Utility
+                EbonMight_SpellName(Language), //395152 (on player)
+                BlisteringScales_SpellName(Language), //360827 (on player)
+                Prescience_SpellName(Language), //409311 (on player)
+                TimeSkip_SpellName(Language), //404977 (on player)
+
                 //INTERRUPT ON TARGET or cursor?
                 Quell_SpellName(Language), //351338
 
@@ -1281,14 +1018,13 @@ namespace AimsharpWow.Modules
                 Disintegrate_SpellName(Language), //356995
                 LivingFlame_SpellName(Language), //361469
                 Unravel_SpellName(Language), //368432
-                EternitySurge_SpellName(Language), //382411
-                Pyre_SpellName(Language), //357211
-                ShatteringStar_SpellName(Language), //370452
+                Eruption_SpellName(Language), //395160
+                Upheaval_SpellName(Language), //396286,408092
+
                 //ON CURSOR
                 DeepBreath_SpellName(Language), //357210
-                Firestorm_SpellName(Language), //368847
+                BreathOfEons_SpellName(Language), //403631
                 //ON PLAYER
-                Dragonrage_SpellName(Language), //375087
                 FireBreath_SpellName(Language), //382266
 
                 //CC
@@ -1395,23 +1131,44 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Logic
-            if (SpellID1 == 362969 && Aimsharp.CanCast(AzureStrike_SpellName(Language), "target", true, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
+            if (SpellID1 == 395152 && Aimsharp.CanCast(EbonMight_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
             {
                 if (Debug)
                 {
-                    Aimsharp.PrintMessage("Casting Azure Strike - " + SpellID1, Color.Purple);
+                    Aimsharp.PrintMessage("Casting Ebon Might - " + SpellID1, Color.Purple);
                 }
-                Aimsharp.Cast(AzureStrike_SpellName(Language), true);
+                Aimsharp.Cast(EbonMight_SpellName(Language), true);
                 return true;
             }
 
-            if (SpellID1 == 375087 && Aimsharp.CanCast(Dragonrage_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
+            if (SpellID1 == 409311 && Aimsharp.CanCast(Prescience_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
             {
                 if (Debug)
                 {
-                    Aimsharp.PrintMessage("Casting Dragonrage - " + SpellID1, Color.Purple);
+                    Aimsharp.PrintMessage("Casting Prescience - " + SpellID1, Color.Purple);
                 }
-                Aimsharp.Cast(Dragonrage_SpellName(Language), true);
+                Aimsharp.Cast(Prescience_SpellName(Language), true);
+                return true;
+
+            }
+
+            if (SpellID1 == 404977 && Aimsharp.CanCast(TimeSkip_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Casting Time Skip - " + SpellID1, Color.Purple);
+                }
+                Aimsharp.Cast(TimeSkip_SpellName(Language), true);
+                return true;
+            }
+
+            if (SpellID1 == 370553 && Aimsharp.CanCast(TipTheScales_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Casting Tip the Scales - " + SpellID1, Color.Purple);
+                }
+                Aimsharp.Cast(TipTheScales_SpellName(Language), true);
                 return true;
             }
 
@@ -1445,13 +1202,13 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 368847 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("QueueFirestorm"))
+            if (Aimsharp.CastingID("player") == 403631 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("QueueBreathofEons"))
             {
                 if (Debug)
                 {
-                    Aimsharp.PrintMessage("Turning Off Firestorm Queue", Color.Purple);
+                    Aimsharp.PrintMessage("Turning Off Breath of Eons Queue", Color.Purple);
                 }
-                Aimsharp.Cast("FirestormOff");
+                Aimsharp.Cast("BreathofEonsOff");
                 return true;
             }
             #endregion
@@ -1472,7 +1229,7 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("QueueFirestorm") && Aimsharp.SpellCooldown(Firestorm_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("QueueBreathofEons") && Aimsharp.SpellCooldown(BreathOfEons_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -1660,43 +1417,43 @@ namespace AimsharpWow.Modules
                 }
             }
 
-            //Queue Firestorm
-            string FirestormCast = GetDropDown("Firestorm Cast:");
-            bool Firestorm = Aimsharp.IsCustomCodeOn("QueueFirestorm");
-            if ((Aimsharp.SpellCooldown(Firestorm_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving || Aimsharp.LastCast() == Firestorm_SpellName(Language)) && Firestorm)
+            //Queue Breath of Eons
+            string BreathofEonsCast = GetDropDown("Breath of Eons Cast:");
+            bool BreathofEons = Aimsharp.IsCustomCodeOn("QueueBreathofEons");
+            if ((Aimsharp.SpellCooldown(BreathOfEons_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving || Aimsharp.LastCast() == BreathOfEons_SpellName(Language)) && BreathofEons)
             {
                 if (Debug)
                 {
-                    Aimsharp.PrintMessage("Turning Off Firestorm Queue", Color.Purple);
+                    Aimsharp.PrintMessage("Turning Off Breath of Eons Queue", Color.Purple);
                 }
-                Aimsharp.Cast("FirestormOff");
+                Aimsharp.Cast("BreathofEonsOff");
                 return true;
             }
 
-            if (Firestorm && Aimsharp.CanCast(Firestorm_SpellName(Language), "player", false, true) && !Moving)
+            if (BreathofEons && Aimsharp.CanCast(BreathOfEons_SpellName(Language), "player", false, true) && !Moving)
             {
-                switch (FirestormCast)
+                switch (BreathofEonsCast)
                 {
                     case "Manual":
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Firestorm - " + FirestormCast + " - Queue", Color.Purple);
+                            Aimsharp.PrintMessage("Casting Breath of Eons - " + BreathofEonsCast + " - Queue", Color.Purple);
                         }
-                        Aimsharp.Cast(Firestorm_SpellName(Language));
+                        Aimsharp.Cast(BreathOfEons_SpellName(Language));
                         return true;
                     case "Player":
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Firestorm - " + FirestormCast + " - Queue", Color.Purple);
+                            Aimsharp.PrintMessage("Casting Breath of Eons - " + BreathofEonsCast + " - Queue", Color.Purple);
                         }
-                        Aimsharp.Cast("FirestormP");
+                        Aimsharp.Cast("BreathofEonsP");
                         return true;
                     case "Cursor":
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Firestorm - " + FirestormCast + " - Queue", Color.Purple);
+                            Aimsharp.PrintMessage("Casting Breath of Eons - " + BreathofEonsCast + " - Queue", Color.Purple);
                         }
-                        Aimsharp.Cast("FirestormC");
+                        Aimsharp.Cast("BreathofEonsC");
                         return true;
                 }
             }
@@ -2097,13 +1854,43 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 375087 && Aimsharp.CanCast(Dragonrage_SpellName(Language), "player", false, false))
+                    if (SpellID1 == 395152 && Aimsharp.CanCast(EbonMight_SpellName(Language), "player", false, false))
                     {
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Dragonrage - " + SpellID1, Color.Purple);
+                            Aimsharp.PrintMessage("Casting Ebon Might - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast(Dragonrage_SpellName(Language), true);
+                        Aimsharp.Cast(EbonMight_SpellName(Language), true);
+                        return true;
+                    }
+
+                    if (SpellID1 == 409311 && Aimsharp.CanCast(Prescience_SpellName(Language), "player", false, false))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Prescience - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(Prescience_SpellName(Language), true);
+                        return true;
+                    }
+
+                    if (SpellID1 == 360827 && Aimsharp.CanCast(BlisteringScales_SpellName(Language), "player", false, false))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Blistering Scales - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(BlisteringScales_SpellName(Language), true);
+                        return true;
+                    }
+
+                    if (SpellID1 == 404977 && Aimsharp.CanCast(TimeSkip_SpellName(Language), "player", false, false))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Time Skip - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(TimeSkip_SpellName(Language), true);
                         return true;
                     }
 
@@ -2145,22 +1932,22 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 368847 && Aimsharp.CanCast(Firestorm_SpellName(Language), "player", false, true) && (Aimsharp.CustomFunction("FirestormMouseover") == 1 || GetCheckBox("Always Cast Firestorm @ Cursor during Rotation") || Aimsharp.IsCustomCodeOn("FirestormCursor")))
+                    if (SpellID1 == 403631 && Aimsharp.CanCast(BreathOfEons_SpellName(Language), "player", false, true) && (Aimsharp.CustomFunction("BoEMouseover") == 1 || GetCheckBox("Always Cast Breath of Eons @ Cursor during Rotation") || Aimsharp.IsCustomCodeOn("BreathofEonsCursor")))
                     {
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Firestorm @ Cursor due to Mouseover - " + SpellID1, Color.Purple);
+                            Aimsharp.PrintMessage("Casting Breath of Eons @ Cursor due to Mouseover - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast("FirestormC");
+                        Aimsharp.Cast("BreathofEonsC");
                         return true;
                     }
-                    else if (SpellID1 == 368847 && Aimsharp.CanCast(Firestorm_SpellName(Language), "player", false, true))
+                    else if (SpellID1 == 403631 && Aimsharp.CanCast(BreathOfEons_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Firestorm - " + SpellID1, Color.Purple);
+                            Aimsharp.PrintMessage("Casting Breath of Eons - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast(Firestorm_SpellName(Language));
+                        Aimsharp.Cast(BreathOfEons_SpellName(Language));
                         return true;
                     }
                     #endregion
@@ -2196,32 +1983,32 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if ((SpellID1 == 382411 || SpellID1 == 359073) && Aimsharp.CanCast(EternitySurge_SpellName(Language), "target", true, true))
+                    if ((SpellID1 == 396286 || SpellID1 == 408092) && Aimsharp.CanCast(Upheaval_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Start casting Eternity Surge - " + SpellID1, Color.Purple);
+                            Aimsharp.PrintMessage("Start casting Upheaval - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast(EternitySurge_SpellName(Language));
+                        Aimsharp.Cast(Upheaval_SpellName(Language));
                         if (EmpowerCastTime > 0)
                         {
                             System.Threading.Thread.Sleep((int)EmpowerCastTime);
                             if (Debug)
                             {
-                                Aimsharp.PrintMessage("Casting Eternity Surge again for Empower State: " + EmpowerState(), Color.Purple);
+                                Aimsharp.PrintMessage("Casting Upheaval again for Empower State: " + EmpowerState(), Color.Purple);
                             }
-                            Aimsharp.Cast(EternitySurge_SpellName(Language));
+                            Aimsharp.Cast(Upheaval_SpellName(Language));
                         }
                         return true;
                     }
 
-                    if (SpellID1 == 370452 && Aimsharp.CanCast(ShatteringStar_SpellName(Language), "target", true, true))
+                    if (SpellID1 == 395160 && Aimsharp.CanCast(Eruption_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Shattering Star - " + SpellID1, Color.Purple);
+                            Aimsharp.PrintMessage("Casting Eruption - " + SpellID1, Color.Purple);
                         }
-                        Aimsharp.Cast(ShatteringStar_SpellName(Language));
+                        Aimsharp.Cast(Eruption_SpellName(Language));
                         return true;
                     }
                     #endregion
@@ -2253,13 +2040,43 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Logic
-            if (SpellID1 == 375087 && Aimsharp.CanCast(Dragonrage_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
+            if (SpellID1 == 395152 && Aimsharp.CanCast(EbonMight_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
             {
                 if (Debug)
                 {
-                    Aimsharp.PrintMessage("Casting Dragonrage - " + SpellID1, Color.Purple);
+                    Aimsharp.PrintMessage("Casting Ebon Might - " + SpellID1, Color.Purple);
                 }
-                Aimsharp.Cast(Dragonrage_SpellName(Language), true);
+                Aimsharp.Cast(EbonMight_SpellName(Language), true);
+                return true;
+            }
+
+            if (SpellID1 == 409311 && Aimsharp.CanCast(Prescience_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Casting Prescience - " + SpellID1, Color.Purple);
+                }
+                Aimsharp.Cast(Prescience_SpellName(Language), true);
+                return true;
+            }
+
+            if (SpellID1 == 404977 && Aimsharp.CanCast(TimeSkip_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Casting Time Skip - " + SpellID1, Color.Purple);
+                }
+                Aimsharp.Cast(TimeSkip_SpellName(Language), true);
+                return true;
+            }
+
+            if (SpellID1 == 370553 && Aimsharp.CanCast(TipTheScales_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Casting Tip the Scales - " + SpellID1, Color.Purple);
+                }
+                Aimsharp.Cast(TipTheScales_SpellName(Language), true);
                 return true;
             }
 
@@ -2293,13 +2110,13 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 368847 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("QueueFirestorm"))
+            if (Aimsharp.CastingID("player") == 403631 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("QueueBreathofEons"))
             {
                 if (Debug)
                 {
-                    Aimsharp.PrintMessage("Turning Off Firestorm Queue", Color.Purple);
+                    Aimsharp.PrintMessage("Turning Off Breath of Eons Queue", Color.Purple);
                 }
-                Aimsharp.Cast("FirestormOff");
+                Aimsharp.Cast("BreathofEonsOff");
                 return true;
             }
             #endregion
@@ -2320,7 +2137,7 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("QueueFirestorm") && Aimsharp.SpellCooldown(Firestorm_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("QueueBreathofEons") && Aimsharp.SpellCooldown(BreathOfEons_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -2392,43 +2209,44 @@ namespace AimsharpWow.Modules
                         return true;
                 }
             }
-            //Queue Firestorm
-            string FirestormCast = GetDropDown("Firestorm Cast:");
-            bool Firestorm = Aimsharp.IsCustomCodeOn("QueueFirestorm");
-            if ((Aimsharp.SpellCooldown(Firestorm_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving || Aimsharp.LastCast() == Firestorm_SpellName(Language)) && Firestorm)
+
+            //Queue Breath of Eons
+            string BreathofEonsCast = GetDropDown("Breath of Eons Cast:");
+            bool BreathofEons = Aimsharp.IsCustomCodeOn("QueueBreathofEons");
+            if ((Aimsharp.SpellCooldown(BreathOfEons_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving || Aimsharp.LastCast() == BreathOfEons_SpellName(Language)) && BreathofEons)
             {
                 if (Debug)
                 {
-                    Aimsharp.PrintMessage("Turning Off Firestorm Queue", Color.Purple);
+                    Aimsharp.PrintMessage("Turning Off Breath of Eons Queue", Color.Purple);
                 }
-                Aimsharp.Cast("FirestormOff");
+                Aimsharp.Cast("BreathofEonsOff");
                 return true;
             }
 
-            if (Firestorm && Aimsharp.CanCast(Firestorm_SpellName(Language), "player", false, true) && !Moving)
+            if (BreathofEons && Aimsharp.CanCast(BreathOfEons_SpellName(Language), "player", false, true) && !Moving)
             {
-                switch (FirestormCast)
+                switch (BreathofEonsCast)
                 {
                     case "Manual":
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Firestorm - " + FirestormCast + " - Queue", Color.Purple);
+                            Aimsharp.PrintMessage("Casting Breath of Eons - " + BreathofEonsCast + " - Queue", Color.Purple);
                         }
-                        Aimsharp.Cast(Firestorm_SpellName(Language));
+                        Aimsharp.Cast(BreathOfEons_SpellName(Language));
                         return true;
                     case "Player":
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Firestorm - " + FirestormCast + " - Queue", Color.Purple);
+                            Aimsharp.PrintMessage("Casting Breath of Eons - " + BreathofEonsCast + " - Queue", Color.Purple);
                         }
-                        Aimsharp.Cast("FirestormP");
+                        Aimsharp.Cast("BreathofEonsP");
                         return true;
                     case "Cursor":
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Firestorm - " + FirestormCast + " - Queue", Color.Purple);
+                            Aimsharp.PrintMessage("Casting Breath of Eons - " + BreathofEonsCast + " - Queue", Color.Purple);
                         }
-                        Aimsharp.Cast("FirestormC");
+                        Aimsharp.Cast("BreathofEonsC");
                         return true;
                 }
             }
