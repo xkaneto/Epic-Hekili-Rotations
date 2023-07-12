@@ -2152,7 +2152,7 @@ namespace AimsharpWow.Modules
                 int states = Aimsharp.CustomFunction("CurseCheck");
                 CleansePlayers target;
 
-                int KickTimer = GetRandomNumber(200,800);
+                int KickTimer = GetRandomNumber(200, 800);
 
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
@@ -2874,7 +2874,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 199786 && Aimsharp.CanCast(RayOfFrost_SpellName(Language), "target", true, true))
+                    if ((SpellID1 == 199786 || SpellID1 == 205021) && Aimsharp.CanCast(RayOfFrost_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
