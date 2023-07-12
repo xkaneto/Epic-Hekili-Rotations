@@ -2,7 +2,7 @@
 
 All of the Hekili Rotations by Snoogens that are updated by xKaneto.
 
-- Updated Spells to Dragonflight Standards
+- Updated Spells to 10.1.5
 - Language Support for all the rotations
 - Randomize Kicks Option added
 
@@ -14,6 +14,8 @@ All of the Hekili Rotations by Snoogens that are updated by xKaneto.
 - Demon Hunter - Havoc
 - Druid - Balance
 - Druid - Feral
+- Druid - Guardian
+- Evoker - Augmentation
 - Evoker - Devastation
 - Hunter - Beast Mastery
 - Hunter - Marksmanship
@@ -24,14 +26,16 @@ All of the Hekili Rotations by Snoogens that are updated by xKaneto.
 - Monk - Windwalker
 - Paladin - Retribution
 - Priest - Shadow
-- Shaman - Elemental
-- Shaman - Enhancement
 - Rogue - Assassination
 - Rogue - Outlaw
 - Rogue - Subtlety
+- Shaman - Elemental
+- Shaman - Enhancement
 - Warlock - Affliction
 - Warlock - Demonology
 - Warlock - Destruction
+- Warrior - Arms
+- Warrior - Fury
 
 ## How to use these files with Aimsharp:
 
