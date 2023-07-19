@@ -1990,7 +1990,7 @@ namespace AimsharpWow.Modules
             if (Aimsharp.CastingID("player") == 101546)
             {
                 //Hekili Cycle
-                if (Aimsharp.CustomFunction("HekiliCycle") == 1 && EnemiesInMelee > 1)
+                if (!NoCycle && Aimsharp.CustomFunction("HekiliCycle") == 1 && EnemiesInMelee > 1)
                 {
                     System.Threading.Thread.Sleep(50);
                     Aimsharp.Cast("TargetEnemy");
@@ -1999,7 +1999,7 @@ namespace AimsharpWow.Modules
                 }
 
                 //Auto Target
-                if ((!Enemy || Enemy && !TargetAlive() || Enemy && !TargetInCombat) && EnemiesInMelee > 0)
+                if (!NoCycle && (!Enemy || (Enemy && !TargetAlive()) || (Enemy && !TargetInCombat) || !MeleeRange) && EnemiesInMelee > 0)
                 {
                     System.Threading.Thread.Sleep(50);
                     Aimsharp.Cast("TargetEnemy");
@@ -2483,7 +2483,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Target
-            if (!NoCycle && (!Enemy || Enemy && !TargetAlive() || Enemy && !TargetInCombat) && EnemiesInMelee > 0)
+            if (!NoCycle && (!Enemy || (Enemy && !TargetAlive()) || (Enemy && !TargetInCombat) || !MeleeRange) && EnemiesInMelee > 0)
             {
                 System.Threading.Thread.Sleep(50);
                 Aimsharp.Cast("TargetEnemy");
