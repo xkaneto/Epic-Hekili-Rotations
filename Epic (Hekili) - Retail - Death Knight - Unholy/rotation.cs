@@ -1317,7 +1317,7 @@ namespace AimsharpWow.Modules
             Macros.Add("DeathsDueOff", "/" + FiveLetters + " DeathsDue");
             Macros.Add("AntiMagicZoneOff", "/" + FiveLetters + " AntiMagicZone");
 
-            Macros.Add("RaiseAllyMO", "/cast [@mouseover] " + RaiseAlly_SpellName(Language));
+            Macros.Add("RaiseAllyMO", "/cast [@mouseover,exists] " + RaiseAlly_SpellName(Language));
             Macros.Add("DeathandDecayP", "/cast [@player] " + DeathAndDecay_SpellName(Language));
             Macros.Add("DeathandDecayC", "/cast [@cursor] " + DeathAndDecay_SpellName(Language));
             Macros.Add("DeathsDueP", "/cast [@player] " + DeathsDue_SpellName(Language));

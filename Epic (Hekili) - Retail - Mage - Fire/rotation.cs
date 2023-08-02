@@ -255,24 +255,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=2825</summary>
-        private static string Bloodlust_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Bloodlust";
-                case "Deutsch": return "Kampfrausch";
-                case "Español": return "Ansia de sangre";
-                case "Français": return "Furie sanguinaire";
-                case "Italiano": return "Brama di Sangue";
-                case "Português Brasileiro": return "Sede de Sangue";
-                case "Русский": return "Жажда крови";
-                case "한국어": return "피의 욕망";
-                case "简体中文": return "嗜血";
-                default: return "Bloodlust";
-            }
-        }
-
         ///<summary>spell=255654</summary>
         private static string BullRush_SpellName(string Language = "English")
         {
@@ -396,24 +378,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "용의 숨결";
                 case "简体中文": return "龙息术";
                 default: return "Dragon's Breath";
-            }
-        }
-
-        ///<summary>item=102351</summary>
-        private static string DrumsOfRage_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Drums of Rage";
-                case "Deutsch": return "Trommeln des Zorns";
-                case "Español": return "Tambores de ira";
-                case "Français": return "Tambours de rage";
-                case "Italiano": return "Tamburi della Rabbia";
-                case "Português Brasileiro": return "Tambores da Raiva";
-                case "Русский": return "Барабаны ярости";
-                case "한국어": return "분노의 북";
-                case "简体中文": return "暴怒之鼓";
-                default: return "Drums of Rage";
             }
         }
 
@@ -633,21 +597,21 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=32182</summary>
-        private static string Heroism_SpellName(string Language = "English")
+        ///<summary>spell=48108</summary>
+        private static string HotStreaki_SpellName(string Language = "English")
         {
             switch (Language)
             {
-                case "English": return "Heroism";
-                case "Deutsch": return "Heldentum";
-                case "Español": return "Heroísmo";
-                case "Français": return "Héroïsme";
-                case "Italiano": return "Eroismo";
-                case "Português Brasileiro": return "Heroísmo";
-                case "Русский": return "Героизм";
-                case "한국어": return "영웅심";
-                case "简体中文": return "英勇";
-                default: return "Heroism";
+                case "English": return "Hot Streak!";
+                case "Deutsch": return "Kampfeshitze!";
+                case "Español": return "¡Buena racha!";
+                case "Français": return "Bonne série !";
+                case "Italiano": return "Serie Bollente";
+                case "Português Brasileiro": return "Embalo de Fogo!";
+                case "Русский": return "Полоса везения";
+                case "한국어": return "몰아치는 열기!";
+                case "简体中文": return "炽热连击！";
+                default: return "Hot Streak!";
             }
         }
 
@@ -882,24 +846,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "변이";
                 case "简体中文": return "变形术";
                 default: return "Polymorph";
-            }
-        }
-
-        ///<summary>spell=264667</summary>
-        private static string PrimalRage_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Primal Rage";
-                case "Deutsch": return "Urtümliche Wut";
-                case "Español": return "Rabia primigenia";
-                case "Français": return "Rage primordiale";
-                case "Italiano": return "Rabbia Primordiale";
-                case "Português Brasileiro": return "Fúria Primata";
-                case "Русский": return "Исступление";
-                case "한국어": return "원초적 분노";
-                case "简体中文": return "原始暴怒";
-                default: return "Primal Rage";
             }
         }
 
@@ -1216,7 +1162,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", "Polymorph", "RingofFrost", "Flamestrike", "Meteor", "ArcaneExplosion", "FlamestrikeCursor", "NoSpellsteal" };
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", Polymorph_SpellName(Language), "RingofFrost", Flamestrike_SpellName(Language), Meteor_SpellName(Language), "ArcaneExplosion", "FlamestrikeCursor", "NoSpellsteal" };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
         private List<string> m_ItemsList;
@@ -1353,7 +1299,7 @@ namespace AimsharpWow.Modules
 
 
             //SpellQueueWindow
-            Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + Aimsharp.Latency);
+            Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow 0");
 
             //Queues
             Macros.Add("PolymorphOff", "/" + FiveLetters + " Polymorph");
@@ -1368,8 +1314,8 @@ namespace AimsharpWow.Modules
             Macros.Add("FOC_player", "/focus player");
             Macros.Add("RC_FOC", "/cast [@focus] " + RemoveCurse_SpellName(Language));
 
-            Macros.Add("PolymorphMO", "/cast [@mouseover] " + Polymorph_SpellName(Language));
-            Macros.Add("SpellstealMO", "/cast [@mouseover] " + Spellsteal_SpellName(Language));
+            Macros.Add("PolymorphMO", "/cast [@mouseover,exists] " + Polymorph_SpellName(Language));
+            Macros.Add("SpellstealMO", "/cast [@mouseover,exists] " + Spellsteal_SpellName(Language));
             Macros.Add("RingofFrostC", "/cast [@cursor] RingofFrost");
             Macros.Add("FlamestrikeC", "/cast [@cursor] " + Flamestrike_SpellName(Language));
             Macros.Add("MeteorC", "/cast [@cursor] " + Meteor_SpellName(Language));
@@ -1638,7 +1584,7 @@ namespace AimsharpWow.Modules
 
             #region Reinitialize Lists
             m_DebuffsList = new List<string> { Polymorph_SpellName(Language), };
-            m_BuffsList = new List<string> { ArcaneIntellect_SpellName(Language), ShiftingPower_SpellName(Language), Combustion_SpellName(Language) };
+            m_BuffsList = new List<string> { ArcaneIntellect_SpellName(Language), ShiftingPower_SpellName(Language), Combustion_SpellName(Language), HotStreaki_SpellName(Language) };
             m_ItemsList = new List<string> { Healthstone_SpellName(Language), };
             m_SpellBook = new List<string> {
                 //Covenants
@@ -1731,13 +1677,26 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region SpellQueueWindow
-            if (Aimsharp.CustomFunction("GetSpellQueueWindow") != Aimsharp.Latency)
+            if (Aimsharp.CustomFunction("GetSpellQueueWindow") != 0)
             {
                 if (Debug)
                 {
-                    Aimsharp.PrintMessage("Setting SQW to: " + Aimsharp.Latency, Color.Purple);
+                    Aimsharp.PrintMessage("Setting SQW to: 0", Color.Purple);
                 }
                 Aimsharp.Cast("SetSpellQueueCvar");
+            }
+            #endregion
+
+            #region Hot Streak Logic
+            if (SpellID1 == 11366 && Aimsharp.CanCast(Pyroblast_SpellName(Language), "player", false, false) && Aimsharp.HasBuff(HotStreaki_SpellName(Language), "player") && Aimsharp.CastingID("player") > 0)
+            {
+                Aimsharp.StopCasting();
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Stop casting to instant cast Pyroblast - " + SpellID1, Color.Purple);
+                }
+                Aimsharp.Cast(Pyroblast_SpellName(Language), true);
+                return true;
             }
             #endregion
 
@@ -1762,6 +1721,16 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
+            if (SpellID1 == 11366 && Aimsharp.CanCast(Pyroblast_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") > 0)
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Casting Pyroblast without waiting - " + SpellID1, Color.Purple);
+                }
+                Aimsharp.Cast(Pyroblast_SpellName(Language), true);
+                return true;
+            }
+
             //Cancel Evocation
             if (Aimsharp.HasBuff(Evocation_SpellName(Language), "player", true) && Aimsharp.Power("player") == 100)
             {
@@ -1769,7 +1738,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Polymorph"))
+            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language)))
             {
                 if (Debug)
                 {
@@ -1779,7 +1748,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 2120 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Flamestrike"))
+            if (Aimsharp.CastingID("player") == 2120 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language)))
             {
                 if (Debug)
                 {
@@ -1806,12 +1775,12 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("Flamestrike") && Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language)) && Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("Meteor") && Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn(Meteor_SpellName(Language)) && Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -1961,7 +1930,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Queues
-            bool Polymorph = Aimsharp.IsCustomCodeOn("Polymorph");
+            bool Polymorph = Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language));
             if ((Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 || Moving) && Polymorph)
             {
                 if (Debug)
@@ -2036,7 +2005,7 @@ namespace AimsharpWow.Modules
 
             //Queue Meteor
             string MeteorCast = GetDropDown("Meteor Cast:");
-            bool Meteor = Aimsharp.IsCustomCodeOn("Meteor");
+            bool Meteor = Aimsharp.IsCustomCodeOn(Meteor_SpellName(Language));
             if ((Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Meteor)
             {
                 if (Debug)
@@ -2077,7 +2046,7 @@ namespace AimsharpWow.Modules
 
             //Queue Flamestrike
             string FlamestrikeCast = GetDropDown("Flamestrike Cast:");
-            bool Flamestrike = Aimsharp.IsCustomCodeOn("Flamestrike");
+            bool Flamestrike = Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language));
             if ((Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving || Aimsharp.LastCast() == Flamestrike_SpellName(Language)) && Flamestrike)
             {
                 if (Debug)
@@ -2136,7 +2105,7 @@ namespace AimsharpWow.Modules
                 int states = Aimsharp.CustomFunction("CurseCheck");
                 CleansePlayers target;
 
-                int KickTimer = GetRandomNumber(200,800);
+                int KickTimer = GetRandomNumber(200, 800);
 
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
@@ -2855,18 +2824,18 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region SpellQueueWindow
-            if (Aimsharp.CustomFunction("GetSpellQueueWindow") != Aimsharp.Latency)
+            if (Aimsharp.CustomFunction("GetSpellQueueWindow") != 0)
             {
                 if (Debug)
                 {
-                    Aimsharp.PrintMessage("Setting SQW to: " + Aimsharp.Latency, Color.Purple);
+                    Aimsharp.PrintMessage("Setting SQW to: 0", Color.Purple);
                 }
                 Aimsharp.Cast("SetSpellQueueCvar");
             }
             #endregion
 
             #region Above Pause Logic
-            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Polymorph"))
+            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language)))
             {
                 if (Debug)
                 {
@@ -2876,7 +2845,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 2120 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Flamestrike"))
+            if (Aimsharp.CastingID("player") == 2120 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language)))
             {
                 if (Debug)
                 {
@@ -2902,19 +2871,19 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("Flamestrike") && Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language)) && Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("Meteor") && Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn(Meteor_SpellName(Language)) && Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
             #endregion
 
             #region Queues
-            bool Polymorph = Aimsharp.IsCustomCodeOn("Polymorph");
+            bool Polymorph = Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language));
             if ((Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 || Moving) && Polymorph)
             {
                 if (Debug)
@@ -2988,7 +2957,7 @@ namespace AimsharpWow.Modules
 
             //Queue Meteor
             string MeteorCast = GetDropDown("Meteor Cast:");
-            bool Meteor = Aimsharp.IsCustomCodeOn("Meteor");
+            bool Meteor = Aimsharp.IsCustomCodeOn(Meteor_SpellName(Language));
             if ((Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Meteor)
             {
                 if (Debug)
@@ -3029,7 +2998,7 @@ namespace AimsharpWow.Modules
 
             //Queue Flamestrike
             string FlamestrikeCast = GetDropDown("Flamestrike Cast:");
-            bool Flamestrike = Aimsharp.IsCustomCodeOn("Flamestrike");
+            bool Flamestrike = Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language));
             if ((Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving || Aimsharp.LastCast() == Flamestrike_SpellName(Language)) && Flamestrike)
             {
                 if (Debug)

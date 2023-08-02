@@ -1268,10 +1268,10 @@ namespace AimsharpWow.Modules
             Macros.Add("SummonInfernalOff", "/" + FiveLetters + " SummonInfernal");
             Macros.Add("CataclysmOff", "/" + FiveLetters + " Cataclysm");
 
-            Macros.Add("BanishMO", "/cast [@mouseover] " + Banish_SpellName(Language));
-            Macros.Add("FearMO", "/cast [@mouseover] " + Fear_SpellName(Language));
-            Macros.Add("HavocMO", "/cast [@mouseover] " + Havoc_SpellName(Language));
-            Macros.Add("ImmolateMO", "/cast [@mouseover] " + Immolate_SpellName(Language));
+            Macros.Add("BanishMO", "/cast [@mouseover,exists] " + Banish_SpellName(Language));
+            Macros.Add("FearMO", "/cast [@mouseover,exists] " + Fear_SpellName(Language));
+            Macros.Add("HavocMO", "/cast [@mouseover,exists] " + Havoc_SpellName(Language));
+            Macros.Add("ImmolateMO", "/cast [@mouseover,exists] " + Immolate_SpellName(Language));
             Macros.Add("ShadowfuryC", "/cast [@cursor] " + Shadowfury_SpellName(Language));
             Macros.Add("ShadowfuryP", "/cast [@player] " + Shadowfury_SpellName(Language));
             Macros.Add("RainofFireC", "/cast [@cursor] " + RainOfFire_SpellName(Language));

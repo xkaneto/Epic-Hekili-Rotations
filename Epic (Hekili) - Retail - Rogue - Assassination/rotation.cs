@@ -1606,10 +1606,10 @@ namespace AimsharpWow.Modules
             Macros.Add("SapOff", "/" + FiveLetters + " Sap");
             Macros.Add("KidneyShotOff", "/" + FiveLetters + " KidneyShot");
 
-            Macros.Add("GarroteMO", "/cast [@mouseover] " + Garrote_SpellName(Language));
-            Macros.Add("RuptureMO", "/cast [@mouseover] " + Rupture_SpellName(Language));
-            Macros.Add("BoneSpikeMO", "/cast [@mouseover] " + SerratedBoneSpike_SpellName(Language));
-            Macros.Add("BlindMO", "/cast [@mouseover] " + Blind_SpellName(Language));
+            Macros.Add("GarroteMO", "/cast [@mouseover,exists] " + Garrote_SpellName(Language));
+            Macros.Add("RuptureMO", "/cast [@mouseover,exists] " + Rupture_SpellName(Language));
+            Macros.Add("BoneSpikeMO", "/cast [@mouseover,exists] " + SerratedBoneSpike_SpellName(Language));
+            Macros.Add("BlindMO", "/cast [@mouseover,exists] " + Blind_SpellName(Language));
 
             Macros.Add("FunnelOn", "/run Hekili.State.settings.spec.settings.priority_rotation = true");
             Macros.Add("FunnelOff", "/run Hekili.State.settings.spec.settings.priority_rotation = false");

@@ -1754,7 +1754,7 @@ namespace AimsharpWow.Modules
             Macros.Add("SteelTrapOff", "/" + FiveLetters + " SteelTrap");
 
             Macros.Add("KillShotSQW", "/cqs\\n/cast " + KillShot_SpellName(Language));
-            Macros.Add("TranqMO", "/cast [@mouseover] " + TranquilizingShot_SpellName(Language));
+            Macros.Add("TranqMO", "/cast [@mouseover,exists] " + TranquilizingShot_SpellName(Language));
             Macros.Add("FlareC", "/cast [@cursor] " + Flare_SpellName(Language));
             Macros.Add("FreezingTrapP", "/cast [@player] " + FreezingTrap_SpellName(Language));
             Macros.Add("FreezingTrapC", "/cast [@cursor] " + FreezingTrap_SpellName(Language));
@@ -1771,7 +1771,7 @@ namespace AimsharpWow.Modules
             Macros.Add("ResonatingArrowC", "/cast [@cursor] " + ResonatingArrow_SpellName(Language));
             Macros.Add("WildSpiritsC", "/cast [@cursor] " + WildSpirits_SpellName(Language));
 
-            Macros.Add("SerpentStingMO", "/cast [@mouseover] " + SerpentSting_SpellName(Language));
+            Macros.Add("SerpentStingMO", "/cast [@mouseover,exists] " + SerpentSting_SpellName(Language));
         }
 
         private void InitializeSpells()

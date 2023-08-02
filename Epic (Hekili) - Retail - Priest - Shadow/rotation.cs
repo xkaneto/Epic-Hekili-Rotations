@@ -1407,28 +1407,28 @@ namespace AimsharpWow.Modules
             Macros.Add("MassDispelP", "/cast [@player] " + MassDispel_SpellName(Language));
 
             Macros.Add("MindControlOff", "/" + FiveLetters + " MindControl");
-            Macros.Add("MindControlMO", "/cast [@mouseover] " + MindControl_SpellName(Language));
+            Macros.Add("MindControlMO", "/cast [@mouseover,exists] " + MindControl_SpellName(Language));
 
             Macros.Add("LeapofFaithOff", "/" + FiveLetters + " LeapofFaith");
-            Macros.Add("LeapofFaithMO", "/cast [@mouseover] " + LeapOfFaith_SpellName(Language));
+            Macros.Add("LeapofFaithMO", "/cast [@mouseover,exists] " + LeapOfFaith_SpellName(Language));
 
             Macros.Add("ShackleUndeadOff", "/" + FiveLetters + " ShackleUndead");
-            Macros.Add("ShackleUndeadMO", "/cast [@mouseover] " + ShackleUndead_SpellName(Language));
+            Macros.Add("ShackleUndeadMO", "/cast [@mouseover,exists] " + ShackleUndead_SpellName(Language));
 
             Macros.Add("PowerInfusionOff", "/" + FiveLetters + " PowerInfusion");
-            Macros.Add("PowerInfusionMO", "/cast [@mouseover] " + PowerInfusion_SpellName(Language));
+            Macros.Add("PowerInfusionMO", "/cast [@mouseover,exists] " + PowerInfusion_SpellName(Language));
 
             Macros.Add("MindBombOff", "/" + FiveLetters + " MindBomb");
-            Macros.Add("MindBombMO", "/cast [@mouseover] " + MindBomb_SpellName(Language));
+            Macros.Add("MindBombMO", "/cast [@mouseover,exists] " + MindBomb_SpellName(Language));
 
             Macros.Add("PsychicHorrorOff", "/" + FiveLetters + " PsychicHorror");
-            Macros.Add("PsychicHorrorMO", "/cast [@mouseover] " + PsychicHorror_SpellName(Language));
+            Macros.Add("PsychicHorrorMO", "/cast [@mouseover,exists] " + PsychicHorror_SpellName(Language));
 
             Macros.Add("PsychicScreamOff", "/" + FiveLetters + " PsychicScream");
 
-            Macros.Add("DispelMagicMO", "/cast [@mouseover] " + DispelMagic_SpellName(Language));
-            Macros.Add("ShadowWordPainMO", "/cast [@mouseover] " + ShadowWord_Pain_SpellName(Language));
-            Macros.Add("VampiricTouchMO", "/cast [@mouseover] " + VampiricTouch_SpellName(Language));
+            Macros.Add("DispelMagicMO", "/cast [@mouseover,exists] " + DispelMagic_SpellName(Language));
+            Macros.Add("ShadowWordPainMO", "/cast [@mouseover,exists] " + ShadowWord_Pain_SpellName(Language));
+            Macros.Add("VampiricTouchMO", "/cast [@mouseover,exists] " + VampiricTouch_SpellName(Language));
 
         }
 

@@ -1068,7 +1068,7 @@ namespace AimsharpWow.Modules
             Macros.Add("CF_FOC", "/cast [@focus] " + CauterizingFlame_SpellName(Language));
             Macros.Add("EB_FOC", "/cast [@focus] " + EmeraldBlossom_SpellName(Language));
 
-            Macros.Add("SleepWalkMO", "/cast [@mouseover] " + SleepWalk_SpellName(Language));
+            Macros.Add("SleepWalkMO", "/cast [@mouseover,exists] " + SleepWalk_SpellName(Language));
             Macros.Add("DeepBreathC", "/cast [@cursor] " + DeepBreath_SpellName(Language));
             Macros.Add("FirestormC", "/cast [@cursor] " + Firestorm_SpellName(Language));
             Macros.Add("FirestormP", "/cast [@player] " + Firestorm_SpellName(Language));

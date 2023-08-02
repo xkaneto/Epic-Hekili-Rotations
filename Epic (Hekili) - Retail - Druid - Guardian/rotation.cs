@@ -1826,7 +1826,7 @@ namespace AimsharpWow.Modules
 
             Macros.Add("MoonFireMO", "/cast [@mouseover,exists,harm,nodead] " + Moonfire_SpellName(Language));
             Macros.Add("RebirthMO", "/cast [@mouseover,help] " + Rebirth_SpellName(Language));
-            Macros.Add("SootheMO", "/cast [@mouseover] " + Soothe_SpellName(Language));
+            Macros.Add("SootheMO", "/cast [@mouseover,exists] " + Soothe_SpellName(Language));
             Macros.Add("VortexP", "/cast [@player] " + UrsolsVortex_SpellName(Language));
             Macros.Add("VortexC", "/cast [@cursor] " + UrsolsVortex_SpellName(Language));
 

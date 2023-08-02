@@ -1649,8 +1649,8 @@ namespace AimsharpWow.Modules
             Macros.Add("GrapplingHookOff", "/" + FiveLetters + " GrapplingHook");
             Macros.Add("GrapplingHookC", "/cast [@cursor] " + GrapplingHook_SpellName(Language));
 
-            Macros.Add("BoneSpikeMO", "/cast [@mouseover] " + SerratedBoneSpike_SpellName(Language));
-            Macros.Add("BlindMO", "/cast [@mouseover] " + Blind_SpellName(Language));
+            Macros.Add("BoneSpikeMO", "/cast [@mouseover,exists] " + SerratedBoneSpike_SpellName(Language));
+            Macros.Add("BlindMO", "/cast [@mouseover,exists] " + Blind_SpellName(Language));
 
         }
 

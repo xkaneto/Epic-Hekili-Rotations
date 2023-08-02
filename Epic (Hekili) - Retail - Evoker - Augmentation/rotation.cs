@@ -703,6 +703,10 @@ namespace AimsharpWow.Modules
 
         List<int> SpecialUnitList = new List<int> { 176581, 176920, 178008, 168326, 168969, 175861, };
 
+        public string AllyName1;
+
+        public string AllyName2;
+
         public Dictionary<string, int> PartyDict = new Dictionary<string, int>() { };
         #endregion
 
@@ -795,11 +799,18 @@ namespace AimsharpWow.Modules
             Macros.Add("FOC_party4", "/focus party4");
             Macros.Add("FOC_player", "/focus player");
 
+            for (int i = 1; i <= 20; i++)
+            {
+                Macros.Add("FOC_raid" + i, "/focus raid" + i);
+            }
+
             Macros.Add("Expunge_FOC", "/cast [@focus] " + Expunge_SpellName(Language));
             Macros.Add("CF_FOC", "/cast [@focus] " + CauterizingFlame_SpellName(Language));
             Macros.Add("EB_FOC", "/cast [@focus] " + EmeraldBlossom_SpellName(Language));
 
-            Macros.Add("SleepWalkMO", "/cast [@mouseover] " + SleepWalk_SpellName(Language));
+            Macros.Add("SleepWalkMO", "/cast [@mouseover,exists] " + SleepWalk_SpellName(Language));
+            Macros.Add("PrescienceMO", "/cast [@mouseover,exists] " + Prescience_SpellName(Language));
+            Macros.Add("PrescienceFocus", "/cast [@focus] " + Prescience_SpellName(Language));
             Macros.Add("DeepBreathC", "/cast [@cursor] " + DeepBreath_SpellName(Language));
             Macros.Add("BreathofEonsC", "/cast [@cursor] " + "" + BreathOfEons_SpellName(Language));
             Macros.Add("BreathofEonsP", "/cast [@player] " + "" + BreathOfEons_SpellName(Language));
@@ -848,6 +859,82 @@ namespace AimsharpWow.Modules
             CustomFunctions.Add("DeepBreathMouseover", "if UnitExists('mouseover') and UnitIsDead('mouseover') ~= true and UnitAffectingCombat('mouseover') and IsSpellInRange('Fireball','mouseover') == 1 then return 1 end; return 0");
 
             CustomFunctions.Add("BoEMouseover", "if UnitExists('mouseover') and UnitIsDead('mouseover') ~= true and UnitAffectingCombat('mouseover') and IsSpellInRange('Fireball','mouseover') == 1 then return 1 end; return 0");
+
+            CustomFunctions.Add("MouseoverCheck", "if UnitExists('mouseover') and UnitIsDead('mouseover') ~= true and UnitAffectingCombat('mouseover') then return 1 end; return 0");
+
+            CustomFunctions.Add("AllyPrescienceBuffWithName1",
+            "local out = 0" +
+            "local numGroupMembers = GetNumGroupMembers()" +
+            "if UnitExists('mouseover') then" +
+            "\tif not UnitIsEnemy('player', 'mouseover') and UnitName('mouseover') == \"" + AllyName1 + "\" then" +
+            "\t\tout = 100" +
+            "\tend" +
+            "end" +
+            "if numGroupMembers < 6 then" +
+            "\tfor p = 1, 4 do" +
+            "\t\tlocal partymember = 'party' .. p" +
+            "\t\tif UnitExists(partymember) and UnitIsDeadOrGhost(partymember) ~= true and UnitName(partymember) == \"" + AllyName1 + "\" then" +
+            "\t\t\tfor i = 1, 25 do" +
+            "\t\t\t\tlocal name, _, _, _, _, _, _, _, _, _, _, _, castbyplayer = UnitAura(partymember, i)" +
+            "\t\t\t\tif name == \"" + Prescience_SpellName(Language) + "\" and castbyplayer ~= true then" +
+            "\t\t\t\t\tout = p" +
+            "\t\t\t\t\tbreak" +
+            "\t\t\t\tend" +
+            "\t\t\tend" +
+            "\t\tend" +
+            "\tend" +
+            "else" +
+            "\tfor r = 1, 40 do" +
+            "\t\tlocal raidmember = 'raid' .. r" +
+            "\t\tif UnitExists(raidmember) and UnitIsDeadOrGhost(raidmember) ~= true and UnitName(raidmember) == \"" + AllyName1 + "\" then" +
+            "\t\t\tfor i = 1, 25 do" +
+            "\t\t\t\tlocal name, _, _, _, _, _, _, _, _, _, _, _, castbyplayer = UnitAura(raidmember, i)" +
+            "\t\t\t\tif name == \"" + Prescience_SpellName(Language) + "\" and castbyplayer ~= true then" +
+            "\t\t\t\t\tout = r" +
+            "\t\t\t\t\tbreak" +
+            "\t\t\t\tend" +
+            "\t\t\tend" +
+            "\t\tend" +
+            "\tend" +
+            "end" +
+            "return out");
+
+            CustomFunctions.Add("AllyPrescienceBuffWithName2",
+            "local out = 0" +
+            "local numGroupMembers = GetNumGroupMembers()" +
+            "if UnitExists('mouseover') then" +
+            "\tif not UnitIsEnemy('player', 'mouseover') and UnitName('mouseover') == \"" + AllyName2 + "\" then" +
+            "\t\tout = 200" +
+            "\tend" +
+            "end" +
+            "if numGroupMembers < 6 then" +
+            "\tfor p = 1, 4 do" +
+            "\t\tlocal partymember = 'party' .. p" +
+            "\t\tif UnitExists(partymember) and UnitIsDeadOrGhost(partymember) ~= true and UnitName(partymember) == \"" + AllyName2 + "\" then" +
+            "\t\t\tfor i = 1, 25 do" +
+            "\t\t\t\tlocal name, _, _, _, _, _, _, _, _, _, _, _, castbyplayer = UnitAura(partymember, i)" +
+            "\t\t\t\tif name == \"" + Prescience_SpellName(Language) + "\" and castbyplayer ~= true then" +
+            "\t\t\t\t\tout = p" +
+            "\t\t\t\t\tbreak" +
+            "\t\t\t\tend" +
+            "\t\t\tend" +
+            "\t\tend" +
+            "\tend" +
+            "else" +
+            "\tfor r = 1, 40 do" +
+            "\t\tlocal raidmember = 'raid' .. r" +
+            "\t\tif UnitExists(raidmember) and UnitIsDeadOrGhost(raidmember) ~= true and UnitName(raidmember) == \"" + AllyName2 + "\" then" +
+            "\t\t\tfor i = 1, 25 do" +
+            "\t\t\t\tlocal name, _, _, _, _, _, _, _, _, _, _, _, castbyplayer = UnitAura(raidmember, i)" +
+            "\t\t\t\tif name == \"" + Prescience_SpellName(Language) + "\" and castbyplayer ~= true then" +
+            "\t\t\t\t\tout = r" +
+            "\t\t\t\t\tbreak" +
+            "\t\t\t\tend" +
+            "\t\t\tend" +
+            "\t\tend" +
+            "\tend" +
+            "end" +
+            "return out");
 
             CustomFunctions.Add("UnitIsFocus", "local foc=0; " +
             "\nif UnitExists('focus') and UnitIsUnit('party1','focus') then foc = 1; end" +
@@ -942,11 +1029,15 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Auto Zephyr @ HP%", 0, 100, 20));
             Settings.Add(new Setting("Auto Renewing Blaze @ HP%", 0, 100, 35));
             Settings.Add(new Setting("Auto Obsidian Scales @ HP%", 0, 100, 30));
-            Settings.Add(new Setting("Auto Emerald Blossom @ HP%", 0, 100, 50));
+            Settings.Add(new Setting("Auto Emerald Blossom @ HP%", 0, 100, 60));
+            Settings.Add(new Setting("Auto Verdant Embrace @ HP%", 0, 100, 70));
             Settings.Add(new Setting("Deep Breath Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Always Cast Deep Breath @ Cursor during Rotation", false));
             Settings.Add(new Setting("Breath of Eons Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Always Cast Breath of Eons @ Cursor during Rotation", false));
+            Settings.Add(new Setting("Prescience"));
+            Settings.Add(new Setting("Ally Name 1: ", ""));
+            Settings.Add(new Setting("Ally Name 2: ", ""));
             Settings.Add(new Setting("    "));
 
         }
@@ -985,6 +1076,8 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("-----", Color.Black);
 
             Language = GetDropDown("Game Client Language");
+            AllyName1 = GetString("Ally Name 1: ");
+            AllyName2 = GetString("Ally Name 2: ");
 
             #region Racial Spells
             if (GetDropDown("Race:") == "Dracthyr")
@@ -1048,6 +1141,7 @@ namespace AimsharpWow.Modules
                 //ON PLAYER
                 ObsidianScales_SpellName(Language), //363916
                 RenewingBlaze_SpellName(Language), //374348
+                "Verdant Embrace", //360995
                 Zephyr_SpellName(Language), //374227
 
                 //HEAL ON PLAYER:
@@ -1082,6 +1176,10 @@ namespace AimsharpWow.Modules
             int Enemies = Aimsharp.CustomFunction("HekiliEnemies");
             int TargetingGroup = Aimsharp.CustomFunction("GroupTargets");
             int Haste = (int)Aimsharp.Haste();
+            int AllyNumber1 = Aimsharp.CustomFunction("AllyPrescienceBuffWithName1");
+            int AllyNumber2 = Aimsharp.CustomFunction("AllyPrescienceBuffWithName2");
+
+            Aimsharp.PrintMessage("Aimsharp Ally Name 1: " + AllyName1 + " at number " + AllyNumber1 + " and Ally Name 2: " + AllyName2 + " at number " + AllyNumber2);
 
             EmpowerState();
 
@@ -1141,7 +1239,95 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (SpellID1 == 409311 && Aimsharp.CanCast(Prescience_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
+            //Prescience Custom Mouseover
+            if (SpellID1 == 409311 && Aimsharp.CanCast(Prescience_SpellName(Language), "mouseover") && Aimsharp.CustomFunction("HekiliWait") <= 200 && AllyNumber1 > 0 && AllyNumber2 > 0)
+            {
+                if (AllyNumber1 == 100 || AllyNumber2 == 200)
+                {
+                    if (Debug)
+                    {
+                        Aimsharp.PrintMessage("Casting Prescience - " + SpellID1 + " on Mouseover Target", Color.Purple);
+                    }
+                    Aimsharp.Cast("PrescienceMO", true);
+                }
+                return true;
+            }
+
+            //Prescience Custom Ally 1
+            if (SpellID1 == 409311 && Aimsharp.CanCast(Prescience_SpellName(Language), "player") && Aimsharp.CustomFunction("HekiliWait") <= 200 && AllyNumber1 > 0)
+            {
+                if (AllyNumber1 != 100 && Aimsharp.GroupSize() > 0)
+                {
+
+                    if (Aimsharp.GroupSize() < 6 && !Aimsharp.HasBuff(Prescience_SpellName(Language), "party" + AllyNumber1))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Focusing Party Member: " + AllyNumber1);
+                        }
+                        Aimsharp.Cast("FOC_party" + AllyNumber1);
+                    }
+                    if (Aimsharp.GroupSize() > 5 && !Aimsharp.HasBuff(Prescience_SpellName(Language), "raid" + AllyNumber1))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Focusing Raid Member: " + AllyNumber1);
+                        }
+                        Aimsharp.Cast("FOC_raid" + AllyNumber1);
+                    }
+                    if (Debug)
+                    {
+                        Aimsharp.PrintMessage("Casting Prescience - " + SpellID1 + " on Focus", Color.Purple);
+                    }
+                    Aimsharp.Cast("PrescienceFocus", true);
+                }
+                return true;
+            }
+
+            //Prescience Custom Ally 2
+            if (SpellID1 == 409311 && Aimsharp.CanCast(Prescience_SpellName(Language), "player") && Aimsharp.CustomFunction("HekiliWait") <= 200 && AllyNumber2 > 0)
+            {
+                if (AllyNumber2 != 200 && Aimsharp.GroupSize() > 0)
+                {
+
+                    if (Aimsharp.GroupSize() < 6 && !Aimsharp.HasBuff(Prescience_SpellName(Language), "party" + AllyNumber2))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Focusing Party Member: " + AllyNumber2);
+                        }
+                        Aimsharp.Cast("FOC_party" + AllyNumber2);
+                    }
+                    if (Aimsharp.GroupSize() > 5 && !Aimsharp.HasBuff(Prescience_SpellName(Language), "raid" + AllyNumber2))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Focusing Raid Member: " + AllyNumber2);
+                        }
+                        Aimsharp.Cast("FOC_raid" + AllyNumber2);
+                    }
+                    if (Debug)
+                    {
+                        Aimsharp.PrintMessage("Casting Prescience - " + SpellID1 + " on Focus", Color.Purple);
+                    }
+                    Aimsharp.Cast("PrescienceFocus", true);
+                }
+                return true;
+            }
+
+            //Pescience Mouseover
+            if (SpellID1 == 409311 && Aimsharp.CanCast(Prescience_SpellName(Language), "mouseover") && Aimsharp.CustomFunction("HekiliWait") <= 200 && Aimsharp.CustomFunction("MouseoverCheck") == 1)
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Casting Prescience - " + SpellID1 + " on General Mouseover", Color.Purple);
+                }
+                Aimsharp.Cast("PrescienceMO", true);
+                return true;
+            }
+
+            //Pescience General
+            if (SpellID1 == 409311 && Aimsharp.CanCast(Prescience_SpellName(Language), "player") && Aimsharp.CustomFunction("HekiliWait") <= 200)
             {
                 if (Debug)
                 {
@@ -1149,7 +1335,6 @@ namespace AimsharpWow.Modules
                 }
                 Aimsharp.Cast(Prescience_SpellName(Language), true);
                 return true;
-
             }
 
             if (SpellID1 == 404977 && Aimsharp.CanCast(TimeSkip_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
@@ -1330,6 +1515,20 @@ namespace AimsharpWow.Modules
                     if (Debug)
                     {
                         Aimsharp.PrintMessage("Casting Emerald Blossom - Player HP% " + PlayerHP + " due to setting being on HP% " + GetSlider("Auto Emerald Blossom @ HP%"), Color.Black);
+                    }
+                    return true;
+                }
+            }
+
+            //Auto Verdant Embrace
+            if (Aimsharp.CanCast("Verdant Embrace", "player", false, true))
+            {
+                if (PlayerHP <= GetSlider("Auto Verdant Embrace @ HP%"))
+                {
+                    Aimsharp.Cast("Verdant Embrace");
+                    if (Debug)
+                    {
+                        Aimsharp.PrintMessage("Casting Verdant Embrace - Player HP% " + PlayerHP + " due to setting being on HP% " + GetSlider("Auto Verdant Embrace @ HP%"), Color.Black);
                     }
                     return true;
                 }
@@ -2040,7 +2239,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Logic
-            if (SpellID1 == 395152 && Aimsharp.CanCast(EbonMight_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
+            if (GetCheckBox("Auto Start Combat:") == true && SpellID1 == 395152 && Aimsharp.CanCast(EbonMight_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
             {
                 if (Debug)
                 {
@@ -2050,7 +2249,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (SpellID1 == 409311 && Aimsharp.CanCast(Prescience_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
+            if (GetCheckBox("Auto Start Combat:") == true && SpellID1 == 409311 && Aimsharp.CanCast(Prescience_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
             {
                 if (Debug)
                 {
@@ -2060,7 +2259,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (SpellID1 == 404977 && Aimsharp.CanCast(TimeSkip_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
+            if (GetCheckBox("Auto Start Combat:") == true && SpellID1 == 404977 && Aimsharp.CanCast(TimeSkip_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
             {
                 if (Debug)
                 {
@@ -2070,7 +2269,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (SpellID1 == 370553 && Aimsharp.CanCast(TipTheScales_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
+            if (GetCheckBox("Auto Start Combat:") == true && SpellID1 == 370553 && Aimsharp.CanCast(TipTheScales_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
             {
                 if (Debug)
                 {
@@ -2253,7 +2452,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Out of Combat Spells
-            if (SpellID1 == 364342 && Aimsharp.CanCast(BlessingOfTheBronze_SpellName(Language), "player", false, true) && BOTBOOC)
+            if (SpellID1 == 364342 && Aimsharp.CanCast(BlessingOfTheBronze_SpellName(Language), "player", false, true) && !Aimsharp.HasBuff(BlessingOfTheBronze_SpellName(Language), "player", true) && !Aimsharp.HasBuff(BlessingOfTheBronze_SpellName(Language), "player", false) && BOTBOOC)
             {
                 if (Debug)
                 {
@@ -2263,11 +2462,11 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CanCast(BlessingOfTheBronze_SpellName(Language), "player", false, true) && !Aimsharp.HasBuff(BlessingOfTheBronze_SpellName(Language), "player", true) && BOTBOOC)
+            if (Aimsharp.CanCast(BlessingOfTheBronze_SpellName(Language), "player", false, true) && !Aimsharp.HasBuff(BlessingOfTheBronze_SpellName(Language), "player", true) && !Aimsharp.HasBuff(BlessingOfTheBronze_SpellName(Language), "player", false) && BOTBOOC)
             {
                 if (Debug)
                 {
-                    Aimsharp.PrintMessage("Casting Blessing of the Bronze (Out of Combat) - " + SpellID1, Color.Purple);
+                    Aimsharp.PrintMessage("Casting Blessing of the Bronze (Out of Combat)", Color.Purple);
                 }
                 Aimsharp.Cast(BlessingOfTheBronze_SpellName(Language));
                 return true;

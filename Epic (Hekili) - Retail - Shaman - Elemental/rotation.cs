@@ -148,6 +148,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=120360</summary>
+        private static string Barrage_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Barrage";
+                case "Deutsch": return "Sperrfeuer";
+                case "Español": return "Tromba";
+                case "Français": return "Barrage";
+                case "Italiano": return "Sbarramento";
+                case "Português Brasileiro": return "Barragem";
+                case "Русский": return "Шквал";
+                case "한국어": return "탄막";
+                case "简体中文": return "弹幕射击";
+                default: return "Barrage";
+            }
+        }
+
         ///<summary>spell=26297</summary>
         private static string Berserking_SpellName(string Language = "English")
         {
@@ -181,24 +199,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "피의 격노";
                 case "简体中文": return "血性狂怒";
                 default: return "Blood Fury";
-            }
-        }
-
-        ///<summary>spell=2825</summary>
-        private static string Bloodlust_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Bloodlust";
-                case "Deutsch": return "Kampfrausch";
-                case "Español": return "Ansia de sangre";
-                case "Français": return "Furie sanguinaire";
-                case "Italiano": return "Brama di Sangue";
-                case "Português Brasileiro": return "Sede de Sangue";
-                case "Русский": return "Жажда крови";
-                case "한국어": return "피의 욕망";
-                case "简体中文": return "嗜血";
-                default: return "Bloodlust";
             }
         }
 
@@ -289,24 +289,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "영혼 정화";
                 case "简体中文": return "净化灵魂";
                 default: return "Cleanse Spirit";
-            }
-        }
-
-        ///<summary>item=102351</summary>
-        private static string DrumsOfRage_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Drums of Rage";
-                case "Deutsch": return "Trommeln des Zorns";
-                case "Español": return "Tambores de ira";
-                case "Français": return "Tambours de rage";
-                case "Italiano": return "Tamburi della Rabbia";
-                case "Português Brasileiro": return "Tambores da Raiva";
-                case "Русский": return "Барабаны ярости";
-                case "한국어": return "분노의 북";
-                case "简体中文": return "暴怒之鼓";
-                default: return "Drums of Rage";
             }
         }
 
@@ -580,7 +562,7 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=378773</summary>
+        ///<summary>spell= 378773</summary>
         private static string GreaterPurge_SpellName(string Language = "English")
         {
             switch (Language)
@@ -634,24 +616,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=32182</summary>
-        private static string Heroism_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Heroism";
-                case "Deutsch": return "Heldentum";
-                case "Español": return "Heroísmo";
-                case "Français": return "Héroïsme";
-                case "Italiano": return "Eroismo";
-                case "Português Brasileiro": return "Heroísmo";
-                case "Русский": return "Героизм";
-                case "한국어": return "영웅심";
-                case "简体中文": return "英勇";
-                default: return "Heroism";
-            }
-        }
-
         ///<summary>spell=51514</summary>
         private static string Hex_SpellName(string Language = "English")
         {
@@ -685,6 +649,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "얼음격노";
                 case "简体中文": return "冰怒";
                 default: return "Icefury";
+            }
+        }
+
+        ///<summary>spell=20271</summary>
+        private static string Judgment_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Judgment";
+                case "Deutsch": return "Richturteil";
+                case "Español": return "Sentencia";
+                case "Français": return "Jugement";
+                case "Italiano": return "Giudizio";
+                case "Português Brasileiro": return "Julgamento";
+                case "Русский": return "Правосудие";
+                case "한국어": return "심판";
+                case "简体中文": return "审判";
+                default: return "Judgment";
             }
         }
 
@@ -814,7 +796,7 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=117588</summary>
+        ///<summary>spell=153561</summary>
         private static string Meteor_SpellName(string Language = "English")
         {
             switch (Language)
@@ -825,7 +807,7 @@ namespace AimsharpWow.Modules
                 case "Français": return "Météore";
                 case "Italiano": return "Meteora";
                 case "Português Brasileiro": return "Meteoro";
-                case "Русский": return "Метеорит";
+                case "Русский": return "Метеор";
                 case "한국어": return "유성";
                 case "简体中文": return "流星";
                 default: return "Meteor";
@@ -847,24 +829,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "자연의 신속함";
                 case "简体中文": return "自然迅捷";
                 default: return "Nature's Swiftness";
-            }
-        }
-
-        ///<summary>spell=264667</summary>
-        private static string PrimalRage_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Primal Rage";
-                case "Deutsch": return "Urtümliche Wut";
-                case "Español": return "Rabia primigenia";
-                case "Français": return "Rage primordiale";
-                case "Italiano": return "Rabbia Primordiale";
-                case "Português Brasileiro": return "Fúria Primata";
-                case "Русский": return "Исступление";
-                case "한국어": return "원초적 분노";
-                case "简体中文": return "原始暴怒";
-                default: return "Primal Rage";
             }
         }
 
@@ -1084,21 +1048,21 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=80353</summary>
-        private static string TimeWarp_SpellName(string Language = "English")
+        ///<summary>spell=108285</summary>
+        private static string TotemicRecall_SpellName(string Language = "English")
         {
             switch (Language)
             {
-                case "English": return "Time Warp";
-                case "Deutsch": return "Zeitkrümmung";
-                case "Español": return "Distorsión temporal";
-                case "Français": return "Distorsion temporelle";
-                case "Italiano": return "Distorsione Temporale";
-                case "Português Brasileiro": return "Distorção Temporal";
-                case "Русский": return "Искажение времени";
-                case "한국어": return "시간 왜곡";
-                case "简体中文": return "时间扭曲";
-                default: return "Time Warp";
+                case "English": return "Totemic Recall";
+                case "Deutsch": return "Totemischer Rückruf";
+                case "Español": return "Regreso totémico";
+                case "Français": return "Rappel totémique";
+                case "Italiano": return "Richiamo dei Totem";
+                case "Português Brasileiro": return "Revocação Totêmica";
+                case "Русский": return "Возвращение тотемов";
+                case "한국어": return "토템의 귀환";
+                case "简体中文": return "收回图腾";
+                default: return "Totemic Recall";
             }
         }
 
@@ -1252,7 +1216,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "NoDecurse", "EarthbindTotem", "WindRushTotem", "CapacitorTotem", "TremorTotem", "Hex", "EarthElemental", "FireElemental", "VesperTotem", "FaeTransfusion", "LiquidMagmaTotem", "Earthquake", "Thunderstorm"};
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "NoDecurse", "EarthbindTotem", "WindRushTotem", "CapacitorTotem", "TremorTotem", Hex_SpellName(Language), "EarthElemental", "FireElemental", "VesperTotem", "FaeTransfusion", "LiquidMagmaTotem", Earthquake_SpellName(Language), Thunderstorm_SpellName(Language)};
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
         private List<string> m_ItemsList;
@@ -1439,14 +1403,14 @@ namespace AimsharpWow.Modules
             Macros.Add("FaeTransfusionP", "/cast [@player] " + FaeTransfusion_SpellName(Language));
 
             Macros.Add("HexOff", "/" + FiveLetters + " Hex");
-            Macros.Add("HexMO", "/cast [@mouseover] " + Hex_SpellName(Language));
+            Macros.Add("HexMO", "/cast [@mouseover,exists] " + Hex_SpellName(Language));
 
             Macros.Add("EarthElementalOff", "/" + FiveLetters + " EarthElemental");
             Macros.Add("FireElementalOff", "/" + FiveLetters + " FireElemental");
             Macros.Add("TremorTotemOff", "/" + FiveLetters + " TremorTotem");
             Macros.Add("ThunderstormOff", "/" + FiveLetters + " Thunderstorm");
 
-            Macros.Add("PurgeMO", "/cast [@mouseover] " + Purge_SpellName(Language));
+            Macros.Add("PurgeMO", "/cast [@mouseover,exists] " + Purge_SpellName(Language));
 
             Macros.Add("MacroMeteor", "/cast " + Meteor_SpellName(Language));
             Macros.Add("MacroTempest", "/cast " + Tempest_SpellName(Language));
@@ -1770,6 +1734,7 @@ namespace AimsharpWow.Modules
                 Stormkeeper_SpellName(Language), //191634
                 Tempest_SpellName(Language), //157375
                 Thunderstorm_SpellName(Language), //51490
+                TotemicRecall_SpellName(Language), //108285
                 WindRushTotem_SpellName(Language), //192077
 
             };
@@ -1829,7 +1794,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Checks
-            if (Aimsharp.CastingID("player") == 51514 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Hex"))
+            if (Aimsharp.CastingID("player") == 51514 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Hex_SpellName(Language)))
             {
                 if (Debug)
                 {
@@ -1871,7 +1836,7 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("Earthquake") && Aimsharp.SpellCooldown(Earthquake_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn(Earthquake_SpellName(Language)) && Aimsharp.SpellCooldown(Earthquake_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -2001,7 +1966,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Queues
-            bool Thunderstorm = Aimsharp.IsCustomCodeOn("Thunderstorm");
+            bool Thunderstorm = Aimsharp.IsCustomCodeOn(Thunderstorm_SpellName(Language));
             if (Aimsharp.SpellCooldown(Thunderstorm_SpellName(Language)) - Aimsharp.GCD() > 2000 && Thunderstorm)
             {
                 if (Debug)
@@ -2085,7 +2050,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Hex = Aimsharp.IsCustomCodeOn("Hex");
+            bool Hex = Aimsharp.IsCustomCodeOn(Hex_SpellName(Language));
             if ((Aimsharp.SpellCooldown(Hex_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Hex)
             {
                 if (Debug)
@@ -2343,7 +2308,7 @@ namespace AimsharpWow.Modules
             }
 
             string EarthquakeCast = GetDropDown("Earthquake Cast:");
-            bool Earthquake = Aimsharp.IsCustomCodeOn("Earthquake");
+            bool Earthquake = Aimsharp.IsCustomCodeOn(Earthquake_SpellName(Language));
             if ((Aimsharp.SpellCooldown(Earthquake_SpellName(Language)) - Aimsharp.GCD() > 2000 || Aimsharp.LastCast() == Earthquake_SpellName(Language)) && Earthquake)
             {
                 if (Debug)
@@ -2821,6 +2786,15 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
+                    if (SpellID1 == 108285 && Aimsharp.CanCast(TotemicRecall_SpellName(Language), "player", false, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Totemic Recall - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(TotemicRecall_SpellName(Language));
+                        return true;
+                    }
 
                     if (SpellID1 == 51886 && Aimsharp.CanCast(CleanseSpirit_SpellName(Language), "player", false, true))
                     {
@@ -3206,7 +3180,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Checks
-            if (Aimsharp.CastingID("player") == 51514 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Hex"))
+            if (Aimsharp.CastingID("player") == 51514 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Hex_SpellName(Language)))
             {
                 if (Debug)
                 {
@@ -3297,7 +3271,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Hex = Aimsharp.IsCustomCodeOn("Hex");
+            bool Hex = Aimsharp.IsCustomCodeOn(Hex_SpellName(Language));
             if ((Aimsharp.SpellCooldown(Hex_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Hex)
             {
                 if (Debug)

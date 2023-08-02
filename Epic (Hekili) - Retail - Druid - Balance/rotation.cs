@@ -1488,12 +1488,12 @@ namespace AimsharpWow.Modules
             Macros.Add("RC_FOC", "/cast [@focus] " + RemoveCorruption_SpellName(Language));
 
             //Mouseover Macros
-            Macros.Add("SootheMO", "/cast [@mouseover] " + Soothe_SpellName(Language));
-            Macros.Add("RebirthMO", "/cast [@mouseover] " + Rebirth_SpellName(Language));
-            Macros.Add("InnervateMO", "/cast [@mouseover] " + Innervate_SpellName(Language));
-            Macros.Add("HibernateMO", "/cast [@mouseover] " + Hibernate_SpellName(Language));
-            Macros.Add("CycloneMO", "/cast [@mouseover] " + Cyclone_SpellName(Language));
-            Macros.Add("EntanglingRootsMO", "/cast [@mouseover] " + EntanglingRoots_SpellName(Language));
+            Macros.Add("SootheMO", "/cast [@mouseover,exists] " + Soothe_SpellName(Language));
+            Macros.Add("RebirthMO", "/cast [@mouseover,exists] " + Rebirth_SpellName(Language));
+            Macros.Add("InnervateMO", "/cast [@mouseover,exists] " + Innervate_SpellName(Language));
+            Macros.Add("HibernateMO", "/cast [@mouseover,exists] " + Hibernate_SpellName(Language));
+            Macros.Add("CycloneMO", "/cast [@mouseover,exists] " + Cyclone_SpellName(Language));
+            Macros.Add("EntanglingRootsMO", "/cast [@mouseover,exists] " + EntanglingRoots_SpellName(Language));
 
             Macros.Add("ForceofNatureP", "/cast [@player] " + ForceOfNature_SpellName(Language));
             Macros.Add("ForceofNatureC", "/cast [@cursor] " + ForceOfNature_SpellName(Language));

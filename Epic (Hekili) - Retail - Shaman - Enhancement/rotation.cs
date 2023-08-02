@@ -1467,12 +1467,12 @@ namespace AimsharpWow.Modules
             Macros.Add("FaeTransfusionP", "/cast [@player] " + FaeTransfusion_SpellName(Language));
 
             Macros.Add("HexOff", "/" + FiveLetters + " HexMO");
-            Macros.Add("HexMO", "/cast [@mouseover] " + Hex_SpellName(Language));
+            Macros.Add("HexMO", "/cast [@mouseover,exists] " + Hex_SpellName(Language));
 
             Macros.Add("EarthElementalOff", "/" + FiveLetters + " EarthElemental");
             Macros.Add("TremorTotemOff", "/" + FiveLetters + " TremorTotem");
 
-            Macros.Add("PurgeMO", "/cast [@mouseover] " + Purge_SpellName(Language));
+            Macros.Add("PurgeMO", "/cast [@mouseover,exists] " + Purge_SpellName(Language));
 
         }
 

@@ -1378,9 +1378,9 @@ namespace AimsharpWow.Modules
             Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + Aimsharp.Latency);
 
             //Mouseover Macros
-            Macros.Add("RakeMO", "/cast [@mouseover] " + Rake_SpellName(Language));
-            Macros.Add("SootheMO", "/cast [@mouseover] " + Soothe_SpellName(Language));
-            Macros.Add("RebirthMO", "/cast [@mouseover] " + Rebirth_SpellName(Language));
+            Macros.Add("RakeMO", "/cast [@mouseover,exists] " + Rake_SpellName(Language));
+            Macros.Add("SootheMO", "/cast [@mouseover,exists] " + Soothe_SpellName(Language));
+            Macros.Add("RebirthMO", "/cast [@mouseover,exists] " + Rebirth_SpellName(Language));
 
             //Queues
             Macros.Add("MightyBashOff", "/" + FiveLetters + " MightyBash");

@@ -1498,13 +1498,13 @@ namespace AimsharpWow.Modules
             Macros.Add("AshenHallowP", "/cast [@player] " + AshenHallow_SpellName(Language));
 
             Macros.Add("BlessingofFreedomOff", "/" + FiveLetters + " BlessingofFreedom");
-            Macros.Add("BlessingofFreedomMO", "/cast [@mouseover] " + BlessingOfFreedom_SpellName(Language));
+            Macros.Add("BlessingofFreedomMO", "/cast [@mouseover,exists] " + BlessingOfFreedom_SpellName(Language));
 
             Macros.Add("BlessingofProtectionOff", "/" + FiveLetters + " BlessingofProtection");
-            Macros.Add("BlessingofProtectionMO", "/cast [@mouseover] " + BlessingOfProtection_SpellName(Language));
+            Macros.Add("BlessingofProtectionMO", "/cast [@mouseover,exists] " + BlessingOfProtection_SpellName(Language));
 
             Macros.Add("BlessingofSacrificeOff", "/" + FiveLetters + " BlessingofSacrifice");
-            Macros.Add("BlessingofSacrificeMO", "/cast [@mouseover] " + BlessingOfSacrifice_SpellName(Language));
+            Macros.Add("BlessingofSacrificeMO", "/cast [@mouseover,exists] " + BlessingOfSacrifice_SpellName(Language));
 
             Macros.Add("DivineShieldOff", "/" + FiveLetters + " DivineShield");
             Macros.Add("DivineSteedOff", "/" + FiveLetters + " DivineSteed");
@@ -1512,9 +1512,9 @@ namespace AimsharpWow.Modules
             Macros.Add("BlindingLightOff", "/" + FiveLetters + " BlindingLight");
             Macros.Add("RepentanceOff", "/" + FiveLetters + " Repentance");
 
-            Macros.Add("RepentanceMO", "/cast [@mouseover] " + Repentance_SpellName(Language));
+            Macros.Add("RepentanceMO", "/cast [@mouseover,exists] " + Repentance_SpellName(Language));
 
-            Macros.Add("IntercessionMOMacro", "/cast [@mouseover] " + Intercession_SpellName(Language));
+            Macros.Add("IntercessionMOMacro", "/cast [@mouseover,exists] " + Intercession_SpellName(Language));
             Macros.Add("IntercessionOff", "/" + FiveLetters + " Intercession");
 
             Macros.Add("DivineToll", "/cast " + DivineToll_SpellName(Language));

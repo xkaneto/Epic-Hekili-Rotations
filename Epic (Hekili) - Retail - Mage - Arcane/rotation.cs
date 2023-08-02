@@ -1496,8 +1496,8 @@ namespace AimsharpWow.Modules
             Macros.Add("FOC_player", "/focus player");
             Macros.Add("RC_FOC", "/cast [@focus] " + RemoveCurse_SpellName(Language));
 
-            Macros.Add("PolymorphMO", "/cast [@mouseover] " + Polymorph_SpellName(Language));
-            Macros.Add("SpellstealMO", "/cast [@mouseover] " + Spellsteal_SpellName(Language));
+            Macros.Add("PolymorphMO", "/cast [@mouseover,exists] " + Polymorph_SpellName(Language));
+            Macros.Add("SpellstealMO", "/cast [@mouseover,exists] " + Spellsteal_SpellName(Language));
             Macros.Add("RingofFrostC", "/cast [@cursor] RingofFrost");
             Macros.Add("RingofFrostP", "/cast [@player] RingofFrost");
             Macros.Add("MeteorC", "/cast [@cursor] " + Meteor_SpellName(Language));

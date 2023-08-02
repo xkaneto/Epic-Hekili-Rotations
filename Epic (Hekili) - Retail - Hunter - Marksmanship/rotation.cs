@@ -1497,7 +1497,7 @@ namespace AimsharpWow.Modules
             Macros.Add("SteelTrapOff", "/" + FiveLetters + " SteelTrap");
 
             Macros.Add("KillShotSQW", "/cqs\\n/cast " + KillShot_SpellName(Language));
-            Macros.Add("TranqMO", "/cast [@mouseover] " + TranquilizingShot_SpellName(Language));
+            Macros.Add("TranqMO", "/cast [@mouseover,exists] " + TranquilizingShot_SpellName(Language));
             Macros.Add("VolleyC", "/cast [@cursor] " + Volley_SpellName(Language));
             Macros.Add("FlareC", "/cast [@cursor] " + Flare_SpellName(Language));
             Macros.Add("SentinelC", "/cast [@cursor] " + SentinelOwl_SpellName(Language));

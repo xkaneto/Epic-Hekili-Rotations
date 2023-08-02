@@ -1298,8 +1298,8 @@ namespace AimsharpWow.Modules
             Macros.Add("HowlofTerrorOff", "/" + FiveLetters + " HowlofTerror");
             Macros.Add("MortalCoilOff", "/" + FiveLetters + " MortalCoil");
 
-            Macros.Add("BanishMO", "/cast [@mouseover] " + Banish_SpellName(Language));
-            Macros.Add("FearMO", "/cast [@mouseover] " + Fear_SpellName(Language));
+            Macros.Add("BanishMO", "/cast [@mouseover,exists] " + Banish_SpellName(Language));
+            Macros.Add("FearMO", "/cast [@mouseover,exists] " + Fear_SpellName(Language));
             Macros.Add("ShadowfuryC", "/cast [@cursor] " + Shadowfury_SpellName(Language));
             Macros.Add("ShadowfuryP", "/cast [@player] " + Shadowfury_SpellName(Language));
             Macros.Add("GuillotineC", "/cast [@cursor] " + Guillotine_SpellName(Language));
