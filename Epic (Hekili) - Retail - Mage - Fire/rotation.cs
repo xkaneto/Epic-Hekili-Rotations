@@ -1688,7 +1688,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Hot Streak Logic
-            if (SpellID1 == 11366 && Aimsharp.CanCast(Pyroblast_SpellName(Language), "player", false, false) && Aimsharp.HasBuff(HotStreaki_SpellName(Language), "player") && Aimsharp.CastingID("player") > 0 && Aimsharp.CastingID("player") != 382440)
+            if (SpellID1 == 11366 && Aimsharp.CanCast(Pyroblast_SpellName(Language), "player", false, false) && Aimsharp.HasBuff(HotStreaki_SpellName(Language), "player") && Aimsharp.HasBuff(Combustion_SpellName(Language), "player") && Aimsharp.CastingID("player") > 0 && Aimsharp.CastingID("player") != 382440)
             {
                 Aimsharp.StopCasting();
                 if (Debug)
@@ -1699,7 +1699,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (SpellID1 == 2120 && Aimsharp.CanCast(Flamestrike_SpellName(Language), "player", false, true) && Aimsharp.HasBuff(HotStreaki_SpellName(Language), "player") && Aimsharp.CastingID("player") > 0 && Aimsharp.CastingID("player") != 382440 && (Aimsharp.CustomFunction("FlamestrikeMouseover") == 1 || GetCheckBox("Always Cast Flamestrike @ Cursor during Rotation") || Aimsharp.IsCustomCodeOn("FlamestrikeCursor")))
+            if (SpellID1 == 2120 && Aimsharp.CanCast(Flamestrike_SpellName(Language), "player", false, true) && Aimsharp.HasBuff(HotStreaki_SpellName(Language), "player") && Aimsharp.HasBuff(Combustion_SpellName(Language), "player") && Aimsharp.CastingID("player") > 0 && Aimsharp.CastingID("player") != 382440 && (Aimsharp.CustomFunction("FlamestrikeMouseover") == 1 || GetCheckBox("Always Cast Flamestrike @ Cursor during Rotation") || Aimsharp.IsCustomCodeOn("FlamestrikeCursor")))
             {
                 Aimsharp.StopCasting();
                 if (Debug)
@@ -1709,7 +1709,7 @@ namespace AimsharpWow.Modules
                 Aimsharp.Cast("FlamestrikeC");
                 return true;
             }
-            else if (SpellID1 == 2120 && Aimsharp.CanCast(Flamestrike_SpellName(Language), "player", false, true) && Aimsharp.HasBuff(HotStreaki_SpellName(Language), "player") && Aimsharp.CastingID("player") > 0 && Aimsharp.CastingID("player") != 382440)
+            else if (SpellID1 == 2120 && Aimsharp.CanCast(Flamestrike_SpellName(Language), "player", false, true) && Aimsharp.HasBuff(Combustion_SpellName(Language), "player") && Aimsharp.HasBuff(HotStreaki_SpellName(Language), "player") && Aimsharp.CastingID("player") > 0 && Aimsharp.CastingID("player") != 382440)
             {
                 Aimsharp.StopCasting();
                 if (Debug)
