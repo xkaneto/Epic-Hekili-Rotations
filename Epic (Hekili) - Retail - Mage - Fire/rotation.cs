@@ -1701,6 +1701,7 @@ namespace AimsharpWow.Modules
 
             if (SpellID1 == 2120 && Aimsharp.CanCast(Flamestrike_SpellName(Language), "player", false, true) && Aimsharp.HasBuff(HotStreaki_SpellName(Language), "player") && Aimsharp.CastingID("player") > 0 && (Aimsharp.CustomFunction("FlamestrikeMouseover") == 1 || GetCheckBox("Always Cast Flamestrike @ Cursor during Rotation") || Aimsharp.IsCustomCodeOn("FlamestrikeCursor")))
             {
+                Aimsharp.StopCasting();
                 if (Debug)
                 {
                     Aimsharp.PrintMessage("Stop casting to instant cast Flamestrike @ Cursor due to Mouseover - " + SpellID1, Color.Purple);
@@ -1710,6 +1711,7 @@ namespace AimsharpWow.Modules
             }
             else if (SpellID1 == 2120 && Aimsharp.CanCast(Flamestrike_SpellName(Language), "player", false, true) && Aimsharp.HasBuff(HotStreaki_SpellName(Language), "player") && Aimsharp.CastingID("player") > 0)
             {
+                Aimsharp.StopCasting();
                 if (Debug)
                 {
                     Aimsharp.PrintMessage("Stop casting to instant cast Flamestrike - " + SpellID1, Color.Purple);
