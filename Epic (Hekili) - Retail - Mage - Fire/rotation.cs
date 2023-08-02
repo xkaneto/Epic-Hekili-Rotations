@@ -1698,6 +1698,25 @@ namespace AimsharpWow.Modules
                 Aimsharp.Cast(Pyroblast_SpellName(Language), true);
                 return true;
             }
+
+            if (SpellID1 == 2120 && Aimsharp.CanCast(Flamestrike_SpellName(Language), "player", false, true) && Aimsharp.HasBuff(HotStreaki_SpellName(Language), "player") && Aimsharp.CastingID("player") > 0 && (Aimsharp.CustomFunction("FlamestrikeMouseover") == 1 || GetCheckBox("Always Cast Flamestrike @ Cursor during Rotation") || Aimsharp.IsCustomCodeOn("FlamestrikeCursor")))
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Stop casting to instant cast Flamestrike @ Cursor due to Mouseover - " + SpellID1, Color.Purple);
+                }
+                Aimsharp.Cast("FlamestrikeC");
+                return true;
+            }
+            else if (SpellID1 == 2120 && Aimsharp.CanCast(Flamestrike_SpellName(Language), "player", false, true) && Aimsharp.HasBuff(HotStreaki_SpellName(Language), "player") && Aimsharp.CastingID("player") > 0)
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Stop casting to instant cast Flamestrike - " + SpellID1, Color.Purple);
+                }
+                Aimsharp.Cast(Flamestrike_SpellName(Language));
+                return true;
+            }
             #endregion
 
             #region Above Pause Logic
@@ -1728,6 +1747,25 @@ namespace AimsharpWow.Modules
                     Aimsharp.PrintMessage("Casting Pyroblast without waiting - " + SpellID1, Color.Purple);
                 }
                 Aimsharp.Cast(Pyroblast_SpellName(Language), true);
+                return true;
+            }
+
+            if (SpellID1 == 2120 && Aimsharp.CanCast(Flamestrike_SpellName(Language), "player", false, true) && Aimsharp.CustomFunction("HekiliWait") > 0 && (Aimsharp.CustomFunction("FlamestrikeMouseover") == 1 || GetCheckBox("Always Cast Flamestrike @ Cursor during Rotation") || Aimsharp.IsCustomCodeOn("FlamestrikeCursor")))
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Casting Flamestrike @ Cursor due to Mouseover without waiting - " + SpellID1, Color.Purple);
+                }
+                Aimsharp.Cast("FlamestrikeC");
+                return true;
+            }
+            else if (SpellID1 == 2120 && Aimsharp.CanCast(Flamestrike_SpellName(Language), "player", false, true) && Aimsharp.CustomFunction("HekiliWait") > 0)
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Casting Flamestrike without waiting - " + SpellID1, Color.Purple);
+                }
+                Aimsharp.Cast(Flamestrike_SpellName(Language));
                 return true;
             }
 
