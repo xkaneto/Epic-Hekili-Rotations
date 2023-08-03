@@ -909,10 +909,10 @@ namespace AimsharpWow.Modules
         List<double> Stages = new List<double>
         {
             0,
-            1,
-            1.75,
-            2.5,
-            3.25,
+            1000,
+            1750,
+            2500,
+            3250,
         };
 
         List<int> InstanceIDList = new List<int>
@@ -1174,7 +1174,7 @@ namespace AimsharpWow.Modules
             "end " +
             "return UnitTargeted");
 
-            CustomFunctions.Add("GetTalentImminentDestruction", "if (IsSpellKnown(370781) or IsPlayerSpell(370781)) then return 1 else return 0 end");
+            CustomFunctions.Add("GetTalentFontOfMagic", "if (IsSpellKnown(411212) or IsPlayerSpell(411212)) then return 1 else return 0 end");
 
         }
         #endregion
@@ -1265,7 +1265,7 @@ namespace AimsharpWow.Modules
 
             #region Reinitialize Lists
             m_DebuffsList = new List<string> { SleepWalk_SpellName(Language), };
-            m_BuffsList = new List<string> { BlessingOfTheBronze_SpellName(Language), };
+            m_BuffsList = new List<string> { BlessingOfTheBronze_SpellName(Language), TipTheScales_SpellName(Language) };
             m_ItemsList = new List<string> { Healthstone_SpellName(Language), };
             m_SpellBook = new List<string> {
                 //INTERRUPT ON TARGET or cursor?
@@ -1345,20 +1345,22 @@ namespace AimsharpWow.Modules
             int Wait = Aimsharp.CustomFunction("HekiliWait");
             int Enemies = Aimsharp.CustomFunction("HekiliEnemies");
             int TargetingGroup = Aimsharp.CustomFunction("GroupTargets");
-            int Haste = (int)Aimsharp.Haste();
+            float Haste = Aimsharp.Haste();
 
             EmpowerState();
 
             // Calculating Empowered Cast Time
             double EmpowerCastTime;
-            if (Aimsharp.HasBuff(TipTheScales_SpellName(Language), "player"))
+            if (Aimsharp.HasBuff(TipTheScales_SpellName(Language), "player") || Aimsharp.LastCast() == TipTheScales_SpellName(Language))
             {
                 EmpowerCastTime = 0;
             }
             else
             {
-                EmpowerCastTime = (double)((1 - (0.2 * Aimsharp.CustomFunction("GetTalentImminentDestruction"))) * Stages[(EmpowerState())] * (1 - (Haste / 100)) * 1000);
+                EmpowerCastTime = (100 * (double)(1 / (1 + (Haste / 100)))) + (double)((double)(1 - (double)(0.2 * (double)Aimsharp.CustomFunction("GetTalentFontOfMagic"))) * Stages[(EmpowerState())] * (double)(1 / (1 + (Haste / 100))));
             }
+
+            //Aimsharp.PrintMessage("Empowerment Time: " + (int)EmpowerCastTime);
 
             bool NoInterrupts = Aimsharp.IsCustomCodeOn("NoInterrupts");
             bool NoExpunge = Aimsharp.IsCustomCodeOn("NoExpunge");
