@@ -11,7 +11,7 @@ if numGroupMembers > 0 and numGroupMembers < 6 then
     for p = 1, numGroupMembers do
         local partymember = 'party' .. p
         local SpellinRange = IsSpellInRange(\"" + Prescience_SpellName(Language) + "\", partymember)
-        if UnitExists(partymember) and UnitIsDeadOrGhost(partymember) ~= true and SpellinRange == 1 and (GetUnitName(raidmember) == \"" + AllyName1 + "\" or GetUnitName(raidmember) == \"" + AllyName2 + "\") then
+        if UnitExists(partymember) and UnitIsDeadOrGhost(partymember) ~= true and SpellinRange == 1 and (GetUnitName(partymember) == \"" + AllyName1 + "\" or GetUnitName(partymember) == \"" + AllyName2 + "\") then
             local hasPrescienceBuff = false
             for i = 1, 25 do
                 local name, _, _, _, _, _, source = UnitAura(partymember, i)
