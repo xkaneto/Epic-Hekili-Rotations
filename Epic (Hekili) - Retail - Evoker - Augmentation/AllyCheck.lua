@@ -7,7 +7,7 @@ if UnitExists('mouseover') then
     end
 end
 
-if numGroupMembers < 6 then
+if numGroupMembers > 0 and numGroupMembers < 6 then
     for p = 1, numGroupMembers do
         local partymember = 'party' .. p
         local SpellinRange = IsSpellInRange(\"" + Prescience_SpellName(Language) + "\", partymember)
