@@ -2272,7 +2272,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Repentance = Aimsharp.IsCustomCodeOn(Repentance_SpellName(Language));
+            bool Repentance = Aimsharp.IsCustomCodeOn("Repentance");
             if (Aimsharp.SpellCooldown(Repentance_SpellName(Language)) - Aimsharp.GCD() > 2000 && Repentance)
             {
                 if (Debug)
