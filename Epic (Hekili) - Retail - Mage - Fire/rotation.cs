@@ -1316,10 +1316,10 @@ namespace AimsharpWow.Modules
 
             Macros.Add("PolymorphMO", "/cast [@mouseover,exists] " + Polymorph_SpellName(Language));
             Macros.Add("SpellstealMO", "/cast [@mouseover,exists] " + Spellsteal_SpellName(Language));
-            Macros.Add("RingofFrostC", "/cast [@cursor] RingofFrost");
+            Macros.Add("RingofFrostC", "/cast [@cursor] " + RingOfFrost_SpellName(Language));
             Macros.Add("FlamestrikeC", "/cast [@cursor] " + Flamestrike_SpellName(Language));
             Macros.Add("MeteorC", "/cast [@cursor] " + Meteor_SpellName(Language));
-            Macros.Add("RingofFrostP", "/cast [@player] RingofFrost");
+            Macros.Add("RingofFrostP", "/cast [@player] " + RingOfFrost_SpellName(Language));
             Macros.Add("FlamestrikeP", "/cast [@player] " + Flamestrike_SpellName(Language));
             Macros.Add("MeteorP", "/cast [@player] " + Meteor_SpellName(Language));
         }
