@@ -1162,7 +1162,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", Polymorph_SpellName(Language), "RingofFrost", Flamestrike_SpellName(Language), Meteor_SpellName(Language), "ArcaneExplosion", "FlamestrikeCursor", "NoSpellsteal" };
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoDecurse", "NoCycle", "Polymorph", "RingofFrost", "Flamestrike", "Meteor", "ArcaneExplosion", "FlamestrikeCursor", "NoSpellsteal" };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
         private List<string> m_ItemsList;
@@ -1778,7 +1778,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language)))
+            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Polymorph"))
             {
                 if (Debug)
                 {
@@ -1788,7 +1788,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 2120 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language)))
+            if (Aimsharp.CastingID("player") == 2120 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Flamestrike"))
             {
                 if (Debug)
                 {
@@ -1815,12 +1815,12 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language)) && Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("Flamestrike") && Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn(Meteor_SpellName(Language)) && Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("Meteor") && Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -1970,7 +1970,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Queues
-            bool Polymorph = Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language));
+            bool Polymorph = Aimsharp.IsCustomCodeOn("Polymorph");
             if ((Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 || Moving) && Polymorph)
             {
                 if (Debug)
@@ -2045,7 +2045,7 @@ namespace AimsharpWow.Modules
 
             //Queue Meteor
             string MeteorCast = GetDropDown("Meteor Cast:");
-            bool Meteor = Aimsharp.IsCustomCodeOn(Meteor_SpellName(Language));
+            bool Meteor = Aimsharp.IsCustomCodeOn("Meteor");
             if ((Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Meteor)
             {
                 if (Debug)
@@ -2086,7 +2086,7 @@ namespace AimsharpWow.Modules
 
             //Queue Flamestrike
             string FlamestrikeCast = GetDropDown("Flamestrike Cast:");
-            bool Flamestrike = Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language));
+            bool Flamestrike = Aimsharp.IsCustomCodeOn("Flamestrike");
             if ((Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving || Aimsharp.LastCast() == Flamestrike_SpellName(Language)) && Flamestrike)
             {
                 if (Debug)
@@ -2857,7 +2857,6 @@ namespace AimsharpWow.Modules
             int SpellID1 = Aimsharp.CustomFunction("HekiliID1");
 
             bool Debug = GetCheckBox("Debug:") == true;
-            int PhialCount = Aimsharp.CustomFunction("PhialCount");
             bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
             bool Moving = Aimsharp.PlayerIsMoving();
             bool AIOOC = GetCheckBox("Arcane Intellect Out of Combat:");
@@ -2875,7 +2874,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Logic
-            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language)))
+            if (Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Polymorph"))
             {
                 if (Debug)
                 {
@@ -2885,7 +2884,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 2120 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language)))
+            if (Aimsharp.CastingID("player") == 2120 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Flamestrike"))
             {
                 if (Debug)
                 {
@@ -2911,19 +2910,19 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language)) && Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("Flamestrike") && Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn(Meteor_SpellName(Language)) && Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("Meteor") && Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
             #endregion
 
             #region Queues
-            bool Polymorph = Aimsharp.IsCustomCodeOn(Polymorph_SpellName(Language));
+            bool Polymorph = Aimsharp.IsCustomCodeOn("Polymorph");
             if ((Aimsharp.CastingID("player") == 118 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 || Moving) && Polymorph)
             {
                 if (Debug)
@@ -2997,7 +2996,7 @@ namespace AimsharpWow.Modules
 
             //Queue Meteor
             string MeteorCast = GetDropDown("Meteor Cast:");
-            bool Meteor = Aimsharp.IsCustomCodeOn(Meteor_SpellName(Language));
+            bool Meteor = Aimsharp.IsCustomCodeOn("Meteor");
             if ((Aimsharp.SpellCooldown(Meteor_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Meteor)
             {
                 if (Debug)
@@ -3038,7 +3037,7 @@ namespace AimsharpWow.Modules
 
             //Queue Flamestrike
             string FlamestrikeCast = GetDropDown("Flamestrike Cast:");
-            bool Flamestrike = Aimsharp.IsCustomCodeOn(Flamestrike_SpellName(Language));
+            bool Flamestrike = Aimsharp.IsCustomCodeOn("Flamestrike");
             if ((Aimsharp.SpellCooldown(Flamestrike_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving || Aimsharp.LastCast() == Flamestrike_SpellName(Language)) && Flamestrike)
             {
                 if (Debug)
