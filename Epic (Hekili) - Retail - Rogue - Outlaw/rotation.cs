@@ -2862,7 +2862,6 @@ namespace AimsharpWow.Modules
         {
             #region Declarations
             int SpellID1 = Aimsharp.CustomFunction("HekiliID1");
-            Aimsharp.PrintMessage("HekiliID => " + SpellID1, Color.Black);
             int PhialCount = Aimsharp.CustomFunction("PhialCount");
             bool Debug = GetCheckBox("Debug:");
             bool Moving = Aimsharp.PlayerIsMoving();

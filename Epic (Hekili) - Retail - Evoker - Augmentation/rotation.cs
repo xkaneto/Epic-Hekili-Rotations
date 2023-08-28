@@ -1097,6 +1097,8 @@ namespace AimsharpWow.Modules
 
         public override bool CombatTick()
         {
+            if (Aimsharp.CastingID("player") == 404977) return false;
+
             #region Declarations
             int SpellID1 = Aimsharp.CustomFunction("HekiliID1");
             int CooldownsToggle = Aimsharp.CustomFunction("CooldownsToggleCheck");
