@@ -1794,7 +1794,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Checks
-            if (Aimsharp.CastingID("player") == 51514 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Hex_SpellName(Language)))
+            if (Aimsharp.CastingID("player") == 51514 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Hex"))
             {
                 if (Debug)
                 {
@@ -1836,7 +1836,7 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn(Earthquake_SpellName(Language)) && Aimsharp.SpellCooldown(Earthquake_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("Earthquake") && Aimsharp.SpellCooldown(Earthquake_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -1966,7 +1966,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Queues
-            bool Thunderstorm = Aimsharp.IsCustomCodeOn(Thunderstorm_SpellName(Language));
+            bool Thunderstorm = Aimsharp.IsCustomCodeOn("Thunderstorm");
             if (Aimsharp.SpellCooldown(Thunderstorm_SpellName(Language)) - Aimsharp.GCD() > 2000 && Thunderstorm)
             {
                 if (Debug)
@@ -2050,7 +2050,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Hex = Aimsharp.IsCustomCodeOn(Hex_SpellName(Language));
+            bool Hex = Aimsharp.IsCustomCodeOn("Hex");
             if ((Aimsharp.SpellCooldown(Hex_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Hex)
             {
                 if (Debug)
@@ -2308,7 +2308,7 @@ namespace AimsharpWow.Modules
             }
 
             string EarthquakeCast = GetDropDown("Earthquake Cast:");
-            bool Earthquake = Aimsharp.IsCustomCodeOn(Earthquake_SpellName(Language));
+            bool Earthquake = Aimsharp.IsCustomCodeOn("Earthquake");
             if ((Aimsharp.SpellCooldown(Earthquake_SpellName(Language)) - Aimsharp.GCD() > 2000 || Aimsharp.LastCast() == Earthquake_SpellName(Language)) && Earthquake)
             {
                 if (Debug)
@@ -3180,7 +3180,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Checks
-            if (Aimsharp.CastingID("player") == 51514 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn(Hex_SpellName(Language)))
+            if (Aimsharp.CastingID("player") == 51514 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("Hex"))
             {
                 if (Debug)
                 {
@@ -3271,7 +3271,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Hex = Aimsharp.IsCustomCodeOn(Hex_SpellName(Language));
+            bool Hex = Aimsharp.IsCustomCodeOn("Hex");
             if ((Aimsharp.SpellCooldown(Hex_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving) && Hex)
             {
                 if (Debug)
