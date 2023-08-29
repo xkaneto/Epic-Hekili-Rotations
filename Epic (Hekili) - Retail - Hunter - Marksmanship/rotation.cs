@@ -1645,16 +1645,15 @@ namespace AimsharpWow.Modules
             Aimsharp.QuickDelay = 50;
             Aimsharp.SlowDelay = 150;
 
-            Aimsharp.PrintMessage("Epic PVE - Hunter Marksmanship", Color.Yellow);
+            Aimsharp.PrintMessage("Epic PVE - Hunter Marksmanship", Color.White);
             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.White);
             Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.White);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- Talents -", Color.White);
             Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/guide/classes/hunter/marksmanship/overview-pve-dps", Color.Yellow);
-            Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("Pet Summon is Manual", Color.Green);
             Aimsharp.PrintMessage("-----", Color.Black);
-            Aimsharp.PrintMessage("- General -", Color.Yellow);
+            Aimsharp.PrintMessage("- General -", Color.White);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoCycle - Disables Target Cycle", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " SteelTrap - Casts Tar Trap @ next GCD", Color.Yellow);

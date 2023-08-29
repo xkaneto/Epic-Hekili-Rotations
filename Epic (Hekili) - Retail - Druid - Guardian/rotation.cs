@@ -1630,14 +1630,14 @@ namespace AimsharpWow.Modules
             DebugMode = GetCheckBox("Debug Mode: ");
             EnableDefensives = GetCheckBox("Enable Below Defensives:");
 
-            Aimsharp.PrintMessage("Epic PVE - Druid Guardian", Color.Yellow);
+            Aimsharp.PrintMessage("Epic PVE - Druid Guardian", Color.White);
             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.White);
             Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.White);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- Talents -", Color.White);
             Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/de/guide/classes/druid/guardian/overview-pve-tank", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
-            Aimsharp.PrintMessage("- General -", Color.Yellow);
+            Aimsharp.PrintMessage("- General -", Color.White);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoCycle - Disables Target Cycle", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " SaveDefensiveCooldowns - Saves defensive Cooldowns", Color.Yellow);

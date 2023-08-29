@@ -1429,7 +1429,7 @@ namespace AimsharpWow.Modules
             Aimsharp.QuickDelay = 50;
             Aimsharp.SlowDelay = 150;
 
-            Aimsharp.PrintMessage("Epic PVE - Warlock Demonology", Color.Yellow);
+            Aimsharp.PrintMessage("Epic PVE - Warlock Demonology", Color.White);
             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.White);
             Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.White);
             Aimsharp.PrintMessage("-----", Color.Black);
@@ -1437,7 +1437,7 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/guide/classes/warlock/demonology/overview-pve-dps", Color.Yellow);
             Aimsharp.PrintMessage("You will need to summon your primary Demon yourself!", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
-            Aimsharp.PrintMessage("- General -", Color.Yellow);
+            Aimsharp.PrintMessage("- General -", Color.White);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoCycle - Disables Target Cycle", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " Fear - Casts Fear @ Mouseover next GCD", Color.Yellow);
