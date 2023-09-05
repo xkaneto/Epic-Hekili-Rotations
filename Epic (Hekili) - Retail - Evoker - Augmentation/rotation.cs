@@ -624,7 +624,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "NoExpunge", "NoCauterizingFlame", "DeepBreath", "DeepBreathCursor", "QueueLandslide", "SleepWalk", "QueueBreathofEons", "BreathofEonsCursor" };
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "NoExpunge", "NoCauterizingFlame", "DeepBreath", "DeepBreathCursor", "QueueLandslide", "SleepWalk", "BreathOfEons", "BreathofEonsCursor" };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
         private List<string> m_ItemsList;
@@ -791,7 +791,7 @@ namespace AimsharpWow.Modules
             Macros.Add("LandslideOff", "/" + FiveLetters + " QueueLandslide");
             Macros.Add("SleepWalkOff", "/" + FiveLetters + " SleepWalk");
             Macros.Add("DeepBreathOff", "/" + FiveLetters + " DeepBreath");
-            Macros.Add("BreathofEonsOff", "/" + FiveLetters + " QueueBreathofEons");
+            Macros.Add("BreathofEonsOff", "/" + FiveLetters + " BreathOfEons");
 
             Macros.Add("FOC_party1", "/focus party1");
             Macros.Add("FOC_party2", "/focus party2");
@@ -999,7 +999,7 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("/" + FiveLetters + " QueueLandslide - Queue Landslide on the next GCD.", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " DeepBreath - Queue Deep Breath on the next GCD.", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " DeepBreathCursor - Always cast Deep Breath on Cursor during the Rotation.", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " QueueBreathofEons - Queue Breath of Eons on the next GCD.", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " BreathOfEons - Queue Breath of Eons on the next GCD.", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " BreathofEonsCursor - Always cast Breath of Eons on Cursor during the Rotation.", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
 
@@ -1286,7 +1286,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 403631 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("QueueBreathofEons"))
+            if (Aimsharp.CastingID("player") == 403631 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("BreathOfEons"))
             {
                 if (Debug)
                 {
@@ -1313,7 +1313,7 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("QueueBreathofEons") && Aimsharp.SpellCooldown(BreathOfEons_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("BreathOfEons") && Aimsharp.SpellCooldown(BreathOfEons_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -1517,7 +1517,7 @@ namespace AimsharpWow.Modules
 
             //Queue Breath of Eons
             string BreathofEonsCast = GetDropDown("Breath of Eons Cast:");
-            bool BreathofEons = Aimsharp.IsCustomCodeOn("QueueBreathofEons");
+            bool BreathofEons = Aimsharp.IsCustomCodeOn("BreathOfEons");
             if ((Aimsharp.SpellCooldown(BreathOfEons_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving || Aimsharp.LastCast() == BreathOfEons_SpellName(Language)) && BreathofEons)
             {
                 if (Debug)
@@ -2208,7 +2208,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Aimsharp.CastingID("player") == 403631 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("QueueBreathofEons"))
+            if (Aimsharp.CastingID("player") == 403631 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("BreathOfEons"))
             {
                 if (Debug)
                 {
@@ -2235,7 +2235,7 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("QueueBreathofEons") && Aimsharp.SpellCooldown(BreathOfEons_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("BreathOfEons") && Aimsharp.SpellCooldown(BreathOfEons_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -2310,7 +2310,7 @@ namespace AimsharpWow.Modules
 
             //Queue Breath of Eons
             string BreathofEonsCast = GetDropDown("Breath of Eons Cast:");
-            bool BreathofEons = Aimsharp.IsCustomCodeOn("QueueBreathofEons");
+            bool BreathofEons = Aimsharp.IsCustomCodeOn("BreathOfEons");
             if ((Aimsharp.SpellCooldown(BreathOfEons_SpellName(Language)) - Aimsharp.GCD() > 2000 || Moving || Aimsharp.LastCast() == BreathOfEons_SpellName(Language)) && BreathofEons)
             {
                 if (Debug)
