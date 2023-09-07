@@ -211,7 +211,7 @@ namespace AimsharpWow.Modules
                 case "English": return "Eruption";
                 case "Deutsch": return "Eruption";
                 case "Español": return "Erupción";
-                case "Français": return "Eruption";
+                case "Français": return "Éruption";
                 case "Italiano": return "Eruzione";
                 case "Português Brasileiro": return "Erupção";
                 case "Русский": return "Извержение";
