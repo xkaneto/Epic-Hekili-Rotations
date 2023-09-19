@@ -211,7 +211,7 @@ namespace AimsharpWow.Modules
                 case "English": return "Eruption";
                 case "Deutsch": return "Eruption";
                 case "Español": return "Erupción";
-                case "Français": return "Éruption";
+                case "Français": return "Eruption";
                 case "Italiano": return "Eruzione";
                 case "Português Brasileiro": return "Erupção";
                 case "Русский": return "Извержение";
@@ -578,6 +578,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "지각 변동";
                 case "简体中文": return "地壳激变";
                 default: return "Upheaval";
+            }
+        }
+
+        ///<summary>spell=360995</summary>
+        private static string VerdantEmbrace_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Verdant Embrace";
+                case "Deutsch": return "Tiefgrüne Umarmung";
+                case "Español": return "Abrazo verde";
+                case "Français": return "Étreinte verdoyante";
+                case "Italiano": return "Abbraccio Lussureggiante";
+                case "Português Brasileiro": return "Abraço Verdejante";
+                case "Русский": return "Живительные объятия";
+                case "한국어": return "신록의 품";
+                case "简体中文": return "青翠之拥";
+                default: return "Verdant Embrace";
             }
         }
 
@@ -963,7 +981,7 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Always Cast Deep Breath @ Cursor during Rotation", false));
             Settings.Add(new Setting("Breath of Eons Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Always Cast Breath of Eons @ Cursor during Rotation", false));
-            Settings.Add(new Setting("Prescience"));
+            Settings.Add(new Setting(Prescience_SpellName(Language)));
             Settings.Add(new Setting("Ally Name 1: ", ""));
             Settings.Add(new Setting("Ally Name 2: ", ""));
             Settings.Add(new Setting("    "));
@@ -1069,7 +1087,7 @@ namespace AimsharpWow.Modules
                 //ON PLAYER
                 ObsidianScales_SpellName(Language), //363916
                 RenewingBlaze_SpellName(Language), //374348
-                "Verdant Embrace", //360995
+                VerdantEmbrace_SpellName(Language), //360995
                 Zephyr_SpellName(Language), //374227
 
                 //HEAL ON PLAYER:
@@ -1420,11 +1438,11 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Verdant Embrace
-            if (Aimsharp.CanCast("Verdant Embrace", "player", false, true))
+            if (Aimsharp.CanCast(VerdantEmbrace_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Verdant Embrace @ HP%"))
                 {
-                    Aimsharp.Cast("Verdant Embrace");
+                    Aimsharp.Cast(VerdantEmbrace_SpellName(Language));
                     if (Debug)
                     {
                         Aimsharp.PrintMessage("Casting Verdant Embrace - Player HP% " + PlayerHP + " due to setting being on HP% " + GetSlider("Auto Verdant Embrace @ HP%"), Color.Black);
@@ -2107,6 +2125,24 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Casting Eruption - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(Eruption_SpellName(Language));
+                        return true;
+                    }
+                    if (SpellID1 == 360995 && Aimsharp.CanCast(VerdantEmbrace_SpellName(Language), "target", true, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Verdant Embrace - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(VerdantEmbrace_SpellName(Language));
+                        return true;
+                    }
+                    if (SpellID1 == 355913 && Aimsharp.CanCast(EmeraldBlossom_SpellName(Language), "player", true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Emerald Blossom - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(EmeraldBlossom_SpellName(Language));
                         return true;
                     }
                     #endregion

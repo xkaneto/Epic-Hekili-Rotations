@@ -797,6 +797,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=360995</summary>
+        private static string VerdantEmbrace_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Verdant Embrace";
+                case "Deutsch": return "Tiefgrüne Umarmung";
+                case "Español": return "Abrazo verde";
+                case "Français": return "Étreinte verdoyante";
+                case "Italiano": return "Abbraccio Lussureggiante";
+                case "Português Brasileiro": return "Abraço Verdejante";
+                case "Русский": return "Живительные объятия";
+                case "한국어": return "신록의 품";
+                case "简体中文": return "青翠之拥";
+                default: return "Verdant Embrace";
+            }
+        }
+
         ///<summary>spell=20549</summary>
         private static string WarStomp_SpellName(string Language = "English")
         {
@@ -1212,6 +1230,7 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Auto Renewing Blaze @ HP%", 0, 100, 35));
             Settings.Add(new Setting("Auto Obsidian Scales @ HP%", 0, 100, 30));
             Settings.Add(new Setting("Auto Emerald Blossom @ HP%", 0, 100, 50));
+            Settings.Add(new Setting("Auto Verdant Embrace @ HP%", 0, 100, 70));
             Settings.Add(new Setting("Deep Breath Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Always Cast Deep Breath @ Cursor during Rotation", false));
             Settings.Add(new Setting("Firestorm Cast:", m_CastingList, "Manual"));
@@ -1312,6 +1331,7 @@ namespace AimsharpWow.Modules
                 //ON PLAYER
                 ObsidianScales_SpellName(Language), //363916
                 RenewingBlaze_SpellName(Language), //374348
+                VerdantEmbrace_SpellName(Language), //360995
                 Zephyr_SpellName(Language), //374227
 
                 //HEAL ON PLAYER:
@@ -1575,6 +1595,21 @@ namespace AimsharpWow.Modules
                     if (Debug)
                     {
                         Aimsharp.PrintMessage("Casting Emerald Blossom - Player HP% " + PlayerHP + " due to setting being on HP% " + GetSlider("Auto Emerald Blossom @ HP%"), Color.Black);
+                    }
+                    return true;
+                }
+            }
+
+
+            //Auto Verdant Embrace
+            if (Aimsharp.CanCast(VerdantEmbrace_SpellName(Language), "player", false, true))
+            {
+                if (PlayerHP <= GetSlider("Auto Verdant Embrace @ HP%"))
+                {
+                    Aimsharp.Cast(VerdantEmbrace_SpellName(Language));
+                    if (Debug)
+                    {
+                        Aimsharp.PrintMessage("Casting Verdant Embrace - Player HP% " + PlayerHP + " due to setting being on HP% " + GetSlider("Auto Verdant Embrace @ HP%"), Color.Black);
                     }
                     return true;
                 }
@@ -2224,6 +2259,25 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Casting Shattering Star - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(ShatteringStar_SpellName(Language));
+                        return true;
+                    }
+
+                    if (SpellID1 == 360995 && Aimsharp.CanCast(VerdantEmbrace_SpellName(Language), "target", true, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Verdant Embrace - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(VerdantEmbrace_SpellName(Language));
+                        return true;
+                    }
+                    if (SpellID1 == 355913 && Aimsharp.CanCast(EmeraldBlossom_SpellName(Language), "player", true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Emerald Blossom - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(EmeraldBlossom_SpellName(Language));
                         return true;
                     }
                     #endregion

@@ -1934,7 +1934,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Ice Barrier
-            if (Aimsharp.CanCast(IceBarrier_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(IceBarrier_SpellName(Language), "player", false, true) && !Aimsharp.HasBuff(IceBarrier_SpellName(Language), "player"))
             {
                 if (PlayerHP <= GetSlider("Auto Ice Barrier @ HP%"))
                 {
@@ -2792,7 +2792,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 11426 && Aimsharp.CanCast(IceBarrier_SpellName(Language), "player", false, true))
+                    if (SpellID1 == 11426 && Aimsharp.CanCast(IceBarrier_SpellName(Language), "player", false, true) && !Aimsharp.HasBuff(IceBarrier_SpellName(Language), "player", true))
                     {
                         if (Debug)
                         {

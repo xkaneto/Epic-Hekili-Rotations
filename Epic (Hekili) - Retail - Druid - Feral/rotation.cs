@@ -2621,6 +2621,16 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast(MoonkinForm_SpellName(Language));
                         return true;
                     }
+
+                    if (SpellID1 == 8936 && Aimsharp.CanCast(Regrowth_SpellName(Language), "player", false, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Regrowth - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(Regrowth_SpellName(Language));
+                        return true;
+                    }
                     #endregion
 
                 }
