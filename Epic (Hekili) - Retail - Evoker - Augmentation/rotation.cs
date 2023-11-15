@@ -724,6 +724,8 @@ namespace AimsharpWow.Modules
         public string AllyName1;
 
         public string AllyName2;
+        public string AllyName3;
+        public string AllyName4;
 
         public Dictionary<string, int> PartyDict = new Dictionary<string, int>() { };
         #endregion
@@ -827,6 +829,8 @@ namespace AimsharpWow.Modules
             Macros.Add("EB_FOC", "/cast [@focus] " + EmeraldBlossom_SpellName(Language));
 
             Macros.Add("SleepWalkMO", "/cast [@mouseover,exists] " + SleepWalk_SpellName(Language));
+            Macros.Add("ExpungeMO", "/cast [@mouseover,exists] " + Expunge_SpellName(Language));
+            Macros.Add("CauterizingFlameMO", "/cast [@mouseover,exists] " + CauterizingFlame_SpellName(Language));
             Macros.Add("PrescienceMO", "/cast [@mouseover,exists] " + Prescience_SpellName(Language));
             Macros.Add("PrescienceFocus", "/cast [@focus] " + Prescience_SpellName(Language));
             Macros.Add("DeepBreathC", "/cast [@cursor] " + DeepBreath_SpellName(Language));
@@ -880,7 +884,7 @@ namespace AimsharpWow.Modules
 
             CustomFunctions.Add("MouseoverCheck", "if UnitExists('mouseover') and UnitIsDead('mouseover') ~= true and UnitAffectingCombat('mouseover') then return 1 end; return 0");
 
-            CustomFunctions.Add("AllyPrescienceBuffWithName", "local out = 0\nlocal numGroupMembers = GetNumGroupMembers()\n\nif UnitExists('mouseover') then\n    if  UnitIsPlayer('mouseover') ~= true and IsSpellInRange(\"" + Prescience_SpellName(Language) + "\", 'mouseover') == 1 and (GetUnitName('mouseover') == \"" + AllyName1 + "\" or GetUnitName('mouseover') == \"" + AllyName2 + "\") then\n        out = 100\n    end\nend\n\nif numGroupMembers > 0 and numGroupMembers < 6 then\n    for p = 1, numGroupMembers do\n        local partymember = 'party' .. p\n        local SpellinRange = IsSpellInRange(\"" + Prescience_SpellName(Language) + "\", partymember)\n        if UnitExists(partymember) and UnitIsDeadOrGhost(partymember) ~= true and SpellinRange == 1 and (GetUnitName(partymember) == \"" + AllyName1 + "\" or GetUnitName(partymember) == \"" + AllyName2 + "\") then\n            local hasPrescienceBuff = false\n            for i = 1, 25 do\n                local name, _, _, _, _, _, source = UnitAura(partymember, i)\n                if name == \"" + Prescience_SpellName(Language) + "\" and source == 'player' then\n                    hasPrescienceBuff = true\n                    break\n                end\n            end\n            if not hasPrescienceBuff then\n                out = p\n                break\n            end\n        end\n    end\nelseif numGroupMembers > 5 then\n    for r = 1, numGroupMembers do\n        local raidmember = 'raid' .. r\n        local SpellinRange = IsSpellInRange(\"" + Prescience_SpellName(Language) + "\", raidmember)\n        if UnitExists(raidmember) and UnitIsDeadOrGhost(raidmember) ~= true and SpellinRange == 1 and (GetUnitName(raidmember) == \"" + AllyName1 + "\" or GetUnitName(raidmember) == \"" + AllyName2 + "\") then\n            local hasPrescienceBuff = false\n            for i = 1, 25 do\n                local name, _, _, _, _, _, source = UnitAura(raidmember, i)\n                if name == \"" + Prescience_SpellName(Language) + "\" and source == 'player' then\n                    hasPrescienceBuff = true\n                    break\n                end\n            end\n            if not hasPrescienceBuff then\n                out = r\n                break\n            end\n        end\n    end\nend\n\nreturn out");
+            CustomFunctions.Add("AllyPrescienceBuffWithName", "local out = 0\nlocal numGroupMembers = GetNumGroupMembers()\n\nif UnitExists('mouseover') then\n\tif  UnitIsPlayer('mouseover') ~= true and IsSpellInRange(\"" + Prescience_SpellName(Language) + "\", 'mouseover') == 1 and (GetUnitName('mouseover') == \"" + AllyName1 + "\" or GetUnitName('mouseover') == \"" + AllyName2 + "\" or GetUnitName('mouseover') == \"" + AllyName3 + "\" or GetUnitName('mouseover') == \"" + AllyName4 + "\") then\n\t\tout = 100\n\tend\nend\n\nif numGroupMembers > 0 and numGroupMembers < 6 then\n\tfor p = 1, numGroupMembers do\n\t\tlocal partymember = 'party' .. p\n\t\tlocal SpellinRange = IsSpellInRange(\"" + Prescience_SpellName(Language) + "\", partymember)\n\t\tif UnitExists(partymember) and UnitIsDeadOrGhost(partymember) ~= true and SpellinRange == 1 and (GetUnitName(partymember) == \"" + AllyName1 + "\" or GetUnitName(partymember) == \"" + AllyName2 + "\" or GetUnitName(partymember) == \"" + AllyName3 + "\" or GetUnitName(partymember) == \"" + AllyName4 + "\") then\n\t\t\tlocal hasPrescienceBuff = false\n\t\t\tfor i = 1, 25 do\n\t\t\t\tlocal name, _, _, _, _, _, source = UnitAura(partymember, i)\n\t\t\t\tif name == \"" + Prescience_SpellName(Language) + "\" and source == 'player' then\n\t\t\t\t\thasPrescienceBuff = true\n\t\t\t\t\tbreak\n\t\t\t\tend\n\t\t\tend\n\t\t\tif not hasPrescienceBuff then\n\t\t\t\tout = p\n\t\t\t\tbreak\n\t\t\tend\n\t\tend\n\tend\nelseif numGroupMembers > 5 then\n\tfor r = 1, numGroupMembers do\n\t\tlocal raidmember = 'raid' .. r\n\t\tlocal SpellinRange = IsSpellInRange(\"" + Prescience_SpellName(Language) + "\", raidmember)\n\t\tif UnitExists(raidmember) and UnitIsDeadOrGhost(raidmember) ~= true and SpellinRange == 1 and (GetUnitName(raidmember) == \"" + AllyName1 + "\" or GetUnitName(raidmember) == \"" + AllyName2 + "\" or GetUnitName(raidmember) == \"" + AllyName3 + "\" or GetUnitName(raidmember) == \"" + AllyName4 + "\") then\n\t\t\tlocal hasPrescienceBuff = false\n\t\t\tfor i = 1, 25 do\n\t\t\t\tlocal name, _, _, _, _, _, source = UnitAura(raidmember, i)\n\t\t\t\tif name == \"" + Prescience_SpellName(Language) + "\" and source == 'player' then\n\t\t\t\t\thasPrescienceBuff = true\n\t\t\t\t\tbreak\n\t\t\t\tend\n\t\t\tend\n\t\t\tif not hasPrescienceBuff then\n\t\t\t\tout = r\n\t\t\t\tbreak\n\t\t\tend\n\t\tend\n\tend\nend\n\nreturn out");
 
             CustomFunctions.Add("UnitIsFocus", "local foc=0; " +
             "\nif UnitExists('focus') and UnitIsUnit('party1','focus') then foc = 1; end" +
@@ -938,6 +942,8 @@ namespace AimsharpWow.Modules
             "end " +
             "return UnitTargeted");
 
+            CustomFunctions.Add("CheckforAffixNPC", "if UnitExists(\"mouseover\") and not UnitIsPlayer(\"mouseover\") then\nlocal npcID = tonumber((UnitGUID(\"mouseover\")):sub(-10, -7), 16)\nif npcID == 204773 then\n\treturn 1\nend\nif npcID == 204560 then\n\treturn 2\nend\nend\nreturn 0");
+
             CustomFunctions.Add("GetTalentFontOfMagic", "if (IsSpellKnown(408083) or IsPlayerSpell(408083)) then return 1 else return 0 end");
 
         }
@@ -984,6 +990,8 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting(Prescience_SpellName(Language)));
             Settings.Add(new Setting("Ally Name 1: ", ""));
             Settings.Add(new Setting("Ally Name 2: ", ""));
+            Settings.Add(new Setting("Ally Name 3: ", ""));
+            Settings.Add(new Setting("Ally Name 4: ", ""));
             Settings.Add(new Setting("    "));
 
         }
@@ -1024,6 +1032,8 @@ namespace AimsharpWow.Modules
             Language = GetDropDown("Game Client Language");
             AllyName1 = GetString("Ally Name 1: ");
             AllyName2 = GetString("Ally Name 2: ");
+            AllyName3 = GetString("Ally Name 3: ");
+            AllyName4 = GetString("Ally Name 4: ");
 
             #region Racial Spells
             if (GetDropDown("Race:") == "Dracthyr")
@@ -1128,19 +1138,7 @@ namespace AimsharpWow.Modules
 
             //Aimsharp.PrintMessage("Aimsharp Ally Name 1: " + AllyName1 + " or Ally Name 2: " + AllyName2 + " at number " + AllyNumber);
 
-            // Calculating Empowered Cast Time
             EmpowerState();
-            double EmpowerCastTime;
-            if (Aimsharp.HasBuff(TipTheScales_SpellName(Language), "player") || Aimsharp.LastCast() == TipTheScales_SpellName(Language))
-            {
-                EmpowerCastTime = 0;
-            }
-            else
-            {
-                EmpowerCastTime = (100 * (double)(1 / (1 + (Haste / 100)))) + (double)((double)(1 - (double)(0.2 * (double)Aimsharp.CustomFunction("GetTalentFontOfMagic"))) * Stages[(EmpowerState())] * (double)(1 / (1 + (Haste / 100))));
-            }
-
-            //Aimsharp.PrintMessage("Empowerment Time: " + (int)EmpowerCastTime);
 
             bool NoInterrupts = Aimsharp.IsCustomCodeOn("NoInterrupts");
             bool NoExpunge = Aimsharp.IsCustomCodeOn("NoExpunge");
@@ -1163,6 +1161,8 @@ namespace AimsharpWow.Modules
             int PlayerHP = Aimsharp.Health("player");
 
             bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
+
+            int EmpowermentStage = Aimsharp.GetEmpowerStage();
             #endregion
 
             #region SpellQueueWindow
@@ -1177,6 +1177,64 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Logic
+            if (Aimsharp.CustomFunction("CheckforAffixNPC") == 1)
+            {
+                if (Aimsharp.CanCast(Expunge_SpellName(Language), "player"))
+                {
+                    if (Debug)
+                    {
+                        Aimsharp.PrintMessage("Detected Rotation for Afflicted NPC, casting Expunge", Color.Purple);
+                    }
+                    Aimsharp.Cast("ExpungeMO", true);
+                    return true;
+                }
+                if (Aimsharp.CanCast(CauterizingFlame_SpellName(Language), "player"))
+                {
+                    if (Debug)
+                    {
+                        Aimsharp.PrintMessage("Detected Rotation for Afflicted NPC, casting Cauterizing Flame", Color.Purple);
+                    }
+                    Aimsharp.Cast("CauterizingFlameMO", true);
+                    return true;
+                }
+            }
+
+            if (Aimsharp.CustomFunction("CheckforAffixNPC") == 2)
+            {
+                if (Aimsharp.CanCast(SleepWalk_SpellName(Language), "player"))
+                {
+                    if (Debug)
+                    {
+                        Aimsharp.PrintMessage("Detected Rotation for Incorporeal NPC, casting Sleep Walk", Color.Purple);
+                    }
+                    Aimsharp.Cast("SleepWalkMO", true);
+                    return true;
+                }
+            }
+
+
+            if ((EmpowermentStage == EmpowerState() || EmpowerState() == 4) && (Aimsharp.CastingID("player") == 396286 || Aimsharp.CastingID("player") == 408092))
+            {
+                if (EmpowerState() == 4) System.Threading.Thread.Sleep(500);
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Casting Upheaval again for Empower State: " + EmpowerState(), Color.Purple);
+                }
+                Aimsharp.Cast(Upheaval_SpellName(Language));
+            }
+
+
+            if ((EmpowermentStage == EmpowerState() || EmpowerState() == 4) && (Aimsharp.CastingID("player") == 382266 || Aimsharp.CastingID("player") == 357208 || Aimsharp.CastingID("player") == 357209))
+            {
+                if (EmpowerState() == 4) System.Threading.Thread.Sleep(500);
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Casting Fire Breath again for Empower State: " + EmpowerState(), Color.Purple);
+                }
+                Aimsharp.Cast(FireBreath_SpellName(Language));
+                return true;
+            }
+
             if (SpellID1 == 395152 && Aimsharp.CanCast(EbonMight_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
             {
                 if (Debug)
@@ -2017,15 +2075,6 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Start casting Fire Breath - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(FireBreath_SpellName(Language));
-                        if (EmpowerCastTime > 0)
-                        {
-                            System.Threading.Thread.Sleep((int)EmpowerCastTime);
-                            if (Debug)
-                            {
-                                Aimsharp.PrintMessage("Casting Fire Breath again for Empower State: " + EmpowerState(), Color.Purple);
-                            }
-                            Aimsharp.Cast(FireBreath_SpellName(Language));
-                        }
                         return true;
                     }
 
@@ -2106,15 +2155,6 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Start casting Upheaval - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(Upheaval_SpellName(Language));
-                        if (EmpowerCastTime > 0)
-                        {
-                            System.Threading.Thread.Sleep((int)EmpowerCastTime);
-                            if (Debug)
-                            {
-                                Aimsharp.PrintMessage("Casting Upheaval again for Empower State: " + EmpowerState(), Color.Purple);
-                            }
-                            Aimsharp.Cast(Upheaval_SpellName(Language));
-                        }
                         return true;
                     }
 
@@ -2174,6 +2214,41 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Logic
+            if (Aimsharp.CustomFunction("CheckforAffixNPC") == 1)
+            {
+                if (Aimsharp.CanCast(Expunge_SpellName(Language), "player"))
+                {
+                    if (Debug)
+                    {
+                        Aimsharp.PrintMessage("Detected Rotation for Afflicted NPC, casting Expunge", Color.Purple);
+                    }
+                    Aimsharp.Cast("ExpungeMO", true);
+                    return true;
+                }
+                if (Aimsharp.CanCast(CauterizingFlame_SpellName(Language), "player"))
+                {
+                    if (Debug)
+                    {
+                        Aimsharp.PrintMessage("Detected Rotation for Afflicted NPC, casting Cauterizing Flame", Color.Purple);
+                    }
+                    Aimsharp.Cast("CauterizingFlameMO", true);
+                    return true;
+                }
+            }
+
+            if (Aimsharp.CustomFunction("CheckforAffixNPC") == 2)
+            {
+                if (Aimsharp.CanCast(SleepWalk_SpellName(Language), "player"))
+                {
+                    if (Debug)
+                    {
+                        Aimsharp.PrintMessage("Detected Rotation for Incorporeal NPC, casting Sleep Walk", Color.Purple);
+                    }
+                    Aimsharp.Cast("SleepWalkMO", true);
+                    return true;
+                }
+            }
+
             if (GetCheckBox("Auto Start Combat:") == true && SpellID1 == 395152 && Aimsharp.CanCast(EbonMight_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
             {
                 if (Debug)

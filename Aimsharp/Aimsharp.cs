@@ -690,6 +690,13 @@ namespace AimsharpWow
             {
                 return 43;
             }
+            /// <summary>
+            /// Returns player's current empower stage.
+            /// </summary>
+            public static int GetEmpowerStage()
+            {
+                return 1;
+            }
         }
     }
 

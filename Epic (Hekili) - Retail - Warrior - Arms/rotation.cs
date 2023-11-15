@@ -1221,8 +1221,6 @@ namespace AimsharpWow.Modules
             Macros.Add("StormBoltOff", "/" + FiveLetters + " StormBolt");
             Macros.Add("QueueBladestormOff", "/" + FiveLetters + " QueueBladestorm");
             Macros.Add("HeroicLeapOff", "/" + FiveLetters + " HeroicLeap");
-            Macros.Add("AntiMagicZoneOff", "/" + FiveLetters + " AntiMagicZone");
-            Macros.Add("BlindingSleetOff", "/" + FiveLetters + " BlindingSleet");
 
             Macros.Add("SpearOfBastionP", "/cast [@player] " + SpearOfBastion_SpellName(Language));
             Macros.Add("SpearOfBastionC", "/cast [@cursor] " + SpearOfBastion_SpellName(Language));
