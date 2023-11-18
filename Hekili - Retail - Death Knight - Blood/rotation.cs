@@ -2243,7 +2243,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 311648 && Aimsharp.CanCast(SwarmingMist_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 311648 && Aimsharp.CanCast(SwarmingMist_SpellName(Language), "player", false, true))
                     {
                         Aimsharp.Cast(SwarmingMist_SpellName(Language));
                         return true;
@@ -2277,7 +2277,7 @@ namespace AimsharpWow.Modules
                         }
                     }
 
-                    if ((SpellID1 == 315443 || SpellID1 == 383269) && Aimsharp.CanCast(AbominationLimb_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if ((SpellID1 == 315443 || SpellID1 == 383269) && Aimsharp.CanCast(AbominationLimb_SpellName(Language), "player", false, true))
                     {
                         Aimsharp.Cast(AbominationLimb_SpellName(Language));
                         return true;
@@ -2397,55 +2397,55 @@ namespace AimsharpWow.Modules
 
                     #region Blood Spells - Player GCD
                     ////Player
-                    if (SpellID1 == 47568 && Aimsharp.CanCast(EmpowerRuneWeapon_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 47568 && Aimsharp.CanCast(EmpowerRuneWeapon_SpellName(Language), "player", false, true))
                     {
                         Aimsharp.Cast(EmpowerRuneWeapon_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 50842 && Aimsharp.CanCast(BloodBoil_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 50842 && Aimsharp.CanCast(BloodBoil_SpellName(Language), "player", false, true))
                     {
                         Aimsharp.Cast(BloodBoil_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 221699 && Aimsharp.CanCast(BloodTap_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 221699 && Aimsharp.CanCast(BloodTap_SpellName(Language), "player", false, true))
                     {
                         Aimsharp.Cast(BloodTap_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 206931 && Aimsharp.CanCast(Blooddrinker_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 206931 && Aimsharp.CanCast(Blooddrinker_SpellName(Language), "player", false, true))
                     {
                         Aimsharp.Cast(Blooddrinker_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 194844 && Aimsharp.CanCast(Bonestorm_SpellName(Language), "player", true, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 194844 && Aimsharp.CanCast(Bonestorm_SpellName(Language), "player", true, true))
                     {
                         Aimsharp.Cast(Bonestorm_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 274156 && Aimsharp.CanCast(Consumption_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 274156 && Aimsharp.CanCast(Consumption_SpellName(Language), "player", false, true))
                     {
                         Aimsharp.Cast(Consumption_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 207167 && Aimsharp.CanCast(BlindingSleet_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 207167 && Aimsharp.CanCast(BlindingSleet_SpellName(Language), "player", false, true))
                     {
                         Aimsharp.Cast(BlindingSleet_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 49028 && Aimsharp.CanCast(DancingRuneWeapon_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 49028 && Aimsharp.CanCast(DancingRuneWeapon_SpellName(Language), "player", false, true))
                     {
                         Aimsharp.Cast(DancingRuneWeapon_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 343294 && Aimsharp.CanCast(SoulReaper_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 343294 && Aimsharp.CanCast(SoulReaper_SpellName(Language), "player", false, true))
                     {
                         Aimsharp.Cast(SoulReaper_SpellName(Language));
                         return true;
