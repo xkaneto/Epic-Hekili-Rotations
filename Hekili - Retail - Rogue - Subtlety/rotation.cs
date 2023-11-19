@@ -132,6 +132,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=120360</summary>
+        private static string Barrage_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Barrage";
+                case "Deutsch": return "Sperrfeuer";
+                case "Español": return "Tromba";
+                case "Français": return "Barrage";
+                case "Italiano": return "Sbarramento";
+                case "Português Brasileiro": return "Barragem";
+                case "Русский": return "Шквал";
+                case "한국어": return "탄막";
+                case "简体中文": return "弹幕射击";
+                default: return "Barrage";
+            }
+        }
+
         ///<summary>spell=26297</summary>
         private static string Berserking_SpellName(string Language = "English")
         {
@@ -219,24 +237,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "피의 격노";
                 case "简体中文": return "血性狂怒";
                 default: return "Blood Fury";
-            }
-        }
-
-        ///<summary>spell=2825</summary>
-        private static string Bloodlust_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Bloodlust";
-                case "Deutsch": return "Kampfrausch";
-                case "Español": return "Ansia de sangre";
-                case "Français": return "Furie sanguinaire";
-                case "Italiano": return "Brama di Sangue";
-                case "Português Brasileiro": return "Sede de Sangue";
-                case "Русский": return "Жажда крови";
-                case "한국어": return "피의 욕망";
-                case "简体中文": return "嗜血";
-                default: return "Bloodlust";
             }
         }
 
@@ -345,24 +345,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "혼란";
                 case "简体中文": return "扰乱";
                 default: return "Distract";
-            }
-        }
-
-        ///<summary>item=102351</summary>
-        private static string DrumsOfRage_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Drums of Rage";
-                case "Deutsch": return "Trommeln des Zorns";
-                case "Español": return "Tambores de ira";
-                case "Français": return "Tambours de rage";
-                case "Italiano": return "Tamburi della Rabbia";
-                case "Português Brasileiro": return "Tambores da Raiva";
-                case "Русский": return "Барабаны ярости";
-                case "한국어": return "분노의 북";
-                case "简体中文": return "暴怒之鼓";
-                default: return "Drums of Rage";
             }
         }
 
@@ -509,6 +491,7 @@ namespace AimsharpWow.Modules
                 default: return "Flagellation";
             }
         }
+
         ///<summary>spell=703</summary>
         private static string Garrote_SpellName(string Language = "English")
         {
@@ -563,6 +546,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=426591</summary>
+        private static string GoremawsBite_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Goremaw's Bite";
+                case "Deutsch": return "Blutschlunds Biss";
+                case "Español": return "Mordedura de Buchegore";
+                case "Français": return "Morsure de Gueulétripe";
+                case "Italiano": return "Morso di Faucinere";
+                case "Português Brasileiro": return "Mordida do Gorjavil";
+                case "Русский": return "Укус Кровавой Пасти";
+                case "한국어": return "피아귀의 이빨";
+                case "简体中文": return "赤喉之咬";
+                default: return "Goremaw's Bite";
+            }
+        }
+
         ///<summary>spell=1776</summary>
         private static string Gouge_SpellName(string Language = "English")
         {
@@ -599,21 +600,21 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=32182</summary>
-        private static string Heroism_SpellName(string Language = "English")
+        ///<summary>spell=20271</summary>
+        private static string Judgment_SpellName(string Language = "English")
         {
             switch (Language)
             {
-                case "English": return "Heroism";
-                case "Deutsch": return "Heldentum";
-                case "Español": return "Heroísmo";
-                case "Français": return "Héroïsme";
-                case "Italiano": return "Eroismo";
-                case "Português Brasileiro": return "Heroísmo";
-                case "Русский": return "Героизм";
-                case "한국어": return "영웅심";
-                case "简体中文": return "英勇";
-                default: return "Heroism";
+                case "English": return "Judgment";
+                case "Deutsch": return "Richturteil";
+                case "Español": return "Sentencia";
+                case "Français": return "Jugement";
+                case "Italiano": return "Giudizio";
+                case "Português Brasileiro": return "Julgamento";
+                case "Русский": return "Правосудие";
+                case "한국어": return "심판";
+                case "简体中文": return "审判";
+                default: return "Judgment";
             }
         }
 
@@ -704,24 +705,6 @@ namespace AimsharpWow.Modules
                 case "한국어": return "절단";
                 case "简体中文": return "毁伤";
                 default: return "Mutilate";
-            }
-        }
-
-        ///<summary>spell=264667</summary>
-        private static string PrimalRage_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Primal Rage";
-                case "Deutsch": return "Urtümliche Wut";
-                case "Español": return "Rabia primigenia";
-                case "Français": return "Rage primordiale";
-                case "Italiano": return "Rabbia Primordiale";
-                case "Português Brasileiro": return "Fúria Primata";
-                case "Русский": return "Исступление";
-                case "한국어": return "원초적 분노";
-                case "简体中文": return "原始暴怒";
-                default: return "Primal Rage";
             }
         }
 
@@ -1121,24 +1104,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=80353</summary>
-        private static string TimeWarp_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Time Warp";
-                case "Deutsch": return "Zeitkrümmung";
-                case "Español": return "Distorsión temporal";
-                case "Français": return "Distorsion temporelle";
-                case "Italiano": return "Distorsione Temporale";
-                case "Português Brasileiro": return "Distorção Temporal";
-                case "Русский": return "Искажение времени";
-                case "한국어": return "시간 왜곡";
-                case "简体中文": return "时间扭曲";
-                default: return "Time Warp";
-            }
-        }
-
         ///<summary>spell=1856</summary>
         private static string Vanish_SpellName(string Language = "English")
         {
@@ -1218,7 +1183,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "Distract", "Blind", "Sap", "KidneyShot", "NoCycle", };
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", Distract_SpellName(Language), Blind_SpellName(Language), Sap_SpellName(Language), "KidneyShot", "NoCycle", };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
         private List<string> m_ItemsList;
@@ -1880,7 +1845,7 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("Distract") && Aimsharp.SpellCooldown(Distract_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn(Distract_SpellName(Language)) && Aimsharp.SpellCooldown(Distract_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -1979,7 +1944,7 @@ namespace AimsharpWow.Modules
 
             #region Queues
             //Queues
-            bool Sap = Aimsharp.IsCustomCodeOn("Sap");
+            bool Sap = Aimsharp.IsCustomCodeOn(Sap_SpellName(Language));
             if (Sap)
             {
                 if (Debug)
@@ -1990,7 +1955,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Blind = Aimsharp.IsCustomCodeOn("Blind");
+            bool Blind = Aimsharp.IsCustomCodeOn(Blind_SpellName(Language));
             if (Aimsharp.SpellCooldown(Blind_SpellName(Language)) - Aimsharp.GCD() > 2000 && Blind)
             {
                 if (Debug)
@@ -2033,7 +1998,7 @@ namespace AimsharpWow.Modules
             }
 
             string DistractCast = GetDropDown("Distract Cast:");
-            bool Distract = Aimsharp.IsCustomCodeOn("Distract");
+            bool Distract = Aimsharp.IsCustomCodeOn(Distract_SpellName(Language));
             if (Aimsharp.SpellCooldown(Distract_SpellName(Language)) - Aimsharp.GCD() > 2000 && Distract)
             {
                 if (Debug)
@@ -2700,6 +2665,16 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
+                    if (SpellID1 == 426591 && Aimsharp.CanCast(GoremawsBite_SpellName(Language), "target", true, true))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Goremaw's Bite - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(GoremawsBite_SpellName(Language));
+                        return true;
+                    }
+
                     if (SpellID1 == 53 && Aimsharp.CanCast(Backstab_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
@@ -2767,7 +2742,7 @@ namespace AimsharpWow.Modules
             bool Enemy = Aimsharp.TargetIsEnemy();
             bool SnDOOC = GetCheckBox("Slice and Dice Out of Combat:");
             bool StealthOOC = GetCheckBox("Stealth Out of Combat:");
-            bool Sap = Aimsharp.IsCustomCodeOn("Sap");
+            bool Sap = Aimsharp.IsCustomCodeOn(Sap_SpellName(Language));
             bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
             #endregion
 
@@ -2793,7 +2768,7 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("Distract") && Aimsharp.SpellCooldown(Distract_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn(Distract_SpellName(Language)) && Aimsharp.SpellCooldown(Distract_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -2801,7 +2776,7 @@ namespace AimsharpWow.Modules
 
             #region Queues
             //Queues
-            bool Blind = Aimsharp.IsCustomCodeOn("Blind");
+            bool Blind = Aimsharp.IsCustomCodeOn(Blind_SpellName(Language));
             if (Aimsharp.SpellCooldown(Blind_SpellName(Language)) - Aimsharp.GCD() > 2000 && Blind)
             {
                 if (Debug)
@@ -2823,7 +2798,7 @@ namespace AimsharpWow.Modules
             }
 
             string DistractCast = GetDropDown("Distract Cast:");
-            bool Distract = Aimsharp.IsCustomCodeOn("Distract");
+            bool Distract = Aimsharp.IsCustomCodeOn(Distract_SpellName(Language));
             if (Aimsharp.SpellCooldown(Distract_SpellName(Language)) - Aimsharp.GCD() > 2000 && Distract)
             {
                 if (Debug)
