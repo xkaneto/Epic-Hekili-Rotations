@@ -878,9 +878,9 @@ namespace AimsharpWow.Modules
 
             CustomFunctions.Add("EmpowermentCheck", "local loading, finished = IsAddOnLoaded(\"Hekili\")\nif loading == true and finished == true then\n    local id,empowermentStage,_=Hekili_GetRecommendedAbility(\"Primary\",1)\n    if id ~= nil and empowermentStage ~= nil then\n        return empowermentStage\n    end\nend\nreturn 0");
 
-            CustomFunctions.Add("DeepBreathMouseover", "if UnitExists('mouseover') and UnitIsDead('mouseover') ~= true and UnitAffectingCombat('mouseover') and IsSpellInRange('Fireball','mouseover') == 1 then return 1 end; return 0");
+            CustomFunctions.Add("DeepBreathMouseover", "if UnitExists('mouseover') and UnitIsDead('mouseover') ~= true and UnitAffectingCombat('mouseover') and IsSpellInRange('Breath of Eons','mouseover') == 1 then return 1 end; return 0");
 
-            CustomFunctions.Add("BoEMouseover", "if UnitExists('mouseover') and UnitIsDead('mouseover') ~= true and UnitAffectingCombat('mouseover') and IsSpellInRange('Fireball','mouseover') == 1 then return 1 end; return 0");
+            CustomFunctions.Add("BoEMouseover", "if UnitExists('mouseover') and UnitIsDead('mouseover') ~= true and UnitAffectingCombat('mouseover') and IsSpellInRange('Breath of Eons','mouseover') == 1 then return 1 end; return 0");
 
             CustomFunctions.Add("MouseoverCheck", "if UnitExists('mouseover') and UnitIsDead('mouseover') ~= true and UnitAffectingCombat('mouseover') then return 1 end; return 0");
 
@@ -1045,7 +1045,7 @@ namespace AimsharpWow.Modules
 
             #region Reinitialize Lists
             m_DebuffsList = new List<string> { SleepWalk_SpellName(Language), };
-            m_BuffsList = new List<string> { BlessingOfTheBronze_SpellName(Language), TipTheScales_SpellName(Language), };
+            m_BuffsList = new List<string> { BlessingOfTheBronze_SpellName(Language), TipTheScales_SpellName(Language), Hover_SpellName(Language) };
             m_ItemsList = new List<string> { Healthstone_SpellName(Language), };
             m_SpellBook = new List<string> {
                 //Utility
@@ -1410,7 +1410,7 @@ namespace AimsharpWow.Modules
                     KickValueRandom = KickValue;
                     KickChannelsAfterRandom = KickChannelsAfter;
                 }
-                if (Aimsharp.CanCast(Quell_SpellName(Language), "target", true, true))
+                if (Aimsharp.CanCast(Quell_SpellName(Language), "target", false, true))
                 {
                     if (IsInterruptable && !IsChanneling && CastingRemaining < KickValueRandom)
                     {
@@ -1423,7 +1423,7 @@ namespace AimsharpWow.Modules
                     }
                 }
 
-                if (Aimsharp.CanCast(Quell_SpellName(Language), "target", true, true))
+                if (Aimsharp.CanCast(Quell_SpellName(Language), "target", false, true))
                 {
                     if (IsInterruptable && IsChanneling && CastingElapsed > KickChannelsAfterRandom)
                     {
@@ -1536,7 +1536,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (SleepWalk && Aimsharp.CanCast(SleepWalk_SpellName(Language), "mouseover", true, true) && !Moving)
+            if (SleepWalk && Aimsharp.CanCast(SleepWalk_SpellName(Language), "mouseover", false, true) && (!Moving || Aimsharp.HasBuff(Hover_SpellName(Language), "player")))
             {
                 if (Debug)
                 {
@@ -1645,7 +1645,7 @@ namespace AimsharpWow.Modules
                     for (int i = 1; i < partysize; i++)
                     {
                         var partyunit = ("party" + i);
-                        if (Aimsharp.Health(partyunit) > 0 && Aimsharp.Range(partyunit) <= 40)
+                        if (Aimsharp.Health(partyunit) > 0 && Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language),partyunit))
                         {
                             PartyDict.Add(partyunit, Aimsharp.Health(partyunit));
                         }
@@ -1654,7 +1654,7 @@ namespace AimsharpWow.Modules
 
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
-                    if (Aimsharp.CanCast(EmeraldBlossom_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.Range(unit.Key) <= 40) && Aimsharp.Health(unit.Key) <= GetSlider("Auto Emerald Blossom @ HP%"))
+                    if (Aimsharp.CanCast(EmeraldBlossom_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language),unit.Key)) && Aimsharp.Health(unit.Key) <= GetSlider("Auto Emerald Blossom @ HP%"))
                     {
                         if (!UnitFocus(unit.Key))
                         {
@@ -1688,7 +1688,7 @@ namespace AimsharpWow.Modules
                 for (int i = 1; i < partysize; i++)
                 {
                     var partyunit = ("party" + i);
-                    if (Aimsharp.Health(partyunit) > 0 && Aimsharp.Range(partyunit) <= 40)
+                    if (Aimsharp.Health(partyunit) > 0 && Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language),partyunit))
                     {
                         PartyDict.Add(partyunit, Aimsharp.Health(partyunit));
                     }
@@ -1702,7 +1702,7 @@ namespace AimsharpWow.Modules
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
                     Enum.TryParse(unit.Key, out target);
-                    if (Aimsharp.CanCast(Expunge_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.Range(unit.Key) <= 40) && isUnitCleansable(target, states))
+                    if (Aimsharp.CanCast(Expunge_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language),unit.Key)) && isUnitCleansable(target, states))
                     {
                         if (!UnitFocus(unit.Key))
                         {
@@ -1737,7 +1737,7 @@ namespace AimsharpWow.Modules
                 for (int i = 1; i < partysize; i++)
                 {
                     var partyunit = ("party" + i);
-                    if (Aimsharp.Health(partyunit) > 0 && Aimsharp.Range(partyunit) <= 40)
+                    if (Aimsharp.Health(partyunit) > 0 && Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language),partyunit))
                     {
                         PartyDict.Add(partyunit, Aimsharp.Health(partyunit));
                     }
@@ -1751,7 +1751,7 @@ namespace AimsharpWow.Modules
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
                     Enum.TryParse(unit.Key, out target);
-                    if (Aimsharp.CanCast(CauterizingFlame_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.Range(unit.Key) <= 40) && isUnitCleansable(target, states))
+                    if (Aimsharp.CanCast(CauterizingFlame_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language),unit.Key)) && isUnitCleansable(target, states))
                     {
                         if (!UnitFocus(unit.Key))
                         {
@@ -1798,7 +1798,7 @@ namespace AimsharpWow.Modules
 
             if (Aimsharp.TargetIsEnemy() && TargetAlive() && TargetInCombat && Wait <= 200)
             {
-                if (Aimsharp.Range("target") <= 40 && !Aimsharp.HasDebuff(SleepWalk_SpellName(Language), "target", true) && !Aimsharp.HasDebuff(Landslide_SpellName(Language), "target", true) && !Landslide)
+                if (!Aimsharp.HasDebuff(SleepWalk_SpellName(Language), "target", true) && !Aimsharp.HasDebuff(Landslide_SpellName(Language), "target", true) && !Landslide)
                 {
                     #region Trinkets
                     if (CooldownsToggle == 1 && UseTrinketsCD && Aimsharp.CanUseTrinket(0))
@@ -1881,7 +1881,7 @@ namespace AimsharpWow.Modules
                     #region General Spells - No GCD
                     ///Class Spells
                     //Target - No GCD
-                    if (SpellID1 == 351338 && Aimsharp.CanCast(Quell_SpellName(Language), "target", true, true))
+                    if (SpellID1 == 351338 && Aimsharp.CanCast(Quell_SpellName(Language), "target", false, true))
                     {
                         if (Debug)
                         {
@@ -1894,7 +1894,7 @@ namespace AimsharpWow.Modules
 
                     #region General Spells - Target GCD
                     //Target - GCD
-                    if (SpellID1 == 356995 && Aimsharp.CanCast(Disintegrate_SpellName(Language), "target", true, true) && !Moving)
+                    if (SpellID1 == 356995 && Aimsharp.CanCast(Disintegrate_SpellName(Language), "target", false, true) && (!Moving || Aimsharp.HasBuff(Hover_SpellName(Language), "player")))
                     {
                         if (Debug)
                         {
@@ -1904,7 +1904,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 383121 && Aimsharp.CanCast(Landslide_SpellName(Language), "target", true, true))
+                    if (SpellID1 == 383121 && Aimsharp.CanCast(Landslide_SpellName(Language), "target", false, true))
                     {
                         if (Debug)
                         {
@@ -1914,7 +1914,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 361469 && Aimsharp.CanCast(LivingFlame_SpellName(Language), "target", true, true) && !Moving)
+                    if (SpellID1 == 361469 && Aimsharp.CanCast(LivingFlame_SpellName(Language), "target", false, true) && (!Moving || Aimsharp.HasBuff(Hover_SpellName(Language), "player")))
                     {
                         if (Debug)
                         {
@@ -1966,7 +1966,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 358385 && Aimsharp.CanCast(Landslide_SpellName(Language), "player", true, true) && !Moving)
+                    if (SpellID1 == 358385 && Aimsharp.CanCast(Landslide_SpellName(Language), "player", false, true) && !Moving)
                     {
                         if (Debug)
                         {
@@ -2118,7 +2118,7 @@ namespace AimsharpWow.Modules
                     #endregion
 
                     #region Fire Spells - Target GCD
-                    if (SpellID1 == 368432 && Aimsharp.CanCast(Unravel_SpellName(Language), "target", true, true))
+                    if (SpellID1 == 368432 && Aimsharp.CanCast(Unravel_SpellName(Language), "target", false, true))
                     {
                         if (Debug)
                         {
@@ -2138,7 +2138,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 357211 && Aimsharp.CanCast(Pyre_SpellName(Language), "target", true, true))
+                    if (SpellID1 == 357211 && Aimsharp.CanCast(Pyre_SpellName(Language), "target", false, true))
                     {
                         if (Debug)
                         {
@@ -2148,7 +2148,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if ((SpellID1 == 396286 || SpellID1 == 408092) && Aimsharp.CanCast(Upheaval_SpellName(Language), "target", true, true))
+                    if ((SpellID1 == 396286 || SpellID1 == 408092) && Aimsharp.CanCast(Upheaval_SpellName(Language), "target", false, true))
                     {
                         if (Debug)
                         {
@@ -2158,7 +2158,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 395160 && Aimsharp.CanCast(Eruption_SpellName(Language), "target", true, true))
+                    if (SpellID1 == 395160 && Aimsharp.CanCast(Eruption_SpellName(Language), "target", false, true))
                     {
                         if (Debug)
                         {
@@ -2167,7 +2167,7 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast(Eruption_SpellName(Language));
                         return true;
                     }
-                    if (SpellID1 == 360995 && Aimsharp.CanCast(VerdantEmbrace_SpellName(Language), "target", true, true))
+                    if (SpellID1 == 360995 && Aimsharp.CanCast(VerdantEmbrace_SpellName(Language), "target", false, true))
                     {
                         if (Debug)
                         {
@@ -2176,7 +2176,7 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast(VerdantEmbrace_SpellName(Language));
                         return true;
                     }
-                    if (SpellID1 == 355913 && Aimsharp.CanCast(EmeraldBlossom_SpellName(Language), "player", true))
+                    if (SpellID1 == 355913 && Aimsharp.CanCast(EmeraldBlossom_SpellName(Language), "player"))
                     {
                         if (Debug)
                         {
@@ -2364,7 +2364,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (SleepWalk && Aimsharp.CanCast(SleepWalk_SpellName(Language), "mouseover", true, true) && !Moving)
+            if (SleepWalk && Aimsharp.CanCast(SleepWalk_SpellName(Language), "mouseover", false, true) && (!Moving || Aimsharp.HasBuff(Hover_SpellName(Language), "player")))
             {
                 if (Debug)
                 {
@@ -2485,7 +2485,7 @@ namespace AimsharpWow.Modules
 
             #region Auto Combat
             //Auto Combat
-            if (GetCheckBox("Auto Start Combat:") == true && Aimsharp.TargetIsEnemy() && TargetAlive() && Aimsharp.Range("target") <= 40 && TargetInCombat && !Aimsharp.HasDebuff(SleepWalk_SpellName(Language), "target", true) && !Aimsharp.HasDebuff(Landslide_SpellName(Language), "target", true) && !Landslide)
+            if (GetCheckBox("Auto Start Combat:") == true && Aimsharp.TargetIsEnemy() && TargetAlive() && TargetInCombat && !Aimsharp.HasDebuff(SleepWalk_SpellName(Language), "target", true) && !Aimsharp.HasDebuff(Landslide_SpellName(Language), "target", true) && !Landslide)
             {
                 if (Debug)
                 {

@@ -1712,7 +1712,6 @@ namespace AimsharpWow.Modules
 
             bool Enemy = Aimsharp.TargetIsEnemy();
             int EnemiesInMelee = Aimsharp.EnemiesInMelee();
-            bool MeleeRange = Aimsharp.Range("target") <= 6;
 
             bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
             #endregion
@@ -1868,7 +1867,7 @@ namespace AimsharpWow.Modules
                 for (int i = 1; i < partysize; i++)
                 {
                     var partyunit = ("party" + i);
-                    if (Aimsharp.Health(partyunit) > 0 && Aimsharp.Range(partyunit) <= 40)
+                    if (Aimsharp.Health(partyunit) > 0 && Aimsharp.SpellInRange(RemoveCorruption_SpellName(Language),partyunit))
                     {
                         PartyDict.Add(partyunit, Aimsharp.Health(partyunit));
                     }
@@ -1882,7 +1881,7 @@ namespace AimsharpWow.Modules
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
                     Enum.TryParse(unit.Key, out target);
-                    if (Aimsharp.CanCast(RemoveCorruption_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.Range(unit.Key) <= 40) && isUnitCleansable(target, states))
+                    if (Aimsharp.CanCast(RemoveCorruption_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(RemoveCorruption_SpellName(Language),unit.Key)) && isUnitCleansable(target, states))
                     {
                         if (!UnitFocus(unit.Key))
                         {
@@ -2064,10 +2063,10 @@ namespace AimsharpWow.Modules
                 }
                 #endregion
 
-                if (Aimsharp.Range("target") <= 8 && Wait <= 200 && !Maim)
+                if (Wait <= 200 && !Maim)
                 {
                     #region Trinkets
-                    if (CooldownsToggle == 1 && UseTrinketsCD && Aimsharp.CanUseTrinket(0) && MeleeRange)
+                    if (CooldownsToggle == 1 && UseTrinketsCD && Aimsharp.CanUseTrinket(0))
                     {
                         if (Debug)
                         {
@@ -2077,7 +2076,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (CooldownsToggle == 2 && UseTrinketsCD && Aimsharp.CanUseTrinket(1) && MeleeRange)
+                    if (CooldownsToggle == 2 && UseTrinketsCD && Aimsharp.CanUseTrinket(1))
                     {
                         if (Debug)
                         {
@@ -2087,7 +2086,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 1 && Aimsharp.CanUseTrinket(0) && MeleeRange)
+                    if (SpellID1 == 1 && Aimsharp.CanUseTrinket(0))
                     {
                         if (Debug)
                         {
@@ -2097,7 +2096,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 2 && Aimsharp.CanUseTrinket(1) && MeleeRange)
+                    if (SpellID1 == 2 && Aimsharp.CanUseTrinket(1))
                     {
                         if (Debug)
                         {
@@ -2107,7 +2106,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 3 && MeleeRange)
+                    if (SpellID1 == 3)
                     {
                         if (Debug)
                         {
@@ -2801,7 +2800,7 @@ namespace AimsharpWow.Modules
 
             #region Auto Combat
             //Auto Combat
-            if (GetCheckBox("Auto Start Combat:") == true && Aimsharp.TargetIsEnemy() && TargetAlive() && Aimsharp.Range("target") <= 6)
+            if (GetCheckBox("Auto Start Combat:") == true && Aimsharp.TargetIsEnemy() && TargetAlive())
             {
                 if (Debug)
                 {

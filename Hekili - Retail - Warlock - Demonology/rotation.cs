@@ -2026,7 +2026,7 @@ namespace AimsharpWow.Modules
 
             if (Aimsharp.TargetIsEnemy() && TargetAlive() && TargetInCombat && Wait <= 200)
             {
-                if (Aimsharp.Range("target") <= 40 && !Aimsharp.HasDebuff(Banish_SpellName(Language), "target", true) && !Aimsharp.HasDebuff(Fear_SpellName(Language), "target", true) && !Banish && !Fear)
+                if (!Aimsharp.HasDebuff(Banish_SpellName(Language), "target", true) && !Aimsharp.HasDebuff(Fear_SpellName(Language), "target", true) && !Banish && !Fear)
                 {
                     #region Trinkets
                     if (CooldownsToggle == 1 && UseTrinketsCD && Aimsharp.CanUseTrinket(0))
@@ -3002,7 +3002,7 @@ namespace AimsharpWow.Modules
 
             #region Auto Combat
             //Auto Combat
-            if (GetCheckBox("Auto Start Combat:") == true && Aimsharp.TargetIsEnemy() && TargetAlive() && Aimsharp.Range("target") <= 40 && TargetInCombat && !Aimsharp.HasDebuff(Banish_SpellName(Language), "target", true) && !Aimsharp.HasDebuff(Fear_SpellName(Language), "target", true) && !Banish && !Fear)
+            if (GetCheckBox("Auto Start Combat:") == true && Aimsharp.TargetIsEnemy() && TargetAlive() && TargetInCombat && !Aimsharp.HasDebuff(Banish_SpellName(Language), "target", true) && !Aimsharp.HasDebuff(Fear_SpellName(Language), "target", true) && !Banish && !Fear)
             {
                 if (Debug)
                 {

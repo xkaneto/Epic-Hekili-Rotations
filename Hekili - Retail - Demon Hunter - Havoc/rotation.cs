@@ -1331,7 +1331,6 @@ namespace AimsharpWow.Modules
             int EnemiesInMelee = Aimsharp.EnemiesInMelee();
             bool Moving = Aimsharp.PlayerIsMoving();
             int PlayerHP = Aimsharp.Health("player");
-            bool MeleeRange = Aimsharp.Range("target") <= 6;
             bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
             #endregion
 
@@ -1696,7 +1695,7 @@ namespace AimsharpWow.Modules
                 {
                     #region Trinkets
                     //Trinkets
-                    if (CooldownsToggle == 1 && UseTrinketsCD && Aimsharp.CanUseTrinket(0) && MeleeRange)
+                    if (CooldownsToggle == 1 && UseTrinketsCD && Aimsharp.CanUseTrinket(0))
                     {
                         if (Debug)
                         {
@@ -1706,7 +1705,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (CooldownsToggle == 2 && UseTrinketsCD && Aimsharp.CanUseTrinket(1) && MeleeRange)
+                    if (CooldownsToggle == 2 && UseTrinketsCD && Aimsharp.CanUseTrinket(1))
                     {
                         if (Debug)
                         {
@@ -1716,7 +1715,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 1 && Aimsharp.CanUseTrinket(0) && MeleeRange)
+                    if (SpellID1 == 1 && Aimsharp.CanUseTrinket(0))
                     {
                         if (Debug)
                         {
@@ -1726,7 +1725,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 2 && Aimsharp.CanUseTrinket(1) && MeleeRange)
+                    if (SpellID1 == 2 && Aimsharp.CanUseTrinket(1))
                     {
                         if (Debug)
                         {
@@ -1739,7 +1738,7 @@ namespace AimsharpWow.Modules
 
                     #region Racials
                     //Racials
-                    if ((SpellID1 == 28730 || SpellID1 == 25046 || SpellID1 == 50613 || SpellID1 == 69179 || SpellID1 == 80483 || SpellID1 == 129597) && Aimsharp.CanCast(ArcaneTorrent_SpellName(Language), "player", true, false) && MeleeRange)
+                    if ((SpellID1 == 28730 || SpellID1 == 25046 || SpellID1 == 50613 || SpellID1 == 69179 || SpellID1 == 80483 || SpellID1 == 129597) && Aimsharp.CanCast(ArcaneTorrent_SpellName(Language), "player", true, false))
                     {
                         if (Debug)
                         {
@@ -1892,13 +1891,13 @@ namespace AimsharpWow.Modules
                         }
                     }
 
-                    if (SpellID1 == 258920 && Aimsharp.CanCast(ImmolationAura_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 8)
+                    if (SpellID1 == 258920 && Aimsharp.CanCast(ImmolationAura_SpellName(Language), "player", false, true))
                     {
                         Aimsharp.Cast(ImmolationAura_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 191427 && Aimsharp.CanCast(Metamorphosis_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 191427 && Aimsharp.CanCast(Metamorphosis_SpellName(Language), "player", false, true))
                     {
                         Aimsharp.Cast("MetamorphosisP");
                         return true;
@@ -1940,37 +1939,37 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 179057 && Aimsharp.CanCast(ChaosNova_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 179057 && Aimsharp.CanCast(ChaosNova_SpellName(Language), "player", false, true))
                     {
                         Aimsharp.Cast(ChaosNova_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 198013 && Aimsharp.CanCast(EyeBeam_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5 && !Moving)
+                    if (SpellID1 == 198013 && Aimsharp.CanCast(EyeBeam_SpellName(Language), "player", false, true)&& !Moving)
                     {
                         Aimsharp.Cast(EyeBeam_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 342817 && Aimsharp.CanCast(GlaiveTempest_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 342817 && Aimsharp.CanCast(GlaiveTempest_SpellName(Language), "player", false, true))
                     {
                         Aimsharp.Cast(GlaiveTempest_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 390152 && Aimsharp.CanCast(CollectiveAnguish_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 390152 && Aimsharp.CanCast(CollectiveAnguish_SpellName(Language), "player", false, true))
                     {
                         Aimsharp.Cast(CollectiveAnguish_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 258860 && Aimsharp.CanCast(EssenceBreak_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 258860 && Aimsharp.CanCast(EssenceBreak_SpellName(Language), "player", false, true))
                     {
                         Aimsharp.Cast(EssenceBreak_SpellName(Language));
                         return true;
                     }
 
-                    if (SpellID1 == 258925 && Aimsharp.CanCast(FelBarrage_SpellName(Language), "player", false, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 258925 && Aimsharp.CanCast(FelBarrage_SpellName(Language), "player", false, true))
                     {
                         Aimsharp.Cast(FelBarrage_SpellName(Language));
                         return true;
@@ -1985,7 +1984,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 210152 && Aimsharp.CanCast(DeathSweep_SpellName(Language), "target", true, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 210152 && Aimsharp.CanCast(DeathSweep_SpellName(Language), "target", true, true))
                     {
                         Aimsharp.Cast(DeathSweep_SpellName(Language));
                         return true;
@@ -2009,7 +2008,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 188499 && Aimsharp.CanCast(BladeDance_SpellName(Language), "target", true, true) && Aimsharp.Range("target") <= 5)
+                    if (SpellID1 == 188499 && Aimsharp.CanCast(BladeDance_SpellName(Language), "target", true, true))
                     {
                         Aimsharp.Cast(BladeDance_SpellName(Language));
                         return true;
@@ -2299,7 +2298,7 @@ namespace AimsharpWow.Modules
 
             #region Auto Combat
             //Auto Combat
-            if (GetCheckBox("Auto Start Combat:") == true && Aimsharp.TargetIsEnemy() && TargetAlive() && Aimsharp.Range("target") <= 6 && TargetInCombat && !Imprison && !Aimsharp.HasBuff(Imprison_SpellName(Language), "player", true))
+            if (GetCheckBox("Auto Start Combat:") == true && Aimsharp.TargetIsEnemy() && TargetAlive() && TargetInCombat && !Imprison && !Aimsharp.HasBuff(Imprison_SpellName(Language), "player", true))
             {
                 if (Debug)
                 {

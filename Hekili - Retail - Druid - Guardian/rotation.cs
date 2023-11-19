@@ -1867,14 +1867,12 @@ namespace AimsharpWow.Modules
             int hekiliSpell = Aimsharp.CustomFunction("HekiliID1");
 
             int PlayerHealth = Aimsharp.Health("player");
-            bool Fighting = Aimsharp.Range("target") <= 30 && Aimsharp.TargetIsEnemy();
             string PotionName = GetString("Potion name:");
             bool UsePotion = GetCheckBox("Use DPS Potion:");
             int GCD = Aimsharp.GCD();
             bool Moving = Aimsharp.PlayerIsMoving();
             int EnemiesInMelee = Aimsharp.EnemiesInMelee();
             bool WeAreinParty = Aimsharp.InParty();
-            bool MeleeRange = Aimsharp.Range("target") <= 6;
 
             int Enemies = Aimsharp.CustomFunction("HekiliEnemies");
             int TargetingGroup = Aimsharp.CustomFunction("GroupTargets");
@@ -1994,7 +1992,7 @@ namespace AimsharpWow.Modules
                 for (int i = 1; i < partysize; i++)
                 {
                     var partyunit = ("party" + i);
-                    if (Aimsharp.Health(partyunit) > 0 && Aimsharp.Range(partyunit) <= 40)
+                    if (Aimsharp.Health(partyunit) > 0 && Aimsharp.SpellInRange(RemoveCorruption_SpellName(Language),partyunit))
                     {
                         PartyDict.Add(partyunit, Aimsharp.Health(partyunit));
                     }
@@ -2008,7 +2006,7 @@ namespace AimsharpWow.Modules
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
                     Enum.TryParse(unit.Key, out target);
-                    if (Aimsharp.CanCast(RemoveCorruption_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.Range(unit.Key) <= 40) && isUnitCleansable(target, states))
+                    if (Aimsharp.CanCast(RemoveCorruption_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(RemoveCorruption_SpellName(Language),unit.Key)) && isUnitCleansable(target, states))
                     {
                         if (!UnitFocus(unit.Key))
                         {
@@ -2049,10 +2047,10 @@ namespace AimsharpWow.Modules
                 return RageoftheSleeper();
 
             //Defensives
-            if (Aimsharp.CanCast(Regrowth_SpellName(Language), "player") && PlayerHealth < GetSlider("Regrowth HP %") && Fighting)
+            if (Aimsharp.CanCast(Regrowth_SpellName(Language), "player") && PlayerHealth < GetSlider("Regrowth HP %"))
                 return Regrowth();
 
-            if (EnableDefensives == true && Aimsharp.CustomFunction("ThreatStatus") == 1 && Fighting)
+            if (EnableDefensives == true && Aimsharp.CustomFunction("ThreatStatus") == 1)
             {
                 if (Aimsharp.CanCast(Barkskin_SpellName(Language), "player") && PlayerHealth < GetSlider("Barkskin HP %") && CDBarkskinUp)
                 {
@@ -2304,7 +2302,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Trinkets
-            if (hekiliSpell == 1 && Aimsharp.CanUseTrinket(0) && MeleeRange && Wait <= 200)
+            if (hekiliSpell == 1 && Aimsharp.CanUseTrinket(0) && Wait <= 200)
             {
                 if (DebugMode)
                 {
@@ -2314,7 +2312,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (hekiliSpell == 2 && Aimsharp.CanUseTrinket(1) && MeleeRange)
+            if (hekiliSpell == 2 && Aimsharp.CanUseTrinket(1))
             {
                 if (DebugMode)
                 {
@@ -2803,7 +2801,7 @@ namespace AimsharpWow.Modules
             if (MOTWOOC && !Aimsharp.HasBuff(MarkOfTheWild_SpellName(Language), "player", true) && !Aimsharp.HasBuff(MarkOfTheWild_SpellName(Language), "player", false)) if (SpellCast(1126, MarkOfTheWild_SpellName(Language), "player")) return true;
 
             //Auto Combat - Special thanks to Snoogens for this one
-            if (GetCheckBox("Auto Start Combat:") == true && Aimsharp.TargetIsEnemy() && TargetAlive() && Aimsharp.Range("target") <= 6 && UnitDebuffParalysis("target") == 0)
+            if (GetCheckBox("Auto Start Combat:") == true && Aimsharp.TargetIsEnemy() && TargetAlive() && UnitDebuffParalysis("target") == 0)
             {
                 if (DebugMode)
                 {
