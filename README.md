@@ -2,7 +2,7 @@
 
 All of the Hekili Rotations by Snoogens that are updated by xKaneto.
 
-- Updated Spells to 10.1.5
+- Updated Spells to 10.2
 - Language Support for all the rotations
 - Randomize Kicks Option added
 
