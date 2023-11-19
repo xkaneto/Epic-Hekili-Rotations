@@ -13,10 +13,13 @@ __pycache__/
 .temp/
 obj/
 Program.cs
-Rotations-by-xKaneto.csproj
+Epic-Hekili-Rotations.csproj
 
 # C# Project
 bin/
+Aimsharp/
+.vscode/
+requirements.txt
 
 # Distribution / packaging
 .Python
