@@ -23,6 +23,24 @@ namespace AimsharpWow.Modules
         private static int EmpowerStateNow = new int();
 
         #region SpellFunctions
+        ///<summary>npc=204773</summary>
+        private static string AfflictedSoul_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Afflicted Soul";
+                case "Deutsch": return "Befallene Seele";
+                case "Español": return "Alma afligida";
+                case "Français": return "Âme affligée";
+                case "Italiano": return "Anima Afflitta";
+                case "Português Brasileiro": return "Alma Aflita";
+                case "Русский": return "Изнемогающая душа";
+                case "한국어": return "괴로워하는 영혼";
+                case "简体中文": return "Afflicted Soul";
+                default: return "Afflicted Soul";
+            }
+        }
+
         ///<summary>spell=362969</summary>
         private static string AzureStrike_SpellName(string Language = "English")
         {
@@ -290,6 +308,24 @@ namespace AimsharpWow.Modules
                 case "한국어": return "부양";
                 case "简体中文": return "悬空";
                 default: return "Hover";
+            }
+        }
+
+        ///<summary>npc=204560</summary>
+        private static string IncorporealBeing_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Incorporeal Being";
+                case "Deutsch": return "Körperloses Wesen";
+                case "Español": return "Ser incorpóreo";
+                case "Français": return "Être immatériel";
+                case "Italiano": return "Essere Incorporeo";
+                case "Português Brasileiro": return "Ser Incorpóreo";
+                case "Русский": return "Бестелесный дух";
+                case "한국어": return "무형의 존재";
+                case "简体中文": return "Incorporeal Being";
+                default: return "Incorporeal Being";
             }
         }
 
@@ -942,7 +978,7 @@ namespace AimsharpWow.Modules
             "end " +
             "return UnitTargeted");
 
-            CustomFunctions.Add("CheckforAffixNPC", "if UnitExists(\"mouseover\") and not UnitIsPlayer(\"mouseover\") then\nlocal npcID = tonumber((UnitGUID(\"mouseover\")):sub(-10, -7), 16)\nif npcID == 204773 then\n\treturn 1\nend\nif npcID == 204560 then\n\treturn 2\nend\nend\nreturn 0");
+            CustomFunctions.Add("CheckforAffixNPC", "if UnitExists(\"mouseover\") and not UnitIsPlayer(\"mouseover\") then\nlocal UnitName = UnitName(\"mouseover\")\nif UnitName == \"" + AfflictedSoul_SpellName(Language) + "\" then\n\treturn 1\nend\nif UnitName == \"" + IncorporealBeing_SpellName(Language) + "\" then\n\treturn 2\nend\nend\nreturn 0");
 
             CustomFunctions.Add("GetTalentFontOfMagic", "if (IsSpellKnown(408083) or IsPlayerSpell(408083)) then return 1 else return 0 end");
 
