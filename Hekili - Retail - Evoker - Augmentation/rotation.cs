@@ -1183,7 +1183,7 @@ namespace AimsharpWow.Modules
                 {
                     if (Debug)
                     {
-                        Aimsharp.PrintMessage("Detected Rotation for Afflicted NPC, casting Expunge", Color.Purple);
+                        Aimsharp.PrintMessage("Detected Afflicted NPC, casting Expunge", Color.Purple);
                     }
                     Aimsharp.Cast("ExpungeMO", true);
                     return true;
@@ -1192,7 +1192,7 @@ namespace AimsharpWow.Modules
                 {
                     if (Debug)
                     {
-                        Aimsharp.PrintMessage("Detected Rotation for Afflicted NPC, casting Cauterizing Flame", Color.Purple);
+                        Aimsharp.PrintMessage("Detected Afflicted NPC, casting Cauterizing Flame", Color.Purple);
                     }
                     Aimsharp.Cast("CauterizingFlameMO", true);
                     return true;
@@ -1205,7 +1205,7 @@ namespace AimsharpWow.Modules
                 {
                     if (Debug)
                     {
-                        Aimsharp.PrintMessage("Detected Rotation for Incorporeal NPC, casting Sleep Walk", Color.Purple);
+                        Aimsharp.PrintMessage("Detected Incorporeal NPC, casting Sleep Walk", Color.Purple);
                     }
                     Aimsharp.Cast("SleepWalkMO", true);
                     return true;

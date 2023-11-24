@@ -2675,6 +2675,15 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast(Shadowstep_SpellName(Language));
                         return true;
                     }
+                    if (SpellID1 == 185313 && Aimsharp.CanCast(ShadowDance_SpellName(Language),"player"))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Shadow Dance - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(ShadowDance_SpellName(Language));
+                        return false;
+                    }
                     #endregion
 
                     #region General Spells - Target GCD
@@ -3030,7 +3039,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (CanCastStealth("player") && !Aimsharp.HasBuff(Stealth_SpellName(Language), "player", true) && StealthOOC)
+            if (CanCastStealth("player") && Aimsharp.SpellEnabled(Stealth_SpellName(Language)) && StealthOOC)
             {
                 if (Debug)
                 {

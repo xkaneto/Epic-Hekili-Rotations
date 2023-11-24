@@ -3037,7 +3037,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (CanCastStealth("player") && !Aimsharp.HasBuff(Stealth_SpellName(Language), "player", true) && StealthOOC)
+            if (CanCastStealth("player") && Aimsharp.SpellEnabled(Stealth_SpellName(Language)) && StealthOOC)
             {
                 if (Debug)
                 {
