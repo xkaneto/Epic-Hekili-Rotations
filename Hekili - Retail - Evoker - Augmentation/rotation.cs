@@ -1959,9 +1959,6 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast(LivingFlame_SpellName(Language));
                         return true;
                     }
-                    #endregion
-
-                    #region General Spells - Player GCD
                     if (SpellID1 == 406732 && Aimsharp.CanCast("Spatial Paradox", "player", false))
                     {
                         if (Debug)
@@ -1971,6 +1968,9 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast("Spatial Paradox", true);
                         return true;
                     }
+                    #endregion
+
+                    #region General Spells - Player GCD
                     if (SpellID1 == 370553 && Aimsharp.CanCast(TipTheScales_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
