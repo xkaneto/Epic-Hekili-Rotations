@@ -1962,6 +1962,15 @@ namespace AimsharpWow.Modules
                     #endregion
 
                     #region General Spells - Player GCD
+                    if (SpellID1 == 406732 && Aimsharp.CanCast("Spatial Paradox", "player", false))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Spatial Paradox - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast("Spatial Paradox", true);
+                        return true;
+                    }
                     if (SpellID1 == 370553 && Aimsharp.CanCast(TipTheScales_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
