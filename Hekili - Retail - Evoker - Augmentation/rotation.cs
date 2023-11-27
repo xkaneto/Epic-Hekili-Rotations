@@ -1088,6 +1088,7 @@ namespace AimsharpWow.Modules
                 EbonMight_SpellName(Language), //395152 (on player)
                 BlisteringScales_SpellName(Language), //360827 (on player)
                 Prescience_SpellName(Language), //409311 (on player)
+                "Spatial Paradox", //406732 (on player)
                 TimeSkip_SpellName(Language), //404977 (on player)
 
                 //INTERRUPT ON TARGET or cursor?
