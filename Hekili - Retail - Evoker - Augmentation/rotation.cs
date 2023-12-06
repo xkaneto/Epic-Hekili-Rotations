@@ -849,13 +849,13 @@ namespace AimsharpWow.Modules
             Macros.Add("DeepBreathOff", "/" + FiveLetters + " DeepBreath");
             Macros.Add("BreathofEonsOff", "/" + FiveLetters + " BreathOfEons");
 
+            Macros.Add("FOC_player", "/focus player");
             Macros.Add("FOC_party1", "/focus party1");
             Macros.Add("FOC_party2", "/focus party2");
             Macros.Add("FOC_party3", "/focus party3");
             Macros.Add("FOC_party4", "/focus party4");
-            Macros.Add("FOC_player", "/focus player");
 
-            for (int i = 1; i <= 20; i++)
+            for (int i = 1; i <= 40; i++)
             {
                 Macros.Add("FOC_raid" + i, "/focus raid" + i);
             }
@@ -867,8 +867,8 @@ namespace AimsharpWow.Modules
             Macros.Add("SleepWalkMO", "/cast [@mouseover,exists] " + SleepWalk_SpellName(Language));
             Macros.Add("ExpungeMO", "/cast [@mouseover,exists] " + Expunge_SpellName(Language));
             Macros.Add("CauterizingFlameMO", "/cast [@mouseover,exists] " + CauterizingFlame_SpellName(Language));
-            Macros.Add("PrescienceMO", "/cast [@mouseover,exists] " + Prescience_SpellName(Language));
             Macros.Add("PrescienceFocus", "/cast [@focus] " + Prescience_SpellName(Language));
+            Macros.Add("BlisteringScalesFocus", "/cast [@focus] " + BlisteringScales_SpellName(Language));
             Macros.Add("DeepBreathC", "/cast [@cursor] " + DeepBreath_SpellName(Language));
             Macros.Add("BreathofEonsC", "/cast [@cursor] " + "" + BreathOfEons_SpellName(Language));
             Macros.Add("BreathofEonsP", "/cast [@player] " + "" + BreathOfEons_SpellName(Language));
@@ -920,7 +920,9 @@ namespace AimsharpWow.Modules
 
             CustomFunctions.Add("MouseoverCheck", "if UnitExists('mouseover') and UnitIsDead('mouseover') ~= true and UnitAffectingCombat('mouseover') then return 1 end; return 0");
 
-            CustomFunctions.Add("AllyPrescienceBuffWithName", "local out = 0\nlocal numGroupMembers = GetNumGroupMembers()\n\nif UnitExists('mouseover') then\n\tif  UnitIsPlayer('mouseover') ~= true and IsSpellInRange(\"" + Prescience_SpellName(Language) + "\", 'mouseover') == 1 and (GetUnitName('mouseover') == \"" + AllyName1 + "\" or GetUnitName('mouseover') == \"" + AllyName2 + "\" or GetUnitName('mouseover') == \"" + AllyName3 + "\" or GetUnitName('mouseover') == \"" + AllyName4 + "\") then\n\t\tout = 100\n\tend\nend\n\nif numGroupMembers > 0 and numGroupMembers < 6 then\n\tfor p = 1, numGroupMembers do\n\t\tlocal partymember = 'party' .. p\n\t\tlocal SpellinRange = IsSpellInRange(\"" + Prescience_SpellName(Language) + "\", partymember)\n\t\tif UnitExists(partymember) and UnitIsDeadOrGhost(partymember) ~= true and SpellinRange == 1 and (GetUnitName(partymember) == \"" + AllyName1 + "\" or GetUnitName(partymember) == \"" + AllyName2 + "\" or GetUnitName(partymember) == \"" + AllyName3 + "\" or GetUnitName(partymember) == \"" + AllyName4 + "\") then\n\t\t\tlocal hasPrescienceBuff = false\n\t\t\tfor i = 1, 25 do\n\t\t\t\tlocal name, _, _, _, _, _, source = UnitAura(partymember, i)\n\t\t\t\tif name == \"" + Prescience_SpellName(Language) + "\" and source == 'player' then\n\t\t\t\t\thasPrescienceBuff = true\n\t\t\t\t\tbreak\n\t\t\t\tend\n\t\t\tend\n\t\t\tif not hasPrescienceBuff then\n\t\t\t\tout = p\n\t\t\t\tbreak\n\t\t\tend\n\t\tend\n\tend\nelseif numGroupMembers > 5 then\n\tfor r = 1, numGroupMembers do\n\t\tlocal raidmember = 'raid' .. r\n\t\tlocal SpellinRange = IsSpellInRange(\"" + Prescience_SpellName(Language) + "\", raidmember)\n\t\tif UnitExists(raidmember) and UnitIsDeadOrGhost(raidmember) ~= true and SpellinRange == 1 and (GetUnitName(raidmember) == \"" + AllyName1 + "\" or GetUnitName(raidmember) == \"" + AllyName2 + "\" or GetUnitName(raidmember) == \"" + AllyName3 + "\" or GetUnitName(raidmember) == \"" + AllyName4 + "\") then\n\t\t\tlocal hasPrescienceBuff = false\n\t\t\tfor i = 1, 25 do\n\t\t\t\tlocal name, _, _, _, _, _, source = UnitAura(raidmember, i)\n\t\t\t\tif name == \"" + Prescience_SpellName(Language) + "\" and source == 'player' then\n\t\t\t\t\thasPrescienceBuff = true\n\t\t\t\t\tbreak\n\t\t\t\tend\n\t\t\tend\n\t\t\tif not hasPrescienceBuff then\n\t\t\t\tout = r\n\t\t\t\tbreak\n\t\t\tend\n\t\tend\n\tend\nend\n\nreturn out");
+            CustomFunctions.Add("AllyPrescienceBuffWithName", "local out = 0;\nlocal numGroupMembers = GetNumGroupMembers();\nlocal CDIDs = {\n\t102560,359844,191427,288613,12472,365350,190319,375087,10060,391109,152279,47568,384376,51271,212283,393961,383883,383882,\n};\n\nif numGroupMembers > 0 and numGroupMembers < 6 then\n\tfor p = 1, numGroupMembers do\n\t\tlocal partymember = 'party' .. p\n\t\tlocal SpellinRange = IsSpellInRange(\"" + Prescience_SpellName(Language) + "\", partymember)\n\t\tlocal role = UnitGroupRolesAssigned(partymember)\n\t\tif UnitExists(partymember) and UnitIsDeadOrGhost(partymember) ~= true and SpellinRange == 1 then\n\t\t\tif (GetUnitName(partymember) == \"" + AllyName1 + "\" or GetUnitName(partymember) == \"" + AllyName2 + "\" or GetUnitName(partymember) == \"" + AllyName3 + "\" or GetUnitName(partymember) == \"" + AllyName4 + "\") then\n\t\t\t\tlocal hasPrescienceBuff = false\n\t\t\t\tlocal hasCDBuff = false\n\t\t\t\tfor j = 1, 40 do\n\t\t\t\t\tlocal _, _, _, _, _, _, _, _, _, buffid = UnitAura(partymember, j, \"HELPFUL\")\n\t\t\t\t\tif buffid and tContains(CDIDs, buffid) then\n\t\t\t\t\t\thasCDBuff = true\n\t\t\t\t\t\tbreak\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\t\tfor i = 1, 40 do\n\t\t\t\t\tlocal name, _, _, _, _, expiration, source, _, _, buffid = UnitAura(partymember, i, \"HELPFUL\")\n\t\t\t\t\tif expiration > 0 then\n\t\t\t\t\t\tlocal resttime = expiration - GetTime()\n\t\t\t\t\t\tif resttime > 6 and buffid == 410089 and source == 'player' then\n\t\t\t\t\t\t\thasPrescienceBuff = true\n\t\t\t\t\t\t\tbreak\n\t\t\t\t\t\tend\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\t\tif not hasPrescienceBuff and hasCDBuff then\n\t\t\t\t\tout = p\n\t\t\t\t\tbreak\n\t\t\t\tend\n\t\t\telse\n\t\t\t\tlocal hasPrescienceBuff = false\n\t\t\t\tlocal hasCDBuff = false\n\t\t\t\tfor j = 1, 40 do\n\t\t\t\t\tlocal _, _, _, _, _, _, _, _, _, buffid = UnitAura(partymember, j, \"HELPFUL\")\n\t\t\t\t\tif buffid and tContains(CDIDs, buffid) then\n\t\t\t\t\t\thasCDBuff = true\n\t\t\t\t\t\tbreak\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\t\tfor i = 1, 40 do\n\t\t\t\t\tlocal name, _, _, _, _, expiration, source, _, _, buffid = UnitAura(partymember, i, \"HELPFUL\")\n\t\t\t\t\tif expiration > 0 then\n\t\t\t\t\t\tlocal resttime = expiration - GetTime()\n\t\t\t\t\t\tif resttime > 6 and buffid == 410089 and source == 'player' then\n\t\t\t\t\t\t\thasPrescienceBuff = true\n\t\t\t\t\t\t\tbreak\n\t\t\t\t\t\tend\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\t\tif not hasPrescienceBuff and hasCDBuff then\n\t\t\t\t\tout = p\n\t\t\t\t\tbreak\n\t\t\t\tend\n\t\t\tend\n\t\t\tif (GetUnitName(partymember) == \"" + AllyName1 + "\" or GetUnitName(partymember) == \"" + AllyName2 + "\" or GetUnitName(partymember) == \"" + AllyName3 + "\" or GetUnitName(partymember) == \"" + AllyName4 + "\") then\n\t\t\t\tlocal hasPrescienceBuff = false\n\t\t\t\tfor i = 1, 40 do\n\t\t\t\t\tlocal name, _, _, _, _, expiration, source, _, _, buffid = UnitAura(partymember, i, \"HELPFUL\")\n\t\t\t\t\tif expiration > 0 then\n\t\t\t\t\t\tlocal resttime = expiration - GetTime()\n\t\t\t\t\t\tif resttime > 6 and buffid == 410089 and source == 'player' then\n\t\t\t\t\t\t\thasPrescienceBuff = true\n\t\t\t\t\t\t\tbreak\n\t\t\t\t\t\tend\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\t\tif not hasPrescienceBuff then\n\t\t\t\t\tout = p\n\t\t\t\t\tbreak\n\t\t\t\tend\n\t\t\tend\n\t\t\tif (role == \"DAMAGE\") then\n\t\t\t\tlocal hasPrescienceBuff = false\n\t\t\t\tfor i = 1, 40 do\n\t\t\t\t\tlocal name, _, _, _, _, expiration, source, _, _, buffid = UnitAura(partymember, i, \"HELPFUL\")\n\t\t\t\t\tif expiration > 0 then\n\t\t\t\t\t\tlocal resttime = expiration - GetTime()\n\t\t\t\t\t\tif resttime > 6 and buffid == 410089 and source == 'player' then\n\t\t\t\t\t\t\thasPrescienceBuff = true\n\t\t\t\t\t\t\tbreak\n\t\t\t\t\t\tend\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\t\tif not hasPrescienceBuff then\n\t\t\t\t\tout = p\n\t\t\t\t\tbreak\n\t\t\t\tend\n\t\t\tend\n\t\tend\n\tend\nelseif numGroupMembers > 5 then\n\tfor r = 1, numGroupMembers do\n\t\tlocal raidmember = 'raid' .. r\n\t\tlocal SpellinRange = IsSpellInRange(\"" + Prescience_SpellName(Language) + "\", raidmember)\n\t\tlocal role = UnitGroupRolesAssigned(raidmember)\n\t\tif UnitExists(raidmember) and UnitIsDeadOrGhost(raidmember) ~= true and SpellinRange == 1 then\n\t\t\tif (GetUnitName(raidmember) == \"" + AllyName1 + "\" or GetUnitName(raidmember) == \"" + AllyName2 + "\" or GetUnitName(raidmember) == \"" + AllyName3 + "\" or GetUnitName(raidmember) == \"" + AllyName4 + "\") then\n\t\t\t\tlocal hasPrescienceBuff = false\n\t\t\t\tlocal hasCDBuff = false\n\t\t\t\tfor j = 1, 40 do\n\t\t\t\t\tlocal _, _, _, _, _, _, _, _, _, buffid = UnitAura(raidmember, j, \"HELPFUL\")\n\t\t\t\t\tif buffid and tContains(CDIDs, buffid) then\n\t\t\t\t\t\thasCDBuff = true\n\t\t\t\t\t\tbreak\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\t\tfor i = 1, 40 do\n\t\t\t\t\tlocal name, _, _, _, _, expiration, source, _, _, buffid = UnitAura(raidmember, i, \"HELPFUL\")\n\t\t\t\t\tif expiration > 0 then\n\t\t\t\t\t\tlocal resttime = expiration - GetTime()\n\t\t\t\t\t\tif resttime > 6 and buffid == 410089 and source == 'player' then\n\t\t\t\t\t\t\thasPrescienceBuff = true\n\t\t\t\t\t\t\tbreak\n\t\t\t\t\t\tend\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\t\tif not hasPrescienceBuff and hasCDBuff then\n\t\t\t\t\tout = r\n\t\t\t\t\tbreak\n\t\t\t\tend\n\t\t\telse\n\t\t\t\tlocal hasPrescienceBuff = false\n\t\t\t\tlocal hasCDBuff = false\n\t\t\t\tfor j = 1, 40 do\n\t\t\t\t\tlocal _, _, _, _, _, _, _, _, _, buffid = UnitAura(raidmember, j, \"HELPFUL\")\n\t\t\t\t\tif buffid and tContains(CDIDs, buffid) then\n\t\t\t\t\t\thasCDBuff = true\n\t\t\t\t\t\tbreak\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\t\tfor i = 1, 40 do\n\t\t\t\t\tlocal name, _, _, _, _, expiration, source, _, _, buffid = UnitAura(raidmember, i, \"HELPFUL\")\n\t\t\t\t\tif expiration > 0 then\n\t\t\t\t\t\tlocal resttime = expiration - GetTime()\n\t\t\t\t\t\tif resttime > 6 and buffid == 410089 and source == 'player' then\n\t\t\t\t\t\t\thasPrescienceBuff = true\n\t\t\t\t\t\t\tbreak\n\t\t\t\t\t\tend\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\t\tif not hasPrescienceBuff and hasCDBuff then\n\t\t\t\t\tout = r\n\t\t\t\t\tbreak\n\t\t\t\tend\n\t\t\tend\n\t\t\tif (GetUnitName(raidmember) == \"" + AllyName1 + "\" or GetUnitName(raidmember) == \"" + AllyName2 + "\" or GetUnitName(raidmember) == \"" + AllyName3 + "\" or GetUnitName(raidmember) == \"" + AllyName4 + "\") then\n\t\t\t\tlocal hasPrescienceBuff = false\n\t\t\t\tfor i = 1, 40 do\n\t\t\t\t\tlocal name, _, _, _, _, expiration, source, _, _, buffid = UnitAura(raidmember, i, \"HELPFUL\")\n\t\t\t\t\tif expiration > 0 then\n\t\t\t\t\t\tlocal resttime = expiration - GetTime()\n\t\t\t\t\t\tif resttime > 6 and buffid == 410089 and source == 'player' then\n\t\t\t\t\t\t\thasPrescienceBuff = true\n\t\t\t\t\t\t\tbreak\n\t\t\t\t\t\tend\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\t\tif not hasPrescienceBuff then\n\t\t\t\t\tout = r\n\t\t\t\t\tbreak\n\t\t\t\tend\n\t\t\tend\n\t\t\tif (role == \"DAMAGE\") then\n\t\t\t\tlocal hasPrescienceBuff = false\n\t\t\t\tfor i = 1, 40 do\n\t\t\t\t\tlocal name, _, _, _, _, expiration, source, _, _, buffid = UnitAura(raidmember, i, \"HELPFUL\")\n\t\t\t\t\tif expiration > 0 then\n\t\t\t\t\t\tlocal resttime = expiration - GetTime()\n\t\t\t\t\t\tif resttime > 6 and buffid == 410089 and source == 'player' then\n\t\t\t\t\t\t\thasPrescienceBuff = true\n\t\t\t\t\t\t\tbreak\n\t\t\t\t\t\tend\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\t\tif not hasPrescienceBuff then\n\t\t\t\t\tout = r\n\t\t\t\t\tbreak\n\t\t\t\tend\n\t\t\tend\n\t\tend\n\tend\nend\nreturn out;");
+
+            CustomFunctions.Add("BlisteringCheck", "local out = 0;\nlocal numGroupMembers = GetNumGroupMembers();\nif numGroupMembers > 0 and numGroupMembers < 6 then\n\tfor p = 1, numGroupMembers do\n\t\tlocal partymember = 'party' .. p\n\t\tlocal SpellinRange = IsSpellInRange(\"" + BlisteringScales_SpellName(Language) + "\", partymember)\n\t\tlocal role = UnitGroupRolesAssigned(partymember)\n\t\tif UnitExists(partymember) and UnitIsDeadOrGhost(partymember) ~= true and SpellinRange == 1 and role == \"TANK\" then\n\t\t\tlocal hasBlistering = false\n\t\t\tfor i = 1, 40 do\n\t\t\t\tlocal name, _, stacks, _, _, _, _, _, _, buffid = UnitAura(partymember, i)\n\t\t\t\tif buffid == 360827 and stacks > 2 then\n\t\t\t\t\thasBlistering = true\n\t\t\t\t\tbreak\n\t\t\t\tend\n\t\t\tend\n\t\t\tif not hasBlistering then\n\t\t\t\tout = p\n\t\t\t\tbreak\n\t\t\tend\n\t\tend\n\tend\nelseif numGroupMembers > 5 then\n\tfor r = 1, numGroupMembers do\n\t\tlocal raidmember = 'raid' .. r\n\t\tlocal SpellinRange = IsSpellInRange(\"" + BlisteringScales_SpellName(Language) + "\", raidmember)\n\t\tlocal role = UnitGroupRolesAssigned(raidmember)\n\t\tif UnitExists(raidmember) and UnitIsDeadOrGhost(raidmember) ~= true and SpellinRange == 1 and role == \"TANK\" then\n\t\t\tlocal hasBlistering = false\n\t\t\tfor i = 1, 40 do\n\t\t\t\tlocal name, _, stacks, _, _, _, _, _, _, buffid = UnitAura(raidmember, i)\n\t\t\t\tif buffid == 360827 and stacks > 2 then\n\t\t\t\t\thasBlistering = true\n\t\t\t\t\tbreak\n\t\t\t\tend\n\t\t\tend\n\t\t\tif not hasBlistering then\n\t\t\t\tout = r\n\t\t\t\tbreak\n\t\t\tend\n\t\tend\n\tend\nend\nreturn out;");
 
             CustomFunctions.Add("UnitIsFocus", "local foc=0; " +
             "\nif UnitExists('focus') and UnitIsUnit('party1','focus') then foc = 1; end" +
@@ -1023,7 +1025,7 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Always Cast Deep Breath @ Cursor during Rotation", false));
             Settings.Add(new Setting("Breath of Eons Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Always Cast Breath of Eons @ Cursor during Rotation", false));
-            Settings.Add(new Setting(Prescience_SpellName(Language)));
+            Settings.Add(new Setting("Prescience Targets: "));
             Settings.Add(new Setting("Ally Name 1: ", ""));
             Settings.Add(new Setting("Ally Name 2: ", ""));
             Settings.Add(new Setting("Ally Name 3: ", ""));
@@ -1172,8 +1174,7 @@ namespace AimsharpWow.Modules
             int TargetingGroup = Aimsharp.CustomFunction("GroupTargets");
             float Haste = Aimsharp.Haste();
             int AllyNumber = Aimsharp.CustomFunction("AllyPrescienceBuffWithName");
-
-            //Aimsharp.PrintMessage("Aimsharp Ally Name 1: " + AllyName1 + " or Ally Name 2: " + AllyName2 + " at number " + AllyNumber);
+            int TankNumber = Aimsharp.CustomFunction("BlisteringCheck");
 
             EmpowerState();
 
@@ -1282,27 +1283,13 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            //Prescience Custom Mouseover
-            if (SpellID1 == 409311 && Aimsharp.CanCast(Prescience_SpellName(Language), "mouseover") && Aimsharp.CustomFunction("HekiliWait") <= 200 && AllyNumber > 0)
-            {
-                if (AllyNumber == 100)
-                {
-                    if (Debug)
-                    {
-                        Aimsharp.PrintMessage("Casting Prescience - " + SpellID1 + " on Mouseover Target", Color.Purple);
-                    }
-                    Aimsharp.Cast("PrescienceMO", true);
-                }
-                return true;
-            }
-
             //Prescience Custom Ally
             if (SpellID1 == 409311 && Aimsharp.CanCast(Prescience_SpellName(Language), "player") && Aimsharp.CustomFunction("HekiliWait") <= 200 && AllyNumber > 0)
             {
-                if (AllyNumber != 100 && Aimsharp.GroupSize() > 0)
+                if (Aimsharp.GroupSize() > 0)
                 {
 
-                    if (Aimsharp.GroupSize() < 6 && !Aimsharp.HasBuff(Prescience_SpellName(Language), "party" + AllyNumber))
+                    if (Aimsharp.GroupSize() < 6)
                     {
                         if (Debug)
                         {
@@ -1310,7 +1297,7 @@ namespace AimsharpWow.Modules
                         }
                         Aimsharp.Cast("FOC_party" + AllyNumber);
                     }
-                    if (Aimsharp.GroupSize() > 5 && !Aimsharp.HasBuff(Prescience_SpellName(Language), "raid" + AllyNumber))
+                    if (Aimsharp.GroupSize() > 5)
                     {
                         if (Debug)
                         {
@@ -1324,28 +1311,15 @@ namespace AimsharpWow.Modules
                     }
                     Aimsharp.Cast("PrescienceFocus", true);
                 }
-                return true;
-            }
-
-            //Pescience Mouseover
-            if (SpellID1 == 409311 && Aimsharp.CanCast(Prescience_SpellName(Language), "mouseover") && Aimsharp.CustomFunction("HekiliWait") <= 200 && Aimsharp.CustomFunction("MouseoverCheck") == 1)
-            {
-                if (Debug)
+                else
                 {
-                    Aimsharp.PrintMessage("Casting Prescience - " + SpellID1 + " on General Mouseover", Color.Purple);
+                    if (Debug)
+                    {
+                        Aimsharp.PrintMessage("Casting Prescience - " + SpellID1, Color.Purple);
+                    }
+                    Aimsharp.Cast(Prescience_SpellName(Language), true);
+                    return true;
                 }
-                Aimsharp.Cast("PrescienceMO", true);
-                return true;
-            }
-
-            //Pescience General
-            if (SpellID1 == 409311 && Aimsharp.CanCast(Prescience_SpellName(Language), "player") && Aimsharp.CustomFunction("HekiliWait") <= 200)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Prescience - " + SpellID1, Color.Purple);
-                }
-                Aimsharp.Cast(Prescience_SpellName(Language), true);
                 return true;
             }
 
@@ -1682,7 +1656,7 @@ namespace AimsharpWow.Modules
                     for (int i = 1; i < partysize; i++)
                     {
                         var partyunit = ("party" + i);
-                        if (Aimsharp.Health(partyunit) > 0 && Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language),partyunit))
+                        if (Aimsharp.Health(partyunit) > 0 && Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language), partyunit))
                         {
                             PartyDict.Add(partyunit, Aimsharp.Health(partyunit));
                         }
@@ -1691,7 +1665,7 @@ namespace AimsharpWow.Modules
 
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
-                    if (Aimsharp.CanCast(EmeraldBlossom_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language),unit.Key)) && Aimsharp.Health(unit.Key) <= GetSlider("Auto Emerald Blossom @ HP%"))
+                    if (Aimsharp.CanCast(EmeraldBlossom_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language), unit.Key)) && Aimsharp.Health(unit.Key) <= GetSlider("Auto Emerald Blossom @ HP%"))
                     {
                         if (!UnitFocus(unit.Key))
                         {
@@ -1725,7 +1699,7 @@ namespace AimsharpWow.Modules
                 for (int i = 1; i < partysize; i++)
                 {
                     var partyunit = ("party" + i);
-                    if (Aimsharp.Health(partyunit) > 0 && Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language),partyunit))
+                    if (Aimsharp.Health(partyunit) > 0 && Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language), partyunit))
                     {
                         PartyDict.Add(partyunit, Aimsharp.Health(partyunit));
                     }
@@ -1739,7 +1713,7 @@ namespace AimsharpWow.Modules
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
                     Enum.TryParse(unit.Key, out target);
-                    if (Aimsharp.CanCast(Expunge_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language),unit.Key)) && isUnitCleansable(target, states))
+                    if (Aimsharp.CanCast(Expunge_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language), unit.Key)) && isUnitCleansable(target, states))
                     {
                         if (!UnitFocus(unit.Key))
                         {
@@ -1774,7 +1748,7 @@ namespace AimsharpWow.Modules
                 for (int i = 1; i < partysize; i++)
                 {
                     var partyunit = ("party" + i);
-                    if (Aimsharp.Health(partyunit) > 0 && Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language),partyunit))
+                    if (Aimsharp.Health(partyunit) > 0 && Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language), partyunit))
                     {
                         PartyDict.Add(partyunit, Aimsharp.Health(partyunit));
                     }
@@ -1788,7 +1762,7 @@ namespace AimsharpWow.Modules
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
                     Enum.TryParse(unit.Key, out target);
-                    if (Aimsharp.CanCast(CauterizingFlame_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language),unit.Key)) && isUnitCleansable(target, states))
+                    if (Aimsharp.CanCast(CauterizingFlame_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language), unit.Key)) && isUnitCleansable(target, states))
                     {
                         if (!UnitFocus(unit.Key))
                         {
@@ -2096,11 +2070,39 @@ namespace AimsharpWow.Modules
 
                     if (SpellID1 == 360827 && Aimsharp.CanCast(BlisteringScales_SpellName(Language), "player", false, false))
                     {
-                        if (Debug)
+                        if (Aimsharp.GroupSize() > 0)
                         {
-                            Aimsharp.PrintMessage("Casting Blistering Scales - " + SpellID1, Color.Purple);
+                            if (Aimsharp.GroupSize() < 6)
+                            {
+                                if (Debug)
+                                {
+                                    Aimsharp.PrintMessage("Focusing Party Member: " + TankNumber);
+                                }
+                                Aimsharp.Cast("FOC_party" + TankNumber);
+                            }
+                            if (Aimsharp.GroupSize() > 5)
+                            {
+                                if (Debug)
+                                {
+                                    Aimsharp.PrintMessage("Focusing Raid Member: " + TankNumber);
+                                }
+                                Aimsharp.Cast("FOC_raid" + TankNumber);
+                            }
+                            if (Debug)
+                            {
+                                Aimsharp.PrintMessage("Casting Blistering Scales - " + SpellID1 + " on Focus", Color.Purple);
+                            }
+                            Aimsharp.Cast("BlisteringScalesFocus", true);
                         }
-                        Aimsharp.Cast(BlisteringScales_SpellName(Language), true);
+                        else
+                        {
+                            if (Debug)
+                            {
+                                Aimsharp.PrintMessage("Casting Blistering Scales - " + SpellID1, Color.Purple);
+                            }
+                            Aimsharp.Cast(BlisteringScales_SpellName(Language), true);
+                            return true;
+                        }
                         return true;
                     }
 
