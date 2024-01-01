@@ -26,6 +26,7 @@ namespace AimsharpWow
         public class Aimsharp
         {
             public static string HWID;
+            public static string AimsharpID;
             public static string AddonName = "xxxxx";
             public static int Latency;
             public static int QuickDelay;
@@ -36,6 +37,10 @@ namespace AimsharpWow
             public static string GetHWID()
             {
                 return HWID;
+            }
+            public static string GetAimsharpID()
+            {
+                return AimsharpID;
             }
             public static string GetDateTime()
             {
@@ -147,6 +152,14 @@ namespace AimsharpWow
             public static int TargetCurrentHP()
             {
                 return (int)TargetHP / 1000;
+            }
+
+            /// <summary>
+            /// Returns the current Empower Stage of the cast Evoker ability.
+            /// </summary>
+            public static int GetEmpowerStage()
+            {
+                return 0;
             }
 
             /// <summary>
@@ -690,13 +703,6 @@ namespace AimsharpWow
             {
                 return 43;
             }
-            /// <summary>
-            /// Returns player's current empower stage.
-            /// </summary>
-            public static int GetEmpowerStage()
-            {
-                return 1;
-            }
         }
     }
 
@@ -738,6 +744,10 @@ namespace AimsharpWow
             {
                 return;
             }
+            public static bool Contains(string Name)
+            {
+                return true;
+            }
         }
 
         public static class Totems
@@ -766,6 +776,10 @@ namespace AimsharpWow
             public static void Add(string Name)
             {
                 return;
+            }
+            public static bool Contains(string Name)
+            {
+                return true;
             }
         }
         public static class CustomFunctions

@@ -1427,7 +1427,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (SpellID1 == 375087 && Aimsharp.CanCast(Dragonrage_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
+            if (SpellID1 == 375087 && Aimsharp.CanCast(Dragonrage_SpellName(Language), "player", false, false))
             {
                 if (Debug)
                 {
@@ -2309,7 +2309,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Logic
-            if (SpellID1 == 375087 && Aimsharp.CanCast(Dragonrage_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
+            if (SpellID1 == 375087 && Aimsharp.CanCast(Dragonrage_SpellName(Language), "player", false, false))
             {
                 if (Debug)
                 {
