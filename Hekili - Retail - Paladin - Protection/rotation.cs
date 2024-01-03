@@ -183,23 +183,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=6673</summary>
-        private static string BattleShout_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Battle Shout";
-                case "Deutsch": return "Schlachtruf";
-                case "Español": return "Grito de batalla";
-                case "Français": return "Cri de guerre";
-                case "Italiano": return "Urlo di Battaglia";
-                case "Português Brasileiro": return "Brado de Batalha";
-                case "Русский": return "Боевой крик";
-                case "한국어": return "전투의 외침";
-                case "简体中文": return "战斗怒吼";
-                default: return "Battle Shout";
-            }
-        }
 
         ///<summary>spell=26297</summary>
         private static string Berserking_SpellName(string Language = "English")
@@ -1433,7 +1416,7 @@ namespace AimsharpWow.Modules
             #region Reinitialize Lists
 
             m_DebuffsList = new List<string> { };
-            m_BuffsList = new List<string> { BattleShout_SpellName(Language), };
+            m_BuffsList = new List<string> {};
             m_ItemsList = new List<string> { Healthstone_SpellName(Language), UsableItem};
             m_SpellBook_General = new List<string> {
                 ShieldOfTheRighteous_SpellName(Language),

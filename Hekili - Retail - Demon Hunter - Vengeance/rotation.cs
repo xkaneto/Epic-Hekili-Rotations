@@ -183,6 +183,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=232893</summary>
+        private static string Felblade_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Felblade";
+                case "Deutsch": return "Teufelsklinge";
+                case "Español": return "Hoja mácula";
+                case "Français": return "Gangrelame";
+                case "Italiano": return "Vilspada";
+                case "Português Brasileiro": return "Lâmina Vil";
+                case "Русский": return "Клинок Скверны";
+                case "한국어": return "지옥칼";
+                case "简体中文": return "邪能之刃";
+                default: return "Felblade";
+            }
+        }
+
         ///<summary>spell=212084</summary>
         private static string FelDevastation_SpellName(string Language = "English")
         {
@@ -917,6 +935,8 @@ namespace AimsharpWow.Modules
                 ThrowGlaive_SpellName(Language),
                 Torment_SpellName(Language),
                 BulkExtraction_SpellName(Language),
+                ImmolationAura_SpellName(Language),
+                Felblade_SpellName(Language),
                 FelDevastation_SpellName(Language),
                 FieryBrand_SpellName(Language),
                 Fracture_SpellName(Language),
@@ -1750,7 +1770,8 @@ namespace AimsharpWow.Modules
                     if (SpellCast(204157, ThrowGlaive_SpellName(Language), "player")) return true;
                     if (SpellCast(185245, Torment_SpellName(Language), "player")) return true;
                     if (SpellCast(320341, BulkExtraction_SpellName(Language), "target")) return true;
-                    if (SpellCast(212084, FelDevastation_SpellName(Language), "target")) return true;
+                    if (SpellCast(232893, Felblade_SpellName(Language), "target")) return true;
+                    if (SpellCast(212084, FelDevastation_SpellName(Language), "player")) return true;
                     if (SpellCast(204021, FieryBrand_SpellName(Language), "target")) return true;
                     if (SpellCast(263642, Fracture_SpellName(Language), "target")) return true;
                     if (SpellCast(263648, SoulBarrier_SpellName(Language), "target")) return true;
@@ -1774,8 +1795,6 @@ namespace AimsharpWow.Modules
             if (HSTimer.IsRunning) HSTimer.Reset();
             if (ItemTimer.IsRunning && ItemTimer.ElapsedMilliseconds > 300000) ItemTimer.Reset();
             #endregion
-
-            bool BSOOC = GetCheckBox("Battle Cry Out of Combat:");
 
             #region SpellQueueWindow
             if (Aimsharp.CustomFunction("GetSpellQueueWindow") != Aimsharp.Latency)

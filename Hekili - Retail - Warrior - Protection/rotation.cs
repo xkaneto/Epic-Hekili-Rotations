@@ -1293,6 +1293,7 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Auto Ignore Pain @ HP%", 0, 100, 40));
             Settings.Add(new Setting("Auto Victory Rush @ HP%", 0, 100, 70));
             Settings.Add(new Setting("Auto Bitter Immunity @ HP%", 0, 100, 35));
+            Settings.Add(new Setting("Ravager Cast:", m_CastingList, "Player"));
             Settings.Add(new Setting("Spear of Bastion Cast:", m_CastingList, "Player"));
             Settings.Add(new Setting("    "));
 
@@ -1425,7 +1426,7 @@ namespace AimsharpWow.Modules
             m_ItemsList = new List<string> { Healthstone_SpellName(Language), UsableItem};
             m_SpellBook_General = new List<string> {
                 Pummel_SpellName(Language),
-                
+
                 ConquerorsBanner_SpellName(Language),
                 AncientAftershock_SpellName(Language),
                 SpearOfBastion_SpellName(Language),

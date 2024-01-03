@@ -111,24 +111,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=6673</summary>
-        private static string BattleShout_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Battle Shout";
-                case "Deutsch": return "Schlachtruf";
-                case "Español": return "Grito de batalla";
-                case "Français": return "Cri de guerre";
-                case "Italiano": return "Urlo di Battaglia";
-                case "Português Brasileiro": return "Brado de Batalha";
-                case "Русский": return "Боевой крик";
-                case "한국어": return "전투의 외침";
-                case "简体中文": return "战斗怒吼";
-                default: return "Battle Shout";
-            }
-        }
-
         ///<summary>spell=26297</summary>
         private static string Berserking_SpellName(string Language = "English")
         {
@@ -1414,7 +1396,7 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("- General -", Color.White);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoCycle - Disables Target Cycle", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " NoCleanse - Disables Cleanse", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " NoDetox - Disables Detox", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " Paralysis - Casts Paralysis @ Mouseover on the next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " BonedustBrew - Casts Bonedust Brew @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " RingofPeace - Casts Ring of Peace @ next GCD", Color.Yellow);
@@ -1518,7 +1500,7 @@ namespace AimsharpWow.Modules
             #region Reinitialize Lists
 
             m_DebuffsList = new List<string> { };
-            m_BuffsList = new List<string> { BattleShout_SpellName(Language), };
+            m_BuffsList = new List<string> { };
             m_ItemsList = new List<string> { Healthstone_SpellName(Language), UsableItem};
             m_SpellBook_General = new List<string> {
                 RingOfPeace_SpellName(Language),
@@ -1559,7 +1541,7 @@ namespace AimsharpWow.Modules
                 KegSmash_SpellName(Language),
                 SpinningCraneKick_SpellName(Language),
                 WeaponsOfOrder_SpellName(Language),
-                
+
                 CelestialBrew_SpellName(Language),
                 FortifyingBrew_SpellName(Language),
                 HealingElixir_SpellName(Language),
@@ -1581,7 +1563,6 @@ namespace AimsharpWow.Modules
 
             bool NoInterrupts = Aimsharp.IsCustomCodeOn("NoInterrupts");
             bool NoCycle = Aimsharp.IsCustomCodeOn("NoCycle");
-            bool NoCleanse = Aimsharp.IsCustomCodeOn("NoCleanse");
 
             Debug = GetCheckBox("Debug:") == true;
             bool UseTrinketsCD = GetCheckBox("Use Trinkets on CD, dont wait for Hekili:") == true;
@@ -1601,11 +1582,6 @@ namespace AimsharpWow.Modules
             bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
 
             int DiseasePoisonCheck = Aimsharp.CustomFunction("DiseasePoisonCheck");
-
-            int DivineShieldHP = GetSlider("Auto Divine Shield @ HP%");
-            int LayonHandsHP = GetSlider("Auto Lay on Hands @ HP%");
-            int ArdentDefenderHP = GetSlider("Auto Ardent Defender @ HP%");
-            int GuardianofAncientKingsHP = GetSlider("Auto Guardian of Ancient Kings @ HP%");
 
             if (ItemTimer.IsRunning && ItemTimer.ElapsedMilliseconds > 300000) ItemTimer.Reset();
             #endregion
