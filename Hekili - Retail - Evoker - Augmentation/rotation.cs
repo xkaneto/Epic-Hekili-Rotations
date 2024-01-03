@@ -1296,7 +1296,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (SpellID1 == 395152 && Aimsharp.CanCast(EbonMight_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
+            if (SpellID1 == 395152 && Aimsharp.CanCast(EbonMight_SpellName(Language), "player", false, true) && Aimsharp.CustomFunction("HekiliWait") <= 200)
             {
                 if (Debug)
                 {
@@ -1307,7 +1307,7 @@ namespace AimsharpWow.Modules
             }
 
 
-            if (SpellID1 == 404977 && Aimsharp.CanCast(TimeSkip_SpellName(Language), "player", false, false))
+            if (SpellID1 == 404977 && Aimsharp.CanCast(TimeSkip_SpellName(Language), "player", false, true))
             {
                 if (Debug)
                 {
@@ -1317,7 +1317,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (SpellID1 == 370553 && Aimsharp.CanCast(TipTheScales_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
+            if (SpellID1 == 370553 && Aimsharp.CanCast(TipTheScales_SpellName(Language), "player", false, true) && Aimsharp.CustomFunction("HekiliWait") <= 200)
             {
                 if (Debug)
                 {
