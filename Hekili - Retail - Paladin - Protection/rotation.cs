@@ -1040,7 +1040,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "HammerOfJustice","NoCleanse", "IntercessionMO", "BlessingofFreedom", "BlessingofProtection", "BlessingofSacrifice","RepentanceMO", "WordofGloryParty", "TurnEvilMO" };
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "HammerofJustice","NoCleanse", "IntercessionMO", "BlessingofFreedom", "BlessingofProtection", "BlessingofSacrifice","RepentanceMO", "WordofGloryParty", "TurnEvilMO" };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
         private List<string> m_ItemsList;
