@@ -1003,12 +1003,10 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Auto Start Combat:", true));
             Settings.Add(new Setting("Blessing of the Bronze Out of Combat:", true));
             Settings.Add(new Setting("Auto Zephyr @ HP%", 0, 100, 20));
-            Settings.Add(new Setting("Auto Renewing Blaze @ HP%", 0, 100, 35));
-            Settings.Add(new Setting("Auto Obsidian Scales @ HP%", 0, 100, 30));
-            Settings.Add(new Setting("Auto Emerald Blossom @ HP%", 0, 100, 60));
+            Settings.Add(new Setting("Auto Renewing Blaze @ HP%", 0, 100, 60));
+            Settings.Add(new Setting("Auto Obsidian Scales @ HP%", 0, 100, 40));
+            Settings.Add(new Setting("Auto Emerald Blossom @ HP%", 0, 100, 75));
             Settings.Add(new Setting("Auto Verdant Embrace @ HP%", 0, 100, 70));
-            Settings.Add(new Setting("Deep Breath Cast:", m_CastingList, "Manual"));
-            Settings.Add(new Setting("Always Cast Deep Breath @ Cursor during Rotation", false));
             Settings.Add(new Setting("Breath of Eons Cast:", m_CastingList, "Manual"));
             Settings.Add(new Setting("Always Cast Breath of Eons @ Cursor during Rotation", false));
             Settings.Add(new Setting("Prescience Targets: "));
