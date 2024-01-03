@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using AimsharpWow.API;
@@ -1337,6 +1338,9 @@ namespace AimsharpWow.Modules
 
         #region Variables
         string FiveLetters;
+        string UsableItem;
+        Stopwatch HSTimer = new Stopwatch();
+        Stopwatch ItemTimer = new Stopwatch();
         #endregion
 
         #region Lists
@@ -1474,6 +1478,7 @@ namespace AimsharpWow.Modules
 
             //Healthstone
             Macros.Add("UseHealthstone", "/use " + Healthstone_SpellName(Language));
+            Macros.Add("UseItem", "/use " + UsableItem);
 
             //Cancel PoM
             Macros.Add("MacroCancelPoM", "/cancelaura " + PresenceOfMind_SpellName(Language));
@@ -1619,6 +1624,8 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting(" "));
             Settings.Add(new Setting("Use Trinkets on CD, dont wait for Hekili:", false));
             Settings.Add(new Setting("Auto Healthstone @ HP%", 0, 100, 25));
+            Settings.Add(new Setting("Item Use:", ""));
+            Settings.Add(new Setting("Auto Item @ HP%", 0, 100, 35));
             Settings.Add(new Setting("Kicks/Interrupts"));
             Settings.Add(new Setting("Randomize Kicks:", false));
             Settings.Add(new Setting("Kick at milliseconds remaining", 50, 1500, 500));
@@ -1653,7 +1660,7 @@ namespace AimsharpWow.Modules
 
             Aimsharp.PrintMessage("Epic PVE - Mage Arcane", Color.White);
             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.White);
-            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.White);
+            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything in every tab there, especially Pause !", Color.White);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- Talents -", Color.White);
             Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/guide/classes/mage/arcane/talent-builds-pve-dps", Color.Yellow);
@@ -1669,6 +1676,7 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("-----", Color.Black);
 
             Language = GetDropDown("Game Client Language");
+            UsableItem = GetString("Item Use:");
 
             #region Racial Spells
             if (GetDropDown("Race:") == "draenei")
@@ -1760,7 +1768,7 @@ namespace AimsharpWow.Modules
             #region Reinitialize Lists
             m_DebuffsList = new List<string> { Polymorph_SpellName(Language), };
             m_BuffsList = new List<string> { ArcaneIntellect_SpellName(Language), ArcaneSurge_SpellName(Language), Evocation_SpellName(Language), ShiftingPower_SpellName(Language), PresenceOfMind_SpellName(Language), };
-            m_ItemsList = new List<string> { Healthstone_SpellName(Language), ManaGem_SpellName(Language), };
+            m_ItemsList = new List<string> { Healthstone_SpellName(Language), UsableItem, ManaGem_SpellName(Language), };
             m_SpellBook = new List<string> {
                 //Covenants
                 RadiantSpark_SpellName(Language), //307443
@@ -1853,6 +1861,8 @@ namespace AimsharpWow.Modules
             int PlayerHP = Aimsharp.Health("player");
 
             bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
+
+            if (ItemTimer.IsRunning && ItemTimer.ElapsedMilliseconds > 300000) ItemTimer.Reset();
             #endregion
 
             #region SpellQueueWindow
@@ -1947,15 +1957,30 @@ namespace AimsharpWow.Modules
 
             #region Auto Spells and Items
             //Auto Healthstone
-            if (Aimsharp.CanUseItem(Healthstone_SpellName(Language), false) && Aimsharp.ItemCooldown(Healthstone_SpellName(Language)) == 0)
+            if (Aimsharp.CanUseItem(Healthstone_SpellName(Language), false) && Aimsharp.ItemCooldown(Healthstone_SpellName(Language)) == 0 && !HSTimer.IsRunning)
             {
                 if (Aimsharp.Health("player") <= GetSlider("Auto Healthstone @ HP%"))
                 {
                     if (Debug)
                     {
-                        Aimsharp.PrintMessage("Using Healthstone - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Healthstone @ HP%"), Color.Black);
+                        Aimsharp.PrintMessage("Using Healthstone - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Healthstone @ HP%"), Color.Purple);
                     }
-                    Aimsharp.Cast(Healthstone_SpellName(Language));
+                    Aimsharp.Cast("UseHealthstone");
+                    HSTimer.Start();
+                    return true;
+                }
+            }
+            //Auto Item Use
+            if (Aimsharp.CanUseItem(UsableItem, false) && Aimsharp.ItemCooldown(UsableItem) == 0 && !ItemTimer.IsRunning)
+            {
+                if (Aimsharp.Health("player") <= GetSlider("Auto Item @ HP%"))
+                {
+                    if (Debug)
+                    {
+                        Aimsharp.PrintMessage("Using " + UsableItem + " - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Item @ HP%"), Color.Purple);
+                    }
+                    Aimsharp.Cast("UseItem");
+                    ItemTimer.Start();
                     return true;
                 }
             }
@@ -2934,6 +2959,9 @@ namespace AimsharpWow.Modules
             bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
             bool Moving = Aimsharp.PlayerIsMoving();
             bool AIOOC = GetCheckBox("Arcane Intellect Out of Combat:");
+
+            if (HSTimer.IsRunning) HSTimer.Reset();
+            if (ItemTimer.IsRunning && ItemTimer.ElapsedMilliseconds > 300000) ItemTimer.Reset();
             #endregion
 
             #region SpellQueueWindow

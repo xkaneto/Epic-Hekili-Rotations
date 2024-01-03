@@ -674,6 +674,9 @@ namespace AimsharpWow.Modules
 
         #region Variables
         string FiveLetters;
+        string UsableItem;
+        Stopwatch HSTimer = new Stopwatch();
+        Stopwatch ItemTimer = new Stopwatch();
         #endregion
 
         #region Lists
@@ -839,6 +842,7 @@ namespace AimsharpWow.Modules
 
             //Healthstone
             Macros.Add("UseHealthstone", "/use " + Healthstone_SpellName(Language));
+            Macros.Add("UseItem", "/use " + UsableItem);
 
 
             //SpellQueueWindow
@@ -1010,6 +1014,8 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting(" "));
             Settings.Add(new Setting("Use Trinkets on CD, dont wait for Hekili:", false));
             Settings.Add(new Setting("Auto Healthstone @ HP%", 0, 100, 25));
+            Settings.Add(new Setting("Item Use:", ""));
+            Settings.Add(new Setting("Auto Item @ HP%", 0, 100, 35));
             Settings.Add(new Setting("Kicks/Interrupts"));
             Settings.Add(new Setting("Randomize Kicks:", false));
             Settings.Add(new Setting("Kick at milliseconds remaining", 50, 1500, 500));
@@ -1050,7 +1056,7 @@ namespace AimsharpWow.Modules
 
             Aimsharp.PrintMessage("Epic PVE - Evoker Devastation", Color.White);
             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.White);
-            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.White);
+            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything in every tab there, especially Pause !", Color.White);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- Talents -", Color.White);
             Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/guide/classes/evoker/devastation/overview-pve-dps", Color.Yellow);
@@ -1069,6 +1075,7 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("-----", Color.Black);
 
             Language = GetDropDown("Game Client Language");
+            UsableItem = GetString("Item Use:");
             AllyName1 = GetString("Ally Name 1: ");
             AllyName2 = GetString("Ally Name 2: ");
             AllyName3 = GetString("Ally Name 3: ");
@@ -1085,7 +1092,7 @@ namespace AimsharpWow.Modules
             #region Reinitialize Lists
             m_DebuffsList = new List<string> { SleepWalk_SpellName(Language), };
             m_BuffsList = new List<string> { BlessingOfTheBronze_SpellName(Language), TipTheScales_SpellName(Language), Hover_SpellName(Language) };
-            m_ItemsList = new List<string> { Healthstone_SpellName(Language), };
+            m_ItemsList = new List<string> { Healthstone_SpellName(Language), UsableItem};
             m_SpellBook = new List<string> {
                 //Utility
                 EbonMight_SpellName(Language), //395152 (on player)
@@ -1202,6 +1209,8 @@ namespace AimsharpWow.Modules
             bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
 
             int EmpowermentStage = Aimsharp.GetEmpowerStage();
+
+            if (ItemTimer.IsRunning && ItemTimer.ElapsedMilliseconds > 300000) ItemTimer.Reset();
             #endregion
 
             #region SpellQueueWindow
@@ -1214,6 +1223,47 @@ namespace AimsharpWow.Modules
                 Aimsharp.Cast("SetSpellQueueCvar");
             }
             #endregion
+
+            //Prescience Custom Ally
+            if (Aimsharp.CanCast(Prescience_SpellName(Language), "player") && AllyNumber > 0)
+            {
+                if (Aimsharp.GroupSize() > 0)
+                {
+                    if (Aimsharp.GroupSize() < 6)
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Focusing Party Member: " + AllyNumber);
+                        }
+                        Aimsharp.Cast("FOC_party" + AllyNumber);
+                        System.Threading.Thread.Sleep(100);
+                    }
+                    if (Aimsharp.GroupSize() > 5)
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Focusing Raid Member: " + AllyNumber);
+                        }
+                        Aimsharp.Cast("FOC_raid" + AllyNumber);
+                        System.Threading.Thread.Sleep(100);
+                    }
+                    if (Debug)
+                    {
+                        Aimsharp.PrintMessage("Casting Prescience - " + SpellID1 + " on Focus", Color.Purple);
+                    }
+                    Aimsharp.Cast("PrescienceFocus", true);
+                }
+                else
+                {
+                    if (Debug)
+                    {
+                        Aimsharp.PrintMessage("Casting Prescience - " + SpellID1, Color.Purple);
+                    }
+                    Aimsharp.Cast(Prescience_SpellName(Language), true);
+                    return true;
+                }
+                return true;
+            }
 
             #region Above Pause Logic
             if (Aimsharp.CustomFunction("CheckforAffixNPC") == 1)
@@ -1284,49 +1334,8 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            //Prescience Custom Ally
-            if (SpellID1 == 409311 && Aimsharp.CanCast(Prescience_SpellName(Language), "player") && Aimsharp.CustomFunction("HekiliWait") <= 200 && AllyNumber > 0)
-            {
-                if (Aimsharp.GroupSize() > 0)
-                {
 
-                    if (Aimsharp.GroupSize() < 6)
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Focusing Party Member: " + AllyNumber);
-                        }
-                        Aimsharp.Cast("FOC_party" + AllyNumber);
-                        System.Threading.Thread.Sleep(100);
-                    }
-                    if (Aimsharp.GroupSize() > 5)
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Focusing Raid Member: " + AllyNumber);
-                        }
-                        Aimsharp.Cast("FOC_raid" + AllyNumber);
-                        System.Threading.Thread.Sleep(100);
-                    }
-                    if (Debug)
-                    {
-                        Aimsharp.PrintMessage("Casting Prescience - " + SpellID1 + " on Focus", Color.Purple);
-                    }
-                    Aimsharp.Cast("PrescienceFocus", true);
-                }
-                else
-                {
-                    if (Debug)
-                    {
-                        Aimsharp.PrintMessage("Casting Prescience - " + SpellID1, Color.Purple);
-                    }
-                    Aimsharp.Cast(Prescience_SpellName(Language), true);
-                    return true;
-                }
-                return true;
-            }
-
-            if (SpellID1 == 404977 && Aimsharp.CanCast(TimeSkip_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
+            if (SpellID1 == 404977 && Aimsharp.CanCast(TimeSkip_SpellName(Language), "player", false, false))
             {
                 if (Debug)
                 {
@@ -1454,7 +1463,7 @@ namespace AimsharpWow.Modules
 
             #region Auto Spells and Items
             //Auto Healthstone
-            if (Aimsharp.CanUseItem(Healthstone_SpellName(Language), false) && Aimsharp.ItemCooldown(Healthstone_SpellName(Language)) == 0)
+            if (Aimsharp.CanUseItem(Healthstone_SpellName(Language), false) && Aimsharp.ItemCooldown(Healthstone_SpellName(Language)) == 0 && !HSTimer.IsRunning)
             {
                 if (Aimsharp.Health("player") <= GetSlider("Auto Healthstone @ HP%"))
                 {
@@ -1463,6 +1472,21 @@ namespace AimsharpWow.Modules
                         Aimsharp.PrintMessage("Using Healthstone - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Healthstone @ HP%"), Color.Purple);
                     }
                     Aimsharp.Cast("UseHealthstone");
+                    HSTimer.Start();
+                    return true;
+                }
+            }
+            //Auto Item Use
+            if (Aimsharp.CanUseItem(UsableItem, false) && Aimsharp.ItemCooldown(UsableItem) == 0 && !ItemTimer.IsRunning)
+            {
+                if (Aimsharp.Health("player") <= GetSlider("Auto Item @ HP%"))
+                {
+                    if (Debug)
+                    {
+                        Aimsharp.PrintMessage("Using " + UsableItem + " - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Item @ HP%"), Color.Purple);
+                    }
+                    Aimsharp.Cast("UseItem");
+                    ItemTimer.Start();
                     return true;
                 }
             }
@@ -2098,16 +2122,6 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 409311 && Aimsharp.CanCast(Prescience_SpellName(Language), "player", false, false))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Prescience - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(Prescience_SpellName(Language), true);
-                        return true;
-                    }
-
                     if (SpellID1 == 360827 && Aimsharp.CanCast(BlisteringScales_SpellName(Language), "player", false, false))
                     {
                         if (Aimsharp.GroupSize() > 0)
@@ -2288,6 +2302,9 @@ namespace AimsharpWow.Modules
             bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
             bool Moving = Aimsharp.PlayerIsMoving();
             bool BOTBOOC = GetCheckBox("Blessing of the Bronze Out of Combat:");
+
+            if (HSTimer.IsRunning) HSTimer.Reset();
+            if (ItemTimer.IsRunning && ItemTimer.ElapsedMilliseconds > 300000) ItemTimer.Reset();
             #endregion
 
             #region SpellQueueWindow
@@ -2335,46 +2352,6 @@ namespace AimsharpWow.Modules
                     Aimsharp.Cast("SleepWalkMO", true);
                     return true;
                 }
-            }
-
-            if (GetCheckBox("Auto Start Combat:") == true && SpellID1 == 395152 && Aimsharp.CanCast(EbonMight_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Ebon Might - " + SpellID1, Color.Purple);
-                }
-                Aimsharp.Cast(EbonMight_SpellName(Language), true);
-                return true;
-            }
-
-            if (GetCheckBox("Auto Start Combat:") == true && SpellID1 == 409311 && Aimsharp.CanCast(Prescience_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Prescience - " + SpellID1, Color.Purple);
-                }
-                Aimsharp.Cast(Prescience_SpellName(Language), true);
-                return true;
-            }
-
-            if (GetCheckBox("Auto Start Combat:") == true && SpellID1 == 404977 && Aimsharp.CanCast(TimeSkip_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Time Skip - " + SpellID1, Color.Purple);
-                }
-                Aimsharp.Cast(TimeSkip_SpellName(Language), true);
-                return true;
-            }
-
-            if (GetCheckBox("Auto Start Combat:") == true && SpellID1 == 370553 && Aimsharp.CanCast(TipTheScales_SpellName(Language), "player", false, false) && Aimsharp.CustomFunction("HekiliWait") <= 200)
-            {
-                if (Debug)
-                {
-                    Aimsharp.PrintMessage("Casting Tip the Scales - " + SpellID1, Color.Purple);
-                }
-                Aimsharp.Cast(TipTheScales_SpellName(Language), true);
-                return true;
             }
 
             if (Aimsharp.CastingID("player") == 358385 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("QueueLandslide"))

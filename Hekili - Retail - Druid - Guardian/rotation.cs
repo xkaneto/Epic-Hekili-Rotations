@@ -1324,7 +1324,9 @@ namespace AimsharpWow.Modules
         bool EnableDefensives;
 
         private static string FiveLetters;
+        string UsableItem;
         Stopwatch HSTimer = new Stopwatch();
+        Stopwatch ItemTimer = new Stopwatch();
 
         private static List<string> MacroCommands = new List<string>
         {
@@ -1596,7 +1598,9 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting("Soothe Mouseover:", true));
             Settings.Add(new Setting("Vortex Cast:", m_CastingList, "Cursor"));
             Settings.Add(new Setting("Healing and Mitigation"));
-            Settings.Add(new Setting("Healthstone HP %", 0, 100, 25));
+            Settings.Add(new Setting("Auto Healthstone @ HP%", 0, 100, 25));
+            Settings.Add(new Setting("Item Use:", ""));
+            Settings.Add(new Setting("Auto Item @ HP%", 0, 100, 35));
             Settings.Add(new Setting("Enable Below Defensives:", false));
             Settings.Add(new Setting("Barkskin HP %", 0, 100, 85));
             Settings.Add(new Setting("Bristling Fur HP %", 0, 100, 90));
@@ -1632,7 +1636,7 @@ namespace AimsharpWow.Modules
 
             Aimsharp.PrintMessage("Epic PVE - Druid Guardian", Color.White);
             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.White);
-            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.White);
+            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything in every tab there, especially Pause !", Color.White);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- Talents -", Color.White);
             Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/de/guide/classes/druid/guardian/overview-pve-tank", Color.Yellow);
@@ -1651,6 +1655,7 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("-----", Color.Black);
 
             Language = GetDropDown("Game Client Language");
+            UsableItem = GetString("Item Use:");
 
             #region Racial Spells
             if (GetDropDown("Race:") == "draenei")
@@ -1823,6 +1828,7 @@ namespace AimsharpWow.Modules
 
             Items.Add(GetString("Potion name:"));
             Items.Add(Healthstone_SpellName(Language));
+            Items.Add(UsableItem);
 
             Macros.Add("MoonFireMO", "/cast [@mouseover,exists,harm,nodead] " + Moonfire_SpellName(Language));
             Macros.Add("RebirthMO", "/cast [@mouseover,help] " + Rebirth_SpellName(Language));
@@ -1831,7 +1837,8 @@ namespace AimsharpWow.Modules
             Macros.Add("VortexC", "/cast [@cursor] " + UrsolsVortex_SpellName(Language));
 
             //potions
-            Macros.Add("hstone", "/use " + Healthstone_SpellName(Language));
+            Macros.Add("UseHealthstone", "/use " + Healthstone_SpellName(Language));
+            Macros.Add("UseItem", "/use " + UsableItem);
             Macros.Add("DPSPot", "/use " + GetString("Potion name:"));
 
             //Auto Target
@@ -1865,6 +1872,8 @@ namespace AimsharpWow.Modules
         {
 
             int hekiliSpell = Aimsharp.CustomFunction("HekiliID1");
+
+            if (ItemTimer.IsRunning && ItemTimer.ElapsedMilliseconds > 300000) ItemTimer.Reset();
 
             int PlayerHealth = Aimsharp.Health("player");
             string PotionName = GetString("Potion name:");
@@ -1933,19 +1942,33 @@ namespace AimsharpWow.Modules
             }
 
             //potion and healthstone
-            if (PlayerHealth < GetSlider("Healthstone HP %"))
+            //Auto Healthstone
+            if (Aimsharp.CanUseItem(Healthstone_SpellName(Language), false) && Aimsharp.ItemCooldown(Healthstone_SpellName(Language)) == 0 && !HSTimer.IsRunning)
             {
-                if (Aimsharp.CanUseItem(Healthstone_SpellName(Language), false))
+                if (Aimsharp.Health("player") <= GetSlider("Auto Healthstone @ HP%"))
                 {
-                    if (!HSTimer.IsRunning)
+                    if (DebugMode)
                     {
-                        HSTimer.Restart();
+                        Aimsharp.PrintMessage("Using Healthstone - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Healthstone @ HP%"), Color.Purple);
                     }
-                    if (HSTimer.ElapsedMilliseconds < 1500)
+                    Aimsharp.Cast("UseHealthstone");
+                    HSTimer.Start();
+                    return true;
+                }
+            }
+
+            //Auto Item Use
+            if (Aimsharp.CanUseItem(UsableItem, false) && Aimsharp.ItemCooldown(UsableItem) == 0 && !ItemTimer.IsRunning)
+            {
+                if (Aimsharp.Health("player") <= GetSlider("Auto Item @ HP%"))
+                {
+                    if (DebugMode)
                     {
-                        Aimsharp.Cast("hstone", true);
-                        return true;
+                        Aimsharp.PrintMessage("Using " + UsableItem + " - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Item @ HP%"), Color.Purple);
                     }
+                    Aimsharp.Cast("UseItem");
+                    ItemTimer.Start();
+                    return true;
                 }
             }
 
@@ -2606,6 +2629,9 @@ namespace AimsharpWow.Modules
 
         public override bool OutOfCombatTick()
         {
+
+            if (HSTimer.IsRunning) HSTimer.Reset();
+            if (ItemTimer.IsRunning && ItemTimer.ElapsedMilliseconds > 300000) ItemTimer.Reset();
             bool MOTWOOC = GetCheckBox("Mark of the Wild Out of Combat:");
 
             #region SpellQueueWindow

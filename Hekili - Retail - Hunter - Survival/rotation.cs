@@ -1301,6 +1301,9 @@ namespace AimsharpWow.Modules
 
         #region Variables
         string FiveLetters;
+        string UsableItem;
+        Stopwatch HSTimer = new Stopwatch();
+        Stopwatch ItemTimer = new Stopwatch();
         #endregion
 
         #region Lists
@@ -1737,6 +1740,7 @@ namespace AimsharpWow.Modules
 
             //Healthstone
             Macros.Add("UseHealthstone", "/use " + Healthstone_SpellName(Language));
+            Macros.Add("UseItem", "/use " + UsableItem);
 
 
             //SpellQueueWindow
@@ -1845,6 +1849,8 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting(" "));
             Settings.Add(new Setting("Use Trinkets on CD, dont wait for Hekili:", false));
             Settings.Add(new Setting("Auto Healthstone @ HP%", 0, 100, 25));
+            Settings.Add(new Setting("Item Use:", ""));
+            Settings.Add(new Setting("Auto Item @ HP%", 0, 100, 35));
             Settings.Add(new Setting("Kicks/Interrupts"));
             Settings.Add(new Setting("Randomize Kicks:", false));
             Settings.Add(new Setting("Kick at milliseconds remaining", 50, 1500, 500));
@@ -1883,7 +1889,7 @@ namespace AimsharpWow.Modules
 
             Aimsharp.PrintMessage("Epic PVE - Hunter Survival", Color.White);
             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.White);
-            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.White);
+            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything in every tab there, especially Pause !", Color.White);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- Talents -", Color.White);
             Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/guide/classes/hunter/survival/overview-pve-dps", Color.Yellow);
@@ -1908,6 +1914,7 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("-----", Color.Black);
 
             Language = GetDropDown("Game Client Language");
+            UsableItem = GetString("Item Use:");
 
             #region Racial Spells
             if (GetDropDown("Race:") == "draenei")
@@ -1999,7 +2006,7 @@ namespace AimsharpWow.Modules
             #region Reinitialize Lists
             m_DebuffsList = new List<string> { };
             m_BuffsList = new List<string> { MendPet_SpellName(Language), FlayersMark_SpellName(Language), AspectOfTheEagle_SpellName(Language), VipersVenom_SpellName(Language), };
-            m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
+            m_ItemsList = new List<string> { Healthstone_SpellName(Language), UsableItem};
             m_SpellBook = new List<string> {
                 //Covenants
                 FlayedShot_SpellName(Language),
@@ -2088,6 +2095,8 @@ namespace AimsharpWow.Modules
             int TranqBuffMO = Aimsharp.CustomFunction("TranqBuffCheck");
 
             bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
+
+            if (ItemTimer.IsRunning && ItemTimer.ElapsedMilliseconds > 300000) ItemTimer.Reset();
             #endregion
 
             #region SpellQueueWindow
@@ -2253,7 +2262,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Healthstone
-            if (Aimsharp.CanUseItem(Healthstone_SpellName(Language), false) && Aimsharp.ItemCooldown(Healthstone_SpellName(Language)) == 0)
+            if (Aimsharp.CanUseItem(Healthstone_SpellName(Language), false) && Aimsharp.ItemCooldown(Healthstone_SpellName(Language)) == 0 && !HSTimer.IsRunning)
             {
                 if (Aimsharp.Health("player") <= GetSlider("Auto Healthstone @ HP%"))
                 {
@@ -2262,6 +2271,21 @@ namespace AimsharpWow.Modules
                         Aimsharp.PrintMessage("Using Healthstone - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Healthstone @ HP%"), Color.Purple);
                     }
                     Aimsharp.Cast("UseHealthstone");
+                    HSTimer.Start();
+                    return true;
+                }
+            }
+            //Auto Item Use
+            if (Aimsharp.CanUseItem(UsableItem, false) && Aimsharp.ItemCooldown(UsableItem) == 0 && !ItemTimer.IsRunning)
+            {
+                if (Aimsharp.Health("player") <= GetSlider("Auto Item @ HP%"))
+                {
+                    if (Debug)
+                    {
+                        Aimsharp.PrintMessage("Using " + UsableItem + " - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Item @ HP%"), Color.Purple);
+                    }
+                    Aimsharp.Cast("UseItem");
+                    ItemTimer.Start();
                     return true;
                 }
             }
@@ -3304,6 +3328,9 @@ namespace AimsharpWow.Modules
             int PhialCount = Aimsharp.CustomFunction("PhialCount");
             bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
             bool Moving = Aimsharp.PlayerIsMoving();
+
+            if (HSTimer.IsRunning) HSTimer.Reset();
+            if (ItemTimer.IsRunning && ItemTimer.ElapsedMilliseconds > 300000) ItemTimer.Reset();
             #endregion
 
             #region SpellQueueWindow

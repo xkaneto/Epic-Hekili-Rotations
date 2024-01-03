@@ -998,11 +998,14 @@ namespace AimsharpWow.Modules
 
         #region Variables
         string FiveLetters;
+        string UsableItem;
+        Stopwatch HSTimer = new Stopwatch();
+        Stopwatch ItemTimer = new Stopwatch();
         #endregion
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "NoMovement", "ChaosNova", "Imprison", "Darkness", "FelEruption", "FelRush", "Felblade", "SigilofFlame", "SigilofMisery" };
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "NoMovement", "ChaosNova", "ImprisonMO", "QueueDarkness", "FelEruption", "FelRush", "Felblade", "SigilofFlame", "SigilofMisery" };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
         private List<string> m_ItemsList;
@@ -1106,27 +1109,35 @@ namespace AimsharpWow.Modules
 
             //Healthstone
             Macros.Add("UseHealthstone", "/use " + Healthstone_SpellName(Language));
+            Macros.Add("UseItem", "/use " + UsableItem);
 
 
             //SpellQueueWindow
             Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + Aimsharp.Latency);
 
-            Macros.Add("MetamorphosisP", "/cast [@player] " + Metamorphosis_SpellName(Language));
-            Macros.Add("SigilofFlameP", "/cast [@player] " + SigilOfFlame_SpellName(Language));
-            Macros.Add("SigilofFlameC", "/cast [@cursor] " + SigilOfFlame_SpellName(Language));
-            Macros.Add("SigilofMiseryP", "/cast [@player] " + SigilOfMisery_SpellName(Language));
-            Macros.Add("SigilofMiseryC", "/cast [@cursor] " + SigilOfMisery_SpellName(Language));
-            Macros.Add("ElysianDecreeP", "/cast [@player] " + ElysianDecree_SpellName(Language));
-            Macros.Add("ElysianDecreeC", "/cast [@cursor] " + ElysianDecree_SpellName(Language));
 
-            Macros.Add("SigilofFlameOff", "/" + FiveLetters + " SigilofFlame");
-            Macros.Add("SigilofMiseryOff", "/" + FiveLetters + " SigilofMisery");
             Macros.Add("ChaosNovaOff", "/" + FiveLetters + " ChaosNova");
-            Macros.Add("ImprisonOff", "/" + FiveLetters + " Imprison");
-            Macros.Add("DarknessOff", "/" + FiveLetters + " Darkness");
+            Macros.Add("DarknessOff", "/" + FiveLetters + " QueueDarkness");
+
+            Macros.Add("ElysianDecreeC", "/cast [@cursor] " + ElysianDecree_SpellName(Language));
+            Macros.Add("ElysianDecreeP", "/cast [@player] " + ElysianDecree_SpellName(Language));
+
+            Macros.Add("FelbladeOff", "/" + FiveLetters + " Felblade");
             Macros.Add("FelEruptionOff", "/" + FiveLetters + " FelEruption");
             Macros.Add("FelRushOff", "/" + FiveLetters + " FelRush");
-            Macros.Add("FelbladeOff", "/" + FiveLetters + " Felblade");
+
+            Macros.Add("ImprisonMO", "/cast [@mouseover] " + Imprison_SpellName(Language));
+            Macros.Add("ImprisonOff", "/" + FiveLetters + " ImprisonMO");
+
+            Macros.Add("MetamorphosisP", "/cast [@player] " + Metamorphosis_SpellName(Language));
+            
+            Macros.Add("SigilofFlameC", "/cast [@cursor] " + SigilOfFlame_SpellName(Language));
+            Macros.Add("SigilofFlameOff", "/" + FiveLetters + " SigilofFlame");
+            Macros.Add("SigilofFlameP", "/cast [@player] " + SigilOfFlame_SpellName(Language));
+
+            Macros.Add("SigilofMiseryC", "/cast [@cursor] " + SigilOfMisery_SpellName(Language));
+            Macros.Add("SigilofMiseryOff", "/" + FiveLetters + " SigilofMisery");
+            Macros.Add("SigilofMiseryP", "/cast [@player] " + SigilOfMisery_SpellName(Language));
 
         }
 
@@ -1194,6 +1205,8 @@ namespace AimsharpWow.Modules
             Settings.Add(new Setting(" "));
             Settings.Add(new Setting("Use Trinkets on CD, dont wait for Hekili:", false));
             Settings.Add(new Setting("Auto Healthstone @ HP%", 0, 100, 25));
+            Settings.Add(new Setting("Item Use:", ""));
+            Settings.Add(new Setting("Auto Item @ HP%", 0, 100, 35));
             Settings.Add(new Setting("Kicks/Interrupts"));
             Settings.Add(new Setting("Randomize Kicks:", false));
             Settings.Add(new Setting("Kick at milliseconds remaining", 50, 1500, 500));
@@ -1224,7 +1237,7 @@ namespace AimsharpWow.Modules
 
             Aimsharp.PrintMessage("Epic PVE - Demon Hunter Havoc", Color.White);
             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.White);
-            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything !", Color.White);
+            Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything in every tab there, especially Pause !", Color.White);
             Aimsharp.PrintMessage("-----", Color.Black);
             Aimsharp.PrintMessage("- Talents -", Color.White);
             Aimsharp.PrintMessage("Wowhead: https://www.wowhead.com/guide/classes/demon-hunter/havoc/overview-pve-dps", Color.Yellow);
@@ -1234,8 +1247,8 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("/" + FiveLetters + " NoCycle - Disables Target Cycle", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " ChaosNova - Casts Chaos Nova @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " FelEruption - Casts Fel Eruption @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " Darkness - Casts Darkness @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " Imprison - Casts Imprison @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " QueueDarkness - Casts Darkness @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " ImprisonMO - Casts Imprison @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " FelRush - Casts Fel Rush @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " Felblade - Casts Felblade @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " SigilofFlame - Casts Sigil of Flame @ next GCD", Color.Yellow);
@@ -1243,6 +1256,7 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("-----", Color.Black);
 
             Language = GetDropDown("Game Client Language");
+            UsableItem = GetString("Item Use:");
 
             #region Racial Spells
             if (GetDropDown("Race:") == "bloodelf")
@@ -1259,7 +1273,7 @@ namespace AimsharpWow.Modules
             #region Reinitialize Lists
             m_DebuffsList = new List<string> { Imprison_SpellName(Language), };
             m_BuffsList = new List<string> { Netherwalk_SpellName(Language), };
-            m_ItemsList = new List<string> { Healthstone_SpellName(Language) };
+            m_ItemsList = new List<string> { Healthstone_SpellName(Language), UsableItem};
             m_SpellBook_General = new List<string> {
                 //Covenants
                 ElysianDecree_SpellName(Language), //390163
@@ -1332,6 +1346,8 @@ namespace AimsharpWow.Modules
             bool Moving = Aimsharp.PlayerIsMoving();
             int PlayerHP = Aimsharp.Health("player");
             bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
+
+            if (ItemTimer.IsRunning && ItemTimer.ElapsedMilliseconds > 300000) ItemTimer.Reset();
             #endregion
 
             #region SpellQueueWindow
@@ -1412,7 +1428,7 @@ namespace AimsharpWow.Modules
 
             #region Auto Spells and Items
             //Auto Healthstone
-            if (Aimsharp.CanUseItem(Healthstone_SpellName(Language), false) && Aimsharp.ItemCooldown(Healthstone_SpellName(Language)) == 0)
+            if (Aimsharp.CanUseItem(Healthstone_SpellName(Language), false) && Aimsharp.ItemCooldown(Healthstone_SpellName(Language)) == 0 && !HSTimer.IsRunning)
             {
                 if (Aimsharp.Health("player") <= GetSlider("Auto Healthstone @ HP%"))
                 {
@@ -1421,6 +1437,21 @@ namespace AimsharpWow.Modules
                         Aimsharp.PrintMessage("Using Healthstone - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Healthstone @ HP%"), Color.Purple);
                     }
                     Aimsharp.Cast("UseHealthstone");
+                    HSTimer.Start();
+                    return true;
+                }
+            }
+            //Auto Item Use
+            if (Aimsharp.CanUseItem(UsableItem, false) && Aimsharp.ItemCooldown(UsableItem) == 0 && !ItemTimer.IsRunning)
+            {
+                if (Aimsharp.Health("player") <= GetSlider("Auto Item @ HP%"))
+                {
+                    if (Debug)
+                    {
+                        Aimsharp.PrintMessage("Using " + UsableItem + " - Player HP% " + Aimsharp.Health("player") + " due to setting being on HP% " + GetSlider("Auto Item @ HP%"), Color.Purple);
+                    }
+                    Aimsharp.Cast("UseItem");
+                    ItemTimer.Start();
                     return true;
                 }
             }
@@ -1546,7 +1577,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Darkness = Aimsharp.IsCustomCodeOn("Darkness");
+            bool Darkness = Aimsharp.IsCustomCodeOn("QueueDarkness");
             //Queue Darkness
             if (Darkness && Aimsharp.SpellCooldown(Darkness_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
@@ -1568,7 +1599,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Imprison = Aimsharp.IsCustomCodeOn("Imprison");
+            bool Imprison = Aimsharp.IsCustomCodeOn("ImprisonMO");
             //Queue Imprison
             if (Imprison && Aimsharp.SpellCooldown(Imprison_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
@@ -1586,7 +1617,7 @@ namespace AimsharpWow.Modules
                 {
                     Aimsharp.PrintMessage("Casting Imprison through queue toggle", Color.Purple);
                 }
-                Aimsharp.Cast(Imprison_SpellName(Language));
+                Aimsharp.Cast("ImprisonMO");
                 return true;
             }
 
@@ -2046,6 +2077,9 @@ namespace AimsharpWow.Modules
             bool Debug = GetCheckBox("Debug:") == true;
             bool Moving = Aimsharp.PlayerIsMoving();
             bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
+
+            if (HSTimer.IsRunning) HSTimer.Reset();
+            if (ItemTimer.IsRunning && ItemTimer.ElapsedMilliseconds > 300000) ItemTimer.Reset();
             #endregion
 
             #region SpellQueueWindow
@@ -2171,7 +2205,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Darkness = Aimsharp.IsCustomCodeOn("Darkness");
+            bool Darkness = Aimsharp.IsCustomCodeOn("QueueDarkness");
             //Queue Darkness
             if (Darkness && Aimsharp.SpellCooldown(Darkness_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
@@ -2193,7 +2227,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Imprison = Aimsharp.IsCustomCodeOn("Imprison");
+            bool Imprison = Aimsharp.IsCustomCodeOn("ImprisonMO");
             //Queue Imprison
             if (Imprison && Aimsharp.SpellCooldown(Imprison_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
@@ -2211,7 +2245,7 @@ namespace AimsharpWow.Modules
                 {
                     Aimsharp.PrintMessage("Casting Imprison through queue toggle", Color.Purple);
                 }
-                Aimsharp.Cast(Imprison_SpellName(Language));
+                Aimsharp.Cast("ImprisonMO");
                 return true;
             }
 
