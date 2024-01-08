@@ -1038,7 +1038,7 @@ namespace AimsharpWow.Modules
             Aimsharp.QuickDelay = 50;
             Aimsharp.SlowDelay = 150;
 
-            Aimsharp.PrintMessage("Epic PVE - Evoker Devastation", Color.White);
+            Aimsharp.PrintMessage("Epic PVE - Evoker Augmentation", Color.White);
             Aimsharp.PrintMessage("This rotation requires the Hekili Addon !", Color.White);
             Aimsharp.PrintMessage("Hekili > Toggles > Unbind everything in every tab there, especially Pause !", Color.White);
             Aimsharp.PrintMessage("-----", Color.Black);
