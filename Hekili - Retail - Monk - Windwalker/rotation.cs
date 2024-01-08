@@ -1309,6 +1309,14 @@ namespace AimsharpWow.Modules
         #endregion
 
         #region CanCasts
+        private bool CanCastCheck(string SpellName, string target, bool RangeCheck = true, bool CastCheck = true)
+        {
+            if (Aimsharp.CanCast(SpellName, target, RangeCheck, CastCheck) || Aimsharp.SpellCooldown(SpellName) - Aimsharp.GCD() <= 0 || (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow")) || Aimsharp.GCD() == 0)
+            {
+                return true;
+            }
+            return false;
+        }
         private bool CanCastTouchofDeath(string unit)
         {
             if (Aimsharp.CanCast(TouchOfDeath_SpellName(Language), unit, true, true) || (Aimsharp.SpellCooldown(TouchOfDeath_SpellName(Language)) - Aimsharp.GCD() <= 0 && (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") || Aimsharp.GCD() == 0) && Aimsharp.Health(unit) < 15 && TargetAlive()))
@@ -2308,7 +2316,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (WhiteTigerStatue && Aimsharp.CanCast(SummonWhiteTigerStatue_SpellName(Language),"player") && (WhiteTigerStatueCast == "Player" || WhiteTigerStatueCast != "Player"))
+            if (WhiteTigerStatue && CanCastCheck(SummonWhiteTigerStatue_SpellName(Language),"player") && (WhiteTigerStatueCast == "Player" || WhiteTigerStatueCast != "Player"))
             {
                 switch (WhiteTigerStatueCast)
                 {
@@ -2348,7 +2356,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Transcendence && Aimsharp.CanCast(Transcendence_SpellName(Language), "player", false, true))
+            if (Transcendence && CanCastCheck(Transcendence_SpellName(Language), "player", false, true))
             {
                 if (Debug)
                 {
@@ -2370,7 +2378,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Transfer && Aimsharp.CanCast(Transcendence_Transfer_SpellName(Language), "player", false, true))
+            if (Transfer && CanCastCheck(Transcendence_Transfer_SpellName(Language), "player", false, true))
             {
                 if (Debug)
                 {
@@ -2426,7 +2434,7 @@ namespace AimsharpWow.Modules
 
             bool Vivify = Aimsharp.IsCustomCodeOn("Vivify");
             //Queue Vivify Spam
-            if (Vivify && (Aimsharp.CanCast(Vivify_SpellName(Language), "player", false, true) || Aimsharp.CanCast(Vivify_SpellName(Language), "target", true, true)) && !Aimsharp.PlayerIsMoving())
+            if (Vivify && (CanCastCheck(Vivify_SpellName(Language), "player", false, true) || CanCastCheck(Vivify_SpellName(Language), "target", true, true)) && !Aimsharp.PlayerIsMoving())
             {
                 if (Debug)
                 {
@@ -2570,7 +2578,7 @@ namespace AimsharpWow.Modules
 
                     #region Racials
                     //Racials
-                    if (SpellID1 == 28880 && Aimsharp.CanCast(GiftOfTheNaaru_SpellName(Language), "player", true, true))
+                    if (SpellID1 == 28880 && CanCastCheck(GiftOfTheNaaru_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
@@ -2580,7 +2588,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 20594 && Aimsharp.CanCast(Stoneform_SpellName(Language), "player", true, true))
+                    if (SpellID1 == 20594 && CanCastCheck(Stoneform_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
@@ -2590,7 +2598,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 20589 && Aimsharp.CanCast(EscapeArtist_SpellName(Language), "player", true, true))
+                    if (SpellID1 == 20589 && CanCastCheck(EscapeArtist_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
@@ -2600,7 +2608,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 59752 && Aimsharp.CanCast(WillToSurvive_SpellName(Language), "player", true, true))
+                    if (SpellID1 == 59752 && CanCastCheck(WillToSurvive_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
@@ -2610,7 +2618,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 255647 && Aimsharp.CanCast(LightsJudgment_SpellName(Language), "player", true, true))
+                    if (SpellID1 == 255647 && CanCastCheck(LightsJudgment_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
@@ -2620,7 +2628,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 265221 && Aimsharp.CanCast(Fireblood_SpellName(Language), "player", true, true))
+                    if (SpellID1 == 265221 && CanCastCheck(Fireblood_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
@@ -2630,7 +2638,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 69041 && Aimsharp.CanCast(RocketBarrage_SpellName(Language), "player", true, true))
+                    if (SpellID1 == 69041 && CanCastCheck(RocketBarrage_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
@@ -2640,7 +2648,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 20549 && Aimsharp.CanCast(WarStomp_SpellName(Language), "player", true, true))
+                    if (SpellID1 == 20549 && CanCastCheck(WarStomp_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
@@ -2650,7 +2658,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 7744 && Aimsharp.CanCast(WillOfTheForsaken_SpellName(Language), "player", true, true))
+                    if (SpellID1 == 7744 && CanCastCheck(WillOfTheForsaken_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
@@ -2660,7 +2668,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 260364 && Aimsharp.CanCast(ArcanePulse_SpellName(Language), "player", true, true))
+                    if (SpellID1 == 260364 && CanCastCheck(ArcanePulse_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
@@ -2670,7 +2678,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 255654 && Aimsharp.CanCast(BullRush_SpellName(Language), "player", true, true))
+                    if (SpellID1 == 255654 && CanCastCheck(BullRush_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
@@ -2680,7 +2688,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 312411 && Aimsharp.CanCast(BagOfTricks_SpellName(Language), "player", true, true))
+                    if (SpellID1 == 312411 && CanCastCheck(BagOfTricks_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
@@ -2690,7 +2698,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if ((SpellID1 == 20572 || SpellID1 == 33702 || SpellID1 == 33697) && Aimsharp.CanCast(BloodFury_SpellName(Language), "player", true, true))
+                    if ((SpellID1 == 20572 || SpellID1 == 33702 || SpellID1 == 33697) && CanCastCheck(BloodFury_SpellName(Language), "player", true, true))
                     {
                         if (Debug)
                         {
@@ -2700,7 +2708,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 26297 && Aimsharp.CanCast(Berserking_SpellName(Language), "player", false, true))
+                    if (SpellID1 == 26297 && CanCastCheck(Berserking_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
@@ -2710,7 +2718,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 274738 && Aimsharp.CanCast(AncestralCall_SpellName(Language), "player", false, true))
+                    if (SpellID1 == 274738 && CanCastCheck(AncestralCall_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
@@ -2720,7 +2728,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if ((SpellID1 == 28730 || SpellID1 == 25046 || SpellID1 == 50613 || SpellID1 == 69179 || SpellID1 == 80483 || SpellID1 == 129597) && Aimsharp.CanCast(ArcaneTorrent_SpellName(Language), "player", true, false))
+                    if ((SpellID1 == 28730 || SpellID1 == 25046 || SpellID1 == 50613 || SpellID1 == 69179 || SpellID1 == 80483 || SpellID1 == 129597) && CanCastCheck(ArcaneTorrent_SpellName(Language), "player", true, false))
                     {
                         if (Debug)
                         {
@@ -2730,7 +2738,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 58984 && Aimsharp.CanCast(Shadowmeld_SpellName(Language), "player", false, true))
+                    if (SpellID1 == 58984 && CanCastCheck(Shadowmeld_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
@@ -2825,7 +2833,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 221771 && Aimsharp.CanCast(StormEarthAndFire_Fixate_SpellName(Language), "target", true, true))
+                    if (SpellID1 == 221771 && CanCastCheck(StormEarthAndFire_Fixate_SpellName(Language), "target", true, true))
                     {
                         if (Debug)
                         {
@@ -2850,7 +2858,7 @@ namespace AimsharpWow.Modules
                     //General Monk
                     //Instant [GCD]
                     ///Player
-                    if (SpellID1 == 388686 && Aimsharp.CanCast(SummonWhiteTigerStatue_SpellName(Language),"player") && ((WhiteTigerStatueCast == "Player") || WhiteTigerStatueCast != "Player"))
+                    if (SpellID1 == 388686 && CanCastCheck(SummonWhiteTigerStatue_SpellName(Language),"player") && ((WhiteTigerStatueCast == "Player") || WhiteTigerStatueCast != "Player"))
                     {
                         switch (WhiteTigerStatueCast)
                         {
@@ -2907,7 +2915,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 116847 && Aimsharp.CanCast(RushingJadeWind_SpellName(Language), "player", true, false))
+                    if (SpellID1 == 116847 && CanCastCheck(RushingJadeWind_SpellName(Language), "player", true, false))
                     {
                         if (Debug)
                         {
@@ -3239,7 +3247,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (WhiteTigerStatue && Aimsharp.CanCast(SummonWhiteTigerStatue_SpellName(Language),"player") && (WhiteTigerStatueCast == "Player" || WhiteTigerStatueCast != "Player"))
+            if (WhiteTigerStatue && CanCastCheck(SummonWhiteTigerStatue_SpellName(Language),"player") && (WhiteTigerStatueCast == "Player" || WhiteTigerStatueCast != "Player"))
             {
                 switch (WhiteTigerStatueCast)
                 {
@@ -3279,7 +3287,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Transcendence && Aimsharp.CanCast(Transcendence_SpellName(Language), "player", false, true))
+            if (Transcendence && CanCastCheck(Transcendence_SpellName(Language), "player", false, true))
             {
                 if (Debug)
                 {
@@ -3301,7 +3309,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            if (Transfer && Aimsharp.CanCast(Transcendence_Transfer_SpellName(Language), "player", false, true))
+            if (Transfer && CanCastCheck(Transcendence_Transfer_SpellName(Language), "player", false, true))
             {
                 if (Debug)
                 {
@@ -3357,7 +3365,7 @@ namespace AimsharpWow.Modules
 
             bool Vivify = Aimsharp.IsCustomCodeOn("Vivify");
             //Queue Vivify Spam
-            if (Vivify && (Aimsharp.CanCast(Vivify_SpellName(Language), "player", false, true) || Aimsharp.CanCast(Vivify_SpellName(Language), "target", true, true)) && !Aimsharp.PlayerIsMoving())
+            if (Vivify && (CanCastCheck(Vivify_SpellName(Language), "player", false, true) || CanCastCheck(Vivify_SpellName(Language), "target", true, true)) && !Aimsharp.PlayerIsMoving())
             {
                 if (Debug)
                 {

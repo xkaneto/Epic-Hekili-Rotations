@@ -1391,7 +1391,7 @@ namespace AimsharpWow.Modules
         {
             if (MacroName == "")
             {
-                if (Aimsharp.CustomFunction("HekiliID1") == HekiliID && Aimsharp.CanCast(SpellName, target))
+                if (Aimsharp.CustomFunction("HekiliID1") == HekiliID && (Aimsharp.CanCast(SpellName, target) || Aimsharp.SpellCooldown(SpellName) - Aimsharp.GCD() <= 0 || (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow")) || Aimsharp.GCD() == 0))
                 {
                     if (DebugMode)
                     {
@@ -1403,7 +1403,7 @@ namespace AimsharpWow.Modules
             }
             if (MacroName != "")
             {
-                if (Aimsharp.CustomFunction("HekiliID1") == HekiliID && Aimsharp.CanCast(SpellName, target))
+                if (Aimsharp.CustomFunction("HekiliID1") == HekiliID && (Aimsharp.CanCast(SpellName, target) || Aimsharp.SpellCooldown(SpellName) - Aimsharp.GCD() <= 0 || (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow")) || Aimsharp.GCD() == 0))
                 {
                     if (DebugMode)
                     {
