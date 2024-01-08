@@ -1960,7 +1960,7 @@ namespace AimsharpWow.Modules
 
 
             //Auto Desperate Prayer
-            if (PlayerHP <= DesperatePrayerHP && CanCastCheck(DesperatePrayer_SpellName(Language), "player", false, true))
+            if (PlayerHP <= DesperatePrayerHP && Aimsharp.CanCast(DesperatePrayer_SpellName(Language), "player", false, true))
             {
                 if (Debug)
                 {
@@ -1971,7 +1971,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Dispersion
-            if (PlayerHP <= DispersionHP && CanCastCheck(Dispersion_SpellName(Language), "player", false, true))
+            if (PlayerHP <= DispersionHP && Aimsharp.CanCast(Dispersion_SpellName(Language), "player", false, true))
             {
                 if (Debug)
                 {
@@ -1982,7 +1982,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Dispel Magic Mouseover
-            if (CanCastCheck(DispelMagic_SpellName(Language), "mouseover", true, true))
+            if (Aimsharp.CanCast(DispelMagic_SpellName(Language), "mouseover", true, true))
             {
                 if (GetCheckBox("Auto Dispel Magic Mouseover:") && Aimsharp.CustomFunction("DispelMagicCheckMouseover") == 3)
                 {

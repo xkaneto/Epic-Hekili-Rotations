@@ -2125,7 +2125,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             //Auto Divine Shield
-            if (PlayerHP <= DivineShieldHP && CanCastCheck(DivineShield_SpellName(Language), "player", false, true))
+            if (PlayerHP <= DivineShieldHP && Aimsharp.CanCast(DivineShield_SpellName(Language), "player", false, true))
             {
                 if (Debug)
                 {
@@ -2136,7 +2136,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Shield of Vengeance
-            if (PlayerHP <= ShieldofVengeanceHP && CanCastCheck(ShieldOfVengeance_SpellName(Language), "player", false, true))
+            if (PlayerHP <= ShieldofVengeanceHP && Aimsharp.CanCast(ShieldOfVengeance_SpellName(Language), "player", false, true))
             {
                 if (Debug)
                 {
@@ -2147,7 +2147,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Divine Protection
-            if (PlayerHP <= DivineProtectionHP && CanCastCheck(DivineProtection_SpellName(Language), "player", false, true))
+            if (PlayerHP <= DivineProtectionHP && Aimsharp.CanCast(DivineProtection_SpellName(Language), "player", false, true))
             {
                 if (Debug)
                 {

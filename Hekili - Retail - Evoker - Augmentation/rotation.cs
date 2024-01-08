@@ -1209,22 +1209,14 @@ namespace AimsharpWow.Modules
             if (Aimsharp.GroupSize() > 0)
             {
                 //Prescience Custom Ally
-                if (CanCastCheck(Prescience_SpellName(Language), "player") && AllyNumber > 0)
+                if (Aimsharp.CanCast(Prescience_SpellName(Language), "player") && AllyNumber > 0)
                 {
                     if (Aimsharp.GroupSize() < 6)
                     {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Focusing Party Member: " + AllyNumber);
-                        }
                         Aimsharp.Cast("FOC_party" + AllyNumber);
                     }
                     if (Aimsharp.GroupSize() > 5)
                     {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Focusing Raid Member: " + AllyNumber);
-                        }
                         Aimsharp.Cast("FOC_raid" + AllyNumber);
                     }
                     if (Debug)
@@ -1462,7 +1454,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Obsidian Scales
-            if (CanCastCheck(ObsidianScales_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(ObsidianScales_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Obsidian Scales @ HP%"))
                 {
@@ -1476,7 +1468,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Renewing Blaze
-            if (CanCastCheck(RenewingBlaze_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(RenewingBlaze_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Renewing Blaze @ HP%"))
                 {
@@ -1490,7 +1482,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Emerald Blossom
-            if (CanCastCheck(EmeraldBlossom_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(EmeraldBlossom_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Emerald Blossom @ HP%"))
                 {
@@ -1504,7 +1496,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Verdant Embrace
-            if (CanCastCheck(VerdantEmbrace_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(VerdantEmbrace_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Verdant Embrace @ HP%"))
                 {
@@ -1518,7 +1510,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Zephyr
-            if (CanCastCheck(Zephyr_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(Zephyr_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Zephyr @ HP%"))
                 {
@@ -2078,23 +2070,15 @@ namespace AimsharpWow.Modules
                         {
                             if (Aimsharp.GroupSize() < 6)
                             {
-                                if (Debug)
-                                {
-                                    Aimsharp.PrintMessage("Focusing Party Member: " + TankNumber);
-                                }
                                 Aimsharp.Cast("FOC_party" + TankNumber);
                             }
                             if (Aimsharp.GroupSize() > 5)
                             {
-                                if (Debug)
-                                {
-                                    Aimsharp.PrintMessage("Focusing Raid Member: " + TankNumber);
-                                }
                                 Aimsharp.Cast("FOC_raid" + TankNumber);
                             }
                             if (Debug)
                             {
-                                Aimsharp.PrintMessage("Casting Blistering Scales - " + SpellID1 + " on Focus", Color.Purple);
+                                Aimsharp.PrintMessage("Casting Blistering Scales - " + SpellID1 + " on Focus " + TankNumber, Color.Purple);
                             }
                             Aimsharp.Cast("BlisteringScalesFocus", true);
                         }

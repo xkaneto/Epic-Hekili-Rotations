@@ -1592,7 +1592,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Obsidian Scales
-            if (CanCastCheck(ObsidianScales_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(ObsidianScales_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Obsidian Scales @ HP%"))
                 {
@@ -1606,7 +1606,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Renewing Blaze
-            if (CanCastCheck(RenewingBlaze_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(RenewingBlaze_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Renewing Blaze @ HP%"))
                 {
@@ -1620,7 +1620,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Emerald Blossom
-            if (CanCastCheck(EmeraldBlossom_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(EmeraldBlossom_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Emerald Blossom @ HP%"))
                 {
@@ -1635,7 +1635,7 @@ namespace AimsharpWow.Modules
 
 
             //Auto Verdant Embrace
-            if (CanCastCheck(VerdantEmbrace_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(VerdantEmbrace_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Verdant Embrace @ HP%"))
                 {
@@ -1649,7 +1649,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Zephyr
-            if (CanCastCheck(Zephyr_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(Zephyr_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Zephyr @ HP%"))
                 {

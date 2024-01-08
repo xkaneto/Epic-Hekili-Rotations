@@ -1749,7 +1749,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Death Pact
-            if (CanCastCheck(DeathPact_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(DeathPact_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Death Pact @ HP%"))
                 {
@@ -1759,7 +1759,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Anti-Magic Shell
-            if (CanCastCheck(AntimagicShell_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(AntimagicShell_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Anti-Magic Shell @ HP%"))
                 {
@@ -1769,7 +1769,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Lichborne
-            if (CanCastCheck(Lichborne_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(Lichborne_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Lichborne @ HP%"))
                 {
@@ -1779,7 +1779,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Sacrificial Pact
-            if (CanCastCheck(SacrificialPact_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(SacrificialPact_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Sacrificial Pact @ HP%"))
                 {
@@ -1789,7 +1789,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Icebound Fortitude
-            if (CanCastCheck(IceboundFortitude_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(IceboundFortitude_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Icebound Fortitude @ HP%"))
                 {

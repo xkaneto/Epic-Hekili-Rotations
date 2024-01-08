@@ -1964,7 +1964,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Astral Shift
-            if (PlayerHP <= AstralShiftHP && CanCastCheck(AstralShift_SpellName(Language), "player", false, true))
+            if (PlayerHP <= AstralShiftHP && Aimsharp.CanCast(AstralShift_SpellName(Language), "player", false, true))
             {
                 if (Debug)
                 {
@@ -2004,7 +2004,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Purge Mouseover
-            if (CanCastCheck(Purge_SpellName(Language), "mouseover", true, true))
+            if (Aimsharp.CanCast(Purge_SpellName(Language), "mouseover", true, true))
             {
                 if (GetCheckBox("Auto Purge Mouseover:") && Aimsharp.CustomFunction("PurgeCheckMouseover") == 3)
                 {

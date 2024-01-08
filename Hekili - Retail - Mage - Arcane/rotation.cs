@@ -1993,7 +1993,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Ice Block
-            if (CanCastCheck(IceBlock_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(IceBlock_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Ice Block @ HP%"))
                 {
@@ -2007,7 +2007,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Alter Time
-            if (CanCastCheck(AlterTime_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(AlterTime_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Alter Time @ HP%"))
                 {
@@ -2021,7 +2021,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Greater Invisibility
-            if (CanCastCheck(GreaterInvisibility_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(GreaterInvisibility_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Greater Invisibility @ HP%"))
                 {
@@ -2035,7 +2035,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Prismatic Barrier
-            if (CanCastCheck(PrismaticBarrier_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(PrismaticBarrier_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Prismatic Barrier @ HP%"))
                 {

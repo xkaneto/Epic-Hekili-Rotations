@@ -2007,7 +2007,7 @@ namespace AimsharpWow.Modules
 
 
             //Auto Renewal
-            if (CanCastCheck(Renewal_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(Renewal_SpellName(Language), "player", false, true))
             {
                 if (Aimsharp.Health("player") <= GetSlider("Auto Renewal @ HP%"))
                 {
@@ -2021,7 +2021,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Barkskin
-            if (CanCastCheck(Barkskin_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(Barkskin_SpellName(Language), "player", false, true))
             {
                 if (Aimsharp.Health("player") <= GetSlider("Auto Barkskin @ HP%"))
                 {

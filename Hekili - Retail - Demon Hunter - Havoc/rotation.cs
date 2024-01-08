@@ -1464,7 +1464,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Darkness
-            if (CanCastCheck(Darkness_SpellName(Language), "player", false, true) && !Aimsharp.HasBuff(Netherwalk_SpellName(Language), "player", true))
+            if (Aimsharp.CanCast(Darkness_SpellName(Language), "player", false, true) && !Aimsharp.HasBuff(Netherwalk_SpellName(Language), "player", true))
             {
                 if (PlayerHP <= GetSlider("Auto Darkness @ HP%"))
                 {
@@ -1474,7 +1474,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Blur
-            if (CanCastCheck(Blur_SpellName(Language), "player", false, true) && !Aimsharp.HasBuff(Netherwalk_SpellName(Language), "player", true))
+            if (Aimsharp.CanCast(Blur_SpellName(Language), "player", false, true) && !Aimsharp.HasBuff(Netherwalk_SpellName(Language), "player", true))
             {
                 if (PlayerHP <= GetSlider("Auto Blur @ HP%"))
                 {
@@ -1484,7 +1484,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Netherwalk
-            if (CanCastCheck(Netherwalk_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(Netherwalk_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Netherwalk @ HP%"))
                 {

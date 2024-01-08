@@ -1785,7 +1785,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Unending Resolve
-            if (CanCastCheck(UnendingResolve_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(UnendingResolve_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Unending Resolve @ HP%"))
                 {
@@ -1799,7 +1799,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Dark Pact
-            if (CanCastCheck(DarkPact_SpellName(Language), "player", false, true))
+            if (Aimsharp.CanCast(DarkPact_SpellName(Language), "player", false, true))
             {
                 if (PlayerHP <= GetSlider("Auto Dark Pact @ HP%"))
                 {
@@ -1813,7 +1813,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Drain Life
-            if (CanCastCheck(DrainLife_SpellName(Language), "target", true, true))
+            if (Aimsharp.CanCast(DrainLife_SpellName(Language), "target", true, true))
             {
                 if (PlayerHP <= GetSlider("Auto Drain Life @ HP%"))
                 {
@@ -1827,7 +1827,7 @@ namespace AimsharpWow.Modules
             }
 
             //Auto Health Funnel
-            if (CanCastCheck(HealthFunnel_SpellName(Language), "pet", true, true))
+            if (Aimsharp.CanCast(HealthFunnel_SpellName(Language), "pet", true, true))
             {
                 if (PetHP <= GetSlider("Auto Health Funnel @ HP%") && PetHP > 1)
                 {
