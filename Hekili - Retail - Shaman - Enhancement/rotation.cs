@@ -1803,7 +1803,6 @@ namespace AimsharpWow.Modules
             #region Declarations
             int SpellID1 = Aimsharp.CustomFunction("HekiliID1");
             int Wait = Aimsharp.CustomFunction("HekiliWait");
-            Aimsharp.PrintMessage("Spell ID cast: " + SpellID1);
 
             bool NoInterrupts = Aimsharp.IsCustomCodeOn("NoInterrupts");
             bool NoCycle = Aimsharp.IsCustomCodeOn("NoCycle");
