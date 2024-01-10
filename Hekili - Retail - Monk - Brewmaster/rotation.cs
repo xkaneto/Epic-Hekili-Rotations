@@ -1094,7 +1094,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle","NoDetox", "RingofPeace", Paralysis_SpellName(Language), "LegSweep", Transcendence_SpellName(Language), "Transfer", "BonedustBrew", "WhiteTigerStatue", "BlackOxStatue" };
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle","NoDetox", "RingofPeace", "ParalysisMO", "LegSweep", "QueueTranscendence", "Transfer", "BonedustBrew", "WhiteTigerStatue", "BlackOxStatue" };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
         private List<string> m_ItemsList;
@@ -1253,15 +1253,19 @@ namespace AimsharpWow.Modules
             Macros.Add("BlackOxStatueP", "/cast [@player] " + SummonBlackOxStatue_SpellName(Language));
             Macros.Add("BlackOxStatueOff", "/" + FiveLetters + " BlackOxStatue");
 
+            //Exploding Keg @ Cursor
+            Macros.Add("ExplodingKegC", "/cast [@cursor] " + ExplodingKeg_SpellName(Language));
+            Macros.Add("ExplodingKegP", "/cast [@player] " + ExplodingKeg_SpellName(Language));
+
             //Paralysis
-            Macros.Add("ParalysisOff", "/" + FiveLetters + " Paralysis");
+            Macros.Add("ParalysisOff", "/" + FiveLetters + " ParalysisMO");
             Macros.Add("ParalysisMO", "/cast [@mouseover] " + Paralysis_SpellName(Language));
 
             //Leg Sweep
             Macros.Add("LegSweepOff", "/" + FiveLetters + " LegSweep");
 
             //Transcendence
-            Macros.Add("TranscendenceOff", "/" + FiveLetters + " Transcendence");
+            Macros.Add("TranscendenceOff", "/" + FiveLetters + " QueueTranscendence");
 
             //Transcendence: Transfer
             Macros.Add("TransferOff", "/" + FiveLetters + " Transfer");
@@ -1397,11 +1401,11 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("/" + FiveLetters + " NoInterrupts - Disables Interrupts", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoCycle - Disables Target Cycle", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " NoDetox - Disables Detox", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " Paralysis - Casts Paralysis @ Mouseover on the next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " ParalysisMO - Casts Paralysis @ Mouseover on the next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " BonedustBrew - Casts Bonedust Brew @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " RingofPeace - Casts Ring of Peace @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " LegSweep - Casts Leg Sweep @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " Transcendence - Casts Transcendence @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " QueueTranscendence - Casts Transcendence @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " Transfer - Casts Transfer @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " WhiteTigerStatue - Casts White Tiger Statue @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " BlackOxStatue - Casts Black Ox Statue @ next GCD", Color.Yellow);
@@ -1947,7 +1951,7 @@ namespace AimsharpWow.Modules
                 }
             }
 
-            bool Transcendence = Aimsharp.IsCustomCodeOn(Transcendence_SpellName(Language));
+            bool Transcendence = Aimsharp.IsCustomCodeOn("QueueTranscendence");
             //Queue Transcendence
             if (Aimsharp.SpellCooldown(Transcendence_SpellName(Language)) - Aimsharp.GCD() > 2000 && Transcendence)
             {
@@ -1991,7 +1995,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Paralysis = Aimsharp.IsCustomCodeOn(Paralysis_SpellName(Language));
+            bool Paralysis = Aimsharp.IsCustomCodeOn("ParalysisMO");
             //Queue Paralysis
             if (Paralysis && Aimsharp.SpellCooldown(Paralysis_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
@@ -2656,7 +2660,7 @@ namespace AimsharpWow.Modules
                 }
             }
 
-            bool Transcendence = Aimsharp.IsCustomCodeOn(Transcendence_SpellName(Language));
+            bool Transcendence = Aimsharp.IsCustomCodeOn("QueueTranscendence");
             //Queue Transcendence
             if (Aimsharp.SpellCooldown(Transcendence_SpellName(Language)) - Aimsharp.GCD() > 2000 && Transcendence)
             {
@@ -2700,7 +2704,7 @@ namespace AimsharpWow.Modules
                 return true;
             }
 
-            bool Paralysis = Aimsharp.IsCustomCodeOn(Paralysis_SpellName(Language));
+            bool Paralysis = Aimsharp.IsCustomCodeOn("ParalysisMO");
             //Queue Paralysis
             if (Paralysis && Aimsharp.SpellCooldown(Paralysis_SpellName(Language)) - Aimsharp.GCD() > 2000)
             {
