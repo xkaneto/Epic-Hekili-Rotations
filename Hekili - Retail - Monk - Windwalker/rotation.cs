@@ -2852,6 +2852,15 @@ namespace AimsharpWow.Modules
                         Aimsharp.Cast(Serenity_SpellName(Language), true);
                         return true;
                     }
+                    if (SpellID1 == 122278 && CanCastDampenHarm("player"))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Dampen Harm - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(DampenHarm_SpellName(Language), true);
+                        return true;
+                    }
                     #endregion
 
                     #region General Spells - Player GCD
