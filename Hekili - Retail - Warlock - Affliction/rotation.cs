@@ -1286,7 +1286,7 @@ namespace AimsharpWow.Modules
         #region CanCasts
         private bool CanCastCheck(string SpellName, string target, bool RangeCheck = true, bool CastCheck = true)
         {
-            if (Aimsharp.CanCast(SpellName, target, RangeCheck, CastCheck) || Aimsharp.SpellCooldown(SpellName) - Aimsharp.GCD() <= 0 || (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow")) || Aimsharp.GCD() == 0)
+            if (Aimsharp.CanCast(SpellName, target, RangeCheck, CastCheck) || Aimsharp.SpellCooldown(SpellName) - Aimsharp.GCD() <= 0 || (Aimsharp.GCD() > 0 && Aimsharp.GCD() < Aimsharp.CustomFunction("GetSpellQueueWindow") + 100) || Aimsharp.GCD() == 0)
             {
                 return true;
             }

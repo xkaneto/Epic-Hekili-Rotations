@@ -1156,6 +1156,7 @@ namespace AimsharpWow.Modules
             }
             return false;
         }
+        
         #endregion
 
         public enum CleansePlayers
