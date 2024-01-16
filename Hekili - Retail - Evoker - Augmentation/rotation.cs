@@ -1614,7 +1614,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Emerald Blossom
-            if (UnitBelowThreshold(GetSlider("Auto Emerald Blossom @ HP%")) && CanCastCheck(EmeraldBlossom_SpellName(Language), "player", false, true))
+            if (UnitBelowThreshold(GetSlider("Auto Emerald Blossom @ HP%")) && Aimsharp.CanCast(EmeraldBlossom_SpellName(Language), "player", false, true))
             {
                 PartyDict.Clear();
                 PartyDict.Add("player", Aimsharp.Health("player"));
@@ -1634,7 +1634,7 @@ namespace AimsharpWow.Modules
 
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
-                    if (CanCastCheck(EmeraldBlossom_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language), unit.Key)) && Aimsharp.Health(unit.Key) <= GetSlider("Auto Emerald Blossom @ HP%"))
+                    if (Aimsharp.CanCast(EmeraldBlossom_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language), unit.Key)) && Aimsharp.Health(unit.Key) <= GetSlider("Auto Emerald Blossom @ HP%"))
                     {
                         if (!UnitFocus(unit.Key))
                         {
@@ -2104,7 +2104,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if ((SpellID1 == 382266 || SpellID1 == 357208 || SpellID1 == 357209) && CanCastCheck(FireBreath_SpellName(Language), "player", false, true))
+                    if ((SpellID1 == 382266 || SpellID1 == 357208 || SpellID1 == 357209) && Aimsharp.CanCast(FireBreath_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
@@ -2165,7 +2165,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if ((SpellID1 == 396286 || SpellID1 == 408092) && CanCastCheck(Upheaval_SpellName(Language), "target", false, true))
+                    if ((SpellID1 == 396286 || SpellID1 == 408092) && Aimsharp.CanCast(Upheaval_SpellName(Language), "target", false, true))
                     {
                         if (Debug)
                         {
