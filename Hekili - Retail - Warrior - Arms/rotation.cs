@@ -309,6 +309,24 @@ namespace AimsharpWow.Modules
             }
         }
 
+        ///<summary>spell=376080</summary>
+        private static string ChampionsSpear_SpellName(string Language = "English")
+        {
+            switch (Language)
+            {
+                case "English": return "Champion's Spear";
+                case "Deutsch": return "Speer des Champions";
+                case "Español": return "Lanza del campeón";
+                case "Français": return "Lance du champion";
+                case "Italiano": return "Lancia del Campione";
+                case "Português Brasileiro": return "Lança do Campeão";
+                case "Русский": return "Копье защитника";
+                case "한국어": return "용사의 창";
+                case "简体中文": return "勇士之矛";
+                default: return "Champion's Spear";
+            }
+        }
+
         ///<summary>spell=100</summary>
         private static string Charge_SpellName(string Language = "English")
         {
@@ -867,24 +885,6 @@ namespace AimsharpWow.Modules
             }
         }
 
-        ///<summary>spell=307865</summary>
-        private static string SpearOfBastion_SpellName(string Language = "English")
-        {
-            switch (Language)
-            {
-                case "English": return "Spear of Bastion";
-                case "Deutsch": return "Speer der Bastion";
-                case "Español": return "Lanza de Bastión";
-                case "Français": return "Lance du Bastion";
-                case "Italiano": return "Lancia del Bastione";
-                case "Português Brasileiro": return "Lança do Bastião";
-                case "Русский": return "Копье Бастиона";
-                case "한국어": return "보루의 창";
-                case "简体中文": return "晋升堡垒之矛";
-                default: return "Spear of Bastion";
-            }
-        }
-
         ///<summary>spell=23920</summary>
         private static string SpellReflection_SpellName(string Language = "English")
         {
@@ -1129,7 +1129,7 @@ namespace AimsharpWow.Modules
 
         #region Lists
         //Lists
-        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "StormBolt", "SpearOfBastion", "QueueBladestorm", "HeroicLeap" };
+        private List<string> m_IngameCommandsList = new List<string> { "NoInterrupts", "NoCycle", "StormBolt", "ChampionsSpear", "QueueBladestorm", "HeroicLeap" };
         private List<string> m_DebuffsList;
         private List<string> m_BuffsList;
         private List<string> m_ItemsList;
@@ -1229,13 +1229,13 @@ namespace AimsharpWow.Modules
             Macros.Add("SetSpellQueueCvar", "/console SpellQueueWindow " + Aimsharp.Latency);
 
             //Queues
-            Macros.Add("SpearOfBastionOff", "/" + FiveLetters + " SpearOfBastion");
+            Macros.Add("ChampionsSpearOff", "/" + FiveLetters + " ChampionsSpear");
             Macros.Add("StormBoltOff", "/" + FiveLetters + " StormBolt");
             Macros.Add("QueueBladestormOff", "/" + FiveLetters + " QueueBladestorm");
             Macros.Add("HeroicLeapOff", "/" + FiveLetters + " HeroicLeap");
 
-            Macros.Add("SpearOfBastionP", "/cast [@player] " + SpearOfBastion_SpellName(Language));
-            Macros.Add("SpearOfBastionC", "/cast [@cursor] " + SpearOfBastion_SpellName(Language));
+            Macros.Add("ChampionsSpearP", "/cast [@player] " + ChampionsSpear_SpellName(Language));
+            Macros.Add("ChampionsSpearC", "/cast [@cursor] " + ChampionsSpear_SpellName(Language));
             Macros.Add("HeroicLeapC", "/cast [@cursor] " + HeroicLeap_SpellName(Language));
         }
 
@@ -1348,7 +1348,7 @@ namespace AimsharpWow.Modules
             Aimsharp.PrintMessage("/" + FiveLetters + " StormBolt - Casts Storm Bolt @ Target next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " HeroicLeap - Casts Heroic Leap @ Cursor next GCD", Color.Yellow);
             Aimsharp.PrintMessage("/" + FiveLetters + " QueueBladestorm - Casts Bladestorm @ next GCD", Color.Yellow);
-            Aimsharp.PrintMessage("/" + FiveLetters + " SpearOfBastion - Casts Spear of Bastion @ next GCD", Color.Yellow);
+            Aimsharp.PrintMessage("/" + FiveLetters + " ChampionsSpear - Casts Spear of Bastion @ next GCD", Color.Yellow);
             Aimsharp.PrintMessage("-----", Color.Black);
 
             Language = GetDropDown("Game Client Language");
@@ -1479,7 +1479,7 @@ namespace AimsharpWow.Modules
                 Shockwave_SpellName(Language),
                 Skullsplitter_SpellName(Language),
                 Slam_SpellName(Language),
-                SpearOfBastion_SpellName(Language),
+                ChampionsSpear_SpellName(Language),
                 SpellReflection_SpellName(Language),
                 StormBolt_SpellName(Language),
                 SweepingStrikes_SpellName(Language),
@@ -1550,7 +1550,7 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("SpearOfBastion") && Aimsharp.SpellCooldown(SpearOfBastion_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("ChampionsSpear") && Aimsharp.SpellCooldown(ChampionsSpear_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -1723,42 +1723,42 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Spear of Bastion
-            string SpearOfBastionCast = GetDropDown("Spear of Bastion Cast:");
-            bool SpearOfBastion = Aimsharp.IsCustomCodeOn("SpearOfBastion");
-            if (Aimsharp.SpellCooldown(SpearOfBastion_SpellName(Language)) - Aimsharp.GCD() > 2000 && SpearOfBastion)
+            string ChampionsSpearCast = GetDropDown("Spear of Bastion Cast:");
+            bool ChampionsSpear = Aimsharp.IsCustomCodeOn("ChampionsSpear");
+            if (Aimsharp.SpellCooldown(ChampionsSpear_SpellName(Language)) - Aimsharp.GCD() > 2000 && ChampionsSpear)
             {
                 if (Debug)
                 {
                     Aimsharp.PrintMessage("Turning Off Spear Of Bastion Queue", Color.Purple);
                 }
-                Aimsharp.Cast("SpearOfBastionOff");
+                Aimsharp.Cast("ChampionsSpearOff");
                 return true;
             }
 
-            if (SpearOfBastion && CanCastCheck(SpearOfBastion_SpellName(Language), "player", false, true))
+            if (ChampionsSpear && CanCastCheck(ChampionsSpear_SpellName(Language), "player", false, true))
             {
-                switch (SpearOfBastionCast)
+                switch (ChampionsSpearCast)
                 {
                     case "Manual":
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Spear Of Bastion - " + SpearOfBastionCast + " - Queue", Color.Purple);
+                            Aimsharp.PrintMessage("Casting Spear Of Bastion - " + ChampionsSpearCast + " - Queue", Color.Purple);
                         }
-                        Aimsharp.Cast(SpearOfBastion_SpellName(Language));
+                        Aimsharp.Cast(ChampionsSpear_SpellName(Language));
                         return true;
                     case "Player":
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Spear Of Bastion - " + SpearOfBastionCast + " - Queue", Color.Purple);
+                            Aimsharp.PrintMessage("Casting Spear Of Bastion - " + ChampionsSpearCast + " - Queue", Color.Purple);
                         }
-                        Aimsharp.Cast("SpearOfBastionP");
+                        Aimsharp.Cast("ChampionsSpearP");
                         return true;
                     case "Cursor":
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Spear Of Bastion - " + SpearOfBastionCast + " - Queue", Color.Purple);
+                            Aimsharp.PrintMessage("Casting Spear Of Bastion - " + ChampionsSpearCast + " - Queue", Color.Purple);
                         }
-                        Aimsharp.Cast("SpearOfBastionC");
+                        Aimsharp.Cast("ChampionsSpearC");
                         return true;
                 }
             }
@@ -2028,30 +2028,30 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if ((SpellID1 == 324128 || SpellID1 == 376079) && CanCastCheck(SpearOfBastion_SpellName(Language), "player", false, true))
+                    if ((SpellID1 == 324128 || SpellID1 == 376079) && CanCastCheck(ChampionsSpear_SpellName(Language), "player", false, true))
                     {
-                        switch (SpearOfBastionCast)
+                        switch (ChampionsSpearCast)
                         {
                             case "Manual":
                                 if (Debug)
                                 {
-                                    Aimsharp.PrintMessage("Casting Spear of Bastion - " + SpearOfBastionCast + " - Queue", Color.Purple);
+                                    Aimsharp.PrintMessage("Casting Spear of Bastion - " + ChampionsSpearCast + " - Queue", Color.Purple);
                                 }
-                                Aimsharp.Cast(SpearOfBastion_SpellName(Language));
+                                Aimsharp.Cast(ChampionsSpear_SpellName(Language));
                                 return true;
                             case "Player":
                                 if (Debug)
                                 {
-                                    Aimsharp.PrintMessage("Casting Spear of Bastion - " + SpearOfBastionCast + " - Queue", Color.Purple);
+                                    Aimsharp.PrintMessage("Casting Spear of Bastion - " + ChampionsSpearCast + " - Queue", Color.Purple);
                                 }
-                                Aimsharp.Cast("SpearOfBastionP");
+                                Aimsharp.Cast("ChampionsSpearP");
                                 return true;
                             case "Cursor":
                                 if (Debug)
                                 {
-                                    Aimsharp.PrintMessage("Casting Spear of Bastion - " + SpearOfBastionCast + " - Queue", Color.Purple);
+                                    Aimsharp.PrintMessage("Casting Spear of Bastion - " + ChampionsSpearCast + " - Queue", Color.Purple);
                                 }
-                                Aimsharp.Cast("SpearOfBastionC");
+                                Aimsharp.Cast("ChampionsSpearC");
                                 return true;
                         }
                     }
@@ -2195,7 +2195,7 @@ namespace AimsharpWow.Modules
                 return false;
             }
 
-            if (Aimsharp.IsCustomCodeOn("SpearOfBastion") && Aimsharp.SpellCooldown(SpearOfBastion_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
+            if (Aimsharp.IsCustomCodeOn("ChampionsSpear") && Aimsharp.SpellCooldown(ChampionsSpear_SpellName(Language)) - Aimsharp.GCD() <= 0 && Aimsharp.CustomFunction("IsRMBDown") == 1)
             {
                 return false;
             }
@@ -2254,42 +2254,42 @@ namespace AimsharpWow.Modules
             }
 
             //Queue Spear of Bastion
-            string SpearOfBastionCast = GetDropDown("Spear of Bastion Cast:");
-            bool SpearOfBastion = Aimsharp.IsCustomCodeOn("SpearOfBastion");
-            if (Aimsharp.SpellCooldown(SpearOfBastion_SpellName(Language)) - Aimsharp.GCD() > 2000 && SpearOfBastion)
+            string ChampionsSpearCast = GetDropDown("Spear of Bastion Cast:");
+            bool ChampionsSpear = Aimsharp.IsCustomCodeOn("ChampionsSpear");
+            if (Aimsharp.SpellCooldown(ChampionsSpear_SpellName(Language)) - Aimsharp.GCD() > 2000 && ChampionsSpear)
             {
                 if (Debug)
                 {
                     Aimsharp.PrintMessage("Turning Off Spear Of Bastion Queue", Color.Purple);
                 }
-                Aimsharp.Cast("SpearOfBastionOff");
+                Aimsharp.Cast("ChampionsSpearOff");
                 return true;
             }
 
-            if (SpearOfBastion && CanCastCheck(SpearOfBastion_SpellName(Language), "player", false, true))
+            if (ChampionsSpear && CanCastCheck(ChampionsSpear_SpellName(Language), "player", false, true))
             {
-                switch (SpearOfBastionCast)
+                switch (ChampionsSpearCast)
                 {
                     case "Manual":
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Spear Of Bastion - " + SpearOfBastionCast + " - Queue", Color.Purple);
+                            Aimsharp.PrintMessage("Casting Spear Of Bastion - " + ChampionsSpearCast + " - Queue", Color.Purple);
                         }
-                        Aimsharp.Cast(SpearOfBastion_SpellName(Language));
+                        Aimsharp.Cast(ChampionsSpear_SpellName(Language));
                         return true;
                     case "Player":
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Spear Of Bastion - " + SpearOfBastionCast + " - Queue", Color.Purple);
+                            Aimsharp.PrintMessage("Casting Spear Of Bastion - " + ChampionsSpearCast + " - Queue", Color.Purple);
                         }
-                        Aimsharp.Cast("SpearOfBastionP");
+                        Aimsharp.Cast("ChampionsSpearP");
                         return true;
                     case "Cursor":
                         if (Debug)
                         {
-                            Aimsharp.PrintMessage("Casting Spear Of Bastion - " + SpearOfBastionCast + " - Queue", Color.Purple);
+                            Aimsharp.PrintMessage("Casting Spear Of Bastion - " + ChampionsSpearCast + " - Queue", Color.Purple);
                         }
-                        Aimsharp.Cast("SpearOfBastionC");
+                        Aimsharp.Cast("ChampionsSpearC");
                         return true;
                 }
             }
