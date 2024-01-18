@@ -2697,7 +2697,7 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if ((SpellID1 == 426591 || SpellID1 == 426592 || SpellID1 == 426593) && CanCastCheck(GoremawsBite_SpellName(Language), "target", true, true))
+                    if ((SpellID1 == 426591 || SpellID1 == 426592 || SpellID1 == 426593) && CanCastCheck(GoremawsBite_SpellName(Language), "target"))
                     {
                         if (Debug)
                         {

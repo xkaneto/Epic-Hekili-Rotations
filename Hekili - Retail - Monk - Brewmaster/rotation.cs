@@ -1156,7 +1156,7 @@ namespace AimsharpWow.Modules
             }
             return false;
         }
-        
+
         #endregion
 
         public enum CleansePlayers
@@ -2421,6 +2421,7 @@ namespace AimsharpWow.Modules
                     if (SpellCast(115546, Provoke_SpellName(Language), "target")) return true;
                     if (SpellCast(107428, RisingSunKick_SpellName(Language), "target")) return true;
                     if (SpellCast(100780, TigerPalm_SpellName(Language), "target")) return true;
+                    if (SpellCast(331433, TigerPalm_SpellName(Language), "target")) return true;
                     if (SpellCast(322109, TouchOfDeath_SpellName(Language), "target")) return true;
                     if (SpellCast(123986, ChiBurst_SpellName(Language), "player")) return true;
                     if (SpellCast(115098, ChiWave_SpellName(Language), "player")) return true;

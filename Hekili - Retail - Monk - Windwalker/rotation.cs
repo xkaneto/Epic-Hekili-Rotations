@@ -1980,7 +1980,7 @@ namespace AimsharpWow.Modules
                     return true;
                 }
 
-                if (SpellID1 == 100780 && CanCastTigerPalm("target"))
+                if ((SpellID1 == 100780 || SpellID1 == 331433) && CanCastTigerPalm("target"))
                 {
                     Aimsharp.Cast(TigerPalm_SpellName(Language));
                     if (Debug)
