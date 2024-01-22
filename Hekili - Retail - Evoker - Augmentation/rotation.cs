@@ -671,7 +671,7 @@ namespace AimsharpWow.Modules
 
         private List<string> m_RaceList = new List<string> { "Dracthyr" };
 
-        private List<string> m_CastingList = new List<string> { "Manual", "Cursor"};
+        private List<string> m_CastingList = new List<string> { "Manual", "Cursor" };
 
         private List<int> Torghast_InnerFlame = new List<int> { 258935, 258938, 329422, 329423, };
 
@@ -865,6 +865,12 @@ namespace AimsharpWow.Modules
             Macros.Add("BreathofEonsC", "/cast [@cursor] " + "" + BreathOfEons_SpellName(Language));
             Macros.Add("LandslideC", "/cast [@cursor] " + Landslide_SpellName(Language));
 
+            //AllyName Prescience
+            Macros.Add("Prescience_Name1", "/cast [@" + AllyName1 + "] " + Prescience_SpellName(Language));
+            Macros.Add("Prescience_Name2", "/cast [@" + AllyName2 + "] " + Prescience_SpellName(Language));
+            Macros.Add("Prescience_Name3", "/cast [@" + AllyName3 + "] " + Prescience_SpellName(Language));
+            Macros.Add("Prescience_Name4", "/cast [@" + AllyName4 + "] " + Prescience_SpellName(Language));
+
         }
 
         private void InitializeSpells()
@@ -973,7 +979,10 @@ namespace AimsharpWow.Modules
 
             CustomFunctions.Add("CheckforAffixNPC", "if UnitExists(\"mouseover\") and not UnitIsPlayer(\"mouseover\") then\nlocal UnitName = UnitName(\"mouseover\")\nif UnitName == \"" + AfflictedSoul_SpellName(Language) + "\" then\n\treturn 1\nend\nif UnitName == \"" + IncorporealBeing_SpellName(Language) + "\" then\n\treturn 2\nend\nend\nreturn 0");
 
-            CustomFunctions.Add("GetTalentFontOfMagic", "if (IsSpellKnown(408083) or IsPlayerSpell(408083)) then return 1 else return 0 end");
+            CustomFunctions.Add("GetAlly1", "local out = 0;\nlocal numGroupMembers = GetNumGroupMembers();\nif numGroupMembers > 0 and numGroupMembers < 6 then\n    for p = 1, numGroupMembers do\n        local partymember = 'party' .. p\n        local SpellinRange = IsSpellInRange(\"" + Prescience_SpellName(Language) + "\", partymember)\n        if UnitExists(partymember) and UnitIsDeadOrGhost(partymember) ~= true and SpellinRange == 1 then\n            if GetUnitName(partymember) == \"" + AllyName1 + "\" then\n                out = p\n                break\n            end\n        end\n    end\nelseif numGroupMembers > 5 then\n    for r = 1, numGroupMembers do\n        local partymember = 'raid' .. r\n        local SpellinRange = IsSpellInRange(\"" + Prescience_SpellName(Language) + "\", partymember)\n        if UnitExists(partymember) and UnitIsDeadOrGhost(partymember) ~= true and SpellinRange == 1 then\n            if GetUnitName(partymember) == \"" + AllyName1 + "\" then\n                out = r\n                break\n            end\n        end\n    end\nend\nreturn out");
+            CustomFunctions.Add("GetAlly2", "local out = 0;\nlocal numGroupMembers = GetNumGroupMembers();\nif numGroupMembers > 0 and numGroupMembers < 6 then\n    for p = 1, numGroupMembers do\n        local partymember = 'party' .. p\n        local SpellinRange = IsSpellInRange(\"" + Prescience_SpellName(Language) + "\", partymember)\n        if UnitExists(partymember) and UnitIsDeadOrGhost(partymember) ~= true and SpellinRange == 1 then\n            if GetUnitName(partymember) == \"" + AllyName2 + "\" then\n                out = p\n                break\n            end\n        end\n    end\nelseif numGroupMembers > 5 then\n    for r = 1, numGroupMembers do\n        local partymember = 'raid' .. r\n        local SpellinRange = IsSpellInRange(\"" + Prescience_SpellName(Language) + "\", partymember)\n        if UnitExists(partymember) and UnitIsDeadOrGhost(partymember) ~= true and SpellinRange == 1 then\n            if GetUnitName(partymember) == \"" + AllyName2 + "\" then\n                out = r\n                break\n            end\n        end\n    end\nend\nreturn out");
+            CustomFunctions.Add("GetAlly3", "local out = 0;\nlocal numGroupMembers = GetNumGroupMembers();\nif numGroupMembers > 0 and numGroupMembers < 6 then\n    for p = 1, numGroupMembers do\n        local partymember = 'party' .. p\n        local SpellinRange = IsSpellInRange(\"" + Prescience_SpellName(Language) + "\", partymember)\n        if UnitExists(partymember) and UnitIsDeadOrGhost(partymember) ~= true and SpellinRange == 1 then\n            if GetUnitName(partymember) == \"" + AllyName3 + "\" then\n                out = p\n                break\n            end\n        end\n    end\nelseif numGroupMembers > 5 then\n    for r = 1, numGroupMembers do\n        local partymember = 'raid' .. r\n        local SpellinRange = IsSpellInRange(\"" + Prescience_SpellName(Language) + "\", partymember)\n        if UnitExists(partymember) and UnitIsDeadOrGhost(partymember) ~= true and SpellinRange == 1 then\n            if GetUnitName(partymember) == \"" + AllyName3 + "\" then\n                out = r\n                break\n            end\n        end\n    end\nend\nreturn out");
+            CustomFunctions.Add("GetAlly4", "local out = 0;\nlocal numGroupMembers = GetNumGroupMembers();\nif numGroupMembers > 0 and numGroupMembers < 6 then\n    for p = 1, numGroupMembers do\n        local partymember = 'party' .. p\n        local SpellinRange = IsSpellInRange(\"" + Prescience_SpellName(Language) + "\", partymember)\n        if UnitExists(partymember) and UnitIsDeadOrGhost(partymember) ~= true and SpellinRange == 1 then\n            if GetUnitName(partymember) == \"" + AllyName4 + "\" then\n                out = p\n                break\n            end\n        end\n    end\nelseif numGroupMembers > 5 then\n    for r = 1, numGroupMembers do\n        local partymember = 'raid' .. r\n        local SpellinRange = IsSpellInRange(\"" + Prescience_SpellName(Language) + "\", partymember)\n        if UnitExists(partymember) and UnitIsDeadOrGhost(partymember) ~= true and SpellinRange == 1 then\n            if GetUnitName(partymember) == \"" + AllyName4 + "\" then\n                out = r\n                break\n            end\n        end\n    end\nend\nreturn out");
 
         }
         #endregion
@@ -1073,8 +1082,8 @@ namespace AimsharpWow.Modules
 
             #region Reinitialize Lists
             m_DebuffsList = new List<string> { SleepWalk_SpellName(Language), };
-            m_BuffsList = new List<string> { BlessingOfTheBronze_SpellName(Language), TipTheScales_SpellName(Language), Hover_SpellName(Language) };
-            m_ItemsList = new List<string> { Healthstone_SpellName(Language), UsableItem};
+            m_BuffsList = new List<string> { BlessingOfTheBronze_SpellName(Language), TipTheScales_SpellName(Language), Hover_SpellName(Language), Prescience_SpellName(Language) };
+            m_ItemsList = new List<string> { Healthstone_SpellName(Language), UsableItem };
             m_SpellBook = new List<string> {
                 //Utility
                 EbonMight_SpellName(Language), //395152 (on player)
@@ -1206,22 +1215,51 @@ namespace AimsharpWow.Modules
             }
             #endregion
 
-            if (Aimsharp.GroupSize() > 0)
+            if (Aimsharp.CanCast(Prescience_SpellName(Language), "player") && Aimsharp.GroupSize() > 0)
             {
+                //Pescience Buff Check for Custom AllyName
+                if (Aimsharp.GroupSize() < 6)
+                {
+                    for (int i = 1; i < 4; i++)
+                    {
+                        if (Aimsharp.BuffRemaining(Prescience_SpellName(Language), "party" + Aimsharp.CustomFunction("GetAlly" + i)) <= 6000)
+                        {
+                            if (Debug)
+                            {
+                                Aimsharp.PrintMessage("Casting Prescience on Named Unit: " + i, Color.Red);
+                            }
+                            Aimsharp.Cast("Prescience_Name" + i, true);
+                        }
+                    }
+                }
+                if (Aimsharp.GroupSize() > 5)
+                {
+                    for (int i = 1; i < 4; i++)
+                    {
+                        if (Aimsharp.BuffRemaining(Prescience_SpellName(Language), "raid" + Aimsharp.CustomFunction("GetAlly" + i)) <= 6000)
+                        {
+                            if (Debug)
+                            {
+                                Aimsharp.PrintMessage("Casting Prescience on Named Unit: " + i, Color.Red);
+                            }
+                            Aimsharp.Cast("Prescience_Name" + i, true);
+                        }
+                    }
+                }
                 //Prescience Custom Ally
-                if (Aimsharp.CanCast(Prescience_SpellName(Language), "player") && AllyNumber > 0)
+                if (AllyNumber > 0)
                 {
                     if (Aimsharp.GroupSize() < 6)
                     {
-                        Aimsharp.Cast("FOC_party" + AllyNumber);
+                        Aimsharp.Cast("FOC_party" + AllyNumber, true);
                     }
                     if (Aimsharp.GroupSize() > 5)
                     {
-                        Aimsharp.Cast("FOC_raid" + AllyNumber);
+                        Aimsharp.Cast("FOC_raid" + AllyNumber, true);
                     }
                     if (Debug)
                     {
-                        Aimsharp.PrintMessage("Casting Prescience - " + SpellID1 + " on Focus " + AllyNumber, Color.Purple);
+                        Aimsharp.PrintMessage("Casting Prescience - " + SpellID1 + " on Focus " + AllyNumber, Color.LightGreen);
                     }
                     Aimsharp.Cast("PrescienceFocus", true);
                     return true;
@@ -1231,7 +1269,7 @@ namespace AimsharpWow.Modules
             {
                 if (Debug)
                 {
-                    Aimsharp.PrintMessage("Casting Prescience - " + SpellID1, Color.Purple);
+                    Aimsharp.PrintMessage("Casting Prescience - " + SpellID1, Color.LightGreen);
                 }
                 Aimsharp.Cast(Prescience_SpellName(Language), true);
                 return true;
