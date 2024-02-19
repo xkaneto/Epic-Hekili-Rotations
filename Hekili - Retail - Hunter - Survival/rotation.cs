@@ -3017,6 +3017,17 @@ namespace AimsharpWow.Modules
 
                     #region General Spells - Target GCD
                     //Target - GCD
+                    //Hunters Mark
+                    if (SpellID1 == 257284 && Aimsharp.CanCast(HuntersMark_SpellName(Language),"target"))
+                    {
+                        if (Debug)
+                        {
+                            Aimsharp.PrintMessage("Casting Hunter's Mark - " + SpellID1, Color.Purple);
+                        }
+                        Aimsharp.Cast(HuntersMark_SpellName(Language));
+                        return true;
+                    }
+
                     if (SpellID1 == 19801 && CanCastTranquilizingShot("target"))
                     {
                         if (Debug)
