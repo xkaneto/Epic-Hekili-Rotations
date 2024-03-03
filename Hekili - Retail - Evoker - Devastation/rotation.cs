@@ -1782,7 +1782,7 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Emerald Blossom
-            if (UnitBelowThreshold(GetSlider("Auto Emerald Blossom @ HP%")) && CanCastCheck(EmeraldBlossom_SpellName(Language), "player", false, true))
+            if (UnitBelowThreshold(GetSlider("Auto Emerald Blossom @ HP%")) && Aimsharp.CanCast(EmeraldBlossom_SpellName(Language), "player", false, true))
             {
                 PartyDict.Clear();
                 PartyDict.Add("player", Aimsharp.Health("player"));
@@ -1802,7 +1802,7 @@ namespace AimsharpWow.Modules
 
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
-                    if (CanCastCheck(EmeraldBlossom_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language), unit.Key)) && Aimsharp.Health(unit.Key) <= GetSlider("Auto Emerald Blossom @ HP%"))
+                    if (Aimsharp.CanCast(EmeraldBlossom_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language), unit.Key)) && Aimsharp.Health(unit.Key) <= GetSlider("Auto Emerald Blossom @ HP%"))
                     {
                         if (!UnitFocus(unit.Key))
                         {
@@ -1850,7 +1850,7 @@ namespace AimsharpWow.Modules
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
                     Enum.TryParse(unit.Key, out target);
-                    if (CanCastCheck(Expunge_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language), unit.Key)) && isUnitCleansable(target, states))
+                    if (Aimsharp.CanCast(Expunge_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language), unit.Key)) && isUnitCleansable(target, states))
                     {
                         if (!UnitFocus(unit.Key))
                         {
@@ -1899,7 +1899,7 @@ namespace AimsharpWow.Modules
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
                     Enum.TryParse(unit.Key, out target);
-                    if (CanCastCheck(CauterizingFlame_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language), unit.Key)) && isUnitCleansable(target, states))
+                    if (Aimsharp.CanCast(CauterizingFlame_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(EmeraldBlossom_SpellName(Language), unit.Key)) && isUnitCleansable(target, states))
                     {
                         if (!UnitFocus(unit.Key))
                         {
