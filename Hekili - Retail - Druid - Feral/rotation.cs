@@ -2055,7 +2055,7 @@ namespace AimsharpWow.Modules
                 }
 
                 //Soothe Target
-                if (CanCastCheck(Soothe_SpellName(Language), "target", true, true))
+                if (Aimsharp.CanCast(Soothe_SpellName(Language), "target", true, true))
                 {
                     if (TargetSoothe && EnrageBuffTarget == 3)
                     {
