@@ -1972,7 +1972,7 @@ namespace AimsharpWow.Modules
 
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
-                    if (CanCastCheck(AncestralGuidance_SpellName(Language), "player", false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(CleanseSpirit_SpellName(Language),unit.Key)) && Aimsharp.Health(unit.Key) <= GetSlider("Auto Ancestral Guidance @ HP%"))
+                    if (Aimsharp.CanCast(AncestralGuidance_SpellName(Language), "player", false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(CleanseSpirit_SpellName(Language),unit.Key)) && Aimsharp.Health(unit.Key) <= GetSlider("Auto Ancestral Guidance @ HP%"))
                     {
                         Aimsharp.Cast(AncestralGuidance_SpellName(Language));
                         return true;
@@ -2399,7 +2399,7 @@ namespace AimsharpWow.Modules
 
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
-                    if (CanCastCheck(HealingStreamTotem_SpellName(Language), "player", false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(CleanseSpirit_SpellName(Language),unit.Key)) && Aimsharp.Health(unit.Key) <= GetSlider("Auto Healing Stream Totem @ HP%"))
+                    if (Aimsharp.CanCast(HealingStreamTotem_SpellName(Language), "player", false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(CleanseSpirit_SpellName(Language),unit.Key)) && Aimsharp.Health(unit.Key) <= GetSlider("Auto Healing Stream Totem @ HP%"))
                     {
                         Aimsharp.Cast(HealingStreamTotem_SpellName(Language));
                         return true;
@@ -2432,7 +2432,7 @@ namespace AimsharpWow.Modules
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
                     Enum.TryParse(unit.Key, out target);
-                    if (CanCastCheck(CleanseSpirit_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(CleanseSpirit_SpellName(Language),unit.Key)) && isUnitCleansable(target, states))
+                    if (Aimsharp.CanCast(CleanseSpirit_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(CleanseSpirit_SpellName(Language),unit.Key)) && isUnitCleansable(target, states))
                     {
                         if (!UnitFocus(unit.Key))
                         {
