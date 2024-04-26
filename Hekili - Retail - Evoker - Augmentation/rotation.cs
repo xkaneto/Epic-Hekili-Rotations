@@ -907,11 +907,13 @@ namespace AimsharpWow.Modules
 
             CustomFunctions.Add("HekiliWait", "if HekiliDisplayPrimary.Recommendations[1].wait ~= nil and HekiliDisplayPrimary.Recommendations[1].wait * 1000 > 0 then return math.floor(HekiliDisplayPrimary.Recommendations[1].wait * 1000) end return 0");
 
+            CustomFunctions.Add("HekiliDelay", "if Hekili.DisplayPool.Primary.Buttons[ 1 ].ExactTime ~= nil and (Hekili.DisplayPool.Primary.Buttons[ 1 ].ExactTime - GetTime())* 1000 > 0 then return math.floor((Hekili.DisplayPool.Primary.Buttons[ 1 ].ExactTime - GetTime())*1000) end return 0");
+
             CustomFunctions.Add("HekiliCycle", "if HekiliDisplayPrimary.Recommendations[1].indicator ~= nil and HekiliDisplayPrimary.Recommendations[1].indicator == 'cycle' then return 1 end return 0");
 
             CustomFunctions.Add("HekiliEnemies", "if Hekili.State.active_enemies ~= nil and Hekili.State.active_enemies > 0 then return Hekili.State.active_enemies end return 0");
 
-            CustomFunctions.Add("EmpowermentCheck", "local loading, finished = IsAddOnLoaded(\"Hekili\")\nif loading == true and finished == true then\n    local id,empowermentStage,_=Hekili_GetRecommendedAbility(\"Primary\",1)\n    if id ~= nil and empowermentStage ~= nil then\n        return empowermentStage\n    end\nend\nreturn 0");
+            CustomFunctions.Add("EmpowermentCheck", "local loading, finished = IsAddOnLoaded(\"Hekili\")\nif loading == true and finished == true then\n    local id,empowermentStage,_=Hekili_GetRecommendedAbility(\"Primary\",1)\n    if id ~= nil and empowermentStage ~= nil and empowermentStage > 0 then\n        return empowermentStage\n    end\nend\nreturn 0");
 
             CustomFunctions.Add("BoEMouseover", "if UnitExists('mouseover') and UnitIsDead('mouseover') ~= true and UnitAffectingCombat('mouseover') and IsSpellInRange('Breath of Eons','mouseover') == 1 then return 1 end; return 0");
 
@@ -1150,16 +1152,6 @@ namespace AimsharpWow.Modules
             InitializeCustomLUAFunctions();
         }
 
-        private int EmpowerState()
-        {
-            int EmpowerStateNew = Aimsharp.CustomFunction("EmpowermentCheck");
-            if (EmpowerStateNow != EmpowerStateNew && EmpowerStateNew != 0)
-            {
-                EmpowerStateNow = EmpowerStateNew;
-            }
-            return EmpowerStateNow;
-        }
-
         public override bool CombatTick()
         {
             if (Aimsharp.CastingID("player") == 404977) return false;
@@ -1173,8 +1165,6 @@ namespace AimsharpWow.Modules
             float Haste = Aimsharp.Haste();
             int AllyNumber = Aimsharp.CustomFunction("AllyPrescienceBuffWithName");
             int TankNumber = Aimsharp.CustomFunction("BlisteringCheck");
-
-            EmpowerState();
 
             bool NoInterrupts = Aimsharp.IsCustomCodeOn("NoInterrupts");
             bool NoExpunge = Aimsharp.IsCustomCodeOn("NoExpunge");
@@ -1199,9 +1189,9 @@ namespace AimsharpWow.Modules
             bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
 
             int EmpowermentStage = Aimsharp.GetEmpowerStage();
+            int EmpowerTo = Aimsharp.CustomFunction("EmpowermentCheck");
 
             if (ItemTimer.IsRunning && ItemTimer.ElapsedMilliseconds > 300000) ItemTimer.Reset();
-            if (Aimsharp.IsChanneling("player")) return false;
             #endregion
 
             #region SpellQueueWindow
@@ -1311,24 +1301,21 @@ namespace AimsharpWow.Modules
                 }
             }
 
-
-            if ((EmpowermentStage == EmpowerState() || EmpowerState() == 4) && (Aimsharp.CastingID("player") == 396286 || Aimsharp.CastingID("player") == 408092))
+            if ((Aimsharp.CastingID("player") == 396286 || Aimsharp.CastingID("player") == 408092) && Aimsharp.CustomFunction("HekiliDelay") <= 100)
             {
-                if (EmpowerState() == 4) System.Threading.Thread.Sleep(500);
                 if (Debug)
                 {
-                    Aimsharp.PrintMessage("Casting Upheaval again for Empower State: " + EmpowerState(), Color.Purple);
+                    Aimsharp.PrintMessage("Casting Upheaval again for Empower State: " + EmpowerTo, Color.Purple);
                 }
                 Aimsharp.Cast(Upheaval_SpellName(Language));
             }
 
 
-            if ((EmpowermentStage == EmpowerState() || EmpowerState() == 4) && (Aimsharp.CastingID("player") == 382266 || Aimsharp.CastingID("player") == 357208 || Aimsharp.CastingID("player") == 357209))
+            if ((Aimsharp.CastingID("player") == 382266 || Aimsharp.CastingID("player") == 357208 || Aimsharp.CastingID("player") == 357209) && Aimsharp.CustomFunction("HekiliDelay") <= 100)
             {
-                if (EmpowerState() == 4) System.Threading.Thread.Sleep(500);
                 if (Debug)
                 {
-                    Aimsharp.PrintMessage("Casting Fire Breath again for Empower State: " + EmpowerState(), Color.Purple);
+                    Aimsharp.PrintMessage("Casting Fire Breath again for Empower State: " + EmpowerTo, Color.Purple);
                 }
                 Aimsharp.Cast(FireBreath_SpellName(Language));
                 return true;
@@ -1364,7 +1351,9 @@ namespace AimsharpWow.Modules
                 Aimsharp.Cast(TipTheScales_SpellName(Language), true);
                 return true;
             }
+            #endregion
 
+            #region Turning Queues off
             if (Aimsharp.CastingID("player") == 358385 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("QueueLandslide"))
             {
                 if (Debug)
@@ -2306,7 +2295,8 @@ namespace AimsharpWow.Modules
                     return true;
                 }
             }
-
+            #endregion
+            #region Turning Queues off
             if (Aimsharp.CastingID("player") == 358385 && Aimsharp.CastingRemaining("player") > 0 && Aimsharp.CastingRemaining("player") <= 400 && Aimsharp.IsCustomCodeOn("QueueLandslide"))
             {
                 if (Debug)

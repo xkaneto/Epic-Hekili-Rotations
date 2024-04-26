@@ -1138,11 +1138,13 @@ namespace AimsharpWow.Modules
 
             CustomFunctions.Add("HekiliWait", "if HekiliDisplayPrimary.Recommendations[1].wait ~= nil and HekiliDisplayPrimary.Recommendations[1].wait * 1000 > 0 then return math.floor(HekiliDisplayPrimary.Recommendations[1].wait * 1000) end return 0");
 
+            CustomFunctions.Add("HekiliDelay", "if Hekili.DisplayPool.Primary.Buttons[ 1 ].ExactTime ~= nil and (Hekili.DisplayPool.Primary.Buttons[ 1 ].ExactTime - GetTime())* 1000 > 0 then return math.floor((Hekili.DisplayPool.Primary.Buttons[ 1 ].ExactTime - GetTime())*1000) end return 0");
+
             CustomFunctions.Add("HekiliCycle", "if HekiliDisplayPrimary.Recommendations[1].indicator ~= nil and HekiliDisplayPrimary.Recommendations[1].indicator == 'cycle' then return 1 end return 0");
 
             CustomFunctions.Add("HekiliEnemies", "if Hekili.State.active_enemies ~= nil and Hekili.State.active_enemies > 0 then return Hekili.State.active_enemies end return 0");
 
-            CustomFunctions.Add("EmpowermentCheck", "local loading, finished = IsAddOnLoaded(\"Hekili\")\nif loading == true and finished == true then\n    local id,empowermentStage,_=Hekili_GetRecommendedAbility(\"Primary\",1)\n    if id ~= nil and empowermentStage ~= nil then\n        return empowermentStage\n    end\nend\nreturn 0");
+            CustomFunctions.Add("EmpowermentCheck", "local loading, finished = IsAddOnLoaded(\"Hekili\")\nif loading == true and finished == true then\n    local id,empowermentStage,_=Hekili_GetRecommendedAbility(\"Primary\",1)\n    if id ~= nil and empowermentStage ~= nil and empowermentStage > 0 then\n        return empowermentStage\n    end\nend\nreturn 0");
 
             CustomFunctions.Add("DeepBreathMouseover", "if UnitExists('mouseover') and UnitIsDead('mouseover') ~= true and UnitAffectingCombat('mouseover') and IsSpellInRange('Fireball','mouseover') == 1 then return 1 end; return 0");
 
@@ -1362,16 +1364,6 @@ namespace AimsharpWow.Modules
             InitializeCustomLUAFunctions();
         }
 
-        private int EmpowerState()
-        {
-            int EmpowerStateNew = Aimsharp.CustomFunction("EmpowermentCheck");
-            if (EmpowerStateNow != EmpowerStateNew && EmpowerStateNew != 0)
-            {
-                EmpowerStateNow = EmpowerStateNew;
-            }
-            return EmpowerStateNow;
-        }
-
         public override bool CombatTick()
         {
             #region Declarations
@@ -1381,21 +1373,6 @@ namespace AimsharpWow.Modules
             int Enemies = Aimsharp.CustomFunction("HekiliEnemies");
             int TargetingGroup = Aimsharp.CustomFunction("GroupTargets");
             float Haste = Aimsharp.Haste();
-
-            EmpowerState();
-
-            // Calculating Empowered Cast Time
-            double EmpowerCastTime;
-            if (Aimsharp.HasBuff(TipTheScales_SpellName(Language), "player") || Aimsharp.LastCast() == TipTheScales_SpellName(Language))
-            {
-                EmpowerCastTime = 0;
-            }
-            else
-            {
-                EmpowerCastTime = (100 * (double)(1 / (1 + (Haste / 100)))) + (double)((double)(1 - (double)(0.2 * (double)Aimsharp.CustomFunction("GetTalentFontOfMagic"))) * Stages[(EmpowerState())] * (double)(1 / (1 + (Haste / 100))));
-            }
-
-            //Aimsharp.PrintMessage("Empowerment Time: " + (int)EmpowerCastTime);
 
             bool NoInterrupts = Aimsharp.IsCustomCodeOn("NoInterrupts");
             bool NoExpunge = Aimsharp.IsCustomCodeOn("NoExpunge");
@@ -1419,8 +1396,10 @@ namespace AimsharpWow.Modules
 
             bool TargetInCombat = Aimsharp.InCombat("target") || SpecialUnitList.Contains(Aimsharp.UnitID("target")) || !InstanceIDList.Contains(Aimsharp.GetMapID());
 
+            int EmpowermentStage = Aimsharp.GetEmpowerStage();
+            int EmpowerTo = Aimsharp.CustomFunction("EmpowermentCheck");
+
             if (ItemTimer.IsRunning && ItemTimer.ElapsedMilliseconds > 300000) ItemTimer.Reset();
-            if (Aimsharp.IsChanneling("player")) return false;
             #endregion
 
             #region SpellQueueWindow
@@ -1435,13 +1414,23 @@ namespace AimsharpWow.Modules
             #endregion
 
             #region Above Pause Logic
-            if (SpellID1 == 362969 && CanCastCheck(AzureStrike_SpellName(Language), "target", true, true) && Aimsharp.CustomFunction("HekiliWait") <= 200)
+            if ((Aimsharp.CastingID("player") == 382266 || Aimsharp.CastingID("player") == 357208 || Aimsharp.CastingID("player") == 357209)  && Aimsharp.CustomFunction("HekiliDelay") <= 100)
             {
                 if (Debug)
                 {
-                    Aimsharp.PrintMessage("Casting Azure Strike - " + SpellID1, Color.Purple);
+                    Aimsharp.PrintMessage("Casting Fire Breath again for Empower State: " + EmpowerTo, Color.Purple);
                 }
-                Aimsharp.Cast(AzureStrike_SpellName(Language), true);
+                Aimsharp.Cast(FireBreath_SpellName(Language), true);
+                return true;
+            }
+
+            if ((Aimsharp.CastingID("player") == 382411 || Aimsharp.CastingID("player") == 359073) && Aimsharp.CustomFunction("HekiliDelay") <= 100)
+            {
+                if (Debug)
+                {
+                    Aimsharp.PrintMessage("Casting Eternity Surge again for Empower State: " + EmpowerTo, Color.Purple);
+                }
+                Aimsharp.Cast(EternitySurge_SpellName(Language), true);
                 return true;
             }
 
@@ -2176,32 +2165,23 @@ namespace AimsharpWow.Modules
                         return true;
                     }
 
-                    if (SpellID1 == 375087 && CanCastCheck(Dragonrage_SpellName(Language), "player", false, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Casting Dragonrage - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(Dragonrage_SpellName(Language), true);
-                        return true;
-                    }
-
-                    if ((SpellID1 == 382266 || SpellID1 == 357208 || SpellID1 == 357209) && CanCastCheck(FireBreath_SpellName(Language), "player", false, true))
+                    if ((SpellID1 == 382266 || SpellID1 == 357208 || SpellID1 == 357209) && Aimsharp.CanCast(FireBreath_SpellName(Language), "player", false, true))
                     {
                         if (Debug)
                         {
                             Aimsharp.PrintMessage("Start casting Fire Breath - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(FireBreath_SpellName(Language));
-                        if (EmpowerCastTime > 0)
+                        return true;
+                    }
+
+                    if ((SpellID1 == 382411 || SpellID1 == 359073) && Aimsharp.CanCast(EternitySurge_SpellName(Language), "player", true, true))
+                    {
+                        if (Debug)
                         {
-                            System.Threading.Thread.Sleep((int)EmpowerCastTime);
-                            if (Debug)
-                            {
-                                Aimsharp.PrintMessage("Casting Fire Breath again for Empower State: " + EmpowerState(), Color.Purple);
-                            }
-                            Aimsharp.Cast(FireBreath_SpellName(Language));
+                            Aimsharp.PrintMessage("Casting Eternity Surge - " + SpellID1, Color.Purple);
                         }
+                        Aimsharp.Cast(EternitySurge_SpellName(Language));
                         return true;
                     }
 
@@ -2272,25 +2252,6 @@ namespace AimsharpWow.Modules
                             Aimsharp.PrintMessage("Casting Pyre - " + SpellID1, Color.Purple);
                         }
                         Aimsharp.Cast(Pyre_SpellName(Language));
-                        return true;
-                    }
-
-                    if ((SpellID1 == 382411 || SpellID1 == 359073) && CanCastCheck(EternitySurge_SpellName(Language), "target", true, true))
-                    {
-                        if (Debug)
-                        {
-                            Aimsharp.PrintMessage("Start casting Eternity Surge - " + SpellID1, Color.Purple);
-                        }
-                        Aimsharp.Cast(EternitySurge_SpellName(Language));
-                        if (EmpowerCastTime > 0)
-                        {
-                            System.Threading.Thread.Sleep((int)EmpowerCastTime);
-                            if (Debug)
-                            {
-                                Aimsharp.PrintMessage("Casting Eternity Surge again for Empower State: " + EmpowerState(), Color.Purple);
-                            }
-                            Aimsharp.Cast(EternitySurge_SpellName(Language));
-                        }
                         return true;
                     }
 
