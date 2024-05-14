@@ -2010,7 +2010,7 @@ namespace AimsharpWow.Modules
 
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
-                    if (CanCastCheck(BlessingOfFreedom_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(BlessingOfFreedom_SpellName(Language),unit.Key)) && UnitDebuffFreedomPriority(unit.Key) > 0)
+                    if (Aimsharp.CanCast(BlessingOfFreedom_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(BlessingOfFreedom_SpellName(Language),unit.Key)) && UnitDebuffFreedomPriority(unit.Key) > 0)
                     {
                         if (!UnitFocus(unit.Key))
                         {
@@ -2055,7 +2055,7 @@ namespace AimsharpWow.Modules
 
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
-                    if (CanCastCheck(WordOfGlory_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(BlessingOfFreedom_SpellName(Language),unit.Key)) && Aimsharp.Health(unit.Key) <= GetSlider("Auto Word of Glory @ HP%"))
+                    if (Aimsharp.CanCast(WordOfGlory_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(BlessingOfFreedom_SpellName(Language),unit.Key)) && Aimsharp.Health(unit.Key) <= GetSlider("Auto Word of Glory @ HP%"))
                     {
                         if (!UnitFocus(unit.Key))
                         {
@@ -2100,7 +2100,7 @@ namespace AimsharpWow.Modules
 
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
-                    if (CanCastCheck(LayOnHands_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(BlessingOfFreedom_SpellName(Language),unit.Key)) && Aimsharp.Health(unit.Key) <= GetSlider("Auto Lay on Hands @ HP%"))
+                    if (Aimsharp.CanCast(LayOnHands_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(BlessingOfFreedom_SpellName(Language),unit.Key)) && Aimsharp.Health(unit.Key) <= GetSlider("Auto Lay on Hands @ HP%"))
                     {
                         if (!UnitFocus(unit.Key))
                         {
@@ -2171,7 +2171,7 @@ namespace AimsharpWow.Modules
                     }
                 }
 
-                if (CanCastCheck(BlessingOfSacrifice_SpellName(Language), tank, true, true) && tank != "NONE")
+                if (Aimsharp.CanCast(BlessingOfSacrifice_SpellName(Language), tank, true, true) && tank != "NONE")
                 {
                     if (!UnitFocus(tank))
                     {
@@ -2502,7 +2502,7 @@ namespace AimsharpWow.Modules
                 foreach (var unit in PartyDict.OrderBy(unit => unit.Value))
                 {
                     Enum.TryParse(unit.Key, out target);
-                    if (CanCastCheck(CleanseToxins_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(BlessingOfFreedom_SpellName(Language),unit.Key)) && isUnitCleansable(target, states))
+                    if (Aimsharp.CanCast(CleanseToxins_SpellName(Language), unit.Key, false, true) && (unit.Key == "player" || Aimsharp.SpellInRange(BlessingOfFreedom_SpellName(Language),unit.Key)) && isUnitCleansable(target, states))
                     {
                         if (!UnitFocus(unit.Key))
                         {
